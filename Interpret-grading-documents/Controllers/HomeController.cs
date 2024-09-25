@@ -20,7 +20,7 @@ namespace Interpret_grading_documents.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "SampleImages", "SlutBetyg_01.png");
+            var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "SampleImages", "examensbevis-gymnasieskola-yrkes-el.pdf");
             var keyValuePairs = await _formRecognizerService.AnalyzeDocumentForKeyValuesAsync(imagePath);
 
             ViewData["KeyValuePairs"] = keyValuePairs;
