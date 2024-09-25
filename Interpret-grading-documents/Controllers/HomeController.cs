@@ -2,6 +2,7 @@ using Interpret_grading_documents.Models;
 using Interpret_grading_documents.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace Interpret_grading_documents.Controllers
@@ -19,9 +20,10 @@ namespace Interpret_grading_documents.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "SampleImages", "../SampleImages/SlutBetyg_01.png");
-            var extractedText = await _formRecognizerService.AnalyzeDocumentAsync(imagePath);
-            ViewData["ExtractedText"] = extractedText;
+            var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "SampleImages", "SlutBetyg_01.png");
+            var keyValuePairs = await _formRecognizerService.AnalyzeDocumentForKeyValuesAsync(imagePath);
+
+            ViewData["KeyValuePairs"] = keyValuePairs;
 
             return View();
         }
