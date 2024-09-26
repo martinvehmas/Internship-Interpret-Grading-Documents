@@ -1,5 +1,6 @@
 ﻿using Azure;
 using Azure.AI.FormRecognizer.DocumentAnalysis;
+using System.Text.RegularExpressions;
 
 namespace Interpret_grading_documents.Services
 {
@@ -12,7 +13,7 @@ namespace Interpret_grading_documents.Services
             var credential = new AzureKeyCredential(apiKey);
             _client = new DocumentAnalysisClient(new Uri(endpoint), credential);
         }
-
+        
         public async Task<Dictionary<string, List<string>>> AnalyzeDocumentForKeyValuesAsync(string imagePath)
         {
             using var stream = new FileStream(imagePath, FileMode.Open);
@@ -52,35 +53,48 @@ namespace Interpret_grading_documents.Services
                 }
             }
 
+            var courseCodePattern = new Regex(@"^[A-Z]{2,6}\d{2}$");
             foreach (var table in result.Tables)
             {
-                foreach (var cell in table.Cells)
+                foreach (var row in table.Cells.GroupBy(cell => cell.RowIndex))
                 {
-                    if (cell.ColumnIndex == 0)
+                    string courseCode = null;
+                    string courseName = null;
+                    var rowValues = new List<string>();
+
+                    foreach (var cell in row)
                     {
-                        var key = cell.Content;
+                        var content = cell.Content.Trim();
+
+                        if (string.IsNullOrEmpty(content)) continue;
+
+                        if (courseCodePattern.IsMatch(content))
+                        {
+                            courseCode = content;
+                        }
+                        else
+                        {
+                            if (courseName == null)
+                            {
+                                courseName = content;
+                            }
+                        }
+
+                        rowValues.Add(content);
+                    }
+
+                    if (!string.IsNullOrEmpty(courseCode) && rowValues.Count >= 3 && !string.IsNullOrEmpty(courseName))
+                    {
+                        var key = courseName + "(COURSE DATA)";
 
                         if (!keyValuePairs.ContainsKey(key))
                         {
-                            var values = new List<string>();
-
-                            for (int colIndex = 1; colIndex < table.ColumnCount; colIndex++)
-                            {
-                                var value = table.Cells.FirstOrDefault(c => c.RowIndex == cell.RowIndex && c.ColumnIndex == colIndex)?.Content;
-                                if (!string.IsNullOrEmpty(value))
-                                {
-                                    values.Add(value);
-                                }
-                            }
-
-                            if (!string.IsNullOrEmpty(key) && values.Count > 0)
-                            {
-                                keyValuePairs[key] = values;
-                            }
+                            keyValuePairs[key] = rowValues;
                         }
                     }
                 }
             }
+
 
             return keyValuePairs;
         }
