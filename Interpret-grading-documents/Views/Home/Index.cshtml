@@ -1,6 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
-    var keyValuePairs = ViewData["KeyValuePairs"] as Dictionary<string, string>;
+    var keyValuePairs = ViewData["KeyValuePairs"] as Dictionary<string, List<string>>;
 }
 
 <div class="text-center">
@@ -14,7 +14,7 @@
             <thead>
                 <tr>
                     <th>Key</th>
-                    <th>Value</th>
+                    <th>Values</th>
                 </tr>
             </thead>
             <tbody>
@@ -22,7 +22,17 @@
                 {
                     <tr>
                         <td>@pair.Key</td>
-                        <td>@pair.Value</td>
+                        <td>
+                            @if (pair.Value != null && pair.Value.Any())
+                            {
+                                <ul>
+                                    @foreach (var value in pair.Value)
+                                    {
+                                        <li>@value</li>
+                                    }
+                                </ul>
+                            }
+                        </td>
                     </tr>
                 }
             </tbody>
