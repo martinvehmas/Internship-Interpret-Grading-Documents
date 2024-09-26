@@ -22,6 +22,15 @@ namespace Interpret_grading_documents.Services
 
             var keyValuePairs = new Dictionary<string, List<string>>();
 
+            // Define the keys to filter using HashSet
+            var targetKeys = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
+            {
+                "efternamn, tilltalsnamn",
+                "personnummer",
+                "program",
+                "programmets omfattning"
+            };
+
             foreach (var documentField in result.KeyValuePairs)
             {
                 var key = documentField.Key?.Content;
@@ -29,10 +38,16 @@ namespace Interpret_grading_documents.Services
 
                 if (!string.IsNullOrEmpty(key) && !string.IsNullOrEmpty(value))
                 {
-                    // avoid duplicate keys
-                    if (!keyValuePairs.ContainsKey(key))
+
+                    // Use HashSet to check if the key is one of the target keys
+                    if (targetKeys.Contains(key))
                     {
-                        keyValuePairs[key] = new List<string> { value };
+
+                        // avoid duplicate keys
+                        if (!keyValuePairs.ContainsKey(key))
+                        {
+                            keyValuePairs[key] = new List<string> { value };
+                        }
                     }
                 }
             }
