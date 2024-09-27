@@ -22,11 +22,8 @@ namespace Interpret_grading_documents
             builder.Services.AddControllersWithViews();
 
             // Register GPTService
-            builder.Services.AddSingleton<GPTService>();
-            
+            builder.Services.AddHttpClient<GPTService>();
 
-            // Register GPTService
-            builder.Services.AddSingleton<GPTService>();
 
             // Register Form Recognizer Service
             builder.Services.AddSingleton<FormRecognizerService>(provider =>
