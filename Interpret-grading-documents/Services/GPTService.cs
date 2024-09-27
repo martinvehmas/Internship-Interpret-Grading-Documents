@@ -15,8 +15,8 @@ namespace Interpret_grading_documents.Services
         {
             _httpClient = httpClient;
 
-            //_apiKey = Environment.GetEnvironmentVariable("GPT_API_KEY");
-            _apiKey = "";
+            _apiKey = Environment.GetEnvironmentVariable("GPT_API_KEY");
+            //_apiKey = "";
 
             if (string.IsNullOrEmpty(_apiKey))
             {
