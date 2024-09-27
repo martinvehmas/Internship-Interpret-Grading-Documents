@@ -1,45 +1,24 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
-    var keyValuePairs = ViewData["KeyValuePairs"] as Dictionary<string, List<string>>;
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Grading Document</h1>
 
-    <h2>Extracted Key-Value Pairs:</h2>
-    @if (keyValuePairs != null && keyValuePairs.Any())
-    {
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Key</th>
-                    <th>Values</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var pair in keyValuePairs)
-                {
-                    <tr>
-                        <td>@pair.Key</td>
-                        <td>
-                            @if (pair.Value != null && pair.Value.Any())
-                            {
-                                <ul>
-                                    @foreach (var value in pair.Value)
-                                    {
-                                        <li>@value</li>
-                                    }
-                                </ul>
-                            }
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    }
-    else
-    {
-        <p>No key-value pairs found.</p>
-    }
+    <h2>Extracted Data</h2>
+
+    <div>
+        @if (ViewData["ExtractedData"] != null)
+        {
+            <pre>@ViewData["ExtractedData"]</pre>
+        }
+        else
+        {
+            <p>No data extracted yet. Press the button to analyze the data.</p>
+        }
+    </div>
+
+    <form asp-action="ProcessText">
+        <button type="submit" class="btn btn-primary">Analyze Data</button>
+    </form>
 </div>
