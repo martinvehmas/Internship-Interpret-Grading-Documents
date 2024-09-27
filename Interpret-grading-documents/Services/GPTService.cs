@@ -3,6 +3,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using OpenAI.Chat;
 
 namespace Interpret_grading_documents.Services
 {
@@ -26,32 +27,52 @@ namespace Interpret_grading_documents.Services
 
         public async Task<string> ProcessTextPrompt()
         {
-            var requestBody = new
-            {
-                model = "gpt-4o",
-                messages = new[]
-                {
-                    new { role = "system", content = "You are a helpful assistant." },
-                    new { role = "user", content = "Please analyze the following data and format it as a table: 90, 80, 70, 60." }
-                },
-                temperature = 0.5,
-                max_tokens = 1500
-            };
+            ChatClient client = new("gpt-4o", _apiKey);
 
-            var jsonContent = new StringContent(JsonConvert.SerializeObject(requestBody), Encoding.UTF8, "application/json");
-            _httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {_apiKey}");
+            var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "SampleImages", "SlutBetyg_02.png");
+            using Stream imageStream = File.OpenRead(imagePath);
+            BinaryData imageBytes = BinaryData.FromStream(imageStream);
 
-            var gptEndpoint = "https://api.openai.com/v1/chat/completions";
-            var response = await _httpClient.PostAsync(gptEndpoint, jsonContent);
+            List<ChatMessage> messages = [
+                new UserChatMessage(
+                    ChatMessageContentPart.CreateTextPart("Please extract the following data from this image, only respond with plain JSON, do not format it with ` or similar.:"),
+                    ChatMessageContentPart.CreateTextPart(
+                        "1. Full name\n" +
+                        "2. Personal identification number\n" +
+                        "3. Graduation date\n" +
+                        "4. School name\n" +
+                        "5. Program name\n" +
+                        "6. Specialization and vocational education details\n" +
+                        "7. List of subjects with the following details:\n" +
+                        "   - Subject name\n" +
+                        "   - Course code\n" +
+                        "   - Grade\n" +
+                        "   - Gymnasium points\n" +
+                        "Please make sure to format the output in JSON format like this:\n" +
+                        "{\n" +
+                        "   'full_name': 'Full Name',\n" +
+                        "   'personal_id': 'xxxxxx-xxxx',\n" +
+                        "   'graduation_date': 'YYYY-MM-DD',\n" +
+                        "   'school_name': 'School Name',\n" +
+                        "   'program_name': 'Program Name',\n" +
+                        "   'specialization': 'Specialization',\n" +
+                        "   'subjects': [\n" +
+                        "       {\n" +
+                        "           'subject_name': 'Subject',\n" +
+                        "           'course_code': 'Code',\n" +
+                        "           'grade': 'Grade',\n" +
+                        "           'gymnasium_points': Points\n" +
+                        "       },\n" +
+                        "       ... more subjects\n" +
+                        "   ]\n" +
+                        "}"
+                    ),
+                    ChatMessageContentPart.CreateImagePart(imageBytes, "image/png"))
+            ];
 
-            if (!response.IsSuccessStatusCode)
-            {
-                var errorMessage = await response.Content.ReadAsStringAsync();
-                return $"Error: {response.StatusCode}, Details: {errorMessage}";
-            }
+            ChatCompletion chatCompletion = client.CompleteChat(messages);
 
-            var result = await response.Content.ReadAsStringAsync();
-            return result;
+            return chatCompletion.Content[0].Text;
         }
     }
 }
