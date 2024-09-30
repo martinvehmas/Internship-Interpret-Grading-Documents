@@ -70,7 +70,8 @@ namespace Interpret_grading_documents.Services
                     ChatMessageContentPart.CreateImagePart(imageBytes, "image/png"))
             ];
 
-            ChatCompletion chatCompletion = client.CompleteChat(messages);
+            // made this call async
+            ChatCompletion chatCompletion = await client.CompleteChatAsync(messages);
 
             return chatCompletion.Content[0].Text;
         }
