@@ -42,7 +42,7 @@
                                 <td>@subject.SubjectName</td>
                                 <td>@(string.IsNullOrEmpty(subject.CourseCode) ? "N/A" : subject.CourseCode)</td>
                                 <td>@subject.Grade</td>
-                                <td>@(subject.GymnasiumPoints.HasValue ? subject.GymnasiumPoints.Value.ToString() : "N/A")</td>
+                                <td>@(subject.GymnasiumPoints)</td>
                             </tr>
                         }
                     </tbody>

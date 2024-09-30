@@ -1,7 +1,8 @@
-﻿using OpenAI.Chat;
+﻿using Interpret_grading_documents.Services;
+using OpenAI.Chat;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using Interpret_grading_documents.Services.Converters;
+
 
 namespace Interpret_grading_documents.Services
 {
@@ -45,9 +46,8 @@ namespace Interpret_grading_documents.Services
             [JsonPropertyName("grade")]
             public string Grade { get; set; }
 
-            [JsonConverter(typeof(NullableIntConverter))]
             [JsonPropertyName("points")]
-            public int? GymnasiumPoints { get; set; }
+            public string GymnasiumPoints { get; set; }
         }
 
         public GPTService(HttpClient httpClient)
@@ -65,17 +65,25 @@ namespace Interpret_grading_documents.Services
 
         public async Task<GraduationDocument> ProcessTextPrompt()
         {
+            var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "SampleImages", "SlutBetyg_03.jpeg");
+
+            var checker = new ImageReliabilityChecker();
+            try
+            {
+                var result = checker.CheckImageReliability(imagePath);
+                Console.WriteLine(result.ToString());
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Ett fel uppstod: {ex.Message}");
+            }
+
             ChatClient client = new("gpt-4o-mini", _apiKey);
-
-            var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "SampleImages", "examensbevis-gymnasieskola-yrkes-el.pdf");
-
-
             using Stream imageStream = File.OpenRead(imagePath);
 
             
 
             BinaryData imageBytes = BinaryData.FromStream(imageStream);
-
             List<ChatMessage> messages = [
                 new UserChatMessage(
                     ChatMessageContentPart.CreateTextPart("Vänligen extrahera följande data från bilden, svara endast med JSON, formatera det inte med ` eller liknande. Säkerställ att alla betygen är korrekta och överenstämmer med deras ämne."),
@@ -115,26 +123,15 @@ namespace Interpret_grading_documents.Services
 
             var completionOptions = new ChatCompletionOptions
             {
-                Temperature = 0.2f, // Lower temperature for more deterministic output
-                // You can add other parameters if needed
+                Temperature = 0.2f,
             };
 
-            // Make the chat completion request with the specified options
             ChatCompletion chatCompletion = await client.CompleteChatAsync(messages, completionOptions);
 
             
             var jsonResponse = chatCompletion.Content[0].Text;
 
-            var options = new JsonSerializerOptions
-            {
-                PropertyNameCaseInsensitive = true,
-                Converters =
-                {
-                    new NullableIntConverter()
-                }
-            };
-
-            GraduationDocument document = JsonSerializer.Deserialize<GraduationDocument>(jsonResponse, options);
+            GraduationDocument document = JsonSerializer.Deserialize<GraduationDocument>(jsonResponse);
 
             return document;
         }
