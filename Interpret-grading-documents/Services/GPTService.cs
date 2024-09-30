@@ -27,15 +27,15 @@ namespace Interpret_grading_documents.Services
 
         public async Task<string> ProcessTextPrompt()
         {
-            ChatClient client = new("gpt-4o", _apiKey);
+            ChatClient client = new("gpt-4o-mini", _apiKey);
 
-            var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "SampleImages", "SlutBetyg_02.png");
+            var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "SampleImages", "SlutBetyg_01.png");
             using Stream imageStream = File.OpenRead(imagePath);
             BinaryData imageBytes = BinaryData.FromStream(imageStream);
 
             List<ChatMessage> messages = [
                 new UserChatMessage(
-                    ChatMessageContentPart.CreateTextPart("Please extract the following data from this image, only respond with plain JSON, do not format it with ` or similar.:"),
+                    ChatMessageContentPart.CreateTextPart("Please extract the following data from this image, only respond with plain JSON, do not format it with ` or similar:"),
                     ChatMessageContentPart.CreateTextPart(
                         "1. Full name\n" +
                         "2. Personal identification number\n" +
@@ -51,7 +51,7 @@ namespace Interpret_grading_documents.Services
                         "Please make sure to format the output in JSON format like this:\n" +
                         "{\n" +
                         "   'full_name': 'Full Name',\n" +
-                        "   'personal_id': 'xxxxxx-xxxx',\n" +
+                        "   'personal_id': 'xxxxxx-xxxx'\n" +
                         "   'graduation_date': 'YYYY-MM-DD',\n" +
                         "   'school_name': 'School Name',\n" +
                         "   'program_name': 'Program Name',\n" +
