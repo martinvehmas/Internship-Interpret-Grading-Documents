@@ -67,8 +67,13 @@ namespace Interpret_grading_documents.Services
         {
             ChatClient client = new("gpt-4o-mini", _apiKey);
 
-            var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "SampleImages", "SlutBetyg_02.png");
+            var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "SampleImages", "examensbevis-gymnasieskola-yrkes-el.pdf");
+
+
             using Stream imageStream = File.OpenRead(imagePath);
+
+            
+
             BinaryData imageBytes = BinaryData.FromStream(imageStream);
 
             List<ChatMessage> messages = [
@@ -111,12 +116,13 @@ namespace Interpret_grading_documents.Services
             var completionOptions = new ChatCompletionOptions
             {
                 Temperature = 0.2f, // Lower temperature for more deterministic output
-                                   // You can add other parameters if needed
+                // You can add other parameters if needed
             };
 
             // Make the chat completion request with the specified options
             ChatCompletion chatCompletion = await client.CompleteChatAsync(messages, completionOptions);
 
+            
             var jsonResponse = chatCompletion.Content[0].Text;
 
             var options = new JsonSerializerOptions
