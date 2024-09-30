@@ -37,6 +37,17 @@ namespace Interpret_grading_documents.Services
 
             // Kontrollera filformat
             string extension = Path.GetExtension(imagePath).ToLower();
+
+
+            //Om filen är en pdf-fil
+            if (extension == ".pdf")
+            {
+                result.FileFormat = extension;
+                result.ReliabilityScore = 100;
+                return result;
+            }
+                
+
             result.FileFormat = extension;
             var allowedFormats = new string[] { ".png", ".jpeg", ".jpg", ".tiff", ".bmp" };
             if (Array.Exists(allowedFormats, format => format == extension))
