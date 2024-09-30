@@ -1,9 +1,7 @@
-﻿using System;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-using OpenAI.Chat;
+﻿using OpenAI.Chat;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using Interpret_grading_documents.Services.Converters;
 
 namespace Interpret_grading_documents.Services
 {
@@ -11,6 +9,46 @@ namespace Interpret_grading_documents.Services
     {
         private readonly HttpClient _httpClient;
         private readonly string _apiKey;
+
+        public class GraduationDocument
+        {
+            [JsonPropertyName("full_name")]
+            public string FullName { get; set; }
+
+            [JsonPropertyName("personal_id")]
+            public string PersonalId { get; set; }
+
+            [JsonPropertyName("graduation_date")]
+            public string GraduationDate { get; set; }
+
+            [JsonPropertyName("school_name")]
+            public string SchoolName { get; set; }
+
+            [JsonPropertyName("program_name")]
+            public string ProgramName { get; set; }
+
+            [JsonPropertyName("specialization")]
+            public string Specialization { get; set; }
+
+            [JsonPropertyName("subjects")]
+            public List<Subject> Subjects { get; set; }
+        }
+
+        public class Subject
+        {
+            [JsonPropertyName("subject_name")]
+            public string SubjectName { get; set; }
+
+            [JsonPropertyName("course_code")]
+            public string? CourseCode { get; set; }
+
+            [JsonPropertyName("grade")]
+            public string Grade { get; set; }
+
+            [JsonConverter(typeof(NullableIntConverter))]
+            [JsonPropertyName("gymnasium_points")]
+            public int? GymnasiumPoints { get; set; }
+        }
 
         public GPTService(HttpClient httpClient)
         {
@@ -25,55 +63,75 @@ namespace Interpret_grading_documents.Services
             }
         }
 
-        public async Task<string> ProcessTextPrompt()
+        public async Task<GraduationDocument> ProcessTextPrompt()
         {
             ChatClient client = new("gpt-4o-mini", _apiKey);
 
-            var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "SampleImages", "SlutBetyg_01.png");
+            var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "SampleImages", "SlutBetyg_02.png");
             using Stream imageStream = File.OpenRead(imagePath);
             BinaryData imageBytes = BinaryData.FromStream(imageStream);
 
             List<ChatMessage> messages = [
                 new UserChatMessage(
-                    ChatMessageContentPart.CreateTextPart("Please extract the following data from this image, only respond with plain JSON, do not format it with ` or similar:"),
+                    ChatMessageContentPart.CreateTextPart("Vänligen extrahera följande data från bilden, svara endast med JSON, formatera det inte med ` eller liknande. Säkerställ att alla betygen är korrekta och överenstämmer med deras ämne."),
                     ChatMessageContentPart.CreateTextPart(
-                        "1. Full name\n" +
-                        "2. Personal identification number\n" +
-                        "3. Graduation date\n" +
-                        "4. School name\n" +
-                        "5. Program name\n" +
-                        "6. Specialization and vocational education details\n" +
-                        "7. List of subjects with the following details:\n" +
-                        "   - Subject name\n" +
-                        "   - Course code\n" +
-                        "   - Grade\n" +
-                        "   - Gymnasium points\n" +
-                        "Please make sure to format the output in JSON format like this:\n" +
+                        "1. Fullständigt namn\n" +
+                        "2. Personnummer\n" +
+                        "3. Examensdatum\n" +
+                        "4. Skolans namn\n" +
+                        "5. Programnamn\n" +
+                        "6. Specialisering och detaljer om utbildning\n" +
+                        "7. Lista över ämnen med följande detaljer:\n" +
+                        "   - Ämnesnamn\n" +
+                        "   - Kurskod\n" +
+                        "   - Betyg\n" +
+                        "   - Poäng\n" +
+                        "Vänligen se till att formatera svaret i JSON-format som detta:\n" +
                         "{\n" +
-                        "   'full_name': 'Full Name',\n" +
+                        "   'full_name': 'Fullständigt Namn',\n" +
                         "   'personal_id': 'xxxxxx-xxxx'\n" +
-                        "   'graduation_date': 'YYYY-MM-DD',\n" +
-                        "   'school_name': 'School Name',\n" +
-                        "   'program_name': 'Program Name',\n" +
-                        "   'specialization': 'Specialization',\n" +
+                        "   'graduation_date': 'ÅÅÅÅ-MM-DD',\n" +
+                        "   'school_name': 'Skolans Namn',\n" +
+                        "   'program_name': 'Programnamn',\n" +
+                        "   'specialization': 'Specialisering',\n" +
                         "   'subjects': [\n" +
                         "       {\n" +
-                        "           'subject_name': 'Subject',\n" +
-                        "           'course_code': 'Code',\n" +
-                        "           'grade': 'Grade',\n" +
-                        "           'gymnasium_points': Points\n" +
+                        "           'subject_name': 'Ämnesnamn',\n" +
+                        "           'course_code': 'Kurskod',\n" +
+                        "           'grade': 'Betyg',\n" +
+                        "           'points': Poäng\n" +
                         "       },\n" +
-                        "       ... more subjects\n" +
+                        "       ... fler ämnen\n" +
                         "   ]\n" +
                         "}"
                     ),
                     ChatMessageContentPart.CreateImagePart(imageBytes, "image/png"))
             ];
 
-            // made this call async
-            ChatCompletion chatCompletion = await client.CompleteChatAsync(messages);
+            var completionOptions = new ChatCompletionOptions
+            {
+                Temperature = 0.2f, // Lower temperature for more deterministic output
+                                   // You can add other parameters if needed
+            };
 
-            return chatCompletion.Content[0].Text;
+            // Make the chat completion request with the specified options
+            ChatCompletion chatCompletion = await client.CompleteChatAsync(messages, completionOptions);
+
+            var jsonResponse = chatCompletion.Content[0].Text;
+            Console.WriteLine(jsonResponse);
+
+            var options = new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true,
+                Converters =
+                {
+                    new NullableIntConverter()
+                }
+            };
+
+            GraduationDocument document = JsonSerializer.Deserialize<GraduationDocument>(jsonResponse, options);
+
+            return document;
         }
     }
 }
