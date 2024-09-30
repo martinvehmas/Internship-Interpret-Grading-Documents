@@ -18,7 +18,7 @@ namespace Interpret_grading_documents.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return View(null);
         }
 
         [HttpPost]
@@ -26,9 +26,7 @@ namespace Interpret_grading_documents.Controllers
         {
             var extractedData = await _gptService.ProcessTextPrompt();
 
-            ViewData["ExtractedData"] = extractedData;
-
-            return View("Index");
+            return View("Index", extractedData);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

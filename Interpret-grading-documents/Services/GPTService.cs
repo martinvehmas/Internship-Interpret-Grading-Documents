@@ -46,7 +46,7 @@ namespace Interpret_grading_documents.Services
             public string Grade { get; set; }
 
             [JsonConverter(typeof(NullableIntConverter))]
-            [JsonPropertyName("gymnasium_points")]
+            [JsonPropertyName("points")]
             public int? GymnasiumPoints { get; set; }
         }
 
@@ -118,7 +118,6 @@ namespace Interpret_grading_documents.Services
             ChatCompletion chatCompletion = await client.CompleteChatAsync(messages, completionOptions);
 
             var jsonResponse = chatCompletion.Content[0].Text;
-            Console.WriteLine(jsonResponse);
 
             var options = new JsonSerializerOptions
             {

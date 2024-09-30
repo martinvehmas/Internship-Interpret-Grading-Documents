@@ -1,24 +1,63 @@
-﻿@{
+﻿@model Interpret_grading_documents.Services.GPTService.GraduationDocument
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Grading Document</h1>
+<div class="container mt-5">
+    <div class="text-center">
+        <h1 class="display-4">Grading Document</h1>
 
-    <h2>Extracted Data</h2>
+        <h2 class="mt-4">Extracted Data</h2>
 
-    <div>
-        @if (ViewData["ExtractedData"] != null)
-        {
-            <pre>@ViewData["ExtractedData"]</pre>
-        }
-        else
-        {
-            <p>No data extracted yet. Press the button to analyze the data.</p>
-        }
+        <div class="mt-3">
+            @if (Model != null)
+            {
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Student Information</h5>
+                        <p class="card-text"><strong>Full Name:</strong> @Model.FullName</p>
+                        <p class="card-text"><strong>Personal ID:</strong> @Model.PersonalId</p>
+                        <p class="card-text"><strong>Graduation Date:</strong> @Model.GraduationDate</p>
+                        <p class="card-text"><strong>School Name:</strong> @Model.SchoolName</p>
+                        <p class="card-text"><strong>Program Name:</strong> @Model.ProgramName</p>
+                        <p class="card-text"><strong>Specialization:</strong> @Model.Specialization</p>
+                    </div>
+                </div>
+
+                <h3 class="mt-4">Subjects</h3>
+                <table class="table table-striped mt-2">
+                    <thead>
+                        <tr>
+                            <th>Subject Name</th>
+                            <th>Course Code</th>
+                            <th>Grade</th>
+                            <th>Gymnasium Points</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var subject in Model.Subjects)
+                        {
+                            <tr>
+                                <td>@subject.SubjectName</td>
+                                <td>@(string.IsNullOrEmpty(subject.CourseCode) ? "N/A" : subject.CourseCode)</td>
+                                <td>@subject.Grade</td>
+                                <td>@(subject.GymnasiumPoints.HasValue ? subject.GymnasiumPoints.Value.ToString() : "N/A")</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <div class="alert alert-info" role="alert">
+                    No data extracted yet. Press the button below to analyze the data.
+                </div>
+            }
+        </div>
+
+        <form asp-action="ProcessText" method="post">
+            <button type="submit" class="btn btn-primary mt-3">Analyze Data</button>
+        </form>
     </div>
-
-    <form asp-action="ProcessText">
-        <button type="submit" class="btn btn-primary">Analyze Data</button>
-    </form>
 </div>
