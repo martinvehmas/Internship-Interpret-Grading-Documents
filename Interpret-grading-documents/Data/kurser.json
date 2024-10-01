@@ -4314,5 +4314,665 @@
     {
         "Kurs": "Yttre miljö - maskiner och verktyg",
         "Kurskod": "YTTYTR0"
+    },
+    {
+        "Kurs": "Reparation av motorcyklar och ATV",
+        "Kurskod": "ATVREP0"
+    },
+    {
+        "Kurs": "Allmän automationsteknik",
+        "Kurskod": "AUTALL0"
+    },
+    {
+        "Kurs": "Avhjälpande och förebyggande underhåll",
+        "Kurskod": "AUTAVH0"
+    },
+    {
+        "Kurs": "Elmotordrivsystem",
+        "Kurskod": "AUTELD0"
+    },
+    {
+        "Kurs": "Fastighetsautomation 1",
+        "Kurskod": "AUTFAS01"
+    },
+    {
+        "Kurs": "Fastighetsautomation 2",
+        "Kurskod": "AUTFAS02"
+    },
+    {
+        "Kurs": "Industriautomation",
+        "Kurskod": "AUTIND0"
+    },
+    {
+        "Kurs": "Robotteknik",
+        "Kurskod": "AUTROB0"
+    },
+    {
+        "Kurs": "Grundläggande mätningsteknik",
+        "Kurskod": "BYLGRN0"
+    },
+    {
+        "Kurs": "Planering före byggstart",
+        "Kurskod": "BYLPLA0"
+    },
+    {
+        "Kurs": "Produktionsstyrning i byggskedet",
+        "Kurskod": "BYLPRO0"
+    },
+    {
+        "Kurs": "Datalagring",
+        "Kurskod": "DALDAT0"
+    },
+    {
+        "Kurs": "Bild- och ljudanläggningar",
+        "Kurskod": "ELTBID0"
+    },
+    {
+        "Kurs": "Kontorstekniksystem",
+        "Kurskod": "ELTKOT0"
+    },
+    {
+        "Kurs": "Marina elektroniksystem",
+        "Kurskod": "ELTMAR0"
+    },
+    {
+        "Kurs": "Trådlösa radiosystem",
+        "Kurskod": "ELTTRL0"
+    },
+    {
+        "Kurs": "Installationer",
+        "Kurskod": "ELPINS0"
+    },
+    {
+        "Kurs": "Projektering",
+        "Kurskod": "ELPPRO0"
+    },
+    {
+        "Kurs": "Aerodynamik",
+        "Kurskod": "FLYAER0"
+    },
+    {
+        "Kurs": "Digitalteknik och flyginstrument",
+        "Kurskod": "FLYDII0"
+    },
+    {
+        "Kurs": "Elektronik – flyg",
+        "Kurskod": "FLYELT0"
+    },
+    {
+        "Kurs": "Ellära – flyg",
+        "Kurskod": "FLYELL0"
+    },
+    {
+        "Kurs": "Flyglagstiftning",
+        "Kurskod": "FLYFLY0"
+    },
+    {
+        "Kurs": "Flygplanslära",
+        "Kurskod": "FLYFLG0"
+    },
+    {
+        "Kurs": "Gasturbinmotorer",
+        "Kurskod": "FLYGAT0"
+    },
+    {
+        "Kurs": "Helikopterlära",
+        "Kurskod": "FLYHEL0"
+    },
+    {
+        "Kurs": "Kolvmotor",
+        "Kurskod": "FLYKOL0"
+    },
+    {
+        "Kurs": "Materiallära – flyg",
+        "Kurskod": "FLYMAA0"
+    },
+    {
+        "Kurs": "Mänskliga faktorer",
+        "Kurskod": "FLYMAS0"
+    },
+    {
+        "Kurs": "Underhållsteknik – flyg",
+        "Kurskod": "FLYUNS0"
+    },
+    {
+        "Kurs": "Gymnasieingenjören i praktiken",
+        "Kurskod": "GYMGYM0"
+    },
+    {
+        "Kurs": "Frukost och bufféservering",
+        "Kurskod": "HOTFRU0"
+    },
+    {
+        "Kurs": "Hotelladministration",
+        "Kurskod": "HOTHOT0"
+    },
+    {
+        "Kurs": "Logi",
+        "Kurskod": "HOTLOG0"
+    },
+    {
+        "Kurs": "Reception 1",
+        "Kurskod": "HOTREC01"
+    },
+    {
+        "Kurs": "Reception 2",
+        "Kurskod": "HOTREC02"
+    },
+    {
+        "Kurs": "Reception 3",
+        "Kurskod": "HOTREC03"
+    },
+    {
+        "Kurs": "Våningsservice 1",
+        "Kurskod": "HOTVÅN01"
+    },
+    {
+        "Kurs": "Våningsservice 2",
+        "Kurskod": "HOTVÅN02"
+    },
+    {
+        "Kurs": "Våningsservice 3",
+        "Kurskod": "HOTVÅN03"
+    },
+    {
+        "Kurs": "Datakommunikation och informationssäkerhet",
+        "Kurskod": "INODAT0"
+    },
+    {
+        "Kurs": "Informationsteknisk arkitektur",
+        "Kurskod": "INOINF0"
+    },
+    {
+        "Kurs": "Nätverks- och kommunikationstjänster",
+        "Kurskod": "INONAT0"
+    },
+    {
+        "Kurs": "Sanitet och tappvatten",
+        "Kurskod": "INTSAN0"
+    },
+    {
+        "Kurs": "Ventilation och komfortkyla",
+        "Kurskod": "INTVET0"
+    },
+    {
+        "Kurs": "Värme- och kylsystem",
+        "Kurskod": "INTVÄR0"
+    },
+    {
+        "Kurs": "It i vård och omsorg",
+        "Kurskod": "ITIITI0"
+    },
+    {
+        "Kurs": "Anpassning och montering av utrustning",
+        "Kurskod": "MASANP0"
+    },
+    {
+        "Kurs": "Arbete från servicebil",
+        "Kurskod": "MASARB0"
+    },
+    {
+        "Kurs": "Komfortsystem",
+        "Kurskod": "MASKOM0"
+    },
+    {
+        "Kurs": "Lastbilar och utrustning",
+        "Kurskod": "MASLAT0"
+    },
+    {
+        "Kurs": "Lastbilsmonterad hydraulik och pneumatik",
+        "Kurskod": "MASLAI0"
+    },
+    {
+        "Kurs": "Maskin- och lastbilsteknik – introduktion",
+        "Kurskod": "MASMAI0"
+    },
+    {
+        "Kurs": "Mobil hydraulik 1",
+        "Kurskod": "MASMOB01"
+    },
+    {
+        "Kurs": "Mobil hydraulik 2",
+        "Kurskod": "MASMOB02"
+    },
+    {
+        "Kurs": "Mobila maskiner och utrustning",
+        "Kurskod": "MASMOB0"
+    },
+    {
+        "Kurs": "Reparation av lastbilar och mobila maskiner",
+        "Kurskod": "MASREP0"
+    },
+    {
+        "Kurs": "Styr- och övervakningssystem",
+        "Kurskod": "MASSTY0"
+    },
+    {
+        "Kurs": "Medicin 1",
+        "Kurskod": "MEDMED01"
+    },
+    {
+        "Kurs": "Medicin 2",
+        "Kurskod": "MEDMED02"
+    },
+    {
+        "Kurs": "Mjukvarudesign",
+        "Kurskod": "MJUMJU0"
+    },
+    {
+        "Kurs": "Datoriserad mönsterhantering 1",
+        "Kurskod": "MÖNDAT01"
+    },
+    {
+        "Kurs": "Datoriserad mönsterhantering 2",
+        "Kurskod": "MÖNDAT02"
+    },
+    {
+        "Kurs": "Mönsterkonstruktion 1",
+        "Kurskod": "MÖNMÖN01"
+    },
+    {
+        "Kurs": "Mönsterkonstruktion 2",
+        "Kurskod": "MÖNMÖN02"
+    },
+    {
+        "Kurs": "Avverkningsmaskiner",
+        "Kurskod": "NABAVV0"
+    },
+    {
+        "Kurs": "Fordon och redskap",
+        "Kurskod": "NABFOR0"
+    },
+    {
+        "Kurs": "Lantbruksmaskiner 1",
+        "Kurskod": "NABLAT01"
+    },
+    {
+        "Kurs": "Lantbruksmaskiner 2",
+        "Kurskod": "NABLAT02"
+    },
+    {
+        "Kurs": "Lastmaskiner och truckar",
+        "Kurskod": "NABLAA0"
+    },
+    {
+        "Kurs": "Skogsmaskiner – specialisering",
+        "Kurskod": "NABSKO00S"
+    },
+    {
+        "Kurs": "Småskalig skogsteknik",
+        "Kurskod": "NABSMÅ0"
+    },
+    {
+        "Kurs": "Terrängtransporter",
+        "Kurskod": "NABTER0"
+    },
+    {
+        "Kurs": "Trädgårdsmaskiner",
+        "Kurskod": "NABTRG0"
+    },
+    {
+        "Kurs": "Virkestransport med skotare",
+        "Kurskod": "NABVIE0"
+    },
+    {
+        "Kurs": "Näthandel 1",
+        "Kurskod": "NÄTNÄT01"
+    },
+    {
+        "Kurs": "Näthandel 2",
+        "Kurskod": "NÄTNÄT02"
+    },
+    {
+        "Kurs": "Administration av nätverks- och serverutrustning",
+        "Kurskod": "NÄVADM0"
+    },
+    {
+        "Kurs": "Nätverksadministration",
+        "Kurskod": "NÄVNÄV0"
+    },
+    {
+        "Kurs": "Nätverkssäkerhet",
+        "Kurskod": "NÄVNÄE0"
+    },
+    {
+        "Kurs": "Nätverksteknik",
+        "Kurskod": "NÄVNÄR0"
+    },
+    {
+        "Kurs": "Nätverksteknologier",
+        "Kurskod": "NÄVNÄK0"
+    },
+    {
+        "Kurs": "Odling – specialisering",
+        "Kurskod": "ODLODL00S"
+    },
+    {
+        "Kurs": "Odling av djurfoder",
+        "Kurskod": "ODLODL0"
+    },
+    {
+        "Kurs": "Trädgårdsodling",
+        "Kurskod": "ODLTRÅ0"
+    },
+    {
+        "Kurs": "Trädgårdsodling – grönsaker, frukt och bär",
+        "Kurskod": "ODLTRR0"
+    },
+    {
+        "Kurs": "Trädgårdsodling – plantskoleväxter",
+        "Kurskod": "ODLTRS0"
+    },
+    {
+        "Kurs": "Växtodling 1",
+        "Kurskod": "ODLVÄT01"
+    },
+    {
+        "Kurs": "Växtodling 2",
+        "Kurskod": "ODLVÄT02"
+    },
+    {
+        "Kurs": "Bromsar, kaross och chassi",
+        "Kurskod": "PERBRO0"
+    },
+    {
+        "Kurs": "Komfort- och säkerhetssystem 1a",
+        "Kurskod": "PERKOM01a"
+    },
+    {
+        "Kurs": "Komfort- och säkerhetssystem 1b",
+        "Kurskod": "PERKOM01b"
+    },
+    {
+        "Kurs": "Motor och kraftöverföring",
+        "Kurskod": "PERMOT0"
+    },
+    {
+        "Kurs": "Personbilsteknik – introduktion",
+        "Kurskod": "PERPES0"
+    },
+    {
+        "Kurs": "Reparation av personbilar och lätta transportfordon",
+        "Kurskod": "PERREA0"
+    },
+    {
+        "Kurs": "Produktionsfilosofi 1",
+        "Kurskod": "PRTPRO01"
+    },
+    {
+        "Kurs": "Produktionsfilosofi 2",
+        "Kurskod": "PRTPRO02"
+    },
+    {
+        "Kurs": "Körning 1",
+        "Kurskod": "RIDKÖR01"
+    },
+    {
+        "Kurs": "Körning 2",
+        "Kurskod": "RIDKÖR02"
+    },
+    {
+        "Kurs": "Ridning 1",
+        "Kurskod": "RIDRID01"
+    },
+    {
+        "Kurs": "Ridning 2",
+        "Kurskod": "RIDRID02"
+    },
+    {
+        "Kurs": "Ridning och körning",
+        "Kurskod": "RIDRID0"
+    },
+    {
+        "Kurs": "Trav 1",
+        "Kurskod": "RIDTRA01"
+    },
+    {
+        "Kurs": "Trav 2",
+        "Kurskod": "RIDTRA02"
+    },
+    {
+        "Kurs": "Akutsjukvård",
+        "Kurskod": "SJUAKU0"
+    },
+    {
+        "Kurs": "Barn- och ungdomssjukvård",
+        "Kurskod": "SJUBAR0"
+    },
+    {
+        "Kurs": "Hemsjukvård",
+        "Kurskod": "SJUHEM0"
+    },
+    {
+        "Kurs": "Palliativ vård",
+        "Kurskod": "SJULIN0"
+    },
+    {
+        "Kurs": "Räddningsmedicin",
+        "Kurskod": "SJURÄD0"
+    },
+    {
+        "Kurs": "Digitalteknik och programmering",
+        "Kurskod": "SPFDIG0"
+    },
+    {
+        "Kurs": "Drivsystem och bromsar",
+        "Kurskod": "SPFDRI0"
+    },
+    {
+        "Kurs": "Felsökning och diagnos 1",
+        "Kurskod": "SPFFEL01"
+    },
+    {
+        "Kurs": "Felsökning och diagnos 2",
+        "Kurskod": "SPFFEL02"
+    },
+    {
+        "Kurs": "Inredning och komfort 1",
+        "Kurskod": "SPFINR01"
+    },
+    {
+        "Kurs": "Inredning och komfort 2",
+        "Kurskod": "SPFINR02"
+    },
+    {
+        "Kurs": "Kommunikationssystem",
+        "Kurskod": "SPFKOM0"
+    },
+    {
+        "Kurs": "Korg och boggi",
+        "Kurskod": "SPFKOR0"
+    },
+    {
+        "Kurs": "Spårbundna fordon – introduktion",
+        "Kurskod": "SPFSPA0"
+    },
+    {
+        "Kurs": "Styr- och säkerhetssystem",
+        "Kurskod": "SPFSTY0"
+    },
+    {
+        "Kurs": "Charkuteri – specialisering",
+        "Kurskod": "STYCHA00S"
+    },
+    {
+        "Kurs": "Charkuteri 1",
+        "Kurskod": "STYCHA01"
+    },
+    {
+        "Kurs": "Charkuteri 2",
+        "Kurskod": "STYCHA02"
+    },
+    {
+        "Kurs": "Charkuteri 3",
+        "Kurskod": "STYCHA03"
+    },
+    {
+        "Kurs": "Charkuteri 4",
+        "Kurskod": "STYCHA04"
+    },
+    {
+        "Kurs": "Finstyckning",
+        "Kurskod": "STYFIN0"
+    },
+    {
+        "Kurs": "Styckning – specialisering",
+        "Kurskod": "STYSTY00S"
+    },
+    {
+        "Kurs": "Styckning 1",
+        "Kurskod": "STYSTY01"
+    },
+    {
+        "Kurs": "Styckning 2",
+        "Kurskod": "STYSTY02"
+    },
+    {
+        "Kurs": "Styckning 3",
+        "Kurskod": "STYSTY03"
+    },
+    {
+        "Kurs": "Styckning 4",
+        "Kurskod": "STYSTY04"
+    },
+    {
+        "Kurs": "Teknik i vård och omsorg",
+        "Kurskod": "TENTEK0"
+    },
+    {
+        "Kurs": "Tillämpad programmering",
+        "Kurskod": "TIPTIL0"
+    },
+    {
+        "Kurs": "Aktiviteter och upplevelser",
+        "Kurskod": "TURAKT0"
+    },
+    {
+        "Kurs": "Besöksnäringen",
+        "Kurskod": "TURBEÖ0"
+    },
+    {
+        "Kurs": "Guide och reseledare",
+        "Kurskod": "TURGUI0"
+    },
+    {
+        "Kurs": "Hållbar turism",
+        "Kurskod": "TURHÅL0"
+    },
+    {
+        "Kurs": "Marknadsföring och försäljning",
+        "Kurskod": "TURMAS0"
+    },
+    {
+        "Kurs": "Reseproduktion och försäljning",
+        "Kurskod": "TURRES0"
+    },
+    {
+        "Kurs": "Resmål och resvägar",
+        "Kurskod": "TURREM0"
+    },
+    {
+        "Kurs": "Turistbyråservice",
+        "Kurskod": "TURTUR0"
+    },
+    {
+        "Kurs": "Värdskap på resmålet",
+        "Kurskod": "TURVÄR0"
+    },
+    {
+        "Kurs": "Ventilationsisolering",
+        "Kurskod": "VENVET0"
+    },
+    {
+        "Kurs": "Ventilationsmontering 1",
+        "Kurskod": "VENVEN01"
+    },
+    {
+        "Kurs": "Ventilationsmontering 2",
+        "Kurskod": "VENVEN02"
+    },
+    {
+        "Kurs": "Ventilationsplåtslageri 1",
+        "Kurskod": "VENVET01"
+    },
+    {
+        "Kurs": "Ventilationsplåtslageri 2",
+        "Kurskod": "VENVET02"
+    },
+    {
+        "Kurs": "Ventilationsservice",
+        "Kurskod": "VENVEI0"
+    },
+    {
+        "Kurs": "Entreprenadteknik",
+        "Kurskod": "VVSENT0"
+    },
+    {
+        "Kurs": "Sanitetsteknik 1",
+        "Kurskod": "VVSSAN01"
+    },
+    {
+        "Kurs": "Sanitetsteknik 2",
+        "Kurskod": "VVSSAN02"
+    },
+    {
+        "Kurs": "VVS gassvetsning rör",
+        "Kurskod": "VVSVVG0"
+    },
+    {
+        "Kurs": "VVS svets industrirör",
+        "Kurskod": "VVSVVV0"
+    },
+    {
+        "Kurs": "VVS svets och lödning rör",
+        "Kurskod": "VVSVVS0"
+    },
+    {
+        "Kurs": "VVS TIG-svetsning rör",
+        "Kurskod": "VVSVVI0"
+    },
+    {
+        "Kurs": "VVS-teknik",
+        "Kurskod": "VVSVVT0"
+    },
+    {
+        "Kurs": "Värmeteknik 1",
+        "Kurskod": "VVSVÄR01"
+    },
+    {
+        "Kurs": "Värmeteknik 2",
+        "Kurskod": "VVSVÄR02"
+    },
+    {
+        "Kurs": "Vård- och omsorgsarbete 1",
+        "Kurskod": "VÅRVÅR01"
+    },
+    {
+        "Kurs": "Vård- och omsorgsarbete 2",
+        "Kurskod": "VÅRVÅR02"
+    },
+    {
+        "Kurs": "Mobila applikationer",
+        "Kurskod": "WEBMOB0"
+    },
+    {
+        "Kurs": "Webbserverprogrammering 1",
+        "Kurskod": "WEBWEB01"
+    },
+    {
+        "Kurs": "Webbserverprogrammering 2",
+        "Kurskod": "WEBWEB02"
+    },
+    {
+        "Kurs": "Webbutveckling 1",
+        "Kurskod": "WEBWEU01"
+    },
+    {
+        "Kurs": "Webbutveckling 2",
+        "Kurskod": "WEBWEU02"
+    },
+    {
+        "Kurs": "Webbutveckling 3",
+        "Kurskod": "WEBWEU03"
     }
 ]
