@@ -68,7 +68,7 @@ namespace Interpret_grading_documents.Services
 
         public async Task<GraduationDocument> ProcessTextPrompt()
         {
-            var inputFileName = "SlutBetyg_01.png";
+            var inputFileName = "SlutBetyg_02.png";
             var inputPath = Path.Combine(Directory.GetCurrentDirectory(), "SampleImages", inputFileName);
             string extension = Path.GetExtension(inputPath).ToLower();
             string processedImagePath = inputPath; // Initialize with original path
@@ -180,14 +180,19 @@ namespace Interpret_grading_documents.Services
 
             GraduationDocument document = JsonSerializer.Deserialize<GraduationDocument>(jsonResponse);
 
-            var isPersonalIdValid = checker.PersonalIdChecker(document);
+            var isDataValid = checker.ValidateData(document);
 
-            // Add reliability score to 0 if personal ID is invalid
-            if (!isPersonalIdValid)
+            // Add reliability score to 0 if important data is missing or cannot be read (personal ID, full name, program name)
+
+            if (!isDataValid)
             {
-                document.ImageReliability = $"Reliability Score: 0.0\n" +
-                                            $"Betygsdokumentet är inte tillförlitligt, personnummer finns ej eller stämmer inte\n";
-                                            
+                var originalResult = reliabilityResult;
+                var newReliabilityScore = "0.0";
+                var comment = "Betygsdokumentet är inte tillförlitligt, viktig information saknas eller kan ej utläsas.";
+                var updatedResult = checker.UpdateImageReliability(originalResult, newReliabilityScore, comment);
+
+                document.ImageReliability = updatedResult;
+
                 return document;
             }
 
