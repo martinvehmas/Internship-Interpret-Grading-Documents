@@ -1,0 +1,4318 @@
+[
+    {
+        "Kurs": "Administration - specialisering",
+        "Kurskod": "ADMADM00S"
+    },
+    {
+        "Kurs": "Administration 1",
+        "Kurskod": "ADMADM01"
+    },
+    {
+        "Kurs": "Administration 2",
+        "Kurskod": "ADMADM02"
+    },
+    {
+        "Kurs": "Personaladministration",
+        "Kurskod": "ADMPER0"
+    },
+    {
+        "Kurs": "Receptions- och konferensservice",
+        "Kurskod": "ADMREC0"
+    },
+    {
+        "Kurs": "Affärskommunikation",
+        "Kurskod": "AFFAFÄ00S"
+    },
+    {
+        "Kurs": "Aktiviteter och upplevelser",
+        "Kurskod": "AKTAKT0"
+    },
+    {
+        "Kurs": "Besöksnäringen",
+        "Kurskod": "AKTBEO0"
+    },
+    {
+        "Kurs": "Guide och reseledare",
+        "Kurskod": "AKTGUI0"
+    },
+    {
+        "Kurs": "Turistbyråservice",
+        "Kurskod": "AKTTUR0"
+    },
+    {
+        "Kurs": "Värdskap på resmålet",
+        "Kurskod": "AKTVAR0"
+    },
+    {
+        "Kurs": "Anatomi och fysiologi 1",
+        "Kurskod": "ANOANA01"
+    },
+    {
+        "Kurs": "Anatomi och fysiologi 2",
+        "Kurskod": "ANOANA02"
+    },
+    {
+        "Kurs": "Animation - specialisering",
+        "Kurskod": "ANIANI00S"
+    },
+    {
+        "Kurs": "Animation 1",
+        "Kurskod": "ANIANI01"
+    },
+    {
+        "Kurs": "Animation 2",
+        "Kurskod": "ANIANI02"
+    },
+    {
+        "Kurs": "Anläggning - gröna ytor",
+        "Kurskod": "ANLANL0"
+    },
+    {
+        "Kurs": "Anläggning - ledningsbyggnad",
+        "Kurskod": "ANLANÄ0"
+    },
+    {
+        "Kurs": "Anläggning - stensättning",
+        "Kurskod": "ANLANG0"
+    },
+    {
+        "Kurs": "Anläggning - vägbyggnad",
+        "Kurskod": "ANLANN0"
+    },
+    {
+        "Kurs": "Anläggning 1",
+        "Kurskod": "ANLANL01"
+    },
+    {
+        "Kurs": "Anläggning 2",
+        "Kurskod": "ANLANL02"
+    },
+    {
+        "Kurs": "Anläggningsprocessen",
+        "Kurskod": "ANLANS0"
+    },
+    {
+        "Kurs": "Anläggningsförare - process",
+        "Kurskod": "ANAANL0"
+    },
+    {
+        "Kurs": "Anläggningsförare 1",
+        "Kurskod": "ANAANA01"
+    },
+    {
+        "Kurs": "Anläggningsförare 2",
+        "Kurskod": "ANAANA02"
+    },
+    {
+        "Kurs": "Anläggningsförare 3",
+        "Kurskod": "ANAANA03"
+    },
+    {
+        "Kurs": "Anläggningsförare 4",
+        "Kurskod": "ANAANA04"
+    },
+    {
+        "Kurs": "Arkitektur - hus",
+        "Kurskod": "ARKARK0"
+    },
+    {
+        "Kurs": "Arkitektur - rum",
+        "Kurskod": "ARKARI0"
+    },
+    {
+        "Kurs": "Artificiell intelligens 1",
+        "Kurskod": "ARTART01"
+    },
+    {
+        "Kurs": "Artificiell intelligens 2",
+        "Kurskod": "ARTART02"
+    },
+    {
+        "Kurs": "ATV och motorcykel",
+        "Kurskod": "ATOATV0"
+    },
+    {
+        "Kurs": "Allmän automationsteknik",
+        "Kurskod": "AUOALL0"
+    },
+    {
+        "Kurs": "Avhjälpande och förebyggande underhåll",
+        "Kurskod": "AUOAVH0"
+    },
+    {
+        "Kurs": "Bageri - specialisering",
+        "Kurskod": "BAGBAG00S"
+    },
+    {
+        "Kurs": "Bageri 1",
+        "Kurskod": "BAGBAG01"
+    },
+    {
+        "Kurs": "Bageri 2",
+        "Kurskod": "BAGBAG02"
+    },
+    {
+        "Kurs": "Bageri 3",
+        "Kurskod": "BAGBAG03"
+    },
+    {
+        "Kurs": "Bageri 4",
+        "Kurskod": "BAGBAG04"
+    },
+    {
+        "Kurs": "Choklad och konfektyr",
+        "Kurskod": "BAGCHO0"
+    },
+    {
+        "Kurs": "Konditori - specialisering",
+        "Kurskod": "BAGKON00S"
+    },
+    {
+        "Kurs": "Konditori 1",
+        "Kurskod": "BAGKON01"
+    },
+    {
+        "Kurs": "Konditori 2",
+        "Kurskod": "BAGKON02"
+    },
+    {
+        "Kurs": "Konditori 3",
+        "Kurskod": "BAGKON03"
+    },
+    {
+        "Kurs": "Konditori 4",
+        "Kurskod": "BAGKON04"
+    },
+    {
+        "Kurs": "Banskötsel för hästsport",
+        "Kurskod": "BANBAN0"
+    },
+    {
+        "Kurs": "Barn- och ungdomshälsa",
+        "Kurskod": "BAOBAR0"
+    },
+    {
+        "Kurs": "Barn- och ungdomssjukvård",
+        "Kurskod": "BAOBAN0"
+    },
+    {
+        "Kurs": "Beläggning",
+        "Kurskod": "BELBEL0"
+    },
+    {
+        "Kurs": "Beläggningsarbeten",
+        "Kurskod": "BELBEÄ0"
+    },
+    {
+        "Kurs": "Beläggningsmaskiner",
+        "Kurskod": "BELBEG0"
+    },
+    {
+        "Kurs": "Bergarbeten",
+        "Kurskod": "BERBER0"
+    },
+    {
+        "Kurs": "Bergborrning",
+        "Kurskod": "BERBEB0"
+    },
+    {
+        "Kurs": "Bergmaskiner",
+        "Kurskod": "BERBEM0"
+    },
+    {
+        "Kurs": "Bergsprängning",
+        "Kurskod": "BERBEP0"
+    },
+    {
+        "Kurs": "Betong 1 - lågform och platta på mark",
+        "Kurskod": "BETBET01"
+    },
+    {
+        "Kurs": "Betong 2 - väggar och pelare",
+        "Kurskod": "BETBET02"
+    },
+    {
+        "Kurs": "Betong 3 - bärlag",
+        "Kurskod": "BETBET03"
+    },
+    {
+        "Kurs": "Betong 4 - golv",
+        "Kurskod": "BETBET04"
+    },
+    {
+        "Kurs": "Bild",
+        "Kurskod": "BILBIL0"
+    },
+    {
+        "Kurs": "Bild och form - specialisering",
+        "Kurskod": "BILBIL00S"
+    },
+    {
+        "Kurs": "Bild och form 1a1",
+        "Kurskod": "BILBIL01a1"
+    },
+    {
+        "Kurs": "Bild och form 1a2",
+        "Kurskod": "BILBIL01a2"
+    },
+    {
+        "Kurs": "Bild och form 1b",
+        "Kurskod": "BILBIL01b"
+    },
+    {
+        "Kurs": "Form",
+        "Kurskod": "BILFOM0"
+    },
+    {
+        "Kurs": "Bildteori",
+        "Kurskod": "BIDBIT0"
+    },
+    {
+        "Kurs": "Biodling",
+        "Kurskod": "BINBIO0"
+    },
+    {
+        "Kurs": "Biologi 1",
+        "Kurskod": "BIOBIO01"
+    },
+    {
+        "Kurs": "Biologi 2",
+        "Kurskod": "BIOBIO02"
+    },
+    {
+        "Kurs": "Bioteknik",
+        "Kurskod": "BIOBIT0"
+    },
+    {
+        "Kurs": "Bevarandebiologi",
+        "Kurskod": "BIGBEA0"
+    },
+    {
+        "Kurs": "Biologi - naturbruk - specialisering",
+        "Kurskod": "BIGBIG00S"
+    },
+    {
+        "Kurs": "Djurens biologi",
+        "Kurskod": "BIGDJE0"
+    },
+    {
+        "Kurs": "Marken och växternas biologi",
+        "Kurskod": "BIGMAN0"
+    },
+    {
+        "Kurs": "Biologi i vattenmiljöer 1",
+        "Kurskod": "BIIVAT01"
+    },
+    {
+        "Kurs": "Biologi i vattenmiljöer 2",
+        "Kurskod": "BIIVAT02"
+    },
+    {
+        "Kurs": "Biologi i vattenmiljöer 3",
+        "Kurskod": "BIIVAT03"
+    },
+    {
+        "Kurs": "Akut omhändertagande",
+        "Kurskod": "BEVAKU0"
+    },
+    {
+        "Kurs": "Bevakning och säkerhet",
+        "Kurskod": "BEVBEV0"
+    },
+    {
+        "Kurs": "Brand och räddning",
+        "Kurskod": "BEVBRA0"
+    },
+    {
+        "Kurs": "Vardagsolyckor",
+        "Kurskod": "BEVVAR0"
+    },
+    {
+        "Kurs": "Bussteknik",
+        "Kurskod": "BUSBUS0"
+    },
+    {
+        "Kurs": "Bygg och anläggning 1",
+        "Kurskod": "BYGBYG01"
+    },
+    {
+        "Kurs": "Bygg och anläggning 2",
+        "Kurskod": "BYGBYG02"
+    },
+    {
+        "Kurs": "Byggstyrning",
+        "Kurskod": "BYPBYG0"
+    },
+    {
+        "Kurs": "Planering före byggstart",
+        "Kurskod": "BYPPLA0"
+    },
+    {
+        "Kurs": "Rit- och mätningsteknik",
+        "Kurskod": "BYPRIT0"
+    },
+    {
+        "Kurs": "Kustnavigation och säkerhet",
+        "Kurskod": "BATKUS0"
+    },
+    {
+        "Kurs": "Skärgårdsnavigation",
+        "Kurskod": "BATSKA0"
+    },
+    {
+        "Kurs": "Cad - specialisering",
+        "Kurskod": "CADCAD00S"
+    },
+    {
+        "Kurs": "Cad 1",
+        "Kurskod": "CADCAD01"
+    },
+    {
+        "Kurs": "Cad 2",
+        "Kurskod": "CADCAD02"
+    },
+    {
+        "Kurs": "Cad 3",
+        "Kurskod": "CADCAD03"
+    },
+    {
+        "Kurs": "Charkuteri - specialisering",
+        "Kurskod": "CHACHA00S"
+    },
+    {
+        "Kurs": "Charkuteri 1",
+        "Kurskod": "CHACHA01"
+    },
+    {
+        "Kurs": "Charkuteri 2",
+        "Kurskod": "CHACHA02"
+    },
+    {
+        "Kurs": "Charkuteri 3",
+        "Kurskod": "CHACHA03"
+    },
+    {
+        "Kurs": "Charkuteri 4",
+        "Kurskod": "CHACHA04"
+    },
+    {
+        "Kurs": "Akrobatik",
+        "Kurskod": "CIRAKR00S"
+    },
+    {
+        "Kurs": "Cirkus 1",
+        "Kurskod": "CIRCIR01S"
+    },
+    {
+        "Kurs": "Cirkus 2",
+        "Kurskod": "CIRCIR02S"
+    },
+    {
+        "Kurs": "Dansgestaltning 1",
+        "Kurskod": "DANDAN01"
+    },
+    {
+        "Kurs": "Dansgestaltning 2",
+        "Kurskod": "DANDAN02"
+    },
+    {
+        "Kurs": "Dansimprovisation",
+        "Kurskod": "DANDAS0"
+    },
+    {
+        "Kurs": "Dansimprovisation och komposition",
+        "Kurskod": "DANDAI0"
+    },
+    {
+        "Kurs": "Koreografi",
+        "Kurskod": "DANKOO0"
+    },
+    {
+        "Kurs": "Repertoar",
+        "Kurskod": "DANREE0"
+    },
+    {
+        "Kurs": "Dansimprovisation och komposition för yrkesdansare - profil klassisk balett",
+        "Kurskod": "DAGDAS3"
+    },
+    {
+        "Kurs": "Dansimprovisation och komposition för yrkesdansare - profil modern nutida dans",
+        "Kurskod": "DAGDAN3"
+    },
+    {
+        "Kurs": "Pas de deux/partnering",
+        "Kurskod": "DAGPAS3"
+    },
+    {
+        "Kurs": "Repertoar för yrkesdansare",
+        "Kurskod": "DAGREP3"
+    },
+    {
+        "Kurs": "Scenisk verksamhet för yrkesdansare",
+        "Kurskod": "DAGSCE3"
+    },
+    {
+        "Kurs": "Dansorientering",
+        "Kurskod": "DASDAO0"
+    },
+    {
+        "Kurs": "Dansteknik - specialisering",
+        "Kurskod": "DATDAN00S"
+    },
+    {
+        "Kurs": "Dansteknik 1",
+        "Kurskod": "DATDAS01S"
+    },
+    {
+        "Kurs": "Dansteknik 2",
+        "Kurskod": "DATDAS02S"
+    },
+    {
+        "Kurs": "Dansteknik 3",
+        "Kurskod": "DATDAS03S"
+    },
+    {
+        "Kurs": "Dansteknik 4",
+        "Kurskod": "DATDAS04S"
+    },
+    {
+        "Kurs": "Dansträning",
+        "Kurskod": "DATDAR0"
+    },
+    {
+        "Kurs": "Dansteknik - breddning",
+        "Kurskod": "DAKDAN3"
+    },
+    {
+        "Kurs": "Dansträning för yrkesdansare",
+        "Kurskod": "DAKDAS3"
+    },
+    {
+        "Kurs": "Klassisk balett 1a",
+        "Kurskod": "DAKKLA31a"
+    },
+    {
+        "Kurs": "Klassisk balett 1b",
+        "Kurskod": "DAKKLA31b"
+    },
+    {
+        "Kurs": "Klassisk balett 2",
+        "Kurskod": "DAKKLA32"
+    },
+    {
+        "Kurs": "Klassisk balett 3",
+        "Kurskod": "DAKKLA33"
+    },
+    {
+        "Kurs": "Modern nutida dans 1a",
+        "Kurskod": "DAKMOD31a"
+    },
+    {
+        "Kurs": "Modern nutida dans 1b",
+        "Kurskod": "DAKMOD31b"
+    },
+    {
+        "Kurs": "Modern nutida dans 2",
+        "Kurskod": "DAKMOD32"
+    },
+    {
+        "Kurs": "Modern nutida dans 3",
+        "Kurskod": "DAKMOD33"
+    },
+    {
+        "Kurs": "Dansteori",
+        "Kurskod": "DAEDAT0"
+    },
+    {
+        "Kurs": "Datalagring",
+        "Kurskod": "DAADAT3"
+    },
+    {
+        "Kurs": "Datoriserad mönsterhantering 1",
+        "Kurskod": "DAIMON01"
+    },
+    {
+        "Kurs": "Datoriserad mönsterhantering 2",
+        "Kurskod": "DAIMON02"
+    },
+    {
+        "Kurs": "Dator- och nätverksteknik",
+        "Kurskod": "DAODAC0"
+    },
+    {
+        "Kurs": "Datorsamordning och support",
+        "Kurskod": "DAODAT0"
+    },
+    {
+        "Kurs": "Datorteknik 1a",
+        "Kurskod": "DAODAT01a"
+    },
+    {
+        "Kurs": "Datorteknik 1b",
+        "Kurskod": "DAODAT01b"
+    },
+    {
+        "Kurs": "Digital kommunikationsteknik",
+        "Kurskod": "DAODIG0"
+    },
+    {
+        "Kurs": "Industriell informationsteknik",
+        "Kurskod": "DAOINU0"
+    },
+    {
+        "Kurs": "Multimediasystem",
+        "Kurskod": "DAOMUL0"
+    },
+    {
+        "Kurs": "Cad/cam",
+        "Kurskod": "DARCAD0"
+    },
+    {
+        "Kurs": "Datorstyrd produktion 1",
+        "Kurskod": "DARDAT01S"
+    },
+    {
+        "Kurs": "Datorstyrd produktion 2",
+        "Kurskod": "DARDAT02"
+    },
+    {
+        "Kurs": "Datorstyrd produktion 3",
+        "Kurskod": "DARDAT03"
+    },
+    {
+        "Kurs": "Datorstyrd produktion 4",
+        "Kurskod": "DARDAT04"
+    },
+    {
+        "Kurs": "Datorstyrd produktion 5",
+        "Kurskod": "DARDAT05"
+    },
+    {
+        "Kurs": "Datorstyrd produktion 6",
+        "Kurskod": "DARDAT06"
+    },
+    {
+        "Kurs": "Programmerbara datorsystem - spårfordon",
+        "Kurskod": "DAYPRO0"
+    },
+    {
+        "Kurs": "Design 1",
+        "Kurskod": "DESDES01"
+    },
+    {
+        "Kurs": "Design 2",
+        "Kurskod": "DESDES02"
+    },
+    {
+        "Kurs": "Designmodeller",
+        "Kurskod": "DESDES0"
+    },
+    {
+        "Kurs": "Digitalt skapande 1",
+        "Kurskod": "DIGDIG01"
+    },
+    {
+        "Kurs": "Digitalt skapande 2",
+        "Kurskod": "DIGDIG02"
+    },
+    {
+        "Kurs": "Djur - specialisering",
+        "Kurskod": "DJUDJU00S"
+    },
+    {
+        "Kurs": "Djur i zoohandel",
+        "Kurskod": "DJUDJI0"
+    },
+    {
+        "Kurs": "Djuren i naturbruket",
+        "Kurskod": "DJUDJR0"
+    },
+    {
+        "Kurs": "Djurhållning",
+        "Kurskod": "DJUDJH0"
+    },
+    {
+        "Kurs": "Sällskapsdjur 1",
+        "Kurskod": "DJUSÄL01"
+    },
+    {
+        "Kurs": "Sällskapsdjur 2",
+        "Kurskod": "DJUSÄL02"
+    },
+    {
+        "Kurs": "Djur för forskningsändamål",
+        "Kurskod": "DJFDJU0"
+    },
+    {
+        "Kurs": "Djurparksdjur 1",
+        "Kurskod": "DJPDJU01"
+    },
+    {
+        "Kurs": "Djurparksdjur 2",
+        "Kurskod": "DJPDJU02"
+    },
+    {
+        "Kurs": "Djurvård inom djurens hälso- och sjukvård 1",
+        "Kurskod": "DJRDJU01"
+    },
+    {
+        "Kurs": "Djurvård inom djurens hälso- och sjukvård 2",
+        "Kurskod": "DJRDJU02"
+    },
+    {
+        "Kurs": "Avhjälpande underhåll 1",
+        "Kurskod": "DRIAVH01"
+    },
+    {
+        "Kurs": "Avhjälpande underhåll 2",
+        "Kurskod": "DRIAVH02"
+    },
+    {
+        "Kurs": "Underhåll - driftsäkerhet",
+        "Kurskod": "DRIUND0"
+    },
+    {
+        "Kurs": "Underhåll - elteknik",
+        "Kurskod": "DRIUNE0"
+    },
+    {
+        "Kurs": "Underhåll - hydraulik",
+        "Kurskod": "DRIUNR0"
+    },
+    {
+        "Kurs": "Underhåll - hydraulik och pneumatik",
+        "Kurskod": "DRIUNH0"
+    },
+    {
+        "Kurs": "Underhåll - lager och smörjteknik",
+        "Kurskod": "DRIUNÅ0"
+    },
+    {
+        "Kurs": "Underhåll - mekatronik",
+        "Kurskod": "DRIUNL0"
+    },
+    {
+        "Kurs": "Underhåll - pneumatik",
+        "Kurskod": "DRIUNP0"
+    },
+    {
+        "Kurs": "Underhåll - produktionsmekanik",
+        "Kurskod": "DRIUNO0"
+    },
+    {
+        "Kurs": "Underhåll - pumpteknik",
+        "Kurskod": "DRIUNU0"
+    },
+    {
+        "Kurs": "Underhåll - transmissioner och uppriktning",
+        "Kurskod": "DRIUNT0"
+    },
+    {
+        "Kurs": "Underhåll - vibrationsteknik",
+        "Kurskod": "DRIUNV0"
+    },
+    {
+        "Kurs": "Barteknik",
+        "Kurskod": "DRYBAT0"
+    },
+    {
+        "Kurs": "Drycker",
+        "Kurskod": "DRYDRY0"
+    },
+    {
+        "Kurs": "Drycker - specialisering",
+        "Kurskod": "DRYDRY00S"
+    },
+    {
+        "Kurs": "Drycker och ansvarsfull alkoholservering",
+        "Kurskod": "DRYDRC0"
+    },
+    {
+        "Kurs": "Däckstjänst 1",
+        "Kurskod": "DACDAC01"
+    },
+    {
+        "Kurs": "Däckstjänst 2",
+        "Kurskod": "DACDAC02"
+    },
+    {
+        "Kurs": "Fartygsbefäl",
+        "Kurskod": "DACFAR0"
+    },
+    {
+        "Kurs": "Radiokommunikation till sjöss",
+        "Kurskod": "DACRAD0"
+    },
+    {
+        "Kurs": "Belysningsnät",
+        "Kurskod": "ELDBEY0"
+    },
+    {
+        "Kurs": "Högspänningsnät",
+        "Kurskod": "ELDHÖG0"
+    },
+    {
+        "Kurs": "Lågspänningsnät",
+        "Kurskod": "ELDLÅS0"
+    },
+    {
+        "Kurs": "Nät- och transformatorstationer",
+        "Kurskod": "ELDNÄT0"
+    },
+    {
+        "Kurs": "Nätunderhållsarbete i stadsnät",
+        "Kurskod": "ELDNÄU0"
+    },
+    {
+        "Kurs": "Nätunderhållsarbete i vindkraftnät",
+        "Kurskod": "ELDNÄN0"
+    },
+    {
+        "Kurs": "Nätunderhållsarbete på luftledningsnät 0,4-24kV",
+        "Kurskod": "ELDNÄD0"
+    },
+    {
+        "Kurs": "Elektronik och mikrodatorteknik",
+        "Kurskod": "ELEELR0"
+    },
+    {
+        "Kurs": "Låg- och högfrekvenskretsar",
+        "Kurskod": "ELELÅG0"
+    },
+    {
+        "Kurs": "Mikrodatortillämpningar",
+        "Kurskod": "ELEMIK0"
+    },
+    {
+        "Kurs": "Elektronik - spårfordon",
+        "Kurskod": "ELNELE0"
+    },
+    {
+        "Kurs": "Elektronikproduktionsteknik",
+        "Kurskod": "ELKELO0"
+    },
+    {
+        "Kurs": "Provning och kontrollarbete",
+        "Kurskod": "ELKPRV0"
+    },
+    {
+        "Kurs": "Bild- och ljudanläggningar",
+        "Kurskod": "ELOBID0"
+    },
+    {
+        "Kurs": "Kontorstekniksystem",
+        "Kurskod": "ELOKOT0"
+    },
+    {
+        "Kurs": "Trådlösa radiosystem",
+        "Kurskod": "ELOTRL0"
+    },
+    {
+        "Kurs": "Antenn- och kabel-TV-teknik",
+        "Kurskod": "ELRANT0"
+    },
+    {
+        "Kurs": "Data- och medianät",
+        "Kurskod": "ELRDAA0"
+    },
+    {
+        "Kurs": "Elektromekanik",
+        "Kurskod": "ELRELK0"
+    },
+    {
+        "Kurs": "Elkraftteknik",
+        "Kurskod": "ELRELF0"
+    },
+    {
+        "Kurs": "Elementmontering",
+        "Kurskod": "ELMELM0"
+    },
+    {
+        "Kurs": "Elkraft och traktion - spårfordon",
+        "Kurskod": "ELFELK0"
+    },
+    {
+        "Kurs": "Ellära 1",
+        "Kurskod": "ELLELL01"
+    },
+    {
+        "Kurs": "Ellära 2",
+        "Kurskod": "ELLELL02"
+    },
+    {
+        "Kurs": "Praktisk ellära",
+        "Kurskod": "ELLPRA0"
+    },
+    {
+        "Kurs": "Ellära - spårfordon 1",
+        "Kurskod": "LLAELL01"
+    },
+    {
+        "Kurs": "Ellära - spårfordon 2",
+        "Kurskod": "LLAELL02"
+    },
+    {
+        "Kurs": "Digitalteknik och flyginstrument",
+        "Kurskod": "ELADIG0"
+    },
+    {
+        "Kurs": "Ellära - flyg",
+        "Kurskod": "ELAELL0"
+    },
+    {
+        "Kurs": "Elmotordrivsystem",
+        "Kurskod": "ELIELD0"
+    },
+    {
+        "Kurs": "Elmätteknik 1",
+        "Kurskod": "ELÄELM01"
+    },
+    {
+        "Kurs": "Elmätteknik 2",
+        "Kurskod": "ELÄELM02"
+    },
+    {
+        "Kurs": "El- och hybridfordon 1",
+        "Kurskod": "ELCELO01"
+    },
+    {
+        "Kurs": "El- och hybridfordon 2",
+        "Kurskod": "ELCELO02"
+    },
+    {
+        "Kurs": "El- och verkstadsteknik",
+        "Kurskod": "VERVER0"
+    },
+    {
+        "Kurs": "Energiteknik 1",
+        "Kurskod": "ENEENE01"
+    },
+    {
+        "Kurs": "Energiteknik 2",
+        "Kurskod": "ENEENE02"
+    },
+    {
+        "Kurs": "Förnybar energi",
+        "Kurskod": "ENEFÖR0"
+    },
+    {
+        "Kurs": "Vatten- och processkemi",
+        "Kurskod": "ENEVAE0"
+    },
+    {
+        "Kurs": "Engelska 5",
+        "Kurskod": "ENGENG05"
+    },
+    {
+        "Kurs": "Engelska 6",
+        "Kurskod": "ENGENG06"
+    },
+    {
+        "Kurs": "Engelska 7",
+        "Kurskod": "ENGENG07"
+    },
+    {
+        "Kurs": "Engelska för döva 5",
+        "Kurskod": "ENLENE05"
+    },
+    {
+        "Kurs": "Engelska för döva 6",
+        "Kurskod": "ENLENE06"
+    },
+    {
+        "Kurs": "Engelska för döva 7",
+        "Kurskod": "ENLENE07"
+    },
+    {
+        "Kurs": "Entreprenörskap",
+        "Kurskod": "ENTENR0"
+    },
+    {
+        "Kurs": "Estetisk kommunikation 1",
+        "Kurskod": "ESTEST01"
+    },
+    {
+        "Kurs": "Estetisk kommunikation 2",
+        "Kurskod": "ESTEST02"
+    },
+    {
+        "Kurs": "Estetisk kommunikation 3",
+        "Kurskod": "ESTEST03"
+    },
+    {
+        "Kurs": "Eurytmi 1",
+        "Kurskod": "EUREUR01"
+    },
+    {
+        "Kurs": "Eurytmi 2",
+        "Kurskod": "EUREUR02"
+    },
+    {
+        "Kurs": "Eurytmi 3",
+        "Kurskod": "EUREUR03"
+    },
+    {
+        "Kurs": "Eurytmi 4",
+        "Kurskod": "EUREUR04"
+    },
+    {
+        "Kurs": "Eventteknik",
+        "Kurskod": "EVEEVN0"
+    },
+    {
+        "Kurs": "Ljudproduktionsteknik",
+        "Kurskod": "EVELJD0"
+    },
+    {
+        "Kurs": "Ljus- och bildproduktionsteknik",
+        "Kurskod": "EVELJS0"
+    },
+    {
+        "Kurs": "Lasthantering och passagerarsäkerhet",
+        "Kurskod": "FARLAS0"
+    },
+    {
+        "Kurs": "Skeppsteknik",
+        "Kurskod": "FARSKE0"
+    },
+    {
+        "Kurs": "Fastighetsautomation 1",
+        "Kurskod": "FAIFAS01"
+    },
+    {
+        "Kurs": "Fastighetsautomation 2",
+        "Kurskod": "FAIFAS02"
+    },
+    {
+        "Kurs": "Fastighetsförvaltning",
+        "Kurskod": "FAFFAS0"
+    },
+    {
+        "Kurs": "Fastighetskommunikation",
+        "Kurskod": "FAFFAT0"
+    },
+    {
+        "Kurs": "Informationsteknik i fastighetsförvaltning",
+        "Kurskod": "FAFINF0"
+    },
+    {
+        "Kurs": "Fastighetsservice - byggnader",
+        "Kurskod": "FASFAS0"
+    },
+    {
+        "Kurs": "Fastighetsservice - elarbeten",
+        "Kurskod": "FASFAH0"
+    },
+    {
+        "Kurs": "Fastighetsservice - VVS",
+        "Kurskod": "FASFAE0"
+    },
+    {
+        "Kurs": "Fastighetsservice - ytor",
+        "Kurskod": "FASFAV0"
+    },
+    {
+        "Kurs": "Film- och tv-produktion 1",
+        "Kurskod": "FILFIL01"
+    },
+    {
+        "Kurs": "Film- och tv-produktion 2",
+        "Kurskod": "FILFIL02"
+    },
+    {
+        "Kurs": "Filmproduktion",
+        "Kurskod": "FILFIL0"
+    },
+    {
+        "Kurs": "Manus för film och tv",
+        "Kurskod": "FILMAN0"
+    },
+    {
+        "Kurs": "Tv-produktion",
+        "Kurskod": "FILTVP0"
+    },
+    {
+        "Kurs": "Filosofi 1",
+        "Kurskod": "FIOFIO01"
+    },
+    {
+        "Kurs": "Filosofi 2",
+        "Kurskod": "FIOFIO02"
+    },
+    {
+        "Kurs": "Fiske 1",
+        "Kurskod": "FISFIS01"
+    },
+    {
+        "Kurs": "Fiske 2",
+        "Kurskod": "FISFIS02"
+    },
+    {
+        "Kurs": "Fiske 3",
+        "Kurskod": "FISFIS03"
+    },
+    {
+        "Kurs": "Fiskevård 1",
+        "Kurskod": "FIKFIS01"
+    },
+    {
+        "Kurs": "Fiskevård 2",
+        "Kurskod": "FIKFIS02"
+    },
+    {
+        "Kurs": "Fiskevård 3",
+        "Kurskod": "FIKFIS03"
+    },
+    {
+        "Kurs": "Flerbränslefordon",
+        "Kurskod": "FLEFLR0"
+    },
+    {
+        "Kurs": "Flygplansteknik",
+        "Kurskod": "FLPFLY0"
+    },
+    {
+        "Kurs": "Flygplatsen",
+        "Kurskod": "FLGFLY0"
+    },
+    {
+        "Kurs": "Fälthållning",
+        "Kurskod": "FLGFAL0"
+    },
+    {
+        "Kurs": "Fordon och redskap",
+        "Kurskod": "FOHFOR0"
+    },
+    {
+        "Kurs": "Fordons- och transportbranschens villkor och arbetsområden",
+        "Kurskod": "FORFOD0"
+    },
+    {
+        "Kurs": "Fordonsteknik - introduktion",
+        "Kurskod": "FODFOO0"
+    },
+    {
+        "Kurs": "Fordonstestteknik",
+        "Kurskod": "FOOFOR0"
+    },
+    {
+        "Kurs": "Miljöer och utrustning för fordonstest",
+        "Kurskod": "FOOMIL0"
+    },
+    {
+        "Kurs": "Fackteckning och design",
+        "Kurskod": "FOMFAC0"
+    },
+    {
+        "Kurs": "Formgivning 1",
+        "Kurskod": "FOMFOR01S"
+    },
+    {
+        "Kurs": "Formgivning 2",
+        "Kurskod": "FOMFOR02S"
+    },
+    {
+        "Kurs": "Formgivning 3",
+        "Kurskod": "FOMFOR03S"
+    },
+    {
+        "Kurs": "Textil färg och form",
+        "Kurskod": "FOMTEX0"
+    },
+    {
+        "Kurs": "Fotografisk bild 1",
+        "Kurskod": "FOTFOT01"
+    },
+    {
+        "Kurs": "Fotografisk bild 2",
+        "Kurskod": "FOTFOT02"
+    },
+    {
+        "Kurs": "Fotografisk bild 3",
+        "Kurskod": "FOTFOT03"
+    },
+    {
+        "Kurs": "Fotografisk bild 4",
+        "Kurskod": "FOTFOT04"
+    },
+    {
+        "Kurs": "Båthantering och underhåll",
+        "Kurskod": "FRDBAT0"
+    },
+    {
+        "Kurs": "Båtsystem",
+        "Kurskod": "FRDBAS0"
+    },
+    {
+        "Kurs": "Konstruktion och reparation 1",
+        "Kurskod": "FRDKON01"
+    },
+    {
+        "Kurs": "Konstruktion och reparation 2",
+        "Kurskod": "FRDKON02"
+    },
+    {
+        "Kurs": "Plast- och lamineringsteknik",
+        "Kurskod": "FRDPLA0"
+    },
+    {
+        "Kurs": "Bad- och friskvårdsanläggningar",
+        "Kurskod": "FRIBAD0"
+    },
+    {
+        "Kurs": "Drift och underhåll av fritidsanläggningar",
+        "Kurskod": "FRIDRF0"
+    },
+    {
+        "Kurs": "Fritids- och friskvårdsverksamheter",
+        "Kurskod": "FRIFRT0"
+    },
+    {
+        "Kurs": "Fritidsmiljöer och arenor",
+        "Kurskod": "FRIFRS0"
+    },
+    {
+        "Kurs": "Fritids- och idrottskunskap",
+        "Kurskod": "FRTFRD0"
+    },
+    {
+        "Kurs": "Funktionsförmåga och funktionsnedsättning 1",
+        "Kurskod": "FUTFUN01"
+    },
+    {
+        "Kurs": "Funktionsförmåga och funktionsnedsättning 2",
+        "Kurskod": "FUTFUN02"
+    },
+    {
+        "Kurs": "Fysik 1a",
+        "Kurskod": "FYSFYS01a"
+    },
+    {
+        "Kurs": "Fysik 1b1",
+        "Kurskod": "FYSFYS01b1"
+    },
+    {
+        "Kurs": "Fysik 1b2",
+        "Kurskod": "FYSFYS01b2"
+    },
+    {
+        "Kurs": "Fysik 2",
+        "Kurskod": "FYSFYS02"
+    },
+    {
+        "Kurs": "Fysik 3",
+        "Kurskod": "FYSFYS03"
+    },
+    {
+        "Kurs": "Entreprenörskap och företagande",
+        "Kurskod": "FÖRENT0"
+    },
+    {
+        "Kurs": "Företagsekonomi - specialisering",
+        "Kurskod": "FÖRFÖR00S"
+    },
+    {
+        "Kurs": "Företagsekonomi 1",
+        "Kurskod": "FÖRFÖR01"
+    },
+    {
+        "Kurs": "Företagsekonomi 2",
+        "Kurskod": "FÖRFÖR02"
+    },
+    {
+        "Kurs": "Marknadsföring",
+        "Kurskod": "FÖRMAD0"
+    },
+    {
+        "Kurs": "Redovisning 1",
+        "Kurskod": "FÖRRED01"
+    },
+    {
+        "Kurs": "Redovisning 2",
+        "Kurskod": "FÖRRED02"
+    },
+    {
+        "Kurs": "Personlig försäljning 1",
+        "Kurskod": "FÖSPER01"
+    },
+    {
+        "Kurs": "Personlig försäljning 2",
+        "Kurskod": "FÖSPER02"
+    },
+    {
+        "Kurs": "Servicekunskap 1",
+        "Kurskod": "FÖSSEV01"
+    },
+    {
+        "Kurs": "Servicekunskap 2",
+        "Kurskod": "FÖSSER02"
+    },
+    {
+        "Kurs": "Gasturbinmotorer",
+        "Kurskod": "GASGAS0"
+    },
+    {
+        "Kurs": "Geografi 1",
+        "Kurskod": "GEOGEO01"
+    },
+    {
+        "Kurs": "Geografi 2",
+        "Kurskod": "GEOGEO02"
+    },
+    {
+        "Kurs": "Geografiska informationssystem",
+        "Kurskod": "GEOGEO0"
+    },
+    {
+        "Kurs": "Gerontologi och geriatrik",
+        "Kurskod": "GERGER0"
+    },
+    {
+        "Kurs": "Godshantering - vux",
+        "Kurskod": "GODGOD1"
+    },
+    {
+        "Kurs": "Hantering av varor och gods",
+        "Kurskod": "GODHAT0"
+    },
+    {
+        "Kurs": "Lastbärare",
+        "Kurskod": "GODLAS0"
+    },
+    {
+        "Kurs": "Maskinell godshantering",
+        "Kurskod": "GODMAL0"
+    },
+    {
+        "Kurs": "Tunga arbetsmaskiner",
+        "Kurskod": "GODTUN0"
+    },
+    {
+        "Kurs": "Godstrafik",
+        "Kurskod": "GOSGOD0"
+    },
+    {
+        "Kurs": "Godstransporter - specialisering",
+        "Kurskod": "GOSGOD00S"
+    },
+    {
+        "Kurs": "Lastbilsmonterad kran",
+        "Kurskod": "GOSLAL0"
+    },
+    {
+        "Kurs": "Golvläggning 1",
+        "Kurskod": "GOLGOL01"
+    },
+    {
+        "Kurs": "Golvläggning 2 - våtrum",
+        "Kurskod": "GOLGOL02"
+    },
+    {
+        "Kurs": "Golvläggning 3 - trä och laminat",
+        "Kurskod": "GOLGOL03"
+    },
+    {
+        "Kurs": "Grafisk illustration",
+        "Kurskod": "GRAGRI0"
+    },
+    {
+        "Kurs": "Grafisk illustration i pixelgrafik",
+        "Kurskod": "GRAGRP0"
+    },
+    {
+        "Kurs": "Grafisk illustration i vektorgrafik",
+        "Kurskod": "GRAGRV0"
+    },
+    {
+        "Kurs": "Grafisk kommunikation 1",
+        "Kurskod": "GRAGRA01"
+    },
+    {
+        "Kurs": "Grafisk kommunikation 2",
+        "Kurskod": "GRAGRA02"
+    },
+    {
+        "Kurs": "Grafiska arbetsflöden och analysmodeller",
+        "Kurskod": "GRAGRA0"
+    },
+    {
+        "Kurs": "Original, reproduktion och prepress",
+        "Kurskod": "GRAGRR0"
+    },
+    {
+        "Kurs": "Grafisk produktion 1",
+        "Kurskod": "GRFGRF01"
+    },
+    {
+        "Kurs": "Grafisk produktion 2",
+        "Kurskod": "GRFGRF02"
+    },
+    {
+        "Kurs": "Grafisk produktion 3",
+        "Kurskod": "GRFGRF03"
+    },
+    {
+        "Kurs": "Grafisk produktion 4",
+        "Kurskod": "GRFGRF04"
+    },
+    {
+        "Kurs": "Grundläggande vård och omsorg",
+        "Kurskod": "GRUGRD0"
+    },
+    {
+        "Kurs": "Gränssnitt 3D",
+        "Kurskod": "GRÄGRN0"
+    },
+    {
+        "Kurs": "Gränssnittsdesign",
+        "Kurskod": "GRÄGRÄ0"
+    },
+    {
+        "Kurs": "Grönyte- och småmaskinsteknik",
+        "Kurskod": "GROGRO0"
+    },
+    {
+        "Kurs": "Gymnasieingenjören i praktiken",
+        "Kurskod": "GYNGYM3"
+    },
+    {
+        "Kurs": "Affärsutveckling och ledarskap",
+        "Kurskod": "HANAFR0"
+    },
+    {
+        "Kurs": "Branschkunskap inom handel",
+        "Kurskod": "HANBRA0"
+    },
+    {
+        "Kurs": "Handel - specialisering",
+        "Kurskod": "HANHAN00S"
+    },
+    {
+        "Kurs": "Handel och hållbar utveckling",
+        "Kurskod": "HANHAN0"
+    },
+    {
+        "Kurs": "Praktisk marknadsföring 1",
+        "Kurskod": "HANPRA01"
+    },
+    {
+        "Kurs": "Praktisk marknadsföring 2",
+        "Kurskod": "HANPRA02"
+    },
+    {
+        "Kurs": "Barberare 2",
+        "Kurskod": "HAVBAR02"
+    },
+    {
+        "Kurs": "Barberare 3",
+        "Kurskod": "HAVBAR03"
+    },
+    {
+        "Kurs": "Barberare 4",
+        "Kurskod": "HAVBAR04"
+    },
+    {
+        "Kurs": "Barberare 5",
+        "Kurskod": "HAVBAR05"
+    },
+    {
+        "Kurs": "Barberare 6a",
+        "Kurskod": "HAVBAR06a"
+    },
+    {
+        "Kurs": "Barberare 6b",
+        "Kurskod": "HAVBAR06b"
+    },
+    {
+        "Kurs": "Finsnickeri 1",
+        "Kurskod": "HAVFIN01"
+    },
+    {
+        "Kurs": "Finsnickeri 2",
+        "Kurskod": "HAVFIN02"
+    },
+    {
+        "Kurs": "Finsnickeri 3",
+        "Kurskod": "HAVFIN03"
+    },
+    {
+        "Kurs": "Finsnickeri 4",
+        "Kurskod": "HAVFIN04"
+    },
+    {
+        "Kurs": "Finsnickeri 4 - specialisering",
+        "Kurskod": "HAVFIN04S"
+    },
+    {
+        "Kurs": "Finsnickeri 5",
+        "Kurskod": "HAVFIN05"
+    },
+    {
+        "Kurs": "Finsnickeri 5 - specialisering",
+        "Kurskod": "HAVFIN05S"
+    },
+    {
+        "Kurs": "Finsnickeri 6a",
+        "Kurskod": "HAVFIN06a"
+    },
+    {
+        "Kurs": "Finsnickeri 6b",
+        "Kurskod": "HAVFIN06b"
+    },
+    {
+        "Kurs": "Florist 1",
+        "Kurskod": "HAVFLO01"
+    },
+    {
+        "Kurs": "Florist 2",
+        "Kurskod": "HAVFLO02"
+    },
+    {
+        "Kurs": "Florist 3",
+        "Kurskod": "HAVFLO03"
+    },
+    {
+        "Kurs": "Florist 4",
+        "Kurskod": "HAVFLO04"
+    },
+    {
+        "Kurs": "Florist 4 - specialisering",
+        "Kurskod": "HAVFLO04S"
+    },
+    {
+        "Kurs": "Florist 5",
+        "Kurskod": "HAVFLO05"
+    },
+    {
+        "Kurs": "Florist 5 - specialisering",
+        "Kurskod": "HAVFLO05S"
+    },
+    {
+        "Kurs": "Florist 6a",
+        "Kurskod": "HAVFLO06a"
+    },
+    {
+        "Kurs": "Florist 6b",
+        "Kurskod": "HAVFLO06b"
+    },
+    {
+        "Kurs": "Frisör 1",
+        "Kurskod": "HAVFRI01"
+    },
+    {
+        "Kurs": "Frisör 2",
+        "Kurskod": "HAVFRI02"
+    },
+    {
+        "Kurs": "Frisör 3",
+        "Kurskod": "HAVFRI03"
+    },
+    {
+        "Kurs": "Frisör 4",
+        "Kurskod": "HAVFRI04"
+    },
+    {
+        "Kurs": "Frisör 4 - specialisering",
+        "Kurskod": "HAVFRI04S"
+    },
+    {
+        "Kurs": "Frisör 5",
+        "Kurskod": "HAVFRI05"
+    },
+    {
+        "Kurs": "Frisör 5 - specialisering",
+        "Kurskod": "HAVFRI05S"
+    },
+    {
+        "Kurs": "Frisör 6a",
+        "Kurskod": "HAVFRI06a"
+    },
+    {
+        "Kurs": "Frisör 6b",
+        "Kurskod": "HAVFRI06b"
+    },
+    {
+        "Kurs": "Hantverk - introduktion",
+        "Kurskod": "HAVHAV0"
+    },
+    {
+        "Kurs": "Hantverksteknik 1",
+        "Kurskod": "HAVHNT01"
+    },
+    {
+        "Kurs": "Hantverksteknik 2",
+        "Kurskod": "HAVHNT02"
+    },
+    {
+        "Kurs": "Hantverksteknik 3",
+        "Kurskod": "HAVHNT03"
+    },
+    {
+        "Kurs": "Hantverksteknik 4",
+        "Kurskod": "HAVHNT04"
+    },
+    {
+        "Kurs": "Hantverksteknik 4 - specialisering",
+        "Kurskod": "HAVHNT04S"
+    },
+    {
+        "Kurs": "Hantverksteknik 5",
+        "Kurskod": "HAVHNT05"
+    },
+    {
+        "Kurs": "Hantverksteknik 5 - specialisering",
+        "Kurskod": "HAVHNT05S"
+    },
+    {
+        "Kurs": "Hantverksteknik 6a",
+        "Kurskod": "HAVHNT06a"
+    },
+    {
+        "Kurs": "Hantverksteknik 6b",
+        "Kurskod": "HAVHNT06b"
+    },
+    {
+        "Kurs": "Hår- och makeupstylist 2",
+        "Kurskod": "HAVHAR02"
+    },
+    {
+        "Kurs": "Hår- och makeupstylist 3",
+        "Kurskod": "HAVHAR03"
+    },
+    {
+        "Kurs": "Hår- och makeupstylist 4",
+        "Kurskod": "HAVHAR04"
+    },
+    {
+        "Kurs": "Hår- och makeupstylist 5",
+        "Kurskod": "HAVHAR05"
+    },
+    {
+        "Kurs": "Textil design 1",
+        "Kurskod": "HAVTEX01"
+    },
+    {
+        "Kurs": "Textil design 2",
+        "Kurskod": "HAVTEX02"
+    },
+    {
+        "Kurs": "Textil design 3",
+        "Kurskod": "HAVTEX03"
+    },
+    {
+        "Kurs": "Textil design 4",
+        "Kurskod": "HAVTEX04"
+    },
+    {
+        "Kurs": "Textil design 4 - specialisering",
+        "Kurskod": "HAVTEX04S"
+    },
+    {
+        "Kurs": "Textil design 5",
+        "Kurskod": "HAVTEX05"
+    },
+    {
+        "Kurs": "Textil design 5 - specialisering",
+        "Kurskod": "HAVTEX05S"
+    },
+    {
+        "Kurs": "Textil design 6a",
+        "Kurskod": "HAVTEX06a"
+    },
+    {
+        "Kurs": "Textil design 6b",
+        "Kurskod": "HAVTEX06b"
+    },
+    {
+        "Kurs": "Material",
+        "Kurskod": "HVKMAT0"
+    },
+    {
+        "Kurs": "Material och miljö",
+        "Kurskod": "HVKMAE0"
+    },
+    {
+        "Kurs": "Miljö",
+        "Kurskod": "HVKMIL0"
+    },
+    {
+        "Kurs": "Tradition och utveckling",
+        "Kurskod": "HVKTRA0"
+    },
+    {
+        "Kurs": "Helikopterteknik",
+        "Kurskod": "HELHEL0"
+    },
+    {
+        "Kurs": "Hippologi - anatomi och fysiologi",
+        "Kurskod": "HIOHIP0"
+    },
+    {
+        "Kurs": "Hippologi - avel och hästens hälsa",
+        "Kurskod": "HIOHIO0"
+    },
+    {
+        "Kurs": "Hippologi - etologi",
+        "Kurskod": "HIOHIL0"
+    },
+    {
+        "Kurs": "Historia 1a1",
+        "Kurskod": "HISHIS01a1"
+    },
+    {
+        "Kurs": "Historia 1a2",
+        "Kurskod": "HISHIS01a2"
+    },
+    {
+        "Kurs": "Historia 1b",
+        "Kurskod": "HISHIS01b"
+    },
+    {
+        "Kurs": "Historia 2a",
+        "Kurskod": "HISHIS02a"
+    },
+    {
+        "Kurs": "Historia 2b - kultur",
+        "Kurskod": "HISHIS02b"
+    },
+    {
+        "Kurs": "Historia 3",
+        "Kurskod": "HISHIS03"
+    },
+    {
+        "Kurs": "Hjulutrustning",
+        "Kurskod": "HJUHJU0"
+    },
+    {
+        "Kurs": "Hjulutrustning - specialisering",
+        "Kurskod": "HJUHJT00S"
+    },
+    {
+        "Kurs": "Humanistisk och samhällsvetenskaplig specialisering",
+        "Kurskod": "HUMHUM00S"
+    },
+    {
+        "Kurs": "Humanistisk och samhällsvetenskaplig spets",
+        "Kurskod": "HUAHUM30S"
+    },
+    {
+        "Kurs": "Hundkunskap 1",
+        "Kurskod": "HUNHUN01"
+    },
+    {
+        "Kurs": "Hundkunskap 2",
+        "Kurskod": "HUNHUN02"
+    },
+    {
+        "Kurs": "Hundkunskap 3",
+        "Kurskod": "HUNHUN03"
+    },
+    {
+        "Kurs": "Träning av hund",
+        "Kurskod": "HUNTRN0"
+    },
+    {
+        "Kurs": "Husbyggnad 1",
+        "Kurskod": "HUSHUS01"
+    },
+    {
+        "Kurs": "Husbyggnad 2",
+        "Kurskod": "HUSHUS02"
+    },
+    {
+        "Kurs": "Husbyggnad 3 - ombyggnad",
+        "Kurskod": "HUSHUS03"
+    },
+    {
+        "Kurs": "Husbyggnadsprocessen",
+        "Kurskod": "HUSHUB0"
+    },
+    {
+        "Kurs": "Specialyrken 1",
+        "Kurskod": "HUBSPC01S"
+    },
+    {
+        "Kurs": "Specialyrken 2",
+        "Kurskod": "HUBSPC02S"
+    },
+    {
+        "Kurs": "Specialyrken 3",
+        "Kurskod": "HUBSPC03S"
+    },
+    {
+        "Kurs": "Husvagnar och husbilar",
+        "Kurskod": "HUVHUS0"
+    },
+    {
+        "Kurs": "Hygien",
+        "Kurskod": "HYGHYG0"
+    },
+    {
+        "Kurs": "Hållbart samhällsbyggande",
+        "Kurskod": "HÅLHÅB0"
+    },
+    {
+        "Kurs": "Miljö- och energikunskap",
+        "Kurskod": "HÅLMIJ0"
+    },
+    {
+        "Kurs": "Politik och hållbar utveckling",
+        "Kurskod": "HÅLPOL0"
+    },
+    {
+        "Kurs": "Ergonomi",
+        "Kurskod": "HALERG0"
+    },
+    {
+        "Kurs": "Hälsopedagogik",
+        "Kurskod": "HALHAL0"
+    },
+    {
+        "Kurs": "Kost och hälsa",
+        "Kurskod": "HALKOC0"
+    },
+    {
+        "Kurs": "Mental träning",
+        "Kurskod": "HALMEN0"
+    },
+    {
+        "Kurs": "Hälso- och sjukvård 1",
+        "Kurskod": "HAOHAL01"
+    },
+    {
+        "Kurs": "Hälso- och sjukvård 2",
+        "Kurskod": "HAOHAL02"
+    },
+    {
+        "Kurs": "Räddningsmedicin",
+        "Kurskod": "HAORAD0"
+    },
+    {
+        "Kurs": "Friskvård och hälsa",
+        "Kurskod": "HAAFRI0"
+    },
+    {
+        "Kurs": "Komplementärmedicin",
+        "Kurskod": "HAAKOM0"
+    },
+    {
+        "Kurs": "Kost, måltid och munhälsa",
+        "Kurskod": "HAAKOS0"
+    },
+    {
+        "Kurs": "Den unga hästens utveckling 1a",
+        "Kurskod": "HÄTDEN01a"
+    },
+    {
+        "Kurs": "Den unga hästens utveckling 1b",
+        "Kurskod": "HÄTDEN01b"
+    },
+    {
+        "Kurs": "Den unga hästens utveckling 2",
+        "Kurskod": "HÄTDEN02"
+    },
+    {
+        "Kurs": "Hästkunskap 1",
+        "Kurskod": "HÄTHÄS01"
+    },
+    {
+        "Kurs": "Hästkunskap 2",
+        "Kurskod": "HÄTHÄS02"
+    },
+    {
+        "Kurs": "Hästkunskap 3",
+        "Kurskod": "HÄTHÄS03"
+    },
+    {
+        "Kurs": "Idrott och hälsa 1",
+        "Kurskod": "IDRIDR01"
+    },
+    {
+        "Kurs": "Idrott och hälsa 1 - specialisering",
+        "Kurskod": "IDRIDO01"
+    },
+    {
+        "Kurs": "Idrott och hälsa 2",
+        "Kurskod": "IDRIDR02"
+    },
+    {
+        "Kurs": "Idrott och hälsa 2 - specialisering",
+        "Kurskod": "IDRIDO02"
+    },
+    {
+        "Kurs": "Industriautomation",
+        "Kurskod": "INRIND0"
+    },
+    {
+        "Kurs": "Robotteknik",
+        "Kurskod": "INRROB0"
+    },
+    {
+        "Kurs": "Industriella produktionsmetoder 1",
+        "Kurskod": "INNIND31"
+    },
+    {
+        "Kurs": "Industriella produktionsmetoder 2",
+        "Kurskod": "INNIND32"
+    },
+    {
+        "Kurs": "Industriella produktionsmetoder 3",
+        "Kurskod": "INNIND33"
+    },
+    {
+        "Kurs": "Industriell automationsteknik",
+        "Kurskod": "IDUIND3"
+    },
+    {
+        "Kurs": "Industriell it",
+        "Kurskod": "IDUIIT3"
+    },
+    {
+        "Kurs": "Industriell PLC-teknik",
+        "Kurskod": "IDUPLC3"
+    },
+    {
+        "Kurs": "Industriell robotteknik",
+        "Kurskod": "IDUROB3"
+    },
+    {
+        "Kurs": "Tillämpad automationsteknik",
+        "Kurskod": "IDUTIL3"
+    },
+    {
+        "Kurs": "Industriell design 1",
+        "Kurskod": "INLIND31"
+    },
+    {
+        "Kurs": "Industriell design 2",
+        "Kurskod": "INLIND32"
+    },
+    {
+        "Kurs": "VVS MMA-svetsning rör",
+        "Kurskod": "INVVVS0"
+    },
+    {
+        "Kurs": "VVS TIG-svetsning rör",
+        "Kurskod": "INVVVI0"
+    },
+    {
+        "Kurs": "Industrirörteknik 1",
+        "Kurskod": "INDIND01"
+    },
+    {
+        "Kurs": "Industrirörteknik 2",
+        "Kurskod": "INDIND02"
+    },
+    {
+        "Kurs": "Industrirörteknik 3",
+        "Kurskod": "INDIND03"
+    },
+    {
+        "Kurs": "Industritekniska processer 1",
+        "Kurskod": "INUINU01"
+    },
+    {
+        "Kurs": "Industritekniska processer 2",
+        "Kurskod": "INUINU02"
+    },
+    {
+        "Kurs": "Industritekniska processer 3",
+        "Kurskod": "INUINU03"
+    },
+    {
+        "Kurs": "Industritekniska processer 4",
+        "Kurskod": "INUINU04"
+    },
+    {
+        "Kurs": "Laboratorieteknik",
+        "Kurskod": "INULAB0"
+    },
+    {
+        "Kurs": "Industriteknisk fördjupning 1",
+        "Kurskod": "PRFPRF01"
+    },
+    {
+        "Kurs": "Industriteknisk fördjupning 2",
+        "Kurskod": "PRFPRF02"
+    },
+    {
+        "Kurs": "Information och kommunikation 1",
+        "Kurskod": "INFINF01"
+    },
+    {
+        "Kurs": "Information och kommunikation 2",
+        "Kurskod": "INFINF02"
+    },
+    {
+        "Kurs": "Datakommunikation och informationssäkerhet",
+        "Kurskod": "INADAT3"
+    },
+    {
+        "Kurs": "Informationsteknisk arkitektur",
+        "Kurskod": "INAINF3"
+    },
+    {
+        "Kurs": "Nätverks- och kommunikationstjänster",
+        "Kurskod": "INANAT3"
+    },
+    {
+        "Kurs": "Inköp 1",
+        "Kurskod": "INKINK01"
+    },
+    {
+        "Kurs": "Inköp 2",
+        "Kurskod": "INKINK02"
+    },
+    {
+        "Kurs": "Logistik 1",
+        "Kurskod": "INKLOG01"
+    },
+    {
+        "Kurs": "Logistik 2",
+        "Kurskod": "INKLOG02"
+    },
+    {
+        "Kurs": "Transport och spedition",
+        "Kurskod": "INKTRP0"
+    },
+    {
+        "Kurs": "Belysningsteknik",
+        "Kurskod": "INSBES0"
+    },
+    {
+        "Kurs": "Elinstallationer",
+        "Kurskod": "INSELI0"
+    },
+    {
+        "Kurs": "Elmotorstyrning",
+        "Kurskod": "INSELS0"
+    },
+    {
+        "Kurs": "Kommunikationsnät 1",
+        "Kurskod": "INSKOM01"
+    },
+    {
+        "Kurs": "Kommunikationsnät 2",
+        "Kurskod": "INSKOM02"
+    },
+    {
+        "Kurs": "Kommunikationsnät 3",
+        "Kurskod": "INSKOM03"
+    },
+    {
+        "Kurs": "Affärsjuridik",
+        "Kurskod": "JURAFF0"
+    },
+    {
+        "Kurs": "Privatjuridik",
+        "Kurskod": "JURPRI0"
+    },
+    {
+        "Kurs": "Rätten och samhället",
+        "Kurskod": "JURRÄT0"
+    },
+    {
+        "Kurs": "Järnvägsbyggnad 1",
+        "Kurskod": "JÄRJÄR01"
+    },
+    {
+        "Kurs": "Järnvägsbyggnad 2",
+        "Kurskod": "JÄRJÄR02"
+    },
+    {
+        "Kurs": "Järnvägsbyggnad 3",
+        "Kurskod": "JÄRJÄR03"
+    },
+    {
+        "Kurs": "Allmän järnvägsteknik",
+        "Kurskod": "JÄNALM0"
+    },
+    {
+        "Kurs": "Elteknik",
+        "Kurskod": "JÄNELN0"
+    },
+    {
+        "Kurs": "Signalteknik",
+        "Kurskod": "JÄNSIG0"
+    },
+    {
+        "Kurs": "Karosserikonstruktioner och inredning",
+        "Kurskod": "KARKAR0"
+    },
+    {
+        "Kurs": "Riktbänkssystem",
+        "Kurskod": "KARRIK0"
+    },
+    {
+        "Kurs": "Riktningsteknik - introduktion",
+        "Kurskod": "KARRIT0"
+    },
+    {
+        "Kurs": "Skadebesiktning och produktionsflöde",
+        "Kurskod": "KARSKA0"
+    },
+    {
+        "Kurs": "Skarvnings- och sammanfogningsteknik",
+        "Kurskod": "KARSKR0"
+    },
+    {
+        "Kurs": "Småreparationer - karosseri",
+        "Kurskod": "KARSMA0"
+    },
+    {
+        "Kurs": "Kemi 1",
+        "Kurskod": "KEMKEM01"
+    },
+    {
+        "Kurs": "Kemi 2",
+        "Kurskod": "KEMKEM02"
+    },
+    {
+        "Kurs": "Klassisk grekiska - språk och kultur 1",
+        "Kurskod": "KLAKLA01"
+    },
+    {
+        "Kurs": "Klassisk grekiska - språk och kultur 2",
+        "Kurskod": "KLAKLA02"
+    },
+    {
+        "Kurs": "Kolvmotorer",
+        "Kurskod": "KOLKOL0"
+    },
+    {
+        "Kurs": "Evenemang",
+        "Kurskod": "KONEVE0"
+    },
+    {
+        "Kurs": "Konferens 1",
+        "Kurskod": "KONKOF01"
+    },
+    {
+        "Kurs": "Konferens 2",
+        "Kurskod": "KONKON02"
+    },
+    {
+        "Kurs": "Konferens 3",
+        "Kurskod": "KONKON03"
+    },
+    {
+        "Kurs": "Konferens och evenemang",
+        "Kurskod": "KONKOF0"
+    },
+    {
+        "Kurs": "Rums- och konferensbokning",
+        "Kurskod": "KONRUM0"
+    },
+    {
+        "Kurs": "Konsthantverk 1",
+        "Kurskod": "KOHHAN01"
+    },
+    {
+        "Kurs": "Konsthantverk 2",
+        "Kurskod": "KOHHAN02"
+    },
+    {
+        "Kurs": "Konsthantverk 3",
+        "Kurskod": "KOHHAN03"
+    },
+    {
+        "Kurs": "Konsthantverk 4",
+        "Kurskod": "KOHHAN04"
+    },
+    {
+        "Kurs": "Konsthantverk 5",
+        "Kurskod": "KOHHAN05"
+    },
+    {
+        "Kurs": "Film- och tv-kunskap",
+        "Kurskod": "KOSFIL0"
+    },
+    {
+        "Kurs": "Konstarterna och samhället",
+        "Kurskod": "KOSKOS0"
+    },
+    {
+        "Kurs": "Kultur- och idéhistoria",
+        "Kurskod": "KOSKUL0"
+    },
+    {
+        "Kurs": "Samtida kulturuttryck",
+        "Kurskod": "KOSSAT0"
+    },
+    {
+        "Kurs": "Konstruktion 1",
+        "Kurskod": "KOTKOS01"
+    },
+    {
+        "Kurs": "Konstruktion 2",
+        "Kurskod": "KOTKOS02"
+    },
+    {
+        "Kurs": "Konstruktion 3",
+        "Kurskod": "KOTKOS03"
+    },
+    {
+        "Kurs": "Konstruktionsteknik",
+        "Kurskod": "KORKON3"
+    },
+    {
+        "Kurs": "Materialteknik",
+        "Kurskod": "KORMAT3"
+    },
+    {
+        "Kurs": "Mekanik och hållfasthetslära",
+        "Kurskod": "KORMEK3"
+    },
+    {
+        "Kurs": "Tillämpad konstruktionsteknik",
+        "Kurskod": "KORTIL3"
+    },
+    {
+        "Kurs": "Kraft- och värmeteknik 1",
+        "Kurskod": "KRAKRA01"
+    },
+    {
+        "Kurs": "Kraft- och värmeteknik 2",
+        "Kurskod": "KRAKRA02"
+    },
+    {
+        "Kurs": "Reservkraft",
+        "Kurskod": "KRARER0"
+    },
+    {
+        "Kurs": "Kyl- och värmepumpsteknik - energieffektivisering",
+        "Kurskod": "KYLKYL0"
+    },
+    {
+        "Kurs": "Kyl- och värmepumpsteknik - grund",
+        "Kurskod": "KYLKYO0"
+    },
+    {
+        "Kurs": "Kyl- och värmepumpsteknik - installation",
+        "Kurskod": "KYLKYC0"
+    },
+    {
+        "Kurs": "Kyl- och värmepumpsteknik - miljö och säkerhet",
+        "Kurskod": "KYLKYH0"
+    },
+    {
+        "Kurs": "Kyl- och värmepumpsteknik - service",
+        "Kurskod": "KYLKYV0"
+    },
+    {
+        "Kurs": "Baskurs i lackering",
+        "Kurskod": "LACBAK0"
+    },
+    {
+        "Kurs": "Färg och dekorationslackering",
+        "Kurskod": "LACFÄR0"
+    },
+    {
+        "Kurs": "Industriell lackering",
+        "Kurskod": "LACINS0"
+    },
+    {
+        "Kurs": "Lackeringssystem",
+        "Kurskod": "LACLAC0"
+    },
+    {
+        "Kurs": "Lackeringsteknik - applicering",
+        "Kurskod": "LACLAK0"
+    },
+    {
+        "Kurs": "Lackeringsteknik - introduktion",
+        "Kurskod": "LACLAE0"
+    },
+    {
+        "Kurs": "Lackeringsteknik för tunga fordon",
+        "Kurskod": "LACLAR0"
+    },
+    {
+        "Kurs": "Produktionsflöden",
+        "Kurskod": "LACPRD0"
+    },
+    {
+        "Kurs": "Småreparationer - lackering",
+        "Kurskod": "LACSMA0"
+    },
+    {
+        "Kurs": "Lageradministration och terminallogistik",
+        "Kurskod": "LAGLAG0"
+    },
+    {
+        "Kurs": "Lagerprocesser",
+        "Kurskod": "LAGLAP0"
+    },
+    {
+        "Kurs": "Plocklagerhantering",
+        "Kurskod": "LAGPLO0"
+    },
+    {
+        "Kurs": "Lantbruksdjur - specialisering",
+        "Kurskod": "LANLAN00S"
+    },
+    {
+        "Kurs": "Lantbruksdjur 1",
+        "Kurskod": "LANLAN01"
+    },
+    {
+        "Kurs": "Lantbruksdjur 2",
+        "Kurskod": "LANLAN02"
+    },
+    {
+        "Kurs": "Lantbruksmaskiner 1",
+        "Kurskod": "LAULAT01"
+    },
+    {
+        "Kurs": "Lantbruksmaskiner 2",
+        "Kurskod": "LAULAT02"
+    },
+    {
+        "Kurs": "Lantbruksmaskinsteknik",
+        "Kurskod": "LAKLAN0"
+    },
+    {
+        "Kurs": "Brandlarmssystem",
+        "Kurskod": "LARBRN0"
+    },
+    {
+        "Kurs": "CCTV-system",
+        "Kurskod": "LARCCT0"
+    },
+    {
+        "Kurs": "Inbrottslarmssystem",
+        "Kurskod": "LARINB0"
+    },
+    {
+        "Kurs": "Larm-, övervaknings- och säkerhetssystem",
+        "Kurskod": "LARLAM0"
+    },
+    {
+        "Kurs": "Passersystem",
+        "Kurskod": "LARPAS0"
+    },
+    {
+        "Kurs": "Lastbilar - chassi och bromsar",
+        "Kurskod": "LAPLAC0"
+    },
+    {
+        "Kurs": "Lastbilar - kraftöverföring",
+        "Kurskod": "LAPLAS0"
+    },
+    {
+        "Kurs": "Lastbilar - system- och diagnosteknik 1",
+        "Kurskod": "LAPLAS01"
+    },
+    {
+        "Kurs": "Lastbilar - system- och diagnosteknik 2",
+        "Kurskod": "LAPLAS02"
+    },
+    {
+        "Kurs": "Lastbilar och mobila maskiner - förbränningsmotorer",
+        "Kurskod": "LAILAT0"
+    },
+    {
+        "Kurs": "Lastbilar och mobila maskiner - basteknik",
+        "Kurskod": "LAALAT0"
+    },
+    {
+        "Kurs": "Lastbilar och mobila maskiner - service och underhåll 1",
+        "Kurskod": "LAALAS01"
+    },
+    {
+        "Kurs": "Lastbilar och mobila maskiner - service och underhåll 2",
+        "Kurskod": "LAALAS02"
+    },
+    {
+        "Kurs": "Lastbilar och mobila maskiner - verkstad och elteknik",
+        "Kurskod": "LAALAS0"
+    },
+    {
+        "Kurs": "Lastbilspåbyggnad - specialisering",
+        "Kurskod": "LALLAS00S"
+    },
+    {
+        "Kurs": "Lastmaskiner och truckar",
+        "Kurskod": "LASLAA0"
+    },
+    {
+        "Kurs": "Latin - språk och kultur 1",
+        "Kurskod": "LATLAT01"
+    },
+    {
+        "Kurs": "Latin - språk och kultur 2",
+        "Kurskod": "LATLAT02"
+    },
+    {
+        "Kurs": "Latin - språk och kultur 3",
+        "Kurskod": "LATLAT03"
+    },
+    {
+        "Kurs": "Ledarskap och organisation",
+        "Kurskod": "LEDLED0"
+    },
+    {
+        "Kurs": "Livsmedels- och näringskunskap 1",
+        "Kurskod": "LIVLIV01"
+    },
+    {
+        "Kurs": "Livsmedels- och näringskunskap 2",
+        "Kurskod": "LIVLIV02"
+    },
+    {
+        "Kurs": "Film- och interaktiv ljudproduktion",
+        "Kurskod": "LJUFIL0"
+    },
+    {
+        "Kurs": "Ljudproduktion 1",
+        "Kurskod": "LJULJU01"
+    },
+    {
+        "Kurs": "Ljudproduktion 2",
+        "Kurskod": "LJULJU02"
+    },
+    {
+        "Kurs": "Radioproduktion",
+        "Kurskod": "LJURAD0"
+    },
+    {
+        "Kurs": "Låsinstallation",
+        "Kurskod": "LAOLAS0"
+    },
+    {
+        "Kurs": "Låsteknik",
+        "Kurskod": "LAOLAT0"
+    },
+    {
+        "Kurs": "Mönsterkonstruktion 1",
+        "Kurskod": "MNUMON01"
+    },
+    {
+        "Kurs": "Mönsterkonstruktion 2",
+        "Kurskod": "MNUMON02"
+    },
+    {
+        "Kurs": "Marina elektroniksystem",
+        "Kurskod": "MAYMAR0"
+    },
+    {
+        "Kurs": "Båtel 1",
+        "Kurskod": "MAIBAT01"
+    },
+    {
+        "Kurs": "Båtel 2",
+        "Kurskod": "MAIBAT02"
+    },
+    {
+        "Kurs": "Marinelektronik 1",
+        "Kurskod": "MAIMAR01"
+    },
+    {
+        "Kurs": "Marinelektronik 2",
+        "Kurskod": "MAIMAR02"
+    },
+    {
+        "Kurs": "Marinelektronik 3",
+        "Kurskod": "MAIMAR03"
+    },
+    {
+        "Kurs": "Motorelektronik 1",
+        "Kurskod": "MAIMOT01"
+    },
+    {
+        "Kurs": "Motorelektronik 2",
+        "Kurskod": "MAIMOT02"
+    },
+    {
+        "Kurs": "Diagnos och reparation",
+        "Kurskod": "MANDIA0"
+    },
+    {
+        "Kurs": "Intervallservice",
+        "Kurskod": "MANINT0"
+    },
+    {
+        "Kurs": "Marinmotor - introduktion",
+        "Kurskod": "MANMAR0"
+    },
+    {
+        "Kurs": "Nyinstallation",
+        "Kurskod": "MANNYI0"
+    },
+    {
+        "Kurs": "Maskinbefäl",
+        "Kurskod": "MAKMAS0"
+    },
+    {
+        "Kurs": "Maskintjänst 1",
+        "Kurskod": "MAKMAS01"
+    },
+    {
+        "Kurs": "Maskintjänst 2",
+        "Kurskod": "MAKMAS02"
+    },
+    {
+        "Kurs": "Massage 1",
+        "Kurskod": "MAAMAA01"
+    },
+    {
+        "Kurs": "Massage 2",
+        "Kurskod": "MAAMAA02"
+    },
+    {
+        "Kurs": "Matematik - specialisering",
+        "Kurskod": "MATMAT00S"
+    },
+    {
+        "Kurs": "Matematik 1a",
+        "Kurskod": "MATMAT01a"
+    },
+    {
+        "Kurs": "Matematik 1b",
+        "Kurskod": "MATMAT01b"
+    },
+    {
+        "Kurs": "Matematik 1c",
+        "Kurskod": "MATMAT01c"
+    },
+    {
+        "Kurs": "Matematik 2a",
+        "Kurskod": "MATMAT02a"
+    },
+    {
+        "Kurs": "Matematik 2b",
+        "Kurskod": "MATMAT02b"
+    },
+    {
+        "Kurs": "Matematik 2c",
+        "Kurskod": "MATMAT02c"
+    },
+    {
+        "Kurs": "Matematik 3b",
+        "Kurskod": "MATMAT03b"
+    },
+    {
+        "Kurs": "Matematik 3c",
+        "Kurskod": "MATMAT03c"
+    },
+    {
+        "Kurs": "Matematik 4",
+        "Kurskod": "MATMAT04"
+    },
+    {
+        "Kurs": "Matematik 5",
+        "Kurskod": "MATMAT05"
+    },
+    {
+        "Kurs": "Materialkunskap 1",
+        "Kurskod": "MAEMAT01"
+    },
+    {
+        "Kurs": "Materialkunskap 2",
+        "Kurskod": "MAEMAT02"
+    },
+    {
+        "Kurs": "Matlagning - specialisering",
+        "Kurskod": "MALMAL00S"
+    },
+    {
+        "Kurs": "Matlagning 1",
+        "Kurskod": "MALMAL01"
+    },
+    {
+        "Kurs": "Matlagning 2",
+        "Kurskod": "MALMAL02"
+    },
+    {
+        "Kurs": "Matlagning 3",
+        "Kurskod": "MALMAL03"
+    },
+    {
+        "Kurs": "Matlagning 4",
+        "Kurskod": "MALMAL04"
+    },
+    {
+        "Kurs": "Specialkoster",
+        "Kurskod": "MALSPE0"
+    },
+    {
+        "Kurs": "Mat och butik - specialisering",
+        "Kurskod": "MAOMAT00S"
+    },
+    {
+        "Kurs": "Mat och butik 1",
+        "Kurskod": "MAOMAT01"
+    },
+    {
+        "Kurs": "Mat och butik 2",
+        "Kurskod": "MAOMAT02"
+    },
+    {
+        "Kurs": "Mat och dryck i kombination",
+        "Kurskod": "MACMAT0"
+    },
+    {
+        "Kurs": "Elektromedicinsk teknik",
+        "Kurskod": "MEIELE0"
+    },
+    {
+        "Kurs": "Gas- och vätsketeknik",
+        "Kurskod": "MEIGAS0"
+    },
+    {
+        "Kurs": "Radiologiska utrustningar",
+        "Kurskod": "MEIRAD0"
+    },
+    {
+        "Kurs": "Journalistik, reklam och information 1",
+        "Kurskod": "MEEJOU01"
+    },
+    {
+        "Kurs": "Journalistik, reklam och information 2",
+        "Kurskod": "MEEJOU02"
+    },
+    {
+        "Kurs": "Textkommunikation",
+        "Kurskod": "MEETET0"
+    },
+    {
+        "Kurs": "Medieproduktion 1",
+        "Kurskod": "MEPMEI01"
+    },
+    {
+        "Kurs": "Medieproduktion 2",
+        "Kurskod": "MEPMEI02"
+    },
+    {
+        "Kurs": "Medier, samhälle och kommunikation 1",
+        "Kurskod": "MERMEE01"
+    },
+    {
+        "Kurs": "Medier, samhälle och kommunikation 2",
+        "Kurskod": "MERMEE02"
+    },
+    {
+        "Kurs": "Mekatronik 1",
+        "Kurskod": "MEKMEK01"
+    },
+    {
+        "Kurs": "Mekatronik 2",
+        "Kurskod": "MEKMEK02"
+    },
+    {
+        "Kurs": "Mjukvarudesign",
+        "Kurskod": "MJKMJU3"
+    },
+    {
+        "Kurs": "Mobila applikationer",
+        "Kurskod": "MOIMOB3"
+    },
+    {
+        "Kurs": "Bandschaktare",
+        "Kurskod": "MOBBAN0"
+    },
+    {
+        "Kurs": "Grävmaskiner",
+        "Kurskod": "MOBGRV0"
+    },
+    {
+        "Kurs": "Hjullastare",
+        "Kurskod": "MOBHJU0"
+    },
+    {
+        "Kurs": "Teleskoplastare",
+        "Kurskod": "MOBTEL0"
+    },
+    {
+        "Kurs": "Väghyvel",
+        "Kurskod": "MOBVAG0"
+    },
+    {
+        "Kurs": "Mobila maskiner - hydraulsystem",
+        "Kurskod": "MOLMOI0"
+    },
+    {
+        "Kurs": "Mobila maskiner - kraftöverföring",
+        "Kurskod": "MOLMOB0"
+    },
+    {
+        "Kurs": "Mobila maskiner - system- och diagnosteknik 1",
+        "Kurskod": "MOLMOB01"
+    },
+    {
+        "Kurs": "Mobila maskiner - system- och diagnosteknik 2",
+        "Kurskod": "MOLMOB02"
+    },
+    {
+        "Kurs": "Kinesiska 1",
+        "Kurskod": "MODZHO01"
+    },
+    {
+        "Kurs": "Kinesiska 2",
+        "Kurskod": "MODZHO02"
+    },
+    {
+        "Kurs": "Kinesiska 3",
+        "Kurskod": "MODZHO03"
+    },
+    {
+        "Kurs": "Kinesiska 4",
+        "Kurskod": "MODZHO04"
+    },
+    {
+        "Kurs": "Kinesiska 5",
+        "Kurskod": "MODZHO05"
+    },
+    {
+        "Kurs": "Kinesiska 6",
+        "Kurskod": "MODZHO06"
+    },
+    {
+        "Kurs": "Kinesiska 7",
+        "Kurskod": "MODZHO07"
+    },
+    {
+        "Kurs": "Moderna språk 1",
+        "Kurskod": "MODXXX01"
+    },
+    {
+        "Kurs": "Moderna språk 2",
+        "Kurskod": "MODXXX02"
+    },
+    {
+        "Kurs": "Moderna språk 3",
+        "Kurskod": "MODXXX03"
+    },
+    {
+        "Kurs": "Moderna språk 4",
+        "Kurskod": "MODXXX04"
+    },
+    {
+        "Kurs": "Moderna språk 5",
+        "Kurskod": "MODXXX05"
+    },
+    {
+        "Kurs": "Moderna språk 6",
+        "Kurskod": "MODXXX06"
+    },
+    {
+        "Kurs": "Moderna språk 7",
+        "Kurskod": "MODXXX07"
+    },
+    {
+        "Kurs": "Modersmål - aktiv tvåspråkighet",
+        "Kurskod": "MOEMOD0"
+    },
+    {
+        "Kurs": "Modersmål 1",
+        "Kurskod": "MOEXXX01"
+    },
+    {
+        "Kurs": "Modersmål 2",
+        "Kurskod": "MOEXXX02"
+    },
+    {
+        "Kurs": "Motor- och röjmotorsåg 1",
+        "Kurskod": "MOTMOT01"
+    },
+    {
+        "Kurs": "Motor- och röjmotorsåg 2",
+        "Kurskod": "MOTMOT02"
+    },
+    {
+        "Kurs": "Mur- och putsverk 1 - grundmurar",
+        "Kurskod": "MURMUR01"
+    },
+    {
+        "Kurs": "Mur- och putsverk 2 - murverk",
+        "Kurskod": "MURMUR02"
+    },
+    {
+        "Kurs": "Mur- och putsverk 3 - puts",
+        "Kurskod": "MURMUR03"
+    },
+    {
+        "Kurs": "Bruksspel och ackompanjemang",
+        "Kurskod": "MUSBRU0"
+    },
+    {
+        "Kurs": "Ensemble 1",
+        "Kurskod": "MUSENS01"
+    },
+    {
+        "Kurs": "Ensemble 2",
+        "Kurskod": "MUSENS02S"
+    },
+    {
+        "Kurs": "Ensemble med körsång",
+        "Kurskod": "MUSENS0"
+    },
+    {
+        "Kurs": "Ensembleledning och dirigering",
+        "Kurskod": "MUSENE0"
+    },
+    {
+        "Kurs": "Instrument eller sång 1",
+        "Kurskod": "MUSINS01S"
+    },
+    {
+        "Kurs": "Instrument eller sång 2",
+        "Kurskod": "MUSINS02S"
+    },
+    {
+        "Kurs": "Instrument eller sång 3",
+        "Kurskod": "MUSINS03S"
+    },
+    {
+        "Kurs": "Körsång 1",
+        "Kurskod": "MUSKÖS01"
+    },
+    {
+        "Kurs": "Körsång 2",
+        "Kurskod": "MUSKÖS02S"
+    },
+    {
+        "Kurs": "Musik",
+        "Kurskod": "MUSMUS0"
+    },
+    {
+        "Kurs": "Musik för yrkesdansare",
+        "Kurskod": "MUSMUK0"
+    },
+    {
+        "Kurs": "Musikimprovisation",
+        "Kurskod": "MUSMUI0"
+    },
+    {
+        "Kurs": "Musikproduktion 1",
+        "Kurskod": "MUSMUS01"
+    },
+    {
+        "Kurs": "Musikproduktion 2",
+        "Kurskod": "MUSMUS02"
+    },
+    {
+        "Kurs": "Rytmik",
+        "Kurskod": "MUSRYT0"
+    },
+    {
+        "Kurs": "Arrangering och komposition 1",
+        "Kurskod": "MUIARA01"
+    },
+    {
+        "Kurs": "Arrangering och komposition 2",
+        "Kurskod": "MUIARA02"
+    },
+    {
+        "Kurs": "Gehörs- och musiklära 1",
+        "Kurskod": "MUIGEH01"
+    },
+    {
+        "Kurs": "Gehörs- och musiklära 2",
+        "Kurskod": "MUIGEH02"
+    },
+    {
+        "Kurs": "Måleri - dekorationstekniker",
+        "Kurskod": "MARMAE0"
+    },
+    {
+        "Kurs": "Måleri - äldre måleritekniker",
+        "Kurskod": "MARMAR0"
+    },
+    {
+        "Kurs": "Måleri 1",
+        "Kurskod": "MARMAL01"
+    },
+    {
+        "Kurs": "Måleri 2",
+        "Kurskod": "MARMAL02"
+    },
+    {
+        "Kurs": "Måleri 3",
+        "Kurskod": "MARMAL03"
+    },
+    {
+        "Kurs": "Måleri 4",
+        "Kurskod": "MARMAL04"
+    },
+    {
+        "Kurs": "Måleri 5",
+        "Kurskod": "MARMAL05"
+    },
+    {
+        "Kurs": "Måleriprocessen",
+        "Kurskod": "MARMAL0"
+    },
+    {
+        "Kurs": "Branschkunskap inom restaurang och livsmedel",
+        "Kurskod": "MÅTBRC0"
+    },
+    {
+        "Kurs": "Etik och människans livsvillkor",
+        "Kurskod": "MÄNETI0"
+    },
+    {
+        "Kurs": "Internationellt arbete",
+        "Kurskod": "MÄNINA0"
+    },
+    {
+        "Kurs": "Människan i industrin 1",
+        "Kurskod": "MÄIMÄN01"
+    },
+    {
+        "Kurs": "Människan i industrin 2",
+        "Kurskod": "MÄIMÄN02"
+    },
+    {
+        "Kurs": "Människans språk 1",
+        "Kurskod": "MÄKMÄK01"
+    },
+    {
+        "Kurs": "Människans språk 2",
+        "Kurskod": "MÄKMÄK02"
+    },
+    {
+        "Kurs": "Människans säkerhet",
+        "Kurskod": "MÄSMÄN0"
+    },
+    {
+        "Kurs": "Distribuerade styrsystem",
+        "Kurskod": "MÄTDIS0"
+    },
+    {
+        "Kurs": "Mät- och reglerteknik",
+        "Kurskod": "MÄTMÄT0"
+    },
+    {
+        "Kurs": "Mät- och styrteknik",
+        "Kurskod": "MÄTMÄO0"
+    },
+    {
+        "Kurs": "Programmerbara styrsystem",
+        "Kurskod": "MÄTPRR0"
+    },
+    {
+        "Kurs": "Naturbruk",
+        "Kurskod": "NAUNAU0"
+    },
+    {
+        "Kurs": "Byggnadsunderhåll",
+        "Kurskod": "NARBYA0"
+    },
+    {
+        "Kurs": "Hästsportanläggningars skötsel och drift 1",
+        "Kurskod": "NARHAS01"
+    },
+    {
+        "Kurs": "Hästsportanläggningars skötsel och drift 2",
+        "Kurskod": "NARHAS02"
+    },
+    {
+        "Kurs": "Guidning i naturbruksmiljöer",
+        "Kurskod": "NAGGUD0"
+    },
+    {
+        "Kurs": "Naturguidning 1",
+        "Kurskod": "NAGNAT01"
+    },
+    {
+        "Kurs": "Naturguidning 2",
+        "Kurskod": "NAGNAT02"
+    },
+    {
+        "Kurs": "Naturkunskap 1a1",
+        "Kurskod": "NAKNAK01a1"
+    },
+    {
+        "Kurs": "Naturkunskap 1a2",
+        "Kurskod": "NAKNAK01a2"
+    },
+    {
+        "Kurs": "Naturkunskap 1b",
+        "Kurskod": "NAKNAK01b"
+    },
+    {
+        "Kurs": "Naturkunskap 2",
+        "Kurskod": "NAKNAK02"
+    },
+    {
+        "Kurs": "Natur- och landskapsvård",
+        "Kurskod": "NATNAT0"
+    },
+    {
+        "Kurs": "Naturturism 1",
+        "Kurskod": "NAMNAT01"
+    },
+    {
+        "Kurs": "Naturturism 2",
+        "Kurskod": "NAMNAT02"
+    },
+    {
+        "Kurs": "Naturturism 3",
+        "Kurskod": "NAMNAT03"
+    },
+    {
+        "Kurs": "Naturvetenskaplig specialisering",
+        "Kurskod": "NAVNAT00S"
+    },
+    {
+        "Kurs": "Naturvetenskaplig spets",
+        "Kurskod": "NAENAT30S"
+    },
+    {
+        "Kurs": "Administration av nätverks- och serverutrustning",
+        "Kurskod": "NAIADM0"
+    },
+    {
+        "Kurs": "Nätverksadministration",
+        "Kurskod": "NAINAV0"
+    },
+    {
+        "Kurs": "Nätverkssäkerhet",
+        "Kurskod": "NAINAE0"
+    },
+    {
+        "Kurs": "Nätverksteknik",
+        "Kurskod": "NAINAR0"
+    },
+    {
+        "Kurs": "Nätverksteknologier",
+        "Kurskod": "NAINAK0"
+    },
+    {
+        "Kurs": "Odling i växthus - specialisering",
+        "Kurskod": "ODIODI00S"
+    },
+    {
+        "Kurs": "Odling i växthus 1",
+        "Kurskod": "ODIODL01"
+    },
+    {
+        "Kurs": "Odling i växthus 2",
+        "Kurskod": "ODIODL02"
+    },
+    {
+        "Kurs": "Omvårdnad 1",
+        "Kurskod": "OMVOMV01"
+    },
+    {
+        "Kurs": "Omvårdnad 2",
+        "Kurskod": "OMVOMV02"
+    },
+    {
+        "Kurs": "Aktivitetsledarskap",
+        "Kurskod": "PEDAKI00S"
+    },
+    {
+        "Kurs": "Barns lärande och växande",
+        "Kurskod": "PEDBAS0"
+    },
+    {
+        "Kurs": "Kommunikation",
+        "Kurskod": "PEDKOU0"
+    },
+    {
+        "Kurs": "Lärande och utveckling",
+        "Kurskod": "PEDLÄR0"
+    },
+    {
+        "Kurs": "Människors miljöer",
+        "Kurskod": "PEDMÄI0"
+    },
+    {
+        "Kurs": "Pedagogiska teorier och praktiker",
+        "Kurskod": "PEDPED0"
+    },
+    {
+        "Kurs": "Pedagogiskt ledarskap",
+        "Kurskod": "PEDPEG0"
+    },
+    {
+        "Kurs": "Vårdpedagogik och handledning",
+        "Kurskod": "PEAVÅD0"
+    },
+    {
+        "Kurs": "Dramapedagogik",
+        "Kurskod": "PEGDRA0"
+    },
+    {
+        "Kurs": "Pedagogiskt arbete",
+        "Kurskod": "PEGPEA0"
+    },
+    {
+        "Kurs": "Skapande verksamhet",
+        "Kurskod": "PEGSKP0"
+    },
+    {
+        "Kurs": "Personbilar - chassi och bromsar",
+        "Kurskod": "REPPEO0"
+    },
+    {
+        "Kurs": "Personbilar - förbränningsmotorer",
+        "Kurskod": "REPPER0"
+    },
+    {
+        "Kurs": "Personbilar - kraftöverföring",
+        "Kurskod": "REPPES0"
+    },
+    {
+        "Kurs": "Personbilar - system- och diagnosteknik 1",
+        "Kurskod": "REPPER01"
+    },
+    {
+        "Kurs": "Personbilar - system- och diagnosteknik 2",
+        "Kurskod": "REPPER02"
+    },
+    {
+        "Kurs": "Personbilar - basteknik",
+        "Kurskod": "SEOPEB0"
+    },
+    {
+        "Kurs": "Personbilar - service och underhåll 1",
+        "Kurskod": "SEOPER01"
+    },
+    {
+        "Kurs": "Personbilar - service och underhåll 2",
+        "Kurskod": "SEOPER02"
+    },
+    {
+        "Kurs": "Personbilar - verkstad och elteknik",
+        "Kurskod": "SEOPER0"
+    },
+    {
+        "Kurs": "Persontrafik - vux",
+        "Kurskod": "PESPER1"
+    },
+    {
+        "Kurs": "Persontrafik 1a",
+        "Kurskod": "PESPER01a"
+    },
+    {
+        "Kurs": "Persontrafik 1b",
+        "Kurskod": "PESPER01b"
+    },
+    {
+        "Kurs": "Persontransporter - specialisering",
+        "Kurskod": "PESPER00S"
+    },
+    {
+        "Kurs": "Taxitrafik",
+        "Kurskod": "PESTAX0"
+    },
+    {
+        "Kurs": "Plåtslageri - grunder",
+        "Kurskod": "PLÅPLÅ0"
+    },
+    {
+        "Kurs": "Plåtslageriprocessen",
+        "Kurskod": "PLÅPLS0"
+    },
+    {
+        "Kurs": "Byggnadsplåtslageri 1",
+        "Kurskod": "PLTBYG01"
+    },
+    {
+        "Kurs": "Byggnadsplåtslageri 2",
+        "Kurskod": "PLTBYG02"
+    },
+    {
+        "Kurs": "Byggnadsplåtslageri 3",
+        "Kurskod": "PLTBYG03"
+    },
+    {
+        "Kurs": "Byggnadsplåtslageri 4",
+        "Kurskod": "PLTBYG04"
+    },
+    {
+        "Kurs": "Kulturplåtslageri",
+        "Kurskod": "PLTKUU0"
+    },
+    {
+        "Kurs": "Lättbyggnadsteknik",
+        "Kurskod": "PLTLÄT0"
+    },
+    {
+        "Kurs": "Plåtslageri - svetstekniker",
+        "Kurskod": "PLTPLT0"
+    },
+    {
+        "Kurs": "Processdatorsystem",
+        "Kurskod": "PROPRO0"
+    },
+    {
+        "Kurs": "Processmätteknik 1",
+        "Kurskod": "PROPRC01"
+    },
+    {
+        "Kurs": "Processmätteknik 2",
+        "Kurskod": "PROPRC02"
+    },
+    {
+        "Kurs": "Processreglering",
+        "Kurskod": "PROPRE0"
+    },
+    {
+        "Kurs": "Processteknik - energi 1",
+        "Kurskod": "PRCPRO31"
+    },
+    {
+        "Kurs": "Processteknik - energi 2",
+        "Kurskod": "PRCPRO32"
+    },
+    {
+        "Kurs": "Processteknik - kemi 1",
+        "Kurskod": "PREKEM31"
+    },
+    {
+        "Kurs": "Processteknik - kemi 2",
+        "Kurskod": "PREKEM32"
+    },
+    {
+        "Kurs": "Produktionsfilosofi 1",
+        "Kurskod": "PRIPRO31"
+    },
+    {
+        "Kurs": "Produktionsfilosofi 2",
+        "Kurskod": "PRIPRO32"
+    },
+    {
+        "Kurs": "Produktionskunskap 1",
+        "Kurskod": "PRDPRO01"
+    },
+    {
+        "Kurs": "Produktionskunskap 2",
+        "Kurskod": "PRDPRO02"
+    },
+    {
+        "Kurs": "Industriell mätteknik - fördjupning",
+        "Kurskod": "PRUINU0"
+    },
+    {
+        "Kurs": "Industriell mätteknik - grund",
+        "Kurskod": "PRUIND0"
+    },
+    {
+        "Kurs": "Interna transporter",
+        "Kurskod": "PRUINE00S"
+    },
+    {
+        "Kurs": "Produktionsutrustning 1",
+        "Kurskod": "PRUPRD01S"
+    },
+    {
+        "Kurs": "Produktionsutrustning 2",
+        "Kurskod": "PRUPRD02S"
+    },
+    {
+        "Kurs": "Produktionsutrustning 3",
+        "Kurskod": "PRUPRD03S"
+    },
+    {
+        "Kurs": "Produktionsutrustning 4",
+        "Kurskod": "PRUPRD04"
+    },
+    {
+        "Kurs": "Verktygskunskap",
+        "Kurskod": "PRUVEY0"
+    },
+    {
+        "Kurs": "Industriell digitalisering",
+        "Kurskod": "PRNIND3"
+    },
+    {
+        "Kurs": "Produktionsutveckling 1",
+        "Kurskod": "PRNPRO31"
+    },
+    {
+        "Kurs": "Produktionsutveckling 2",
+        "Kurskod": "PRNPRO32"
+    },
+    {
+        "Kurs": "Produktutveckling 1",
+        "Kurskod": "PRKPRK01"
+    },
+    {
+        "Kurs": "Produktutveckling 2",
+        "Kurskod": "PRKPRK02"
+    },
+    {
+        "Kurs": "Programmering 1",
+        "Kurskod": "PRRPRR01"
+    },
+    {
+        "Kurs": "Programmering 2",
+        "Kurskod": "PRRPRR02"
+    },
+    {
+        "Kurs": "Programmering 3",
+        "Kurskod": "PRRPRR33"
+    },
+    {
+        "Kurs": "Psykiatri 1",
+        "Kurskod": "PSYPSY01"
+    },
+    {
+        "Kurs": "Psykiatri 2",
+        "Kurskod": "PSYPSK02"
+    },
+    {
+        "Kurs": "Psykologi 1",
+        "Kurskod": "PSKPSY01"
+    },
+    {
+        "Kurs": "Psykologi 2a",
+        "Kurskod": "PSKPSY02a"
+    },
+    {
+        "Kurs": "Psykologi 2b",
+        "Kurskod": "PSKPSY02b"
+    },
+    {
+        "Kurs": "Logi",
+        "Kurskod": "RECLOG0"
+    },
+    {
+        "Kurs": "Reception 1",
+        "Kurskod": "RECREC01"
+    },
+    {
+        "Kurs": "Reception 2",
+        "Kurskod": "RECREC02"
+    },
+    {
+        "Kurs": "Reception 3",
+        "Kurskod": "RECREC03"
+    },
+    {
+        "Kurs": "Religionskunskap - specialisering",
+        "Kurskod": "RELREL0"
+    },
+    {
+        "Kurs": "Religionskunskap 1",
+        "Kurskod": "RELREL01"
+    },
+    {
+        "Kurs": "Religionskunskap 2",
+        "Kurskod": "RELREL02"
+    },
+    {
+        "Kurs": "Städservice",
+        "Kurskod": "REGSTA0"
+    },
+    {
+        "Kurs": "Renen och dess naturmiljö 1",
+        "Kurskod": "RENREN01"
+    },
+    {
+        "Kurs": "Renen och dess naturmiljö 2",
+        "Kurskod": "RENREN02"
+    },
+    {
+        "Kurs": "Renen och rennäringen 1",
+        "Kurskod": "RENREE01"
+    },
+    {
+        "Kurs": "Renen och rennäringen 2",
+        "Kurskod": "RENREE02"
+    },
+    {
+        "Kurs": "Hållbar turism",
+        "Kurskod": "RESHAL0"
+    },
+    {
+        "Kurs": "Marknadsföring och försäljning",
+        "Kurskod": "RESMAS0"
+    },
+    {
+        "Kurs": "Reseproduktion och försäljning",
+        "Kurskod": "RESRES0"
+    },
+    {
+        "Kurs": "Resmål och resvägar",
+        "Kurskod": "RESREM0"
+    },
+    {
+        "Kurs": "Körning 1",
+        "Kurskod": "RINKOR01"
+    },
+    {
+        "Kurs": "Körning 2",
+        "Kurskod": "RINKOR02"
+    },
+    {
+        "Kurs": "Ridning 1",
+        "Kurskod": "RINRID01"
+    },
+    {
+        "Kurs": "Ridning 2",
+        "Kurskod": "RINRID02"
+    },
+    {
+        "Kurs": "Ridning för ridlärare",
+        "Kurskod": "RINRIN0"
+    },
+    {
+        "Kurs": "Ridning och körning",
+        "Kurskod": "RINRID0"
+    },
+    {
+        "Kurs": "Rättspsykiatri",
+        "Kurskod": "RATRAT0"
+    },
+    {
+        "Kurs": "Samernas kultur och historia",
+        "Kurskod": "SAESAM0"
+    },
+    {
+        "Kurs": "BIM-samordning",
+        "Kurskod": "SAHBIM3"
+    },
+    {
+        "Kurs": "Byggnadsverk",
+        "Kurskod": "SAHBYV0"
+    },
+    {
+        "Kurs": "Byggprocessen",
+        "Kurskod": "SAHBYC3"
+    },
+    {
+        "Kurs": "Miljöcertifierade hus",
+        "Kurskod": "SAHMIL3"
+    },
+    {
+        "Kurs": "Internationell ekonomi",
+        "Kurskod": "SAMINE0"
+    },
+    {
+        "Kurs": "Internationella relationer",
+        "Kurskod": "SAMINR0"
+    },
+    {
+        "Kurs": "Samhällskunskap 1a1",
+        "Kurskod": "SAMSAM01a1"
+    },
+    {
+        "Kurs": "Samhällskunskap 1a2",
+        "Kurskod": "SAMSAM01a2"
+    },
+    {
+        "Kurs": "Samhällskunskap 1b",
+        "Kurskod": "SAMSAM01b"
+    },
+    {
+        "Kurs": "Samhällskunskap 2",
+        "Kurskod": "SAMSAM02"
+    },
+    {
+        "Kurs": "Samhällskunskap 3",
+        "Kurskod": "SAMSAM03"
+    },
+    {
+        "Kurs": "Samisk mat och matkultur",
+        "Kurskod": "SASSAM0"
+    },
+    {
+        "Kurs": "Samisk hantverkskultur",
+        "Kurskod": "SAISAM0"
+    },
+    {
+        "Kurs": "Samiskt hantverk 1",
+        "Kurskod": "SAISAM01S"
+    },
+    {
+        "Kurs": "Samiskt hantverk 2",
+        "Kurskod": "SAISAM02S"
+    },
+    {
+        "Kurs": "Samiskt hantverk 3",
+        "Kurskod": "SAISAM03S"
+    },
+    {
+        "Kurs": "Samiskt hantverk 4",
+        "Kurskod": "SAISAM04"
+    },
+    {
+        "Kurs": "Samiskt hantverk 5",
+        "Kurskod": "SAISAM05"
+    },
+    {
+        "Kurs": "Kälsvets 1",
+        "Kurskod": "SAAKÄL01S"
+    },
+    {
+        "Kurs": "Kälsvets 2",
+        "Kurskod": "SAAKÄL02S"
+    },
+    {
+        "Kurs": "Rörsvets 1",
+        "Kurskod": "SAARÖR01S"
+    },
+    {
+        "Kurs": "Rörsvets 2",
+        "Kurskod": "SAARÖR02S"
+    },
+    {
+        "Kurs": "Sammanfogning",
+        "Kurskod": "SAASAA0"
+    },
+    {
+        "Kurs": "Stumsvets 1",
+        "Kurskod": "SAASTU01S"
+    },
+    {
+        "Kurs": "Stumsvets 2",
+        "Kurskod": "SAASTU02S"
+    },
+    {
+        "Kurs": "Svets grund",
+        "Kurskod": "SAASVT0"
+    },
+    {
+        "Kurs": "Arrangemang",
+        "Kurskod": "SERARR0"
+    },
+    {
+        "Kurs": "Frukost och bufféservering",
+        "Kurskod": "SERFRU0"
+    },
+    {
+        "Kurs": "Matsalshantverk",
+        "Kurskod": "SERMAF0"
+    },
+    {
+        "Kurs": "Servering - specialisering",
+        "Kurskod": "SERSER00S"
+    },
+    {
+        "Kurs": "Servering 1",
+        "Kurskod": "SERSER01"
+    },
+    {
+        "Kurs": "Servering 2",
+        "Kurskod": "SERSER02"
+    },
+    {
+        "Kurs": "Service och bemötande 1",
+        "Kurskod": "SEVSEV01"
+    },
+    {
+        "Kurs": "Service och bemötande 2",
+        "Kurskod": "SEVSEV02"
+    },
+    {
+        "Kurs": "Serviceteknik - naturbruk - specialisering",
+        "Kurskod": "SEISER00S"
+    },
+    {
+        "Kurs": "Serviceteknik - naturbruk 1",
+        "Kurskod": "SEISEI01"
+    },
+    {
+        "Kurs": "Serviceteknik - naturbruk 2",
+        "Kurskod": "SEISEI02"
+    },
+    {
+        "Kurs": "Grundläggande säkerhet",
+        "Kurskod": "SJOGRN0"
+    },
+    {
+        "Kurs": "Säkerhet och miljö",
+        "Kurskod": "SJOSAE0"
+    },
+    {
+        "Kurs": "Fiske och vattenvård 1",
+        "Kurskod": "SKOFIS01"
+    },
+    {
+        "Kurs": "Fiske och vattenvård 2",
+        "Kurskod": "SKOFIS02"
+    },
+    {
+        "Kurs": "Jakt och viltvård - specialisering",
+        "Kurskod": "SKOJAK00S"
+    },
+    {
+        "Kurs": "Jakt och viltvård 1",
+        "Kurskod": "SKOJAK01"
+    },
+    {
+        "Kurs": "Jakt och viltvård 2",
+        "Kurskod": "SKOJAK02"
+    },
+    {
+        "Kurs": "Mångbruk av skog",
+        "Kurskod": "SKOMÅN0"
+    },
+    {
+        "Kurs": "Skogsbruksmaskinsteknik",
+        "Kurskod": "SKBSKO0"
+    },
+    {
+        "Kurs": "Avverkningsmaskiner",
+        "Kurskod": "SKMAVV0"
+    },
+    {
+        "Kurs": "Skogsmaskiner - specialisering",
+        "Kurskod": "SKMSKO00S"
+    },
+    {
+        "Kurs": "Småskalig skogsteknik",
+        "Kurskod": "SKMSMA0"
+    },
+    {
+        "Kurs": "Terrängtransporter",
+        "Kurskod": "SKMTER0"
+    },
+    {
+        "Kurs": "Virkestransport med skotare",
+        "Kurskod": "SKMVIE0"
+    },
+    {
+        "Kurs": "Skogsskötsel - specialisering",
+        "Kurskod": "SKGSKG00S"
+    },
+    {
+        "Kurs": "Skogsskötsel 1",
+        "Kurskod": "SKGSKO01"
+    },
+    {
+        "Kurs": "Skogsskötsel 2",
+        "Kurskod": "SKGSKO02"
+    },
+    {
+        "Kurs": "Virkeslära",
+        "Kurskod": "SKGVIR0"
+    },
+    {
+        "Kurs": "Virkesmätning",
+        "Kurskod": "SKGVIK0"
+    },
+    {
+        "Kurs": "Beskärning och trädvård",
+        "Kurskod": "SKÖBEK0"
+    },
+    {
+        "Kurs": "Skötsel av utemiljöer",
+        "Kurskod": "SKÖSKÖ0"
+    },
+    {
+        "Kurs": "Skötsel av utemiljöer - specialisering",
+        "Kurskod": "SKÖSKÖ00S"
+    },
+    {
+        "Kurs": "Pistmaskiner och utrustning",
+        "Kurskod": "SNOPIM0"
+    },
+    {
+        "Kurs": "Pistmaskinkörning",
+        "Kurskod": "SNOPIS0"
+    },
+    {
+        "Kurs": "Reparation av snöfordon",
+        "Kurskod": "SNOREP0"
+    },
+    {
+        "Kurs": "Reparation av snöskoter",
+        "Kurskod": "SNOREE0"
+    },
+    {
+        "Kurs": "Snöfordon - introduktion",
+        "Kurskod": "SNOSNO0"
+    },
+    {
+        "Kurs": "Social omsorg 1",
+        "Kurskod": "SOASOC01"
+    },
+    {
+        "Kurs": "Social omsorg 2",
+        "Kurskod": "SOASOC02"
+    },
+    {
+        "Kurs": "Socialpedagogik",
+        "Kurskod": "SOASOC0"
+    },
+    {
+        "Kurs": "Socialt arbete 1",
+        "Kurskod": "SOCSOC01"
+    },
+    {
+        "Kurs": "Socialt arbete 2",
+        "Kurskod": "SOCSOC02"
+    },
+    {
+        "Kurs": "Etnicitet och kulturmöten",
+        "Kurskod": "SOIETN0"
+    },
+    {
+        "Kurs": "Sociologi",
+        "Kurskod": "SOISOO0"
+    },
+    {
+        "Kurs": "Ungdomskulturer",
+        "Kurskod": "SOIUNG0"
+    },
+    {
+        "Kurs": "Idrottsledarskap",
+        "Kurskod": "SPEIDT3"
+    },
+    {
+        "Kurs": "Idrottsspecialisering 1",
+        "Kurskod": "SPEIDS31"
+    },
+    {
+        "Kurs": "Idrottsspecialisering 2",
+        "Kurskod": "SPEIDS32"
+    },
+    {
+        "Kurs": "Idrottsspecialisering 3",
+        "Kurskod": "SPEIDS33"
+    },
+    {
+        "Kurs": "Tränings- och tävlingslära 1",
+        "Kurskod": "SPETRA31"
+    },
+    {
+        "Kurs": "Tränings- och tävlingslära 2",
+        "Kurskod": "SPETRA32"
+    },
+    {
+        "Kurs": "Tränings- och tävlingslära 3",
+        "Kurskod": "SPETRA33"
+    },
+    {
+        "Kurs": "Specialpedagogik 1",
+        "Kurskod": "SPCSPE01"
+    },
+    {
+        "Kurs": "Specialpedagogik 2",
+        "Kurskod": "SPCSPE02"
+    },
+    {
+        "Kurs": "Sprinklerteknik 1",
+        "Kurskod": "SPNSPR01"
+    },
+    {
+        "Kurs": "Sprinklerteknik 2",
+        "Kurskod": "SPNSPR02"
+    },
+    {
+        "Kurs": "Språk specialisering - retorik 1a",
+        "Kurskod": "SPAXXX01a"
+    },
+    {
+        "Kurs": "Språk specialisering - retorik 1b",
+        "Kurskod": "SPAXXX01b"
+    },
+    {
+        "Kurs": "Språk specialisering - skrivande",
+        "Kurskod": "SPAXXX0"
+    },
+    {
+        "Kurs": "Spårfordon - grund",
+        "Kurskod": "SPOSPA0"
+    },
+    {
+        "Kurs": "Finstyckning",
+        "Kurskod": "STCFIN0"
+    },
+    {
+        "Kurs": "Styckning - specialisering",
+        "Kurskod": "STCSTY00S"
+    },
+    {
+        "Kurs": "Styckning 1",
+        "Kurskod": "STCSTY01"
+    },
+    {
+        "Kurs": "Styckning 2",
+        "Kurskod": "STCSTY02"
+    },
+    {
+        "Kurs": "Styckning 3",
+        "Kurskod": "STCSTY03"
+    },
+    {
+        "Kurs": "Styckning 4",
+        "Kurskod": "STCSTY04"
+    },
+    {
+        "Kurs": "Kundmottagning och reservdelshantering",
+        "Kurskod": "SUPKUN0"
+    },
+    {
+        "Kurs": "Service och reparationsarbete",
+        "Kurskod": "SUPSER0"
+    },
+    {
+        "Kurs": "Support och hemservice",
+        "Kurskod": "SUPSUP0"
+    },
+    {
+        "Kurs": "Litteratur",
+        "Kurskod": "SVELIT0"
+    },
+    {
+        "Kurs": "Retorik",
+        "Kurskod": "SVERET0"
+    },
+    {
+        "Kurs": "Skrivande",
+        "Kurskod": "SVESKR0"
+    },
+    {
+        "Kurs": "Svenska 1",
+        "Kurskod": "SVESVE01"
+    },
+    {
+        "Kurs": "Svenska 2",
+        "Kurskod": "SVESVE02"
+    },
+    {
+        "Kurs": "Svenska 3",
+        "Kurskod": "SVESVE03"
+    },
+    {
+        "Kurs": "Svenska för döva 1",
+        "Kurskod": "SVNSVN01"
+    },
+    {
+        "Kurs": "Svenska för döva 2",
+        "Kurskod": "SVNSVN02"
+    },
+    {
+        "Kurs": "Svenska för döva 3",
+        "Kurskod": "SVNSVN03"
+    },
+    {
+        "Kurs": "Svenska som andraspråk 1",
+        "Kurskod": "SVASVA01"
+    },
+    {
+        "Kurs": "Svenska som andraspråk 2",
+        "Kurskod": "SVASVA02"
+    },
+    {
+        "Kurs": "Svenska som andraspråk 3",
+        "Kurskod": "SVASVA03"
+    },
+    {
+        "Kurs": "Svenskt teckenspråk - aktiv tvåspråkighet",
+        "Kurskod": "SVKSVE0"
+    },
+    {
+        "Kurs": "Svenskt teckenspråk 1",
+        "Kurskod": "SVKSVK01"
+    },
+    {
+        "Kurs": "Svenskt teckenspråk 2",
+        "Kurskod": "SVKSVK02"
+    },
+    {
+        "Kurs": "Svenskt teckenspråk för hörande 1",
+        "Kurskod": "SVTSVT01"
+    },
+    {
+        "Kurs": "Svenskt teckenspråk för hörande 2",
+        "Kurskod": "SVTSVT02"
+    },
+    {
+        "Kurs": "Svenskt teckenspråk för hörande 3",
+        "Kurskod": "SVTSVT03"
+    },
+    {
+        "Kurs": "Svenskt teckenspråk för hörande 4",
+        "Kurskod": "SVTSVT04"
+    },
+    {
+        "Kurs": "Svenskt teckenspråk för hörande 5",
+        "Kurskod": "SVTSVT05"
+    },
+    {
+        "Kurs": "Svenskt teckenspråk för hörande 6",
+        "Kurskod": "SVTSVT06"
+    },
+    {
+        "Kurs": "Svenskt teckenspråk för hörande 7",
+        "Kurskod": "SVTSVT07"
+    },
+    {
+        "Kurs": "Injusteringsteknik",
+        "Kurskod": "SYSINJ0"
+    },
+    {
+        "Kurs": "Systemuppbyggnad",
+        "Kurskod": "SYSSYT0"
+    },
+    {
+        "Kurs": "Värmelära",
+        "Kurskod": "SYSVÄM0"
+    },
+    {
+        "Kurs": "Systemteknik - spårfordon",
+        "Kurskod": "SYTSYS0"
+    },
+    {
+        "Kurs": "Dramatik och dramaturgi",
+        "Kurskod": "TEADRM0"
+    },
+    {
+        "Kurs": "Fysisk teater",
+        "Kurskod": "TEAFYS0"
+    },
+    {
+        "Kurs": "Ljud och ljus",
+        "Kurskod": "TEALJU00S"
+    },
+    {
+        "Kurs": "Regi",
+        "Kurskod": "TEAREG0"
+    },
+    {
+        "Kurs": "Röst",
+        "Kurskod": "TEARÖS0"
+    },
+    {
+        "Kurs": "Scenisk gestaltning 1",
+        "Kurskod": "TEASCE01"
+    },
+    {
+        "Kurs": "Scenisk gestaltning 2",
+        "Kurskod": "TEASCE02"
+    },
+    {
+        "Kurs": "Scenisk gestaltning 3",
+        "Kurskod": "TEASCE03"
+    },
+    {
+        "Kurs": "Sceniskt karaktärsarbete",
+        "Kurskod": "TEASCI0"
+    },
+    {
+        "Kurs": "Sceniskt karaktärsarbete - text",
+        "Kurskod": "TEASCN0"
+    },
+    {
+        "Kurs": "Scenografi, mask och kostym",
+        "Kurskod": "TEASCE00S"
+    },
+    {
+        "Kurs": "Teaterteori",
+        "Kurskod": "TEATEA0"
+    },
+    {
+        "Kurs": "Teknik - specialisering",
+        "Kurskod": "TEKTEK00S"
+    },
+    {
+        "Kurs": "Teknik 1",
+        "Kurskod": "TEKTEK01"
+    },
+    {
+        "Kurs": "Teknik 2",
+        "Kurskod": "TEKTEK02"
+    },
+    {
+        "Kurs": "Komponenter och system el",
+        "Kurskod": "TEYKOM3"
+    },
+    {
+        "Kurs": "Projektering el 1",
+        "Kurskod": "TEYPRO31"
+    },
+    {
+        "Kurs": "Projektering el 2",
+        "Kurskod": "TEYPRO32"
+    },
+    {
+        "Kurs": "Komponenter och system VVS",
+        "Kurskod": "TESKOP3"
+    },
+    {
+        "Kurs": "Projektering VVS 1",
+        "Kurskod": "TESPRO31"
+    },
+    {
+        "Kurs": "Projektering VVS 2",
+        "Kurskod": "TESPRO32"
+    },
+    {
+        "Kurs": "Brand- och ljudisolering",
+        "Kurskod": "TEIBRA0"
+    },
+    {
+        "Kurs": "Industriisolering",
+        "Kurskod": "TEIINT0"
+    },
+    {
+        "Kurs": "Kondensisolering",
+        "Kurskod": "TEIKOD0"
+    },
+    {
+        "Kurs": "VVS-isolering",
+        "Kurskod": "TEIVVS0"
+    },
+    {
+        "Kurs": "Ytbeklädnad - grund",
+        "Kurskod": "TEIYTB0"
+    },
+    {
+        "Kurs": "Tillverkningsunderlag 1",
+        "Kurskod": "TILTIL01"
+    },
+    {
+        "Kurs": "Tillverkningsunderlag 2",
+        "Kurskod": "TILTIL02"
+    },
+    {
+        "Kurs": "Tillämpad programmering",
+        "Kurskod": "TIATIL00S"
+    },
+    {
+        "Kurs": "Trafikövervakning och signalsystem - spårfordon",
+        "Kurskod": "TRFTRA0"
+    },
+    {
+        "Kurs": "Fordonskombinationer - godstransporter",
+        "Kurskod": "TRAFOR0"
+    },
+    {
+        "Kurs": "Fordonskombinationer - persontransporter",
+        "Kurskod": "TRAFOD0"
+    },
+    {
+        "Kurs": "Yrkestrafik - vux",
+        "Kurskod": "TRAYRK1"
+    },
+    {
+        "Kurs": "Yrkestrafik 1a",
+        "Kurskod": "TRAYRK01a"
+    },
+    {
+        "Kurs": "Yrkestrafik 1b",
+        "Kurskod": "TRAYRK01b"
+    },
+    {
+        "Kurs": "Trav 1",
+        "Kurskod": "TRVTRA01"
+    },
+    {
+        "Kurs": "Trav 2",
+        "Kurskod": "TRVTRA02"
+    },
+    {
+        "Kurs": "Truckteknik",
+        "Kurskod": "TRCTRU0"
+    },
+    {
+        "Kurs": "Bygga i trä",
+        "Kurskod": "TRÄBYG0"
+    },
+    {
+        "Kurs": "Timring",
+        "Kurskod": "TRÄTIM0"
+    },
+    {
+        "Kurs": "Trä 1 - stommar",
+        "Kurskod": "TRÄTRK01"
+    },
+    {
+        "Kurs": "Trä 2 - beklädnad",
+        "Kurskod": "TRÄTRK02"
+    },
+    {
+        "Kurs": "Trä 3 - montage",
+        "Kurskod": "TRÄTRK03"
+    },
+    {
+        "Kurs": "Trädgårdsanläggning - specialisering",
+        "Kurskod": "TRDTRÄ00S"
+    },
+    {
+        "Kurs": "Trädgårdsanläggning 1",
+        "Kurskod": "TRDTRÄ01"
+    },
+    {
+        "Kurs": "Trädgårdsanläggning 2",
+        "Kurskod": "TRDTRÄ02"
+    },
+    {
+        "Kurs": "Trädgårdsmaskiner",
+        "Kurskod": "TRSTRG0"
+    },
+    {
+        "Kurs": "Trädgårdsodling",
+        "Kurskod": "TRRTRA0"
+    },
+    {
+        "Kurs": "Trädgårdsodling - grönsaker, frukt och bär",
+        "Kurskod": "TRRTRD0"
+    },
+    {
+        "Kurs": "Trädgårdsodling - plantskoleväxter",
+        "Kurskod": "TRRTRG0"
+    },
+    {
+        "Kurs": "Trädgårdsodling - specialisering",
+        "Kurskod": "TRRTRA00S"
+    },
+    {
+        "Kurs": "Träningslära 1",
+        "Kurskod": "TRNTRN01"
+    },
+    {
+        "Kurs": "Träningslära 2",
+        "Kurskod": "TRNTRN02"
+    },
+    {
+        "Kurs": "Tätskikt våtrum",
+        "Kurskod": "TÄTTÄT0"
+    },
+    {
+        "Kurs": "Flygunderhåll",
+        "Kurskod": "UNDFLY0"
+    },
+    {
+        "Kurs": "Materiallära - flyg",
+        "Kurskod": "UNDMAT0"
+    },
+    {
+        "Kurs": "Utställningsdesign 1",
+        "Kurskod": "UTSUTS01"
+    },
+    {
+        "Kurs": "Utställningsdesign 2",
+        "Kurskod": "UTSUTS02"
+    },
+    {
+        "Kurs": "Utställningsdesign 3",
+        "Kurskod": "UTSUTS03S"
+    },
+    {
+        "Kurs": "Fiskodling 1",
+        "Kurskod": "VANFIS01"
+    },
+    {
+        "Kurs": "Fiskodling 2",
+        "Kurskod": "VANFIS02"
+    },
+    {
+        "Kurs": "Vattenbruk - grunder",
+        "Kurskod": "VANVAT0"
+    },
+    {
+        "Kurs": "Vattenbruk - specialisering",
+        "Kurskod": "VANVAE00S"
+    },
+    {
+        "Kurs": "Drift, underhåll, säkerhet och miljö",
+        "Kurskod": "VAEDRT0"
+    },
+    {
+        "Kurs": "Generatorer och transformatorer",
+        "Kurskod": "VAEGEN0"
+    },
+    {
+        "Kurs": "Hydraulik, kraftstationshydraulik och turbiner",
+        "Kurskod": "VAEHYD0"
+    },
+    {
+        "Kurs": "Kontrollanläggningar",
+        "Kurskod": "VAEKOR0"
+    },
+    {
+        "Kurs": "Vattenkraftstationer",
+        "Kurskod": "VAEVAN0"
+    },
+    {
+        "Kurs": "Dricksvatten",
+        "Kurskod": "VATDRI0"
+    },
+    {
+        "Kurs": "Rening av förorenat vatten",
+        "Kurskod": "VATREN0"
+    },
+    {
+        "Kurs": "Vatten- och miljöteknik",
+        "Kurskod": "VATVAT0"
+    },
+    {
+        "Kurs": "Vattenreningens mikrobiologi",
+        "Kurskod": "VATVAR0"
+    },
+    {
+        "Kurs": "Ventilationsisolering",
+        "Kurskod": "VEIVEN0"
+    },
+    {
+        "Kurs": "Ventilationsmontering 1",
+        "Kurskod": "VEIVEN01"
+    },
+    {
+        "Kurs": "Ventilationsmontering 2",
+        "Kurskod": "VEIVEN02"
+    },
+    {
+        "Kurs": "Ventilationsservice",
+        "Kurskod": "VEIVET0"
+    },
+    {
+        "Kurs": "Ventilationsplåtslageri 1",
+        "Kurskod": "VELVET01"
+    },
+    {
+        "Kurs": "Ventilationsplåtslageri 2",
+        "Kurskod": "VELVET02"
+    },
+    {
+        "Kurs": "Luftbehandling",
+        "Kurskod": "VETLUF0"
+    },
+    {
+        "Kurs": "Luftbehandlingsanläggningar",
+        "Kurskod": "VETLUT0"
+    },
+    {
+        "Kurs": "Luftbehandlingssystem",
+        "Kurskod": "VETLUE0"
+    },
+    {
+        "Kurs": "Luftströmning",
+        "Kurskod": "VETLUS0"
+    },
+    {
+        "Kurs": "Ventilationsteknik - injustering",
+        "Kurskod": "VETVEL0"
+    },
+    {
+        "Kurs": "Verkstad - spårfordon",
+        "Kurskod": "VEAVER0"
+    },
+    {
+        "Kurs": "Verktygs- och materialhantering",
+        "Kurskod": "VEKVEK0"
+    },
+    {
+        "Kurs": "Visuell kommunikation",
+        "Kurskod": "VISVIS0"
+    },
+    {
+        "Kurs": "Entreprenadteknik",
+        "Kurskod": "VVIENT0"
+    },
+    {
+        "Kurs": "Sanitetsteknik 1",
+        "Kurskod": "VVISAN01"
+    },
+    {
+        "Kurs": "Sanitetsteknik 2",
+        "Kurskod": "VVISAN02"
+    },
+    {
+        "Kurs": "VVS gassvetsning rör",
+        "Kurskod": "VVIVVG0"
+    },
+    {
+        "Kurs": "VVS svets och lödning rör",
+        "Kurskod": "VVIVVS0"
+    },
+    {
+        "Kurs": "VVS-teknik",
+        "Kurskod": "VVIVVT0"
+    },
+    {
+        "Kurs": "Värmeteknik 1",
+        "Kurskod": "VVIVAR01"
+    },
+    {
+        "Kurs": "Värmeteknik 2",
+        "Kurskod": "VVIVAR02"
+    },
+    {
+        "Kurs": "Våningsservice 1",
+        "Kurskod": "VAIVAI01"
+    },
+    {
+        "Kurs": "Våningsservice 2",
+        "Kurskod": "VAIVAI02"
+    },
+    {
+        "Kurs": "Våningsservice 3",
+        "Kurskod": "VAIVAI03"
+    },
+    {
+        "Kurs": "Vård och omsorg - specialisering",
+        "Kurskod": "VADVAD00S"
+    },
+    {
+        "Kurs": "Växtkunskap - fastighetsskötsel",
+        "Kurskod": "VÄXVÄK0"
+    },
+    {
+        "Kurs": "Växtkunskap 1",
+        "Kurskod": "VÄXVÄX01"
+    },
+    {
+        "Kurs": "Växtkunskap 2",
+        "Kurskod": "VÄXVÄX02"
+    },
+    {
+        "Kurs": "Odling av djurfoder",
+        "Kurskod": "VAOODL0"
+    },
+    {
+        "Kurs": "Växtodling - specialisering",
+        "Kurskod": "VAOVAT00S"
+    },
+    {
+        "Kurs": "Växtodling 1",
+        "Kurskod": "VAOVAT01"
+    },
+    {
+        "Kurs": "Växtodling 2",
+        "Kurskod": "VAOVAT02"
+    },
+    {
+        "Kurs": "Webbserverprogrammering 1",
+        "Kurskod": "WESWEB01"
+    },
+    {
+        "Kurs": "Webbserverprogrammering 2",
+        "Kurskod": "WESWEB02"
+    },
+    {
+        "Kurs": "Webbtjänster",
+        "Kurskod": "WESWET3"
+    },
+    {
+        "Kurs": "Webbutveckling 1",
+        "Kurskod": "WEUWEB01"
+    },
+    {
+        "Kurs": "Webbutveckling 2",
+        "Kurskod": "WEUWEB02"
+    },
+    {
+        "Kurs": "Webbutveckling 3",
+        "Kurskod": "WEUWEB33"
+    },
+    {
+        "Kurs": "Aerodynamik",
+        "Kurskod": "YRKAER0"
+    },
+    {
+        "Kurs": "Flyglagstiftning",
+        "Kurskod": "YRKFLY0"
+    },
+    {
+        "Kurs": "Mänskliga faktorer",
+        "Kurskod": "YRKMAN0"
+    },
+    {
+        "Kurs": "Yttre miljö - anläggningar",
+        "Kurskod": "YTTYTT0"
+    },
+    {
+        "Kurs": "Yttre miljö - maskiner och verktyg",
+        "Kurskod": "YTTYTR0"
+    }
+]
