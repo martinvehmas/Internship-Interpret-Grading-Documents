@@ -65,23 +65,25 @@ namespace Interpret_grading_documents.Services
 
         public async Task<GraduationDocument> ProcessTextPrompt()
         {
-            var inputFileName = "examensbevis-gymnasieskola-yrkes-el.pdf";
+            var inputFileName = "SlutBetyg_02.png"; // Replace with dynamic input as needed
             var inputPath = Path.Combine(Directory.GetCurrentDirectory(), "SampleImages", inputFileName);
             string extension = Path.GetExtension(inputPath).ToLower();
-            string jpgPath;
+            string processedImagePath = inputPath; // Initialize with original path
+            string contentType;
 
             if (extension == ".pdf")
             {
-                jpgPath = Path.Combine(Path.GetTempPath(), $"{Guid.NewGuid()}.jpg");
+                // Convert PDF to JPG
+                processedImagePath = Path.Combine(Path.GetTempPath(), $"{Guid.NewGuid()}.jpg");
 
-                // convert PDF to JPG
                 using (var images = new MagickImageCollection())
                 {
                     images.Read(inputPath);
                     if (images.Count > 0)
                     {
                         images[0].Format = MagickFormat.Jpeg;
-                        images[0].Write(jpgPath);
+                        images[0].Write(processedImagePath);
+                        contentType = "image/jpeg";
                     }
                     else
                     {
@@ -91,13 +93,21 @@ namespace Interpret_grading_documents.Services
             }
             else if (extension == ".jpg" || extension == ".jpeg" || extension == ".png")
             {
-                jpgPath = Path.Combine(Path.GetTempPath(), $"{Guid.NewGuid()}.jpg");
+                // Use original image without conversion
+                processedImagePath = inputPath;
 
-                // convert image to JPG if it's not already a JPG
-                using (var image = new MagickImage(inputPath))
+                // Determine the correct MIME type based on the file extension
+                switch (extension)
                 {
-                    image.Format = MagickFormat.Jpeg;
-                    image.Write(jpgPath);
+                    case ".jpg":
+                    case ".jpeg":
+                        contentType = "image/jpeg";
+                        break;
+                    case ".png":
+                        contentType = "image/png";
+                        break;
+                    default:
+                        throw new NotSupportedException("Unsupported image format.");
                 }
             }
             else
@@ -108,7 +118,7 @@ namespace Interpret_grading_documents.Services
             var checker = new ImageReliabilityChecker();
             try
             {
-                var result = checker.CheckImageReliability(jpgPath);
+                var result = checker.CheckImageReliability(processedImagePath);
                 Console.WriteLine(result.ToString());
             }
             catch (Exception ex)
@@ -118,46 +128,46 @@ namespace Interpret_grading_documents.Services
 
             ChatClient client = new("gpt-4o-mini", _apiKey);
 
-            byte[] imageBytes = await File.ReadAllBytesAsync(jpgPath);
+            byte[] imageBytes = await File.ReadAllBytesAsync(processedImagePath);
             BinaryData binaryImageData = BinaryData.FromBytes(imageBytes);
 
             List<ChatMessage> messages = new List<ChatMessage>
-    {
-        new UserChatMessage(
-            ChatMessageContentPart.CreateTextPart("Vänligen extrahera följande data från bilden, svara endast med JSON, formatera det inte med  eller liknande. Säkerställ att alla betygen är korrekta och överenstämmer med deras ämne."),
-            ChatMessageContentPart.CreateTextPart(
-                "1. Fullständigt namn\n" +
-                "2. Personnummer\n" +
-                "3. Examensdatum\n" +
-                "4. Skolans namn\n" +
-                "5. Programnamn\n" +
-                "6. Specialisering och detaljer om utbildning\n" +
-                "7. Lista över ämnen med följande detaljer:\n" +
-                "   - Ämnesnamn\n" +
-                "   - Kurskod\n" +
-                "   - Betyg\n" +
-                "   - Poäng\n" +
-                "Vänligen se till att formatera svaret i JSON-format som detta:\n" +
-                "{\n" +
-                "   'full_name': 'Fullständigt Namn',\n" +
-                "   'personal_id': 'xxxxxx-xxxx',\n" +
-                "   'graduation_date': 'ÅÅÅÅ-MM-DD',\n" +
-                "   'school_name': 'Skolans Namn',\n" +
-                "   'program_name': 'Programnamn',\n" +
-                "   'specialization': 'Specialisering',\n" +
-                "   'subjects': [\n" +
-                "       {\n" +
-                "           'subject_name': 'Ämnesnamn',\n" +
-                "           'course_code': 'Kurskod',\n" +
-                "           'grade': 'Betyg',\n" +
-                "           'points': 'Poäng'\n" +
-                "       },\n" +
-                "       ... fler ämnen\n" +
-                "   ]\n" +
-                "}"
-            ),
-            ChatMessageContentPart.CreateImagePart(binaryImageData, "image/jpeg"))
-    };
+            {
+                new UserChatMessage(
+                    ChatMessageContentPart.CreateTextPart("Vänligen extrahera följande data från bilden, svara endast med JSON, formatera det inte med  eller liknande. Säkerställ att alla betygen är korrekta och överenstämmer med deras ämne."),
+                    ChatMessageContentPart.CreateTextPart(
+                        "1. Fullständigt namn\n" +
+                        "2. Personnummer\n" +
+                        "3. Examensdatum\n" +
+                        "4. Skolans namn\n" +
+                        "5. Programnamn\n" +
+                        "6. Specialisering och detaljer om utbildning\n" +
+                        "7. Lista över ämnen med följande detaljer:\n" +
+                        "   - Ämnesnamn\n" +
+                        "   - Kurskod\n" +
+                        "   - Betyg\n" +
+                        "   - Poäng\n" +
+                        "Vänligen se till att formatera svaret i JSON-format som detta:\n" +
+                        "{\n" +
+                        "   'full_name': 'Fullständigt Namn',\n" +
+                        "   'personal_id': 'xxxxxx-xxxx',\n" +
+                        "   'graduation_date': 'ÅÅÅÅ-MM-DD',\n" +
+                        "   'school_name': 'Skolans Namn',\n" +
+                        "   'program_name': 'Programnamn',\n" +
+                        "   'specialization': 'Specialisering',\n" +
+                        "   'subjects': [\n" +
+                        "       {\n" +
+                        "           'subject_name': 'Ämnesnamn',\n" +
+                        "           'course_code': 'Kurskod',\n" +
+                        "           'grade': 'Betyg',\n" +
+                        "           'points': 'Poäng'\n" +
+                        "       },\n" +
+                        "       ... fler ämnen\n" +
+                        "   ]\n" +
+                        "}"
+                    ),
+                    ChatMessageContentPart.CreateImagePart(binaryImageData, contentType)) // Use dynamic content type
+            };
 
             var completionOptions = new ChatCompletionOptions
             {
@@ -170,17 +180,20 @@ namespace Interpret_grading_documents.Services
 
             GraduationDocument document = JsonSerializer.Deserialize<GraduationDocument>(jsonResponse);
 
-            // check personal ID
+            // Check personal ID validity
             var isPersonalIdValid = checker.PersonalIdChecker(document);
 
-            // clean up temporary JPG file
-            try
+            // Clean up temporary JPG file if it was created from a PDF
+            if (extension == ".pdf")
             {
-                File.Delete(jpgPath);
-            }
-            catch (IOException ex)
-            {
-                Console.WriteLine($"Kunde inte ta bort temporärfilen: {ex.Message}");
+                try
+                {
+                    File.Delete(processedImagePath);
+                }
+                catch (IOException ex)
+                {
+                    Console.WriteLine($"Kunde inte ta bort temporärfilen: {ex.Message}");
+                }
             }
 
             return document;
