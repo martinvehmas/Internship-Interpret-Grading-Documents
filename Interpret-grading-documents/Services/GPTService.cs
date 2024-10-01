@@ -1,5 +1,10 @@
 ﻿using Interpret_grading_documents.Services;
+using Microsoft.AspNetCore.DataProtection.KeyManagement;
+using OpenAI.Assistants;
+using OpenAI;
 using OpenAI.Chat;
+using OpenAI.Files;
+using System.ClientModel;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -65,12 +70,89 @@ namespace Interpret_grading_documents.Services
 
         public async Task<GraduationDocument> ProcessTextPrompt()
         {
-            var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "SampleImages", "examensbevis-gymnasieskola-yrkes-el.pdf");
+            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "SampleImages", "examensbevis-gymnasieskola-yrkes-el.pdf");
+            string fileExtension = Path.GetExtension(filePath).ToLower();
 
-            var checker = new ImageReliabilityChecker();
+            if (fileExtension == ".pdf")
+            {
+                // Assistants is a beta API and subject to change; acknowledge its experimental status by suppressing the matching warning.
+                #pragma warning disable OPENAI001
+                OpenAIClient openAIClient = new(_apiKey);
+                FileClient fileClient = openAIClient.GetFileClient();
+                AssistantClient assistantClient = openAIClient.GetAssistantClient();
+
+                OpenAIFile pdfFile = fileClient.UploadFile(filePath,
+                    FileUploadPurpose.Assistants);
+
+                AssistantCreationOptions assistantOptions = new()
+                {
+                Name = "PDF-GPT",
+                Instructions =
+                "You are an assistant that extracts data from this PDF-file"
+                    + " on user queries. Extract only the data that the user is asking about from the PDF-file."
+                    + " Please make sure to format the response: 'full_name': 'Full Name', 'personal_id': 'xxxxxx-xxxx'",
+                Tools =
+                {
+                    new FileSearchToolDefinition(),
+                    new CodeInterpreterToolDefinition(),
+                },
+                ToolResources = new()
+                {
+                FileSearch = new()
+                {
+                NewVectorStores =
+                {
+                    new VectorStoreCreationHelper([pdfFile.Id]),
+                }
+            }
+        },
+    };
+
+    Assistant assistant = assistantClient.CreateAssistant("gpt-4o-mini", assistantOptions);
+
+    ThreadCreationOptions threadOptions = new()
+    {
+        InitialMessages = { "What is the full name and the personal id say in the PDF-file?" }
+    };
+
+    ThreadRun threadRun = assistantClient.CreateThreadAndRun(assistant.Id, threadOptions);
+
+    do
+    {
+        Thread.Sleep(TimeSpan.FromSeconds(1));
+        threadRun = assistantClient.GetRun(threadRun.ThreadId, threadRun.Id);
+    } while (!threadRun.Status.IsTerminal);
+
+    CollectionResult<ThreadMessage> messages
+        = assistantClient.GetMessages(threadRun.ThreadId, new MessageCollectionOptions() { Order = MessageCollectionOrder.Ascending });
+
+    foreach (ThreadMessage message in messages)
+    {
+        Console.Write($"[{message.Role.ToString().ToUpper()}]: ");
+        foreach (MessageContent contentItem in message.Content)
+        {
+            if (!string.IsNullOrEmpty(contentItem.Text))
+            {
+                Console.WriteLine($"{contentItem.Text}");
+
+                if (contentItem.TextAnnotations.Count > 0)
+                {
+                    Console.WriteLine();
+                }
+
+            }
+        }
+        Console.WriteLine();
+        }
+        #pragma warning disable OPENAI001
+            }
+            else if (fileExtension == ".png" || fileExtension == ".jpg" || fileExtension == ".jpeg")
+            {
+                // Process Image
+                var checker = new ImageReliabilityChecker();
             try
             {
-                var result = checker.CheckImageReliability(imagePath);
+                var result = checker.CheckImageReliability(filePath);
                 Console.WriteLine(result.ToString());
             }
             catch (Exception ex)
@@ -79,7 +161,7 @@ namespace Interpret_grading_documents.Services
             }
 
             ChatClient client = new("gpt-4o-mini", _apiKey);
-            using Stream imageStream = File.OpenRead(imagePath);
+            using Stream imageStream = File.OpenRead(filePath);
 
             
 
@@ -118,8 +200,11 @@ namespace Interpret_grading_documents.Services
                         "   ]\n" +
                         "}"
                     ),
-                    ChatMessageContentPart.CreateImagePart(imageBytes, "image/png"))
+                    ChatMessageContentPart.CreateImagePart(imageBytes, $"image/png"))
             ];
+            
+
+            
 
             var completionOptions = new ChatCompletionOptions
             {
@@ -134,6 +219,12 @@ namespace Interpret_grading_documents.Services
             GraduationDocument document = JsonSerializer.Deserialize<GraduationDocument>(jsonResponse);
 
             return document;
+            }
+            else
+            {
+                throw new InvalidOperationException("Unsupported file type.");
+            }
+            return null;
         }
     }
 }
