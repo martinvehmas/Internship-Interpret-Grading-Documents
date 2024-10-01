@@ -38,7 +38,7 @@ namespace Interpret_grading_documents.Services
 
             [JsonPropertyName("grade")] public string Grade { get; set; }
 
-            [JsonPropertyName("points")] public string GymnasiumPoints { get; set; }
+            [JsonPropertyName("points")] public int GymnasiumPoints { get; set; }
         }
 
         public GPTService(HttpClient httpClient)
