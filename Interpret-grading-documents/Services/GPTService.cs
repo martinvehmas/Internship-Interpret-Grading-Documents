@@ -170,6 +170,9 @@ namespace Interpret_grading_documents.Services
 
             GraduationDocument document = JsonSerializer.Deserialize<GraduationDocument>(jsonResponse);
 
+            // check personal ID
+            var isPersonalIdValid = checker.PersonalIdChecker(document);
+
             // clean up temporary JPG file
             try
             {

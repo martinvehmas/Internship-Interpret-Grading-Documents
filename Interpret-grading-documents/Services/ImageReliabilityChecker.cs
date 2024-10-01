@@ -1,5 +1,7 @@
-﻿using SixLabors.ImageSharp;
+﻿using System.Text.RegularExpressions;
+using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
+using static Interpret_grading_documents.Services.GPTService;
 
 namespace Interpret_grading_documents.Services
 {
@@ -126,6 +128,17 @@ namespace Interpret_grading_documents.Services
 
             result.ReliabilityScore = Math.Min(score, 100.0);
             return result;
+        }
+
+        public bool PersonalIdChecker(GraduationDocument document)
+        {
+            string personalId = document.PersonalId;
+
+            // Regex (YYMMDD-XXXX or YYYYMMDD-XXXX or without hyphen)
+            string pattern = @"^(\d{6}|\d{8})(-|\d)?\d{4}$";
+
+            // Check if personalId matches the pattern
+            return Regex.IsMatch(personalId, pattern);
         }
     }
 }
