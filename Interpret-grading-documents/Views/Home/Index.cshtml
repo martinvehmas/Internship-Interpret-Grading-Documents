@@ -1,10 +1,4 @@
-﻿@model Interpret_grading_documents.Services.GPTService.GraduationDocument
-
-@{
-    ViewData["Title"] = "Home Page";
-}
-
-<div class="container mt-5">
+﻿<div class="container mt-5">
     <div class="text-center">
         <h1 class="display-4">Grading Document</h1>
 
@@ -47,6 +41,13 @@
                         }
                     </tbody>
                 </table>
+
+                <h3 class="mt-4">Image Reliability</h3>
+                <div class="card mt-2">
+                    <div class="card-body">
+                        <p class="card-text"><strong>Reliability:</strong> @Model.ImageReliability</p>
+                    </div>
+                </div>
             }
             else
             {
