@@ -68,7 +68,7 @@ namespace Interpret_grading_documents.Services
 
         public async Task<GraduationDocument> ProcessTextPrompt()
         {
-            var inputFileName = "Betyg-certifikat-och-komplett-meritlista-för-P-O-Flodström-2016-page-007.jpg";
+            var inputFileName = "SlutBetyg_01.png";
             var inputPath = Path.Combine(Directory.GetCurrentDirectory(), "SampleImages", inputFileName);
             string extension = Path.GetExtension(inputPath).ToLower();
             string processedImagePath = inputPath; // Initialize with original path
@@ -179,6 +179,17 @@ namespace Interpret_grading_documents.Services
             var jsonResponse = chatCompletion.Content[0].Text;
 
             GraduationDocument document = JsonSerializer.Deserialize<GraduationDocument>(jsonResponse);
+
+            var isPersonalIdValid = checker.PersonalIdChecker(document);
+
+            // Add reliability score to 0 if personal ID is invalid
+            if (!isPersonalIdValid)
+            {
+                document.ImageReliability = $"Reliability Score: 0.0\n" +
+                                            $"Betygsdokumentet är inte tillförlitligt, personnummer finns ej eller stämmer inte\n";
+                                            
+                return document;
+            }
 
             document.ImageReliability = reliabilityResult;
 
