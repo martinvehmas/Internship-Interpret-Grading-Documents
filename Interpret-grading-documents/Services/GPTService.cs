@@ -1,5 +1,4 @@
-﻿using Interpret_grading_documents.Services;
-using OpenAI.Chat;
+﻿using OpenAI.Chat;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using ImageMagick;
@@ -37,7 +36,6 @@ namespace Interpret_grading_documents.Services
             public string ImageReliability { get; set; }
         }
 
-
         public class Subject
         {
             [JsonPropertyName("subject_name")]
@@ -66,12 +64,17 @@ namespace Interpret_grading_documents.Services
             }
         }
 
-        public async Task<GraduationDocument> ProcessTextPrompt()
+        public async Task<GraduationDocument> ProcessTextPrompt(IFormFile uploadedFile)
         {
-            var inputFileName = "SlutBetyg_02.png";
-            var inputPath = Path.Combine(Directory.GetCurrentDirectory(), "SampleImages", inputFileName);
-            string extension = Path.GetExtension(inputPath).ToLower();
-            string processedImagePath = inputPath; // Initialize with original path
+            // Save the uploaded file to a temporary location
+            var tempFilePath = Path.Combine(Path.GetTempPath(), $"{Guid.NewGuid()}{Path.GetExtension(uploadedFile.FileName).ToLower()}");
+            using (var stream = new FileStream(tempFilePath, FileMode.Create))
+            {
+                await uploadedFile.CopyToAsync(stream);
+            }
+
+            string extension = Path.GetExtension(tempFilePath).ToLower();
+            string processedImagePath = tempFilePath; // Initialize with uploaded file path
             string contentType;
 
             if (extension == ".pdf")
@@ -80,7 +83,7 @@ namespace Interpret_grading_documents.Services
 
                 using (var images = new MagickImageCollection())
                 {
-                    images.Read(inputPath);
+                    images.Read(tempFilePath);
                     if (images.Count > 0)
                     {
                         images[0].Format = MagickFormat.Jpeg;
@@ -95,7 +98,7 @@ namespace Interpret_grading_documents.Services
             }
             else if (extension == ".jpg" || extension == ".jpeg" || extension == ".png")
             {
-                processedImagePath = inputPath;
+                processedImagePath = tempFilePath;
 
                 switch (extension)
                 {
@@ -132,42 +135,42 @@ namespace Interpret_grading_documents.Services
             BinaryData binaryImageData = BinaryData.FromBytes(imageBytes);
 
             List<ChatMessage> messages = new List<ChatMessage>
-    {
-        new UserChatMessage(
-            ChatMessageContentPart.CreateTextPart("Vänligen extrahera följande data från bilden, svara endast med JSON, formatera det inte med <pre> eller liknande. Säkerställ att alla betygen är korrekta och överenstämmer med deras ämne."),
-            ChatMessageContentPart.CreateTextPart(
-                "1. Fullständigt namn\n" +
-                "2. Personnummer\n" +
-                "3. Examensdatum\n" +
-                "4. Skolans namn\n" +
-                "5. Programnamn\n" +
-                "6. Specialisering och detaljer om utbildning\n" +
-                "7. Lista över ämnen med följande detaljer:\n" +
-                "   - Ämnesnamn\n" +
-                "   - Kurskod\n" +
-                "   - Betyg\n" +
-                "   - Poäng\n" +
-                "Vänligen se till att formatera svaret i JSON-format som detta:\n" +
-                "{\n" +
-                "   'full_name': 'Fullständigt Namn',\n" +
-                "   'personal_id': 'xxxxxx-xxxx',\n" +
-                "   'graduation_date': 'ÅÅÅÅ-MM-DD',\n" +
-                "   'school_name': 'Skolans Namn',\n" +
-                "   'program_name': 'Programnamn',\n" +
-                "   'specialization': 'Specialisering',\n" +
-                "   'subjects': [\n" +
-                "       {\n" +
-                "           'subject_name': 'Ämnesnamn',\n" +
-                "           'course_code': 'Kurskod',\n" +
-                "           'grade': 'Betyg',\n" +
-                "           'points': 'Poäng'\n" +
-                "       },\n" +
-                "       ... fler ämnen\n" +
-                "   ]\n" +
-                "}"
-            ),
-            ChatMessageContentPart.CreateImagePart(binaryImageData, contentType))
-    };
+            {
+                new UserChatMessage(
+                    ChatMessageContentPart.CreateTextPart("Vänligen extrahera följande data från bilden, svara endast med JSON, formatera det inte med <pre> eller liknande. Säkerställ att alla betygen är korrekta och överenstämmer med deras ämne."),
+                    ChatMessageContentPart.CreateTextPart(
+                        "1. Fullständigt namn\n" +
+                        "2. Personnummer\n" +
+                        "3. Examensdatum\n" +
+                        "4. Skolans namn\n" +
+                        "5. Programnamn\n" +
+                        "6. Specialisering och detaljer om utbildning\n" +
+                        "7. Lista över ämnen med följande detaljer:\n" +
+                        "   - Ämnesnamn\n" +
+                        "   - Kurskod\n" +
+                        "   - Betyg\n" +
+                        "   - Poäng\n" +
+                        "Vänligen se till att formatera svaret i JSON-format som detta:\n" +
+                        "{\n" +
+                        "   'full_name': 'Fullständigt Namn',\n" +
+                        "   'personal_id': 'xxxxxx-xxxx',\n" +
+                        "   'graduation_date': 'ÅÅÅÅ-MM-DD',\n" +
+                        "   'school_name': 'Skolans Namn',\n" +
+                        "   'program_name': 'Programnamn',\n" +
+                        "   'specialization': 'Specialisering',\n" +
+                        "   'subjects': [\n" +
+                        "       {\n" +
+                        "           'subject_name': 'Ämnesnamn',\n" +
+                        "           'course_code': 'Kurskod',\n" +
+                        "           'grade': 'Betyg',\n" +
+                        "           'points': 'Poäng'\n" +
+                        "       },\n" +
+                        "       ... fler ämnen\n" +
+                        "   ]\n" +
+                        "}"
+                    ),
+                    ChatMessageContentPart.CreateImagePart(binaryImageData, contentType))
+            };
 
             var completionOptions = new ChatCompletionOptions
             {
@@ -193,21 +196,37 @@ namespace Interpret_grading_documents.Services
 
                 document.ImageReliability = updatedResult;
 
-                return document;
-            }
-
-            document.ImageReliability = reliabilityResult;
-
-            if (extension == ".pdf")
-            {
+                // Clean up temporary files
                 try
                 {
-                    File.Delete(processedImagePath);
+                    File.Delete(tempFilePath);
+                    if (extension == ".pdf")
+                    {
+                        File.Delete(processedImagePath);
+                    }
                 }
                 catch (IOException ex)
                 {
                     Console.WriteLine($"Kunde inte ta bort temporärfilen: {ex.Message}");
                 }
+
+                return document;
+            }
+
+            document.ImageReliability = reliabilityResult;
+
+            // Clean up temporary files
+            try
+            {
+                File.Delete(tempFilePath);
+                if (extension == ".pdf")
+                {
+                    File.Delete(processedImagePath);
+                }
+            }
+            catch (IOException ex)
+            {
+                Console.WriteLine($"Kunde inte ta bort temporärfilen: {ex.Message}");
             }
 
             return document;

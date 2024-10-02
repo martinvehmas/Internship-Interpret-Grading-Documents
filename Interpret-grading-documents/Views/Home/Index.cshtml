@@ -52,12 +52,16 @@
             else
             {
                 <div class="alert alert-info" role="alert">
-                    No data extracted yet. Press the button below to analyze the data.
+                    No data extracted yet. Upload a document below to analyze the data.
                 </div>
             }
         </div>
 
-        <form asp-action="ProcessText" method="post">
+        <form asp-action="ProcessText" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="uploadedFile">Upload Document (PDF, JPG, PNG):</label>
+                <input type="file" class="form-control-file" id="uploadedFile" name="uploadedFile" accept=".pdf,.jpg,.jpeg,.png" required />
+            </div>
             <button type="submit" class="btn btn-primary mt-3">Analyze Data</button>
         </form>
     </div>

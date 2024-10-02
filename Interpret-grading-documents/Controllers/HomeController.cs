@@ -2,6 +2,7 @@ using Interpret_grading_documents.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http; // Add this using directive
 
 namespace Interpret_grading_documents.Controllers
 {
@@ -22,9 +23,16 @@ namespace Interpret_grading_documents.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> ProcessText()
+        public async Task<IActionResult> ProcessText(IFormFile uploadedFile)
         {
-            var extractedData = await _gptService.ProcessTextPrompt();
+            if (uploadedFile == null || uploadedFile.Length == 0)
+            {
+                // Optionally, add a ModelState error or a TempData message to inform the user
+                ViewBag.Error = "Please upload a valid document.";
+                return View("Index", null);
+            }
+
+            var extractedData = await _gptService.ProcessTextPrompt(uploadedFile);
 
             return View("Index", extractedData);
         }
