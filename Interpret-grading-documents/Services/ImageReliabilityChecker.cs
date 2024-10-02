@@ -198,23 +198,5 @@ namespace Interpret_grading_documents.Services
             // Check if personalId matches the pattern
             return Regex.IsMatch(personalId, pattern);
         }
-        public string UpdateImageReliability(string originalString, string newReliabilityScore, string comment)
-        {
-            // Adjust the regex pattern to match the entire line starting with "Reliability Score:"
-            string pattern = @"Reliability Score:.*";
-
-            // Prepare the replacement line with the new reliability score
-            string replacement = $"Reliability Score: {newReliabilityScore}%";
-
-            // Use Regex to replace the entire line for Reliability Score
-            string updatedString = Regex.Replace(originalString, pattern, replacement, RegexOptions.Multiline);
-
-            // Append the comment with a newline character
-            updatedString += $"\nComment: {comment}";
-
-            updatedString = updatedString.Replace("\r\n", "\n").Replace("\r", "\n");
-
-            return updatedString;
-        }
     }
 }
