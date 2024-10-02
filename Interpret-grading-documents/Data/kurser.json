@@ -4974,5 +4974,3573 @@
     {
         "Kurs": "Webbutveckling 3",
         "Kurskod": "WEBWEU03"
+    },
+    {
+        "Kurs": "Administration A",
+        "Kurskod": "ADM1201"
+    },
+    {
+        "Kurs": "Administration B",
+        "Kurskod": "ADM1202"
+    },
+    {
+        "Kurs": "Affärskommunikation engelska",
+        "Kurskod": "ADM1203"
+    },
+    {
+        "Kurs": "Affärskommunikation moderna språk",
+        "Kurskod": "ADM1204"
+    },
+    {
+        "Kurs": "Anteckningsstenografi",
+        "Kurskod": "ADM1210"
+    },
+    {
+        "Kurs": "Information och layout A",
+        "Kurskod": "ADM1205"
+    },
+    {
+        "Kurs": "Information och layout B",
+        "Kurskod": "ADM1206"
+    },
+    {
+        "Kurs": "IT-stöd",
+        "Kurskod": "ADM1207"
+    },
+    {
+        "Kurs": "Konferens och reception",
+        "Kurskod": "ADM1208"
+    },
+    {
+        "Kurs": "Personaladministration",
+        "Kurskod": "ADM1209"
+    },
+    {
+        "Kurs": "Arbete på väg",
+        "Kurskod": "AMT1201"
+    },
+    {
+        "Kurs": "Grävmaskin och grävlastare",
+        "Kurskod": "AMT1203"
+    },
+    {
+        "Kurs": "Hjullastare",
+        "Kurskod": "AMT1204"
+    },
+    {
+        "Kurs": "Mobilkran",
+        "Kurskod": "AMT1205"
+    },
+    {
+        "Kurs": "Rivning och återvinning",
+        "Kurskod": "AMT1206"
+    },
+    {
+        "Kurs": "Teleskoplastare",
+        "Kurskod": "AMT1207"
+    },
+    {
+        "Kurs": "Väghyvel",
+        "Kurskod": "AMT1208"
+    },
+    {
+        "Kurs": "Anläggning",
+        "Kurskod": "ATE1201"
+    },
+    {
+        "Kurs": "Ballastkunskap",
+        "Kurskod": "ATE1212"
+    },
+    {
+        "Kurs": "Beläggning",
+        "Kurskod": "ATE1202"
+    },
+    {
+        "Kurs": "Bergarbeten",
+        "Kurskod": "ATE1203"
+    },
+    {
+        "Kurs": "Bergborrning",
+        "Kurskod": "ATE1204"
+    },
+    {
+        "Kurs": "Bergmaskiner",
+        "Kurskod": "ATE1205"
+    },
+    {
+        "Kurs": "Bergsprängning",
+        "Kurskod": "ATE1206"
+    },
+    {
+        "Kurs": "Grundläggning",
+        "Kurskod": "ATE1207"
+    },
+    {
+        "Kurs": "Gröna ytor",
+        "Kurskod": "ATE1208"
+    },
+    {
+        "Kurs": "Ledningsbyggnad",
+        "Kurskod": "ATE1209"
+    },
+    {
+        "Kurs": "Stensättning",
+        "Kurskod": "ATE1210"
+    },
+    {
+        "Kurs": "Vägbyggnad",
+        "Kurskod": "ATE1211"
+    },
+    {
+        "Kurs": "Arbetsmiljö och säkerhet",
+        "Kurskod": "ARL1201"
+    },
+    {
+        "Kurs": "Projekt och företagande",
+        "Kurskod": "ARL1202"
+    },
+    {
+        "Kurs": "Arbetsplatsförlagt lärande inom lärlingsförsök",
+        "Kurskod": "ALF1201"
+    },
+    {
+        "Kurs": "Bageri A",
+        "Kurskod": "BAK1201"
+    },
+    {
+        "Kurs": "Bageri B",
+        "Kurskod": "BAK1202"
+    },
+    {
+        "Kurs": "Bageri C",
+        "Kurskod": "BAK1203"
+    },
+    {
+        "Kurs": "Internationella bakverk",
+        "Kurskod": "BAK1204"
+    },
+    {
+        "Kurs": "Badverksamhet",
+        "Kurskod": "BKF1201"
+    },
+    {
+        "Kurs": "Barn-, kultur- och fritidsverksamhet",
+        "Kurskod": "BKF1202"
+    },
+    {
+        "Kurs": "Fritid för funktionshindrade",
+        "Kurskod": "BKF1206"
+    },
+    {
+        "Kurs": "Fritidsverksamhet",
+        "Kurskod": "BKF1203"
+    },
+    {
+        "Kurs": "Förskola, skola, fritidshem",
+        "Kurskod": "BKF1204"
+    },
+    {
+        "Kurs": "Kultur och folkbildning",
+        "Kurskod": "BKF1205"
+    },
+    {
+        "Kurs": "Färgning och beredning",
+        "Kurskod": "BRT1201"
+    },
+    {
+        "Kurs": "Garvning",
+        "Kurskod": "BRT1202"
+    },
+    {
+        "Kurs": "Bild",
+        "Kurskod": "BF1201"
+    },
+    {
+        "Kurs": "Bild och form, fördjupning",
+        "Kurskod": "BF1203"
+    },
+    {
+        "Kurs": "Bild och form, grundkurs",
+        "Kurskod": "BF1202"
+    },
+    {
+        "Kurs": "Form",
+        "Kurskod": "BF1204"
+    },
+    {
+        "Kurs": "Biologi - breddning",
+        "Kurskod": "BI1203"
+    },
+    {
+        "Kurs": "Biologi A",
+        "Kurskod": "BI1201"
+    },
+    {
+        "Kurs": "Biologi B",
+        "Kurskod": "BI1202"
+    },
+    {
+        "Kurs": "Bioteknik",
+        "Kurskod": "BI1209"
+    },
+    {
+        "Kurs": "Ekologi",
+        "Kurskod": "BI1204"
+    },
+    {
+        "Kurs": "Kretslopp",
+        "Kurskod": "BI1205"
+    },
+    {
+        "Kurs": "Mikrobiologi och genetik",
+        "Kurskod": "BI1206"
+    },
+    {
+        "Kurs": "Vattenlevande organismer",
+        "Kurskod": "BI1207"
+    },
+    {
+        "Kurs": "Växt- och djurliv",
+        "Kurskod": "BI1208"
+    },
+    {
+        "Kurs": "Broms- och hjälpsystem",
+        "Kurskod": "BULT1201"
+    },
+    {
+        "Kurs": "Buss- och lastbilsservice",
+        "Kurskod": "BULT1203"
+    },
+    {
+        "Kurs": "Drivlina - buss och lastbil",
+        "Kurskod": "BULT1202"
+    },
+    {
+        "Kurs": "Systemteknik - buss och lastbil",
+        "Kurskod": "BULT1204"
+    },
+    {
+        "Kurs": "Byggplåt",
+        "Kurskod": "BYPL1201"
+    },
+    {
+        "Kurs": "Garneringsarbeten",
+        "Kurskod": "BYPL1202"
+    },
+    {
+        "Kurs": "Kanalisolering",
+        "Kurskod": "BYPL1203"
+    },
+    {
+        "Kurs": "Kopparslageri",
+        "Kurskod": "BYPL1204"
+    },
+    {
+        "Kurs": "Luftbehandling",
+        "Kurskod": "BYPL1205"
+    },
+    {
+        "Kurs": "Luftmängdsmätning",
+        "Kurskod": "BYPL1206"
+    },
+    {
+        "Kurs": "Lättbyggnad",
+        "Kurskod": "BYPL1207"
+    },
+    {
+        "Kurs": "Plåtisolering",
+        "Kurskod": "BYPL1208"
+    },
+    {
+        "Kurs": "Plåtunderhåll",
+        "Kurskod": "BYPL1209"
+    },
+    {
+        "Kurs": "Profilerad plåt",
+        "Kurskod": "BYPL1210"
+    },
+    {
+        "Kurs": "Taktäckning A",
+        "Kurskod": "BYPL1211"
+    },
+    {
+        "Kurs": "Taktäckning B",
+        "Kurskod": "BYPL1212"
+    },
+    {
+        "Kurs": "Ventilation",
+        "Kurskod": "BYPL1213"
+    },
+    {
+        "Kurs": "Ventilationsanläggningar",
+        "Kurskod": "BYPL1214"
+    },
+    {
+        "Kurs": "Ventilationsservice",
+        "Kurskod": "BYPL1215"
+    },
+    {
+        "Kurs": "Byggkunskap",
+        "Kurskod": "BYT1201"
+    },
+    {
+        "Kurs": "Hus- och anläggningsbyggnad",
+        "Kurskod": "BYT1202"
+    },
+    {
+        "Kurs": "Miljöanpassad arkitektur",
+        "Kurskod": "BYT1203"
+    },
+    {
+        "Kurs": "Måleri och byggplåt",
+        "Kurskod": "BYT1204"
+    },
+    {
+        "Kurs": "Rit- och mätteknik",
+        "Kurskod": "BYT1205"
+    },
+    {
+        "Kurs": "Specialyrke A",
+        "Kurskod": "BYRK1201"
+    },
+    {
+        "Kurs": "Specialyrke B",
+        "Kurskod": "BYRK1202"
+    },
+    {
+        "Kurs": "Charkuteri A",
+        "Kurskod": "CHK1201"
+    },
+    {
+        "Kurs": "Charkuteri B",
+        "Kurskod": "CHK1202"
+    },
+    {
+        "Kurs": "Charkuteri C",
+        "Kurskod": "CHK1203"
+    },
+    {
+        "Kurs": "Charkuteri fågel",
+        "Kurskod": "CHK1204"
+    },
+    {
+        "Kurs": "Charkuteri vilt",
+        "Kurskod": "CHK1205"
+    },
+    {
+        "Kurs": "CAD/CAM-teknik",
+        "Kurskod": "CNC1201"
+    },
+    {
+        "Kurs": "CNC-teknik A",
+        "Kurskod": "CNC1202"
+    },
+    {
+        "Kurs": "CNC-teknik B",
+        "Kurskod": "CNC1203"
+    },
+    {
+        "Kurs": "CNC-teknik C",
+        "Kurskod": "CNC1204"
+    },
+    {
+        "Kurs": "CNC-teknik D",
+        "Kurskod": "CNC1205"
+    },
+    {
+        "Kurs": "CNC-teknik E",
+        "Kurskod": "CNC1206"
+    },
+    {
+        "Kurs": "FMS-teknik A",
+        "Kurskod": "CNC1207"
+    },
+    {
+        "Kurs": "FMS-teknik B",
+        "Kurskod": "CNC1208"
+    },
+    {
+        "Kurs": "Dans och gestaltning A",
+        "Kurskod": "DNS1201"
+    },
+    {
+        "Kurs": "Dans och gestaltning B",
+        "Kurskod": "DNS1202"
+    },
+    {
+        "Kurs": "Dans och gestaltning C",
+        "Kurskod": "DNS1203"
+    },
+    {
+        "Kurs": "Dansimprovisation och komposition",
+        "Kurskod": "DNS1204"
+    },
+    {
+        "Kurs": "Dansträning",
+        "Kurskod": "DNS1205"
+    },
+    {
+        "Kurs": "Datorkunskap",
+        "Kurskod": "DAA1201"
+    },
+    {
+        "Kurs": "Desktopp",
+        "Kurskod": "DAA1202"
+    },
+    {
+        "Kurs": "Programhantering",
+        "Kurskod": "DAA1203"
+    },
+    {
+        "Kurs": "Databashantering",
+        "Kurskod": "DTR1211"
+    },
+    {
+        "Kurs": "Datorkommunikation",
+        "Kurskod": "DTR1201"
+    },
+    {
+        "Kurs": "IT-samordning",
+        "Kurskod": "DTR1202"
+    },
+    {
+        "Kurs": "Lokala nätverk A",
+        "Kurskod": "DTR1203"
+    },
+    {
+        "Kurs": "Lokala nätverk B",
+        "Kurskod": "DTR1204"
+    },
+    {
+        "Kurs": "Operativsystem",
+        "Kurskod": "DTR1205"
+    },
+    {
+        "Kurs": "Persondatorer",
+        "Kurskod": "DTR1206"
+    },
+    {
+        "Kurs": "Programmering A",
+        "Kurskod": "DTR1207"
+    },
+    {
+        "Kurs": "Programmering B",
+        "Kurskod": "DTR1208"
+    },
+    {
+        "Kurs": "Programmering C",
+        "Kurskod": "DTR1209"
+    },
+    {
+        "Kurs": "Webbdesign",
+        "Kurskod": "DTR1210"
+    },
+    {
+        "Kurs": "Arbete med häst",
+        "Kurskod": "DJR1201"
+    },
+    {
+        "Kurs": "Djur för forskningsändamål",
+        "Kurskod": "DJR1202"
+    },
+    {
+        "Kurs": "Djurhållning i park",
+        "Kurskod": "DJR1203"
+    },
+    {
+        "Kurs": "Djurkunskap grundkurs",
+        "Kurskod": "DJR1204"
+    },
+    {
+        "Kurs": "Djursjukvård",
+        "Kurskod": "DJR1205"
+    },
+    {
+        "Kurs": "Etologi",
+        "Kurskod": "DJR1206"
+    },
+    {
+        "Kurs": "Fårskötsel",
+        "Kurskod": "DJR1207"
+    },
+    {
+        "Kurs": "Hovvård",
+        "Kurskod": "DJR1216"
+    },
+    {
+        "Kurs": "Hundar",
+        "Kurskod": "DJR1209"
+    },
+    {
+        "Kurs": "Häst- och stallskötsel",
+        "Kurskod": "DJR1210"
+    },
+    {
+        "Kurs": "Hästkunskap",
+        "Kurskod": "DJR1211"
+    },
+    {
+        "Kurs": "Lantbruksdjurs skötsel",
+        "Kurskod": "DJR1212"
+    },
+    {
+        "Kurs": "Mjölk- och nötköttproduktion",
+        "Kurskod": "DJR1213"
+    },
+    {
+        "Kurs": "Svinskötsel",
+        "Kurskod": "DJR1214"
+    },
+    {
+        "Kurs": "Sällskapsdjur",
+        "Kurskod": "DJR1215"
+    },
+    {
+        "Kurs": "Drift och underhåll",
+        "Kurskod": "ELD1201"
+    },
+    {
+        "Kurs": "Högspänningsnät",
+        "Kurskod": "ELD1202"
+    },
+    {
+        "Kurs": "Kontrollanläggningar",
+        "Kurskod": "ELD1203"
+    },
+    {
+        "Kurs": "Lågspänningsnät",
+        "Kurskod": "ELD1204"
+    },
+    {
+        "Kurs": "Nätstationer i jordkabelnät",
+        "Kurskod": "ELD1205"
+    },
+    {
+        "Kurs": "Transformatorstationer",
+        "Kurskod": "ELD1206"
+    },
+    {
+        "Kurs": "Analoga kretsar A",
+        "Kurskod": "ENK1201"
+    },
+    {
+        "Kurs": "Analoga kretsar B",
+        "Kurskod": "ENK1202"
+    },
+    {
+        "Kurs": "Digitalteknik A",
+        "Kurskod": "ENK1203"
+    },
+    {
+        "Kurs": "Digitalteknik B",
+        "Kurskod": "ENK1204"
+    },
+    {
+        "Kurs": "Elektronik grundkurs",
+        "Kurskod": "ENK1205"
+    },
+    {
+        "Kurs": "Kraftelektronikkretsar",
+        "Kurskod": "ENK1206"
+    },
+    {
+        "Kurs": "Mikroprocessorteknik A",
+        "Kurskod": "ENK1207"
+    },
+    {
+        "Kurs": "Mikroprocessorteknik B",
+        "Kurskod": "ENK1208"
+    },
+    {
+        "Kurs": "Ytmonteringsteknik",
+        "Kurskod": "ENK1209"
+    },
+    {
+        "Kurs": "Bildskärmsteknik",
+        "Kurskod": "ENSY1201"
+    },
+    {
+        "Kurs": "Digital datorljudutrustning",
+        "Kurskod": "ENSY1202"
+    },
+    {
+        "Kurs": "Digitala in/avspelningsutrustningar",
+        "Kurskod": "ENSY1220"
+    },
+    {
+        "Kurs": "Digitala ljudutrustningar",
+        "Kurskod": "ENSY1203"
+    },
+    {
+        "Kurs": "Elektroniksystemreparation",
+        "Kurskod": "ENSY1204"
+    },
+    {
+        "Kurs": "Eventteknik A",
+        "Kurskod": "ENSY1221"
+    },
+    {
+        "Kurs": "Eventteknik B",
+        "Kurskod": "ENSY1222"
+    },
+    {
+        "Kurs": "Fax, skrivare, kopiatorer",
+        "Kurskod": "ENSY1205"
+    },
+    {
+        "Kurs": "Fordonselektronik A",
+        "Kurskod": "ENSY1206"
+    },
+    {
+        "Kurs": "Fordonselektronik B",
+        "Kurskod": "ENSY1207"
+    },
+    {
+        "Kurs": "Fordonselektronik C",
+        "Kurskod": "ENSY1208"
+    },
+    {
+        "Kurs": "Färg-tv-teknik",
+        "Kurskod": "ENSY1209"
+    },
+    {
+        "Kurs": "Hemsatellitanläggningar",
+        "Kurskod": "ENSY1210"
+    },
+    {
+        "Kurs": "Kommunikationsradioservice",
+        "Kurskod": "ENSY1211"
+    },
+    {
+        "Kurs": "Kommunikationssystem i fordon",
+        "Kurskod": "ENSY1212"
+    },
+    {
+        "Kurs": "Ljudanläggningar",
+        "Kurskod": "ENSY1213"
+    },
+    {
+        "Kurs": "Ljudproduktionsteknik",
+        "Kurskod": "ENSY1214"
+    },
+    {
+        "Kurs": "Marinelektronik",
+        "Kurskod": "ENSY1215"
+    },
+    {
+        "Kurs": "Mikrovågsutrustning",
+        "Kurskod": "ENSY1216"
+    },
+    {
+        "Kurs": "Trådlös kommunikationsteknik",
+        "Kurskod": "ENSY1223"
+    },
+    {
+        "Kurs": "Videoanläggning",
+        "Kurskod": "ENSY1217"
+    },
+    {
+        "Kurs": "Videobandspelare och videokameror",
+        "Kurskod": "ENSY1218"
+    },
+    {
+        "Kurs": "Videoproduktionsteknik",
+        "Kurskod": "ENSY1219"
+    },
+    {
+        "Kurs": "Belysningsteknik",
+        "Kurskod": "ELI1201"
+    },
+    {
+        "Kurs": "Elarbetsmiljö och säkerhet",
+        "Kurskod": "ELI1202"
+    },
+    {
+        "Kurs": "Elinstallation grundkurs",
+        "Kurskod": "ELI1203"
+    },
+    {
+        "Kurs": "Elinstallation motorstyrning",
+        "Kurskod": "ELI1204"
+    },
+    {
+        "Kurs": "Elkvalitet",
+        "Kurskod": "ELI1205"
+    },
+    {
+        "Kurs": "Elkompetens A",
+        "Kurskod": "ELKU1201"
+    },
+    {
+        "Kurs": "Elkompetens B",
+        "Kurskod": "ELKU1202"
+    },
+    {
+        "Kurs": "Elkunskap",
+        "Kurskod": "ELKU1203"
+    },
+    {
+        "Kurs": "Ellära A",
+        "Kurskod": "ELL1201"
+    },
+    {
+        "Kurs": "Ellära B",
+        "Kurskod": "ELL1202"
+    },
+    {
+        "Kurs": "Växelström trefas",
+        "Kurskod": "ELL1203"
+    },
+    {
+        "Kurs": "Energi A",
+        "Kurskod": "ENTE1201"
+    },
+    {
+        "Kurs": "Energi B",
+        "Kurskod": "ENTE1202"
+    },
+    {
+        "Kurs": "Energiomvandling",
+        "Kurskod": "ENTE1203"
+    },
+    {
+        "Kurs": "Engelska A",
+        "Kurskod": "EN1201"
+    },
+    {
+        "Kurs": "Engelska B",
+        "Kurskod": "EN1202"
+    },
+    {
+        "Kurs": "Engelska C",
+        "Kurskod": "EN1203"
+    },
+    {
+        "Kurs": "Engelska för döva A",
+        "Kurskod": "ENDV1201"
+    },
+    {
+        "Kurs": "Engelska för döva B",
+        "Kurskod": "ENDV1202"
+    },
+    {
+        "Kurs": "Engelska för döva C",
+        "Kurskod": "ENDV1203"
+    },
+    {
+        "Kurs": "Digitalt skapande",
+        "Kurskod": "EOS1201"
+    },
+    {
+        "Kurs": "Estetisk orientering",
+        "Kurskod": "EOS1202"
+    },
+    {
+        "Kurs": "Musik för dans och teater",
+        "Kurskod": "EOS1203"
+    },
+    {
+        "Kurs": "Skapande verksamhet",
+        "Kurskod": "EOS1204"
+    },
+    {
+        "Kurs": "Estetisk verksamhet",
+        "Kurskod": "ESV1201"
+    },
+    {
+        "Kurs": "Expo A",
+        "Kurskod": "EXPO1201"
+    },
+    {
+        "Kurs": "Expo B",
+        "Kurskod": "EXPO1202"
+    },
+    {
+        "Kurs": "Expo C",
+        "Kurskod": "EXPO1203"
+    },
+    {
+        "Kurs": "Brandskydd ombord",
+        "Kurskod": "FTT1201"
+    },
+    {
+        "Kurs": "Däckstjänst",
+        "Kurskod": "FTT1202"
+    },
+    {
+        "Kurs": "Fartygsbefäl",
+        "Kurskod": "FTT1203"
+    },
+    {
+        "Kurs": "Jourtjänst maskin",
+        "Kurskod": "FTT1204"
+    },
+    {
+        "Kurs": "Maskinbefäl",
+        "Kurskod": "FTT1205"
+    },
+    {
+        "Kurs": "Maskintjänst",
+        "Kurskod": "FTT1206"
+    },
+    {
+        "Kurs": "Miljö och säkerhet",
+        "Kurskod": "FTT1207"
+    },
+    {
+        "Kurs": "Roro/passagerarfartyg",
+        "Kurskod": "FTT1208"
+    },
+    {
+        "Kurs": "Tanklasthantering",
+        "Kurskod": "FTT1209"
+    },
+    {
+        "Kurs": "Vakttjänst däck",
+        "Kurskod": "FTT1210"
+    },
+    {
+        "Kurs": "Överlevnad",
+        "Kurskod": "FTT1211"
+    },
+    {
+        "Kurs": "Byggnader och utrustning",
+        "Kurskod": "FATE1201"
+    },
+    {
+        "Kurs": "Fastighetsförvaltning",
+        "Kurskod": "FATE1202"
+    },
+    {
+        "Kurs": "Köks- och tvättutrustning",
+        "Kurskod": "FATE1203"
+    },
+    {
+        "Kurs": "Städning och rengöring",
+        "Kurskod": "FATE1204"
+    },
+    {
+        "Kurs": "Uppvärmningssystem",
+        "Kurskod": "FATE1205"
+    },
+    {
+        "Kurs": "Värmedistribution",
+        "Kurskod": "FATE1206"
+    },
+    {
+        "Kurs": "Yttre miljö",
+        "Kurskod": "FATE1207"
+    },
+    {
+        "Kurs": "Filosofi A",
+        "Kurskod": "FS1201"
+    },
+    {
+        "Kurs": "Filosofi B",
+        "Kurskod": "FS1202"
+    },
+    {
+        "Kurs": "Fiskeekonomi och fiskelagstiftning",
+        "Kurskod": "FITE1201"
+    },
+    {
+        "Kurs": "Fiskefartygs underhåll A",
+        "Kurskod": "FITE1202"
+    },
+    {
+        "Kurs": "Fiskefartygs underhåll B",
+        "Kurskod": "FITE1203"
+    },
+    {
+        "Kurs": "Fiskhantering",
+        "Kurskod": "FITE1204"
+    },
+    {
+        "Kurs": "Kust- och skärgårdsfiske",
+        "Kurskod": "FITE1205"
+    },
+    {
+        "Kurs": "Trålfiske",
+        "Kurskod": "FITE1206"
+    },
+    {
+        "Kurs": "Aerodynamik",
+        "Kurskod": "FYT1201"
+    },
+    {
+        "Kurs": "Ellära för flygmekaniker A",
+        "Kurskod": "FYT1202"
+    },
+    {
+        "Kurs": "Ellära för flygmekaniker B",
+        "Kurskod": "FYT1203"
+    },
+    {
+        "Kurs": "Flygelektronik",
+        "Kurskod": "FYT1204"
+    },
+    {
+        "Kurs": "Flyginstrument",
+        "Kurskod": "FYT1205"
+    },
+    {
+        "Kurs": "Flygkolvmotorer",
+        "Kurskod": "FYT1206"
+    },
+    {
+        "Kurs": "Flygplanslära",
+        "Kurskod": "FYT1207"
+    },
+    {
+        "Kurs": "Flygteknisk fysik",
+        "Kurskod": "FYT1208"
+    },
+    {
+        "Kurs": "Flygteknisk underhållsteknik",
+        "Kurskod": "FYT1210"
+    },
+    {
+        "Kurs": "Gasturbinmotorer",
+        "Kurskod": "FYT1211"
+    },
+    {
+        "Kurs": "Helikopterlära",
+        "Kurskod": "FYT1212"
+    },
+    {
+        "Kurs": "Materiallära och komponentkunskap",
+        "Kurskod": "FYT1213"
+    },
+    {
+        "Kurs": "Fordon och samhälle",
+        "Kurskod": "FOK1201"
+    },
+    {
+        "Kurs": "Fordonskännedom",
+        "Kurskod": "FOK1202"
+    },
+    {
+        "Kurs": "Dieselmotorer - tunga fordon",
+        "Kurskod": "FOR1201"
+    },
+    {
+        "Kurs": "Eldrivna fordon",
+        "Kurskod": "FOR1202"
+    },
+    {
+        "Kurs": "Fordonsel A",
+        "Kurskod": "FOR1203"
+    },
+    {
+        "Kurs": "Fordonsel B",
+        "Kurskod": "FOR1204"
+    },
+    {
+        "Kurs": "Fordonsteknik grundkurs",
+        "Kurskod": "FOR1206"
+    },
+    {
+        "Kurs": "Fordonsvård och service",
+        "Kurskod": "FOR1207"
+    },
+    {
+        "Kurs": "Grundläggande fordonselektronik",
+        "Kurskod": "FOR1205"
+    },
+    {
+        "Kurs": "Hydraulik - tunga fordon",
+        "Kurskod": "FOR1208"
+    },
+    {
+        "Kurs": "Hydraulik och pneumatik",
+        "Kurskod": "FOR1209"
+    },
+    {
+        "Kurs": "Tunga fordon",
+        "Kurskod": "FOR1210"
+    },
+    {
+        "Kurs": "Datordesign",
+        "Kurskod": "FOG1201"
+    },
+    {
+        "Kurs": "Fackteckning och design A",
+        "Kurskod": "FOG1202"
+    },
+    {
+        "Kurs": "Fackteckning och design B",
+        "Kurskod": "FOG1206"
+    },
+    {
+        "Kurs": "Formgivning A",
+        "Kurskod": "FOG1203"
+    },
+    {
+        "Kurs": "Formgivning B",
+        "Kurskod": "FOG1204"
+    },
+    {
+        "Kurs": "Textil färg och form",
+        "Kurskod": "FOG1205"
+    },
+    {
+        "Kurs": "Fotografisk bild A",
+        "Kurskod": "FBL1201"
+    },
+    {
+        "Kurs": "Fotografisk bild B",
+        "Kurskod": "FBL1202"
+    },
+    {
+        "Kurs": "Fotografisk bild C",
+        "Kurskod": "FBL1203"
+    },
+    {
+        "Kurs": "Fritidsanläggningar och fritidsmiljöer A",
+        "Kurskod": "FAF1201"
+    },
+    {
+        "Kurs": "Fritidsanläggningar och fritidsmiljöer B",
+        "Kurskod": "FAF1202"
+    },
+    {
+        "Kurs": "Fysik - breddning",
+        "Kurskod": "FY1203"
+    },
+    {
+        "Kurs": "Fysik A",
+        "Kurskod": "FY1201"
+    },
+    {
+        "Kurs": "Fysik B",
+        "Kurskod": "FY1202"
+    },
+    {
+        "Kurs": "Färskvaror A",
+        "Kurskod": "FVK1201"
+    },
+    {
+        "Kurs": "Färskvaror B",
+        "Kurskod": "FVK1202"
+    },
+    {
+        "Kurs": "Färskvaror C",
+        "Kurskod": "FVK1203"
+    },
+    {
+        "Kurs": "Export och import",
+        "Kurskod": "FE1209"
+    },
+    {
+        "Kurs": "Finansiering och kalkylering",
+        "Kurskod": "FE1201"
+    },
+    {
+        "Kurs": "Företagsekonomi A",
+        "Kurskod": "FE1202"
+    },
+    {
+        "Kurs": "Företagsekonomi B",
+        "Kurskod": "FE1203"
+    },
+    {
+        "Kurs": "Internationell ekonomi",
+        "Kurskod": "FE1210"
+    },
+    {
+        "Kurs": "Marknadsföring",
+        "Kurskod": "FE1204"
+    },
+    {
+        "Kurs": "Organisation och ledarskap",
+        "Kurskod": "FE1205"
+    },
+    {
+        "Kurs": "Redovisning och beskattning",
+        "Kurskod": "FE1206"
+    },
+    {
+        "Kurs": "Småföretagande A",
+        "Kurskod": "FE1207"
+    },
+    {
+        "Kurs": "Småföretagande B",
+        "Kurskod": "FE1208"
+    },
+    {
+        "Kurs": "Geografi A",
+        "Kurskod": "GE1201"
+    },
+    {
+        "Kurs": "Geografi B",
+        "Kurskod": "GE1202"
+    },
+    {
+        "Kurs": "Geografiska informationssystem",
+        "Kurskod": "GE1203"
+    },
+    {
+        "Kurs": "Gjuteriteknik A",
+        "Kurskod": "GJU1201"
+    },
+    {
+        "Kurs": "Gjuteriteknik B",
+        "Kurskod": "GJU1202"
+    },
+    {
+        "Kurs": "Gjuteriteknik C",
+        "Kurskod": "GJU1203"
+    },
+    {
+        "Kurs": "Handformning",
+        "Kurskod": "GJU1204"
+    },
+    {
+        "Kurs": "Maskinformning",
+        "Kurskod": "GJU1205"
+    },
+    {
+        "Kurs": "Pressgjutning",
+        "Kurskod": "GJU1206"
+    },
+    {
+        "Kurs": "Bly- och konstglas",
+        "Kurskod": "GLTE1201"
+    },
+    {
+        "Kurs": "Fordonsglasning",
+        "Kurskod": "GLTE1202"
+    },
+    {
+        "Kurs": "Glas- och metallkonstruktioner",
+        "Kurskod": "GLTE1203"
+    },
+    {
+        "Kurs": "Inramningar",
+        "Kurskod": "GLTE1204"
+    },
+    {
+        "Kurs": "Isolerrutor",
+        "Kurskod": "GLTE1205"
+    },
+    {
+        "Kurs": "Planglas A",
+        "Kurskod": "GLTE1206"
+    },
+    {
+        "Kurs": "Planglas B",
+        "Kurskod": "GLTE1207"
+    },
+    {
+        "Kurs": "Plaster",
+        "Kurskod": "GLTE1208"
+    },
+    {
+        "Kurs": "Golv",
+        "Kurskod": "GOTE1201"
+    },
+    {
+        "Kurs": "Golvunderhåll",
+        "Kurskod": "GOTE1202"
+    },
+    {
+        "Kurs": "Mattor och plattor",
+        "Kurskod": "GOTE1203"
+    },
+    {
+        "Kurs": "Specialgolv",
+        "Kurskod": "GOTE1204"
+    },
+    {
+        "Kurs": "Stavparkett",
+        "Kurskod": "GOTE1205"
+    },
+    {
+        "Kurs": "Textila golv",
+        "Kurskod": "GOTE1206"
+    },
+    {
+        "Kurs": "Trappbeklädnader",
+        "Kurskod": "GOTE1207"
+    },
+    {
+        "Kurs": "Trä- och laminatgolv",
+        "Kurskod": "GOTE1208"
+    },
+    {
+        "Kurs": "Våtrumsbeklädnad",
+        "Kurskod": "GOTE1209"
+    },
+    {
+        "Kurs": "Grafisk illustration",
+        "Kurskod": "GKO1204"
+    },
+    {
+        "Kurs": "Grafisk kommunikation A",
+        "Kurskod": "GKO1201"
+    },
+    {
+        "Kurs": "Grafisk kommunikation B",
+        "Kurskod": "GKO1202"
+    },
+    {
+        "Kurs": "Grafisk kommunikation C",
+        "Kurskod": "GKO1203"
+    },
+    {
+        "Kurs": "Affärsutveckling",
+        "Kurskod": "HNDL1201"
+    },
+    {
+        "Kurs": "Bransch- och produktkunskap",
+        "Kurskod": "HNDL1202"
+    },
+    {
+        "Kurs": "Försäljning och service",
+        "Kurskod": "HNDL1203"
+    },
+    {
+        "Kurs": "Handel specialisering",
+        "Kurskod": "HNDL1204"
+    },
+    {
+        "Kurs": "Inköp och varuhantering",
+        "Kurskod": "HNDL1205"
+    },
+    {
+        "Kurs": "Näthandel A",
+        "Kurskod": "HNDL1206"
+    },
+    {
+        "Kurs": "Näthandel B",
+        "Kurskod": "HNDL1207"
+    },
+    {
+        "Kurs": "Näthandel C",
+        "Kurskod": "HNDL1208"
+    },
+    {
+        "Kurs": "Personlig försäljning",
+        "Kurskod": "HNDL1209"
+    },
+    {
+        "Kurs": "Praktisk marknadsföring A",
+        "Kurskod": "HNDL1210"
+    },
+    {
+        "Kurs": "Praktisk marknadsföring B",
+        "Kurskod": "HNDL1211"
+    },
+    {
+        "Kurs": "Praktisk marknadsföring C",
+        "Kurskod": "HNDL1212"
+    },
+    {
+        "Kurs": "Telefonförsäljning",
+        "Kurskod": "HNDL1213"
+    },
+    {
+        "Kurs": "Transport och spedition",
+        "Kurskod": "HNDL1214"
+    },
+    {
+        "Kurs": "Hantverksorientering",
+        "Kurskod": "HVK1201"
+    },
+    {
+        "Kurs": "Kultur- och stilhistoria",
+        "Kurskod": "HVK1202"
+    },
+    {
+        "Kurs": "Materialkunskap",
+        "Kurskod": "HVK1203"
+    },
+    {
+        "Kurs": "Hantverksteknik A",
+        "Kurskod": "HNT1201"
+    },
+    {
+        "Kurs": "Hantverksteknik B",
+        "Kurskod": "HNT1202"
+    },
+    {
+        "Kurs": "Hantverksteknik C",
+        "Kurskod": "HNT1203"
+    },
+    {
+        "Kurs": "Hantverksteknik D",
+        "Kurskod": "HNT1204"
+    },
+    {
+        "Kurs": "Hantverksteknik E",
+        "Kurskod": "HNT1205"
+    },
+    {
+        "Kurs": "Hantverksteknik F",
+        "Kurskod": "HNT1206"
+    },
+    {
+        "Kurs": "Historia A",
+        "Kurskod": "HI1201"
+    },
+    {
+        "Kurs": "Historia B",
+        "Kurskod": "HI1202"
+    },
+    {
+        "Kurs": "Historia C",
+        "Kurskod": "HI1203"
+    },
+    {
+        "Kurs": "Historia inom lärlingsförsök",
+        "Kurskod": "HIF1201"
+    },
+    {
+        "Kurs": "Hotell A",
+        "Kurskod": "HOK1202"
+    },
+    {
+        "Kurs": "Hotell B",
+        "Kurskod": "HOK1203"
+    },
+    {
+        "Kurs": "Hotell C",
+        "Kurskod": "HOK1204"
+    },
+    {
+        "Kurs": "Hotelladministration",
+        "Kurskod": "HOK1201"
+    },
+    {
+        "Kurs": "Konferens",
+        "Kurskod": "HOK1205"
+    },
+    {
+        "Kurs": "Reception",
+        "Kurskod": "HOK1206"
+    },
+    {
+        "Kurs": "Våningsservice",
+        "Kurskod": "HOK1207"
+    },
+    {
+        "Kurs": "Armering A",
+        "Kurskod": "HUS1201"
+    },
+    {
+        "Kurs": "Armering B",
+        "Kurskod": "HUS1202"
+    },
+    {
+        "Kurs": "Beklädnader",
+        "Kurskod": "HUS1203"
+    },
+    {
+        "Kurs": "Betong",
+        "Kurskod": "HUS1204"
+    },
+    {
+        "Kurs": "Byggisolering",
+        "Kurskod": "HUS1205"
+    },
+    {
+        "Kurs": "Byggnadsträ och betong",
+        "Kurskod": "HUS1206"
+    },
+    {
+        "Kurs": "Formbyggnad",
+        "Kurskod": "HUS1207"
+    },
+    {
+        "Kurs": "Keramiska plattor",
+        "Kurskod": "HUS1216"
+    },
+    {
+        "Kurs": "Murning A",
+        "Kurskod": "HUS1208"
+    },
+    {
+        "Kurs": "Murning B",
+        "Kurskod": "HUS1209"
+    },
+    {
+        "Kurs": "Plattsättning",
+        "Kurskod": "HUS1217"
+    },
+    {
+        "Kurs": "Putsning",
+        "Kurskod": "HUS1210"
+    },
+    {
+        "Kurs": "Reparation och ombyggnad",
+        "Kurskod": "HUS1211"
+    },
+    {
+        "Kurs": "Skorstenar och öppna spisar",
+        "Kurskod": "HUS1212"
+    },
+    {
+        "Kurs": "Snickerier och inredning",
+        "Kurskod": "HUS1213"
+    },
+    {
+        "Kurs": "Stommar",
+        "Kurskod": "HUS1214"
+    },
+    {
+        "Kurs": "Ställningsbyggnad",
+        "Kurskod": "HUS1215"
+    },
+    {
+        "Kurs": "Ergonomi",
+        "Kurskod": "IDH1203"
+    },
+    {
+        "Kurs": "Idrott och hälsa A",
+        "Kurskod": "IDH1201"
+    },
+    {
+        "Kurs": "Idrott och hälsa B",
+        "Kurskod": "IDH1202"
+    },
+    {
+        "Kurs": "Idrott och hälsa inom lärlingsförsök",
+        "Kurskod": "IDHF1201"
+    },
+    {
+        "Kurs": "Fritidens betydelse",
+        "Kurskod": "IOS1201"
+    },
+    {
+        "Kurs": "Fritidskunskap",
+        "Kurskod": "IOS1202"
+    },
+    {
+        "Kurs": "Människor i behov av stöd",
+        "Kurskod": "IOS1203"
+    },
+    {
+        "Kurs": "Psykosocialt arbete",
+        "Kurskod": "IOS1204"
+    },
+    {
+        "Kurs": "Utveckling, livsvillkor och socialisation",
+        "Kurskod": "IOS1205"
+    },
+    {
+        "Kurs": "Karosseri och inredning",
+        "Kurskod": "KATE1201"
+    },
+    {
+        "Kurs": "Karosserikonstruktioner",
+        "Kurskod": "KATE1202"
+    },
+    {
+        "Kurs": "Luftkonditionering",
+        "Kurskod": "KATE1203"
+    },
+    {
+        "Kurs": "Riktbänkssystem A",
+        "Kurskod": "KATE1204"
+    },
+    {
+        "Kurs": "Riktbänkssystem B",
+        "Kurskod": "KATE1205"
+    },
+    {
+        "Kurs": "Riktningsteknik A",
+        "Kurskod": "KATE1206"
+    },
+    {
+        "Kurs": "Riktningsteknik B",
+        "Kurskod": "KATE1207"
+    },
+    {
+        "Kurs": "Skadebesiktning",
+        "Kurskod": "KATE1208"
+    },
+    {
+        "Kurs": "Skarvningsteknik A",
+        "Kurskod": "KATE1209"
+    },
+    {
+        "Kurs": "Skarvningsteknik B",
+        "Kurskod": "KATE1210"
+    },
+    {
+        "Kurs": "Kemi - breddning",
+        "Kurskod": "KE1203"
+    },
+    {
+        "Kurs": "Kemi A",
+        "Kurskod": "KE1201"
+    },
+    {
+        "Kurs": "Kemi B",
+        "Kurskod": "KE1202"
+    },
+    {
+        "Kurs": "Industriell produktion A",
+        "Kurskod": "KIP1203"
+    },
+    {
+        "Kurs": "Industriell produktion B",
+        "Kurskod": "KIP1204"
+    },
+    {
+        "Kurs": "Kemi process A",
+        "Kurskod": "KIP1201"
+    },
+    {
+        "Kurs": "Kemi process B",
+        "Kurskod": "KIP1202"
+    },
+    {
+        "Kurs": "Produktionsutrustning A",
+        "Kurskod": "KIP1205"
+    },
+    {
+        "Kurs": "Produktionsutrustning B",
+        "Kurskod": "KIP1206"
+    },
+    {
+        "Kurs": "Grekiska A",
+        "Kurskod": "GRK1201"
+    },
+    {
+        "Kurs": "Grekiska B",
+        "Kurskod": "GRK1202"
+    },
+    {
+        "Kurs": "Choklad och konfektyr",
+        "Kurskod": "KOND1201"
+    },
+    {
+        "Kurs": "Konditori A",
+        "Kurskod": "KOND1202"
+    },
+    {
+        "Kurs": "Konditori B",
+        "Kurskod": "KOND1203"
+    },
+    {
+        "Kurs": "Konditori C",
+        "Kurskod": "KOND1204"
+    },
+    {
+        "Kurs": "Konditori restaurang",
+        "Kurskod": "KOND1205"
+    },
+    {
+        "Kurs": "Alternativ energihantering",
+        "Kurskod": "KRV1201"
+    },
+    {
+        "Kurs": "Kraft- och värmeteknik A",
+        "Kurskod": "KRV1202"
+    },
+    {
+        "Kurs": "Kraft- och värmeteknik B",
+        "Kurskod": "KRV1203"
+    },
+    {
+        "Kurs": "Kraft- och värmeteknik C",
+        "Kurskod": "KRV1204"
+    },
+    {
+        "Kurs": "Filmkunskap",
+        "Kurskod": "KUHI1201"
+    },
+    {
+        "Kurs": "Kultur- och idéhistoria",
+        "Kurskod": "KUHI1202"
+    },
+    {
+        "Kurs": "Kultur- och konstanalys",
+        "Kurskod": "KUHI1203"
+    },
+    {
+        "Kurs": "Kulturhistorisk fördjupning",
+        "Kurskod": "KUHI1204"
+    },
+    {
+        "Kurs": "Nutida konst",
+        "Kurskod": "KUHI1205"
+    },
+    {
+        "Kurs": "Staden och framtiden",
+        "Kurskod": "KUHI1206"
+    },
+    {
+        "Kurs": "Kyl - drift och underhåll",
+        "Kurskod": "KYVP1201"
+    },
+    {
+        "Kurs": "Kyl - installation",
+        "Kurskod": "KYVP1202"
+    },
+    {
+        "Kurs": "Kyl - service",
+        "Kurskod": "KYVP1203"
+    },
+    {
+        "Kurs": "Kyl - säkerhet",
+        "Kurskod": "KYVP1204"
+    },
+    {
+        "Kurs": "Köldmedieteknik",
+        "Kurskod": "KYVP1205"
+    },
+    {
+        "Kurs": "Dekorationslackering",
+        "Kurskod": "LAC1201"
+    },
+    {
+        "Kurs": "Fordonslackering A",
+        "Kurskod": "LAC1202"
+    },
+    {
+        "Kurs": "Fordonslackering B",
+        "Kurskod": "LAC1203"
+    },
+    {
+        "Kurs": "Fordonslackering C",
+        "Kurskod": "LAC1204"
+    },
+    {
+        "Kurs": "Färglära A",
+        "Kurskod": "LAC1205"
+    },
+    {
+        "Kurs": "Färglära B",
+        "Kurskod": "LAC1206"
+    },
+    {
+        "Kurs": "Lackering tunga fordon A",
+        "Kurskod": "LAC1207"
+    },
+    {
+        "Kurs": "Lackering tunga fordon B",
+        "Kurskod": "LAC1208"
+    },
+    {
+        "Kurs": "Lackeringssystem",
+        "Kurskod": "LAC1209"
+    },
+    {
+        "Kurs": "Lackeringsutrustning",
+        "Kurskod": "LAC1210"
+    },
+    {
+        "Kurs": "Plastreparation",
+        "Kurskod": "LAC1211"
+    },
+    {
+        "Kurs": "Rekonditionering",
+        "Kurskod": "LAC1212"
+    },
+    {
+        "Kurs": "Sprutlackering",
+        "Kurskod": "LAC1213"
+    },
+    {
+        "Kurs": "Latin A",
+        "Kurskod": "LAS1201"
+    },
+    {
+        "Kurs": "Latin B",
+        "Kurskod": "LAS1202"
+    },
+    {
+        "Kurs": "Latin C",
+        "Kurskod": "LAS1203"
+    },
+    {
+        "Kurs": "Drycker",
+        "Kurskod": "LMK1201"
+    },
+    {
+        "Kurs": "Livsmedel A",
+        "Kurskod": "LMK1202"
+    },
+    {
+        "Kurs": "Livsmedel B",
+        "Kurskod": "LMK1203"
+    },
+    {
+        "Kurs": "Livsmedelshygien",
+        "Kurskod": "LMK1204"
+    },
+    {
+        "Kurs": "Livsmedelsteknik",
+        "Kurskod": "LMK1206"
+    },
+    {
+        "Kurs": "Naturbruksprodukter",
+        "Kurskod": "LMK1205"
+    },
+    {
+        "Kurs": "Livsmedelsprocess A",
+        "Kurskod": "LMP1201"
+    },
+    {
+        "Kurs": "Livsmedelsprocess B",
+        "Kurskod": "LMP1202"
+    },
+    {
+        "Kurs": "Ljudmedier A",
+        "Kurskod": "LJUM1201"
+    },
+    {
+        "Kurs": "Ljudmedier B",
+        "Kurskod": "LJUM1202"
+    },
+    {
+        "Kurs": "Ljudmedier C",
+        "Kurskod": "LJUM1203"
+    },
+    {
+        "Kurs": "Arbetssätt och lärande",
+        "Kurskod": "LPL1201"
+    },
+    {
+        "Kurs": "Fritidens aktiviteter",
+        "Kurskod": "LPL1202"
+    },
+    {
+        "Kurs": "Hälsopedagogik",
+        "Kurskod": "LPL1203"
+    },
+    {
+        "Kurs": "Kommunikation",
+        "Kurskod": "LPL1204"
+    },
+    {
+        "Kurs": "Ledarskap inom lek och idrott",
+        "Kurskod": "LPL1205"
+    },
+    {
+        "Kurs": "Natur och friluftsliv A",
+        "Kurskod": "LPL1206"
+    },
+    {
+        "Kurs": "Natur och friluftsliv B",
+        "Kurskod": "LPL1207"
+    },
+    {
+        "Kurs": "Pedagogiskt ledarskap",
+        "Kurskod": "LPL1208"
+    },
+    {
+        "Kurs": "Arbetsmaskiner service",
+        "Kurskod": "MTK1203"
+    },
+    {
+        "Kurs": "Bromssystem",
+        "Kurskod": "MTK1201"
+    },
+    {
+        "Kurs": "Drivlina arbetsmaskiner",
+        "Kurskod": "MTK1202"
+    },
+    {
+        "Kurs": "Lantbruksmaskiner service",
+        "Kurskod": "MTK1204"
+    },
+    {
+        "Kurs": "Skogsmaskiner service",
+        "Kurskod": "MTK1205"
+    },
+    {
+        "Kurs": "Småmaskiner service",
+        "Kurskod": "MTK1206"
+    },
+    {
+        "Kurs": "Systemteknik arbetsmaskiner",
+        "Kurskod": "MTK1208"
+    },
+    {
+        "Kurs": "Truckar service",
+        "Kurskod": "MTK1207"
+    },
+    {
+        "Kurs": "Fiberråvaror",
+        "Kurskod": "MOP1201"
+    },
+    {
+        "Kurs": "Kartongtillverkning",
+        "Kurskod": "MOP1202"
+    },
+    {
+        "Kurs": "Massa och papper grundkurs",
+        "Kurskod": "MOP1203"
+    },
+    {
+        "Kurs": "Massatillverkning",
+        "Kurskod": "MOP1204"
+    },
+    {
+        "Kurs": "Mekanisk massatillverkning",
+        "Kurskod": "MOP1205"
+    },
+    {
+        "Kurs": "Mäldberedning",
+        "Kurskod": "MOP1206"
+    },
+    {
+        "Kurs": "Pappers- och kartongtillverkning",
+        "Kurskod": "MOP1207"
+    },
+    {
+        "Kurs": "Papperstillverkning",
+        "Kurskod": "MOP1208"
+    },
+    {
+        "Kurs": "Sulfatmassa",
+        "Kurskod": "MOP1209"
+    },
+    {
+        "Kurs": "Sulfitmassa",
+        "Kurskod": "MOP1210"
+    },
+    {
+        "Kurs": "Vidarebehandling av massa",
+        "Kurskod": "MOP1212"
+    },
+    {
+        "Kurs": "Vätskekartong och grafisk kartong",
+        "Kurskod": "MOP1213"
+    },
+    {
+        "Kurs": "Wellpapp och solidpapp",
+        "Kurskod": "MOP1211"
+    },
+    {
+        "Kurs": "Ytbehandling papper/kartong",
+        "Kurskod": "MOP1214"
+    },
+    {
+        "Kurs": "Matematik - breddning",
+        "Kurskod": "MA1206"
+    },
+    {
+        "Kurs": "Matematik - diskret",
+        "Kurskod": "MA1207"
+    },
+    {
+        "Kurs": "Matematik A",
+        "Kurskod": "MA1201"
+    },
+    {
+        "Kurs": "Matematik B",
+        "Kurskod": "MA1202"
+    },
+    {
+        "Kurs": "Matematik C",
+        "Kurskod": "MA1203"
+    },
+    {
+        "Kurs": "Matematik D",
+        "Kurskod": "MA1204"
+    },
+    {
+        "Kurs": "Matematik E",
+        "Kurskod": "MA1205"
+    },
+    {
+        "Kurs": "Efterbehandling",
+        "Kurskod": "MTE1201"
+    },
+    {
+        "Kurs": "Gjutteknik",
+        "Kurskod": "MTE1202"
+    },
+    {
+        "Kurs": "Materialbearbetning",
+        "Kurskod": "MTE1203"
+    },
+    {
+        "Kurs": "Metallografi",
+        "Kurskod": "MTE1204"
+    },
+    {
+        "Kurs": "Metallurgi grundkurs",
+        "Kurskod": "MTE1205"
+    },
+    {
+        "Kurs": "Metallurgi miljö",
+        "Kurskod": "MTE1206"
+    },
+    {
+        "Kurs": "Processmetallurgi",
+        "Kurskod": "MTE1207"
+    },
+    {
+        "Kurs": "Pulvermetallurgi",
+        "Kurskod": "MTE1208"
+    },
+    {
+        "Kurs": "Värmelära och ugnsteknik",
+        "Kurskod": "MTE1209"
+    },
+    {
+        "Kurs": "Färdigmat",
+        "Kurskod": "MAKU1202"
+    },
+    {
+        "Kurs": "Gastronomi",
+        "Kurskod": "MAKU1203"
+    },
+    {
+        "Kurs": "Kallkök",
+        "Kurskod": "MAKU1204"
+    },
+    {
+        "Kurs": "Restaurang",
+        "Kurskod": "MAKU1205"
+    },
+    {
+        "Kurs": "Restaurang påbyggnad",
+        "Kurskod": "MAKU1206"
+    },
+    {
+        "Kurs": "Restaurang- och storkök A",
+        "Kurskod": "MAKU1207"
+    },
+    {
+        "Kurs": "Restaurang- och storkök B",
+        "Kurskod": "MAKU1208"
+    },
+    {
+        "Kurs": "Snabbmat",
+        "Kurskod": "MAKU1211"
+    },
+    {
+        "Kurs": "Storkök",
+        "Kurskod": "MAKU1209"
+    },
+    {
+        "Kurs": "Varmkök",
+        "Kurskod": "MAKU1210"
+    },
+    {
+        "Kurs": "Elektromedicinsk utrustning",
+        "Kurskod": "METE1201"
+    },
+    {
+        "Kurs": "Gas- och vätsketeknik",
+        "Kurskod": "METE1202"
+    },
+    {
+        "Kurs": "Kemisk analysteknik",
+        "Kurskod": "METE1203"
+    },
+    {
+        "Kurs": "Medicin för tekniker",
+        "Kurskod": "METE1204"
+    },
+    {
+        "Kurs": "Medicinsk elektronik",
+        "Kurskod": "METE1205"
+    },
+    {
+        "Kurs": "Radiologisk utrustning",
+        "Kurskod": "METE1206"
+    },
+    {
+        "Kurs": "Mediekommunikation A",
+        "Kurskod": "MDK1201"
+    },
+    {
+        "Kurs": "Mediekommunikation B",
+        "Kurskod": "MDK1202"
+    },
+    {
+        "Kurs": "Mediekommunikation C",
+        "Kurskod": "MDK1203"
+    },
+    {
+        "Kurs": "Mediekunskap",
+        "Kurskod": "MDK1204"
+    },
+    {
+        "Kurs": "Medieproduktion A",
+        "Kurskod": "MPR1201"
+    },
+    {
+        "Kurs": "Medieproduktion B",
+        "Kurskod": "MPR1202"
+    },
+    {
+        "Kurs": "Hållbart samhällsbyggande",
+        "Kurskod": "MKU1201"
+    },
+    {
+        "Kurs": "Miljökunskap",
+        "Kurskod": "MKU1202"
+    },
+    {
+        "Kurs": "Miljöledning och miljörevision",
+        "Kurskod": "MKU1203"
+    },
+    {
+        "Kurs": "Miljöpolitik",
+        "Kurskod": "MKU1204"
+    },
+    {
+        "Kurs": "Miljöteknik",
+        "Kurskod": "MKU1205"
+    },
+    {
+        "Kurs": "Designmodeller",
+        "Kurskod": "MOD1201"
+    },
+    {
+        "Kurs": "Industrimodeller",
+        "Kurskod": "MOD1202"
+    },
+    {
+        "Kurs": "Modellteknik A",
+        "Kurskod": "MOD1203"
+    },
+    {
+        "Kurs": "Modellteknik B",
+        "Kurskod": "MOD1204"
+    },
+    {
+        "Kurs": "Modellteknik C",
+        "Kurskod": "MOD1205"
+    },
+    {
+        "Kurs": "Modellteknik D",
+        "Kurskod": "MOD1206"
+    },
+    {
+        "Kurs": "Moderna språk, steg 1",
+        "Kurskod": "MSPR1201"
+    },
+    {
+        "Kurs": "Moderna språk, steg 2",
+        "Kurskod": "MSPR1202"
+    },
+    {
+        "Kurs": "Moderna språk, steg 3",
+        "Kurskod": "MSPR1203"
+    },
+    {
+        "Kurs": "Moderna språk, steg 4",
+        "Kurskod": "MSPR1204"
+    },
+    {
+        "Kurs": "Moderna språk, steg 5",
+        "Kurskod": "MSPR1205"
+    },
+    {
+        "Kurs": "Moderna språk, steg 6",
+        "Kurskod": "MSPR1206"
+    },
+    {
+        "Kurs": "Moderna språk, steg 7",
+        "Kurskod": "MSPR1207"
+    },
+    {
+        "Kurs": "Aktiv tvåspråkighet",
+        "Kurskod": "ML1201"
+    },
+    {
+        "Kurs": "Modersmål A",
+        "Kurskod": "ML1202"
+    },
+    {
+        "Kurs": "Modersmål B",
+        "Kurskod": "ML1203"
+    },
+    {
+        "Kurs": "Multimedia A",
+        "Kurskod": "MUM1201"
+    },
+    {
+        "Kurs": "Multimedia B",
+        "Kurskod": "MUM1202"
+    },
+    {
+        "Kurs": "Virtuella miljöer",
+        "Kurskod": "MUM1203"
+    },
+    {
+        "Kurs": "Ensemble A",
+        "Kurskod": "MU1201"
+    },
+    {
+        "Kurs": "Ensemble B",
+        "Kurskod": "MU1202"
+    },
+    {
+        "Kurs": "Gehörs- och musiklära A",
+        "Kurskod": "MU1203"
+    },
+    {
+        "Kurs": "Gehörs- och musiklära B",
+        "Kurskod": "MU1204"
+    },
+    {
+        "Kurs": "Instrument/sång, nivå 1",
+        "Kurskod": "MU1205"
+    },
+    {
+        "Kurs": "Instrument/sång, nivå 2",
+        "Kurskod": "MU1206"
+    },
+    {
+        "Kurs": "Instrument/sång, nivå 3",
+        "Kurskod": "MU1207"
+    },
+    {
+        "Kurs": "Körsång A",
+        "Kurskod": "MU1208"
+    },
+    {
+        "Kurs": "Körsång B",
+        "Kurskod": "MU1209"
+    },
+    {
+        "Kurs": "Rytmik med dans",
+        "Kurskod": "MU1210"
+    },
+    {
+        "Kurs": "Sceniskt musikprojekt",
+        "Kurskod": "MU1211"
+    },
+    {
+        "Kurs": "Arrangering och komposition",
+        "Kurskod": "MUPR1201"
+    },
+    {
+        "Kurs": "Ensembleledning",
+        "Kurskod": "MUPR1202"
+    },
+    {
+        "Kurs": "Ljudteknik A",
+        "Kurskod": "MUPR1203"
+    },
+    {
+        "Kurs": "Ljudteknik B",
+        "Kurskod": "MUPR1204"
+    },
+    {
+        "Kurs": "Musik och kommunikation",
+        "Kurskod": "MUPR1205"
+    },
+    {
+        "Kurs": "Fastighetsautomation A",
+        "Kurskod": "MÄTE1201"
+    },
+    {
+        "Kurs": "Fastighetsautomation B",
+        "Kurskod": "MÄTE1202"
+    },
+    {
+        "Kurs": "Flerloopsreglering",
+        "Kurskod": "MÄTE1203"
+    },
+    {
+        "Kurs": "Mät- och reglerteknik",
+        "Kurskod": "MÄTE1207"
+    },
+    {
+        "Kurs": "Mätteknik A",
+        "Kurskod": "MÄTE1204"
+    },
+    {
+        "Kurs": "Mätteknik B",
+        "Kurskod": "MÄTE1205"
+    },
+    {
+        "Kurs": "Mätteknik C",
+        "Kurskod": "MÄTE1206"
+    },
+    {
+        "Kurs": "Processdatorsystem",
+        "Kurskod": "MÄTE1208"
+    },
+    {
+        "Kurs": "Processkunskap",
+        "Kurskod": "MÄTE1209"
+    },
+    {
+        "Kurs": "Reglerteknik A",
+        "Kurskod": "MÄTE1210"
+    },
+    {
+        "Kurs": "Reglerteknik B",
+        "Kurskod": "MÄTE1211"
+    },
+    {
+        "Kurs": "Dekorativ målning A",
+        "Kurskod": "MÅL1201"
+    },
+    {
+        "Kurs": "Dekorativ målning B",
+        "Kurskod": "MÅL1202"
+    },
+    {
+        "Kurs": "Fönstermålning",
+        "Kurskod": "MÅL1204"
+    },
+    {
+        "Kurs": "Invändig målning",
+        "Kurskod": "MÅL1203"
+    },
+    {
+        "Kurs": "Snickerimålning",
+        "Kurskod": "MÅL1205"
+    },
+    {
+        "Kurs": "Tak- och väggmålning",
+        "Kurskod": "MÅL1206"
+    },
+    {
+        "Kurs": "Utvändig målning",
+        "Kurskod": "MÅL1207"
+    },
+    {
+        "Kurs": "Väggbeklädnader",
+        "Kurskod": "MÅL1209"
+    },
+    {
+        "Kurs": "Våtrum",
+        "Kurskod": "MÅL1208"
+    },
+    {
+        "Kurs": "Äldre målningstekniker A",
+        "Kurskod": "MÅL1210"
+    },
+    {
+        "Kurs": "Äldre målningstekniker B",
+        "Kurskod": "MÅL1211"
+    },
+    {
+        "Kurs": "Datoriserad mönsterhantering A",
+        "Kurskod": "MKO1201"
+    },
+    {
+        "Kurs": "Datoriserad mönsterhantering B",
+        "Kurskod": "MKO1202"
+    },
+    {
+        "Kurs": "Datoriserad mönsterhantering C",
+        "Kurskod": "MKO1203"
+    },
+    {
+        "Kurs": "Mönsterkonstruktion A",
+        "Kurskod": "MKO1204"
+    },
+    {
+        "Kurs": "Mönsterkonstruktion B",
+        "Kurskod": "MKO1205"
+    },
+    {
+        "Kurs": "Mönsterkonstruktion C",
+        "Kurskod": "MKO1206"
+    },
+    {
+        "Kurs": "Arbetsliv naturbruk",
+        "Kurskod": "NAM1201"
+    },
+    {
+        "Kurs": "Biodling",
+        "Kurskod": "NAM1202"
+    },
+    {
+        "Kurs": "Energiråvara",
+        "Kurskod": "NAM1203"
+    },
+    {
+        "Kurs": "Fiskevård A",
+        "Kurskod": "NAM1204"
+    },
+    {
+        "Kurs": "Fiskevård B",
+        "Kurskod": "NAM1205"
+    },
+    {
+        "Kurs": "Global miljövård",
+        "Kurskod": "NAM1206"
+    },
+    {
+        "Kurs": "Jakt och viltvård",
+        "Kurskod": "NAM1207"
+    },
+    {
+        "Kurs": "Natur- och kulturmiljövård",
+        "Kurskod": "NAM1208"
+    },
+    {
+        "Kurs": "Naturbruket och miljön",
+        "Kurskod": "NAM1209"
+    },
+    {
+        "Kurs": "Naturhänsyn i skogsbruket",
+        "Kurskod": "NAM1210"
+    },
+    {
+        "Kurs": "Utrotningshotade arter",
+        "Kurskod": "NAM1211"
+    },
+    {
+        "Kurs": "Vattenvård A",
+        "Kurskod": "NAM1212"
+    },
+    {
+        "Kurs": "Vattenvård B",
+        "Kurskod": "NAM1213"
+    },
+    {
+        "Kurs": "Viltvård",
+        "Kurskod": "NAM1214"
+    },
+    {
+        "Kurs": "Basmaskin körning",
+        "Kurskod": "NABT1201"
+    },
+    {
+        "Kurs": "Basmaskin service",
+        "Kurskod": "NABT1202"
+    },
+    {
+        "Kurs": "Byggnadsunderhåll",
+        "Kurskod": "NABT1203"
+    },
+    {
+        "Kurs": "Motor- och röjmotorsåg",
+        "Kurskod": "NABT1204"
+    },
+    {
+        "Kurs": "Naturbruksmaskiner reparation",
+        "Kurskod": "NABT1205"
+    },
+    {
+        "Kurs": "Småskalig transportteknik",
+        "Kurskod": "NABT1206"
+    },
+    {
+        "Kurs": "Växthusteknik",
+        "Kurskod": "NABT1207"
+    },
+    {
+        "Kurs": "Naturkunskap A",
+        "Kurskod": "NK1201"
+    },
+    {
+        "Kurs": "Naturkunskap B",
+        "Kurskod": "NK1202"
+    },
+    {
+        "Kurs": "Dietik och dietmatlagning",
+        "Kurskod": "NÄR1201"
+    },
+    {
+        "Kurs": "Näringslära",
+        "Kurskod": "NÄR1202"
+    },
+    {
+        "Kurs": "Blomsterbinderier",
+        "Kurskod": "ODL1211"
+    },
+    {
+        "Kurs": "Ekologisk odling",
+        "Kurskod": "ODL1201"
+    },
+    {
+        "Kurs": "Frukt- och bärodling",
+        "Kurskod": "ODL1202"
+    },
+    {
+        "Kurs": "Grovfoderproduktion",
+        "Kurskod": "ODL1203"
+    },
+    {
+        "Kurs": "Odling av grönsaker",
+        "Kurskod": "ODL1204"
+    },
+    {
+        "Kurs": "Odling i växthus",
+        "Kurskod": "ODL1206"
+    },
+    {
+        "Kurs": "Odling planering",
+        "Kurskod": "ODL1205"
+    },
+    {
+        "Kurs": "Odling på åker",
+        "Kurskod": "ODL1207"
+    },
+    {
+        "Kurs": "Plantskoleskötsel",
+        "Kurskod": "ODL1208"
+    },
+    {
+        "Kurs": "Trädgårdsodling grundkurs",
+        "Kurskod": "ODL1209"
+    },
+    {
+        "Kurs": "Växtskydd",
+        "Kurskod": "ODL1210"
+    },
+    {
+        "Kurs": "Alternativ medicin",
+        "Kurskod": "OMV1201"
+    },
+    {
+        "Kurs": "Barn- och ungdomssjukvård",
+        "Kurskod": "OMV1202"
+    },
+    {
+        "Kurs": "Folkhälsokunskap",
+        "Kurskod": "OMV1203"
+    },
+    {
+        "Kurs": "Fothälsovård",
+        "Kurskod": "OMV1204"
+    },
+    {
+        "Kurs": "Geriatrik",
+        "Kurskod": "OMV1205"
+    },
+    {
+        "Kurs": "Handledning",
+        "Kurskod": "OMV1206"
+    },
+    {
+        "Kurs": "Hemsjukvård",
+        "Kurskod": "OMV1207"
+    },
+    {
+        "Kurs": "Informations- och kommunikationsteknologi i vård och omsorg",
+        "Kurskod": "OMV1216"
+    },
+    {
+        "Kurs": "Lindrande vård",
+        "Kurskod": "OMV1208"
+    },
+    {
+        "Kurs": "Medicinsk grundkurs",
+        "Kurskod": "OMV1209"
+    },
+    {
+        "Kurs": "Omvårdnad",
+        "Kurskod": "OMV1210"
+    },
+    {
+        "Kurs": "Psykiatri",
+        "Kurskod": "OMV1211"
+    },
+    {
+        "Kurs": "Sjukvård",
+        "Kurskod": "OMV1212"
+    },
+    {
+        "Kurs": "Tandvård",
+        "Kurskod": "OMV1213"
+    },
+    {
+        "Kurs": "Vård- och omsorgsarbete",
+        "Kurskod": "OMV1215"
+    },
+    {
+        "Kurs": "Vårdpedagogik",
+        "Kurskod": "OMV1214"
+    },
+    {
+        "Kurs": "Automatisk växellåda",
+        "Kurskod": "PBTE1201"
+    },
+    {
+        "Kurs": "Chassikomponenter",
+        "Kurskod": "PBTE1202"
+    },
+    {
+        "Kurs": "Dieselmotor personbil",
+        "Kurskod": "PBTE1203"
+    },
+    {
+        "Kurs": "Fordonskontroll",
+        "Kurskod": "PBTE1204"
+    },
+    {
+        "Kurs": "Hydrauliska bromssystem",
+        "Kurskod": "PBTE1205"
+    },
+    {
+        "Kurs": "Ottomotor och drivlina",
+        "Kurskod": "PBTE1206"
+    },
+    {
+        "Kurs": "Personbilsservice",
+        "Kurskod": "PBTE1207"
+    },
+    {
+        "Kurs": "Systemteknik ottomotor",
+        "Kurskod": "PBTE1208"
+    },
+    {
+        "Kurs": "Säkerhetssystem",
+        "Kurskod": "PBTE1209"
+    },
+    {
+        "Kurs": "Härdplast",
+        "Kurskod": "PLT1201"
+    },
+    {
+        "Kurs": "Termoplast",
+        "Kurskod": "PLT1202"
+    },
+    {
+        "Kurs": "Plåtbearbetning A",
+        "Kurskod": "PLÅ1201"
+    },
+    {
+        "Kurs": "Plåtbearbetning B",
+        "Kurskod": "PLÅ1202"
+    },
+    {
+        "Kurs": "Plåtbearbetning C",
+        "Kurskod": "PLÅ1203"
+    },
+    {
+        "Kurs": "Projektarbete",
+        "Kurskod": "PA1201"
+    },
+    {
+        "Kurs": "Psykologi A",
+        "Kurskod": "PS1201"
+    },
+    {
+        "Kurs": "Psykologi B",
+        "Kurskod": "PS1202"
+    },
+    {
+        "Kurs": "Teknisk psykologi",
+        "Kurskod": "PS1203"
+    },
+    {
+        "Kurs": "Religionskunskap A",
+        "Kurskod": "RE1201"
+    },
+    {
+        "Kurs": "Religionskunskap B",
+        "Kurskod": "RE1202"
+    },
+    {
+        "Kurs": "Hästens utbildning",
+        "Kurskod": "RID1201"
+    },
+    {
+        "Kurs": "Körning",
+        "Kurskod": "RID1202"
+    },
+    {
+        "Kurs": "Ridning",
+        "Kurskod": "RID1203"
+    },
+    {
+        "Kurs": "Ridning och körning grundkurs",
+        "Kurskod": "RID1204"
+    },
+    {
+        "Kurs": "Trav",
+        "Kurskod": "RID1205"
+    },
+    {
+        "Kurs": "Affärsjuridik",
+        "Kurskod": "RK1201"
+    },
+    {
+        "Kurs": "Miljöjuridik",
+        "Kurskod": "RK1202"
+    },
+    {
+        "Kurs": "Rättskunskap",
+        "Kurskod": "RK1203"
+    },
+    {
+        "Kurs": "Rörlig bild A",
+        "Kurskod": "RBL1201"
+    },
+    {
+        "Kurs": "Rörlig bild B",
+        "Kurskod": "RBL1202"
+    },
+    {
+        "Kurs": "Rörlig bild C",
+        "Kurskod": "RBL1203"
+    },
+    {
+        "Kurs": "Internationella relationer",
+        "Kurskod": "SH1204"
+    },
+    {
+        "Kurs": "Samhällskunskap A",
+        "Kurskod": "SH1201"
+    },
+    {
+        "Kurs": "Samhällskunskap B",
+        "Kurskod": "SH1202"
+    },
+    {
+        "Kurs": "Samhällskunskap C",
+        "Kurskod": "SH1203"
+    },
+    {
+        "Kurs": "Samhällskunskap inom lärlingsförsök",
+        "Kurskod": "SHF1201"
+    },
+    {
+        "Kurs": "Ansvarsfull alkoholhantering",
+        "Kurskod": "SERK1202"
+    },
+    {
+        "Kurs": "Barteknik",
+        "Kurskod": "SERK1203"
+    },
+    {
+        "Kurs": "Bordsdekorationer",
+        "Kurskod": "SERK1204"
+    },
+    {
+        "Kurs": "Servering A",
+        "Kurskod": "SERK1205"
+    },
+    {
+        "Kurs": "Servering B",
+        "Kurskod": "SERK1206"
+    },
+    {
+        "Kurs": "Servering C",
+        "Kurskod": "SERK1207"
+    },
+    {
+        "Kurs": "Servering D",
+        "Kurskod": "SERK1208"
+    },
+    {
+        "Kurs": "Avverkning med motorsåg",
+        "Kurskod": "SKOG1201"
+    },
+    {
+        "Kurs": "Avverkningsaggregat för traktor",
+        "Kurskod": "SKOG1202"
+    },
+    {
+        "Kurs": "Avverkningsmaskiner",
+        "Kurskod": "SKOG1203"
+    },
+    {
+        "Kurs": "Röjningsarbete",
+        "Kurskod": "SKOG1204"
+    },
+    {
+        "Kurs": "Skogsskötsel A",
+        "Kurskod": "SKOG1205"
+    },
+    {
+        "Kurs": "Skogsskötsel B",
+        "Kurskod": "SKOG1206"
+    },
+    {
+        "Kurs": "Skogsskötsel C",
+        "Kurskod": "SKOG1207"
+    },
+    {
+        "Kurs": "Tätortsnära skogsbruk",
+        "Kurskod": "SKOG1208"
+    },
+    {
+        "Kurs": "Virkesbehandling A",
+        "Kurskod": "SKOG1209"
+    },
+    {
+        "Kurs": "Virkesbehandling B",
+        "Kurskod": "SKOG1210"
+    },
+    {
+        "Kurs": "Virkesmätning",
+        "Kurskod": "SKOG1211"
+    },
+    {
+        "Kurs": "Virkestransport A",
+        "Kurskod": "SKOG1212"
+    },
+    {
+        "Kurs": "Virkestransport B",
+        "Kurskod": "SKOG1213"
+    },
+    {
+        "Kurs": "Etik och livsfrågor",
+        "Kurskod": "SOMS1201"
+    },
+    {
+        "Kurs": "Människan socialt och kulturellt",
+        "Kurskod": "SOMS1202"
+    },
+    {
+        "Kurs": "Rehabilitering och habilitering",
+        "Kurskod": "SOMS1203"
+    },
+    {
+        "Kurs": "Social omsorg",
+        "Kurskod": "SOMS1204"
+    },
+    {
+        "Kurs": "Socialpsykiatri",
+        "Kurskod": "SOMS1205"
+    },
+    {
+        "Kurs": "Socialt behandlingsarbete",
+        "Kurskod": "SOMS1206"
+    },
+    {
+        "Kurs": "Utvecklingsstörning/funktionshinder",
+        "Kurskod": "SOMS1207"
+    },
+    {
+        "Kurs": "Specialidrott A",
+        "Kurskod": "SC1201"
+    },
+    {
+        "Kurs": "Specialidrott B",
+        "Kurskod": "SC1202"
+    },
+    {
+        "Kurs": "Styckning gris",
+        "Kurskod": "STYK1202"
+    },
+    {
+        "Kurs": "Styckning grundkurs",
+        "Kurskod": "STYK1201"
+    },
+    {
+        "Kurs": "Styckning i butik",
+        "Kurskod": "STYK1203"
+    },
+    {
+        "Kurs": "Styckning nöt",
+        "Kurskod": "STYK1204"
+    },
+    {
+        "Kurs": "Styckning övriga djurslag",
+        "Kurskod": "STYK1205"
+    },
+    {
+        "Kurs": "Automationsenheter",
+        "Kurskod": "STR1201"
+    },
+    {
+        "Kurs": "Automatiserade elmaskiner",
+        "Kurskod": "STR1212"
+    },
+    {
+        "Kurs": "Avancerade styrsystem",
+        "Kurskod": "STR1202"
+    },
+    {
+        "Kurs": "CNC-maskiner",
+        "Kurskod": "STR1203"
+    },
+    {
+        "Kurs": "Industriell IT",
+        "Kurskod": "STR1204"
+    },
+    {
+        "Kurs": "Industrirobotar",
+        "Kurskod": "STR1205"
+    },
+    {
+        "Kurs": "Robotteknik A",
+        "Kurskod": "STR1206"
+    },
+    {
+        "Kurs": "Robotteknik B",
+        "Kurskod": "STR1207"
+    },
+    {
+        "Kurs": "Servoteknik",
+        "Kurskod": "STR1208"
+    },
+    {
+        "Kurs": "Styrteknik A",
+        "Kurskod": "STR1209"
+    },
+    {
+        "Kurs": "Styrteknik B",
+        "Kurskod": "STR1210"
+    },
+    {
+        "Kurs": "Styrteknik introduktion",
+        "Kurskod": "STR1211"
+    },
+    {
+        "Kurs": "Litteratur och litteraturvetenskap",
+        "Kurskod": "SV1203"
+    },
+    {
+        "Kurs": "Litterär gestaltning",
+        "Kurskod": "SV1204"
+    },
+    {
+        "Kurs": "Svenska A",
+        "Kurskod": "SV1201"
+    },
+    {
+        "Kurs": "Svenska B",
+        "Kurskod": "SV1202"
+    },
+    {
+        "Kurs": "Svenska C - muntlig och skriftlig kommunikation",
+        "Kurskod": "SV1205"
+    },
+    {
+        "Kurs": "Svenska för döva A",
+        "Kurskod": "SVD1201"
+    },
+    {
+        "Kurs": "Svenska för döva B",
+        "Kurskod": "SVD1202"
+    },
+    {
+        "Kurs": "Svenska för döva C",
+        "Kurskod": "SVD1203"
+    },
+    {
+        "Kurs": "Svenska som andraspråk A",
+        "Kurskod": "SVA1201"
+    },
+    {
+        "Kurs": "Svenska som andraspråk B",
+        "Kurskod": "SVA1202"
+    },
+    {
+        "Kurs": "Lödning och skärning A",
+        "Kurskod": "SVST1206"
+    },
+    {
+        "Kurs": "Lödning och skärning B",
+        "Kurskod": "SVST1207"
+    },
+    {
+        "Kurs": "Manuell metallbågsvetsning A1",
+        "Kurskod": "SVST1208"
+    },
+    {
+        "Kurs": "Manuell metallbågsvetsning A2",
+        "Kurskod": "SVST1209"
+    },
+    {
+        "Kurs": "Manuell metallbågsvetsning B1",
+        "Kurskod": "SVST1210"
+    },
+    {
+        "Kurs": "Manuell metallbågsvetsning B2",
+        "Kurskod": "SVST1211"
+    },
+    {
+        "Kurs": "Manuell metallbågsvetsning C1",
+        "Kurskod": "SVST1212"
+    },
+    {
+        "Kurs": "Manuell metallbågsvetsning C2",
+        "Kurskod": "SVST1213"
+    },
+    {
+        "Kurs": "Manuell metallbågsvetsning C3",
+        "Kurskod": "SVST1214"
+    },
+    {
+        "Kurs": "MIG/MAG-svetsning A1",
+        "Kurskod": "SVST1215"
+    },
+    {
+        "Kurs": "MIG/MAG-svetsning A2",
+        "Kurskod": "SVST1216"
+    },
+    {
+        "Kurs": "MIG/MAG-svetsning B1",
+        "Kurskod": "SVST1217"
+    },
+    {
+        "Kurs": "MIG/MAG-svetsning B2",
+        "Kurskod": "SVST1218"
+    },
+    {
+        "Kurs": "MIG/MAG-svetsning C",
+        "Kurskod": "SVST1219"
+    },
+    {
+        "Kurs": "Svetsarprövning",
+        "Kurskod": "SVST1220"
+    },
+    {
+        "Kurs": "Svetsmetoder grundkurs",
+        "Kurskod": "SVST1221"
+    },
+    {
+        "Kurs": "TIG-svetsning A1",
+        "Kurskod": "SVST1222"
+    },
+    {
+        "Kurs": "TIG-svetsning A2",
+        "Kurskod": "SVST1223"
+    },
+    {
+        "Kurs": "TIG-svetsning B1",
+        "Kurskod": "SVST1224"
+    },
+    {
+        "Kurs": "TIG-svetsning B2",
+        "Kurskod": "SVST1225"
+    },
+    {
+        "Kurs": "TIG-svetsning C1",
+        "Kurskod": "SVST1226"
+    },
+    {
+        "Kurs": "TIG-svetsning C2",
+        "Kurskod": "SVST1227"
+    },
+    {
+        "Kurs": "Fysisk teater",
+        "Kurskod": "TEA1201"
+    },
+    {
+        "Kurs": "Ljus- och ljudteknik",
+        "Kurskod": "TEA1202"
+    },
+    {
+        "Kurs": "Röst och rörelse",
+        "Kurskod": "TEA1203"
+    },
+    {
+        "Kurs": "Scenisk gestaltning A",
+        "Kurskod": "TEA1204"
+    },
+    {
+        "Kurs": "Scenisk gestaltning B",
+        "Kurskod": "TEA1205"
+    },
+    {
+        "Kurs": "Scenisk gestaltning C",
+        "Kurskod": "TEA1206"
+    },
+    {
+        "Kurs": "Scenisk produktion",
+        "Kurskod": "TEA1207"
+    },
+    {
+        "Kurs": "Sceniskt karaktärsarbete",
+        "Kurskod": "TEA1208"
+    },
+    {
+        "Kurs": "Sceniskt ledarskap",
+        "Kurskod": "TEA1209"
+    },
+    {
+        "Kurs": "Scenografi, mask, kostym",
+        "Kurskod": "TEA1210"
+    },
+    {
+        "Kurs": "Teckenspråk A",
+        "Kurskod": "TNDV1201"
+    },
+    {
+        "Kurs": "Teckenspråk B",
+        "Kurskod": "TNDV1202"
+    },
+    {
+        "Kurs": "Teckenspråk för hörande, steg 1",
+        "Kurskod": "TNH1201"
+    },
+    {
+        "Kurs": "Teckenspråk för hörande, steg 2",
+        "Kurskod": "TNH1202"
+    },
+    {
+        "Kurs": "Teckenspråk för hörande, steg 3",
+        "Kurskod": "TNH1203"
+    },
+    {
+        "Kurs": "Teckenspråk för hörande, steg 4",
+        "Kurskod": "TNH1204"
+    },
+    {
+        "Kurs": "Teckenspråk för hörande, steg 5",
+        "Kurskod": "TNH1205"
+    },
+    {
+        "Kurs": "CAD-teknik A",
+        "Kurskod": "TEU1201"
+    },
+    {
+        "Kurs": "CAD-teknik B",
+        "Kurskod": "TEU1202"
+    },
+    {
+        "Kurs": "CAD-teknik C",
+        "Kurskod": "TEU1203"
+    },
+    {
+        "Kurs": "Design",
+        "Kurskod": "TEU1204"
+    },
+    {
+        "Kurs": "Konstruktion A",
+        "Kurskod": "TEU1205"
+    },
+    {
+        "Kurs": "Konstruktion B",
+        "Kurskod": "TEU1206"
+    },
+    {
+        "Kurs": "Teknik, människa, samhälle",
+        "Kurskod": "TEU1207"
+    },
+    {
+        "Kurs": "Teknikutveckling och företagande",
+        "Kurskod": "TEU1209"
+    },
+    {
+        "Kurs": "Teknisk kommunikation",
+        "Kurskod": "TEU1210"
+    },
+    {
+        "Kurs": "Antenninstallation",
+        "Kurskod": "TEI1201"
+    },
+    {
+        "Kurs": "Installation och registrering",
+        "Kurskod": "TEI1202"
+    },
+    {
+        "Kurs": "Kabel-tv-teknik",
+        "Kurskod": "TEI1203"
+    },
+    {
+        "Kurs": "Lokala datanät",
+        "Kurskod": "TEI1204"
+    },
+    {
+        "Kurs": "Säkerhetssystem",
+        "Kurskod": "TEI1205"
+    },
+    {
+        "Kurs": "Tematisk specialisering",
+        "Kurskod": "TSF"
+    },
+    {
+        "Kurs": "Textil och konfektion A",
+        "Kurskod": "TKF1202"
+    },
+    {
+        "Kurs": "Textil och konfektion B",
+        "Kurskod": "TKF1203"
+    },
+    {
+        "Kurs": "Textil och konfektion C",
+        "Kurskod": "TKF1204"
+    },
+    {
+        "Kurs": "Textil och konfektion D",
+        "Kurskod": "TKF1205"
+    },
+    {
+        "Kurs": "Textil och konfektion E",
+        "Kurskod": "TKF1206"
+    },
+    {
+        "Kurs": "Textila material",
+        "Kurskod": "TKF1201"
+    },
+    {
+        "Kurs": "Textkommunikation A",
+        "Kurskod": "TEXK1201"
+    },
+    {
+        "Kurs": "Textkommunikation B",
+        "Kurskod": "TEXK1202"
+    },
+    {
+        "Kurs": "Textkommunikation C",
+        "Kurskod": "TEXK1203"
+    },
+    {
+        "Kurs": "Anläggningstransporter",
+        "Kurskod": "TRTE1201"
+    },
+    {
+        "Kurs": "Distributionstransporter",
+        "Kurskod": "TRTE1220"
+    },
+    {
+        "Kurs": "Farligt gods",
+        "Kurskod": "TRTE1219"
+    },
+    {
+        "Kurs": "Flyggods",
+        "Kurskod": "TRTE1203"
+    },
+    {
+        "Kurs": "Fordonskombinationer",
+        "Kurskod": "TRTE1204"
+    },
+    {
+        "Kurs": "Fordonsmonterad kran",
+        "Kurskod": "TRTE1205"
+    },
+    {
+        "Kurs": "Godshantering A",
+        "Kurskod": "TRTE1206"
+    },
+    {
+        "Kurs": "Godshantering B",
+        "Kurskod": "TRTE1207"
+    },
+    {
+        "Kurs": "Hamn- och terminalarbete",
+        "Kurskod": "TRTE1209"
+    },
+    {
+        "Kurs": "Internationella godstransporter",
+        "Kurskod": "TRTE1208"
+    },
+    {
+        "Kurs": "Kyl-, frys- och värmetransporter",
+        "Kurskod": "TRTE1210"
+    },
+    {
+        "Kurs": "Logistik A",
+        "Kurskod": "TRTE1211"
+    },
+    {
+        "Kurs": "Logistik B",
+        "Kurskod": "TRTE1212"
+    },
+    {
+        "Kurs": "Miljötransporter",
+        "Kurskod": "TRTE1213"
+    },
+    {
+        "Kurs": "Skogstransporter",
+        "Kurskod": "TRTE1214"
+    },
+    {
+        "Kurs": "Tank- och bulktransporter",
+        "Kurskod": "TRTE1215"
+    },
+    {
+        "Kurs": "Transportfordon grundkurs",
+        "Kurskod": "TRTE1216"
+    },
+    {
+        "Kurs": "Truck A",
+        "Kurskod": "TRTE1217"
+    },
+    {
+        "Kurs": "Truck B",
+        "Kurskod": "TRTE1218"
+    },
+    {
+        "Kurs": "Tunga godstransporter",
+        "Kurskod": "TRTE1221"
+    },
+    {
+        "Kurs": "Grafisk kvalitets- och miljöteknik",
+        "Kurskod": "TRYK1201"
+    },
+    {
+        "Kurs": "Tryckteknik A",
+        "Kurskod": "TRYK1202"
+    },
+    {
+        "Kurs": "Tryckteknik B",
+        "Kurskod": "TRYK1203"
+    },
+    {
+        "Kurs": "Tryckteknik C",
+        "Kurskod": "TRYK1204"
+    },
+    {
+        "Kurs": "Tryckteknik D",
+        "Kurskod": "TRYK1205"
+    },
+    {
+        "Kurs": "Beskärning",
+        "Kurskod": "TDG1201"
+    },
+    {
+        "Kurs": "Golfbanor",
+        "Kurskod": "TDG1202"
+    },
+    {
+        "Kurs": "Inomhusplanteringar",
+        "Kurskod": "TDG1203"
+    },
+    {
+        "Kurs": "Naturstensarbete",
+        "Kurskod": "TDG1205"
+    },
+    {
+        "Kurs": "Restaurering av trädgårdar",
+        "Kurskod": "TDG1204"
+    },
+    {
+        "Kurs": "Trappor och murar",
+        "Kurskod": "TDG1206"
+    },
+    {
+        "Kurs": "Träarbete",
+        "Kurskod": "TDG1207"
+    },
+    {
+        "Kurs": "Trädgård i vården",
+        "Kurskod": "TDG1208"
+    },
+    {
+        "Kurs": "Trädgårdsanläggning grundkurs",
+        "Kurskod": "TDG1209"
+    },
+    {
+        "Kurs": "Trädgårdsplanering",
+        "Kurskod": "TDG1210"
+    },
+    {
+        "Kurs": "Trädvård",
+        "Kurskod": "TDG1211"
+    },
+    {
+        "Kurs": "Växtkunskap",
+        "Kurskod": "TDG1212"
+    },
+    {
+        "Kurs": "Byggvaror",
+        "Kurskod": "TRÄF1201"
+    },
+    {
+        "Kurs": "Hyvling grundkurs",
+        "Kurskod": "TRÄF1202"
+    },
+    {
+        "Kurs": "Hyvling profil",
+        "Kurskod": "TRÄF1203"
+    },
+    {
+        "Kurs": "Komponenttillverkning",
+        "Kurskod": "TRÄF1204"
+    },
+    {
+        "Kurs": "Logistik",
+        "Kurskod": "TRÄF1205"
+    },
+    {
+        "Kurs": "Sågning kantverk",
+        "Kurskod": "TRÄF1206"
+    },
+    {
+        "Kurs": "Sågning reducerare",
+        "Kurskod": "TRÄF1207"
+    },
+    {
+        "Kurs": "Sågning sortering",
+        "Kurskod": "TRÄF1208"
+    },
+    {
+        "Kurs": "Sågning stock",
+        "Kurskod": "TRÄF1209"
+    },
+    {
+        "Kurs": "Verktygsunderhåll",
+        "Kurskod": "TRÄF1210"
+    },
+    {
+        "Kurs": "Virkestorkning",
+        "Kurskod": "TRÄF1211"
+    },
+    {
+        "Kurs": "Fanering",
+        "Kurskod": "TRÄ1201"
+    },
+    {
+        "Kurs": "Handverktyg och handmaskiner",
+        "Kurskod": "TRÄ1202"
+    },
+    {
+        "Kurs": "Materialkunskap",
+        "Kurskod": "TRÄ1204"
+    },
+    {
+        "Kurs": "Planmöbler",
+        "Kurskod": "TRÄ1205"
+    },
+    {
+        "Kurs": "Träbearbetning A",
+        "Kurskod": "TRÄ1206"
+    },
+    {
+        "Kurs": "Träbearbetning B",
+        "Kurskod": "TRÄ1207"
+    },
+    {
+        "Kurs": "Träbearbetning C",
+        "Kurskod": "TRÄ1208"
+    },
+    {
+        "Kurs": "Träbearbetning D",
+        "Kurskod": "TRÄ1209"
+    },
+    {
+        "Kurs": "Träteknik introduktion",
+        "Kurskod": "TRÄ1203"
+    },
+    {
+        "Kurs": "Ytbehandling",
+        "Kurskod": "TRÄ1210"
+    },
+    {
+        "Kurs": "Affärsresor",
+        "Kurskod": "TURI1201"
+    },
+    {
+        "Kurs": "Arbetsmarknad för turism",
+        "Kurskod": "TURI1202"
+    },
+    {
+        "Kurs": "Fritidsturism",
+        "Kurskod": "TURI1203"
+    },
+    {
+        "Kurs": "Marknad för turism",
+        "Kurskod": "TURI1204"
+    },
+    {
+        "Kurs": "Turism",
+        "Kurskod": "TURI1205"
+    },
+    {
+        "Kurs": "Turism - natur, kultur och miljö",
+        "Kurskod": "TURI1206"
+    },
+    {
+        "Kurs": "Turism och resor",
+        "Kurskod": "TURI1207"
+    },
+    {
+        "Kurs": "Hydraulik",
+        "Kurskod": "UND1201"
+    },
+    {
+        "Kurs": "Lager A",
+        "Kurskod": "UND1202"
+    },
+    {
+        "Kurs": "Lager B",
+        "Kurskod": "UND1203"
+    },
+    {
+        "Kurs": "Reparationsteknik",
+        "Kurskod": "UND1204"
+    },
+    {
+        "Kurs": "Tribologi",
+        "Kurskod": "UND1205"
+    },
+    {
+        "Kurs": "Underhåll A",
+        "Kurskod": "UND1206"
+    },
+    {
+        "Kurs": "Underhåll B",
+        "Kurskod": "UND1207"
+    },
+    {
+        "Kurs": "Underhåll C",
+        "Kurskod": "UND1208"
+    },
+    {
+        "Kurs": "Uppriktning",
+        "Kurskod": "UND1209"
+    },
+    {
+        "Kurs": "Vibrationsteknik",
+        "Kurskod": "UND1210"
+    },
+    {
+        "Kurs": "Alternativa reningsmetoder",
+        "Kurskod": "VMT1201"
+    },
+    {
+        "Kurs": "Dricksvatten - efterbehandling",
+        "Kurskod": "VMT1202"
+    },
+    {
+        "Kurs": "Miljökvalitetssystem",
+        "Kurskod": "VMT1203"
+    },
+    {
+        "Kurs": "Vatten- och miljöteknik A",
+        "Kurskod": "VMT1204"
+    },
+    {
+        "Kurs": "Vatten- och miljöteknik B",
+        "Kurskod": "VMT1205"
+    },
+    {
+        "Kurs": "Vatten- och miljöteknik C",
+        "Kurskod": "VMT1206"
+    },
+    {
+        "Kurs": "Vattenreningens mikrobiologi",
+        "Kurskod": "VMT1207"
+    },
+    {
+        "Kurs": "Fiskodling",
+        "Kurskod": "VTB1201"
+    },
+    {
+        "Kurs": "Kräftodling",
+        "Kurskod": "VTB1202"
+    },
+    {
+        "Kurs": "Musselodling",
+        "Kurskod": "VTB1203"
+    },
+    {
+        "Kurs": "Sjömanskap",
+        "Kurskod": "VTB1204"
+    },
+    {
+        "Kurs": "Sportfiske",
+        "Kurskod": "VTB1205"
+    },
+    {
+        "Kurs": "Vattenbruk grundkurs",
+        "Kurskod": "VTB1206"
+    },
+    {
+        "Kurs": "Yrkesfiske",
+        "Kurskod": "VTB1207"
+    },
+    {
+        "Kurs": "Generatorer och transformatorer",
+        "Kurskod": "VAKR1201"
+    },
+    {
+        "Kurs": "Hydraulik och turbiner",
+        "Kurskod": "VAKR1202"
+    },
+    {
+        "Kurs": "Kontrollanläggningar",
+        "Kurskod": "VAKR1203"
+    },
+    {
+        "Kurs": "Kraftstationer",
+        "Kurskod": "VAKR1204"
+    },
+    {
+        "Kurs": "Industriell teknologi",
+        "Kurskod": "VER1208"
+    },
+    {
+        "Kurs": "Montering A",
+        "Kurskod": "VER1201"
+    },
+    {
+        "Kurs": "Montering B",
+        "Kurskod": "VER1202"
+    },
+    {
+        "Kurs": "Skärande bearbetning A",
+        "Kurskod": "VER1203"
+    },
+    {
+        "Kurs": "Skärande bearbetning B",
+        "Kurskod": "VER1204"
+    },
+    {
+        "Kurs": "Skärande bearbetning C",
+        "Kurskod": "VER1205"
+    },
+    {
+        "Kurs": "Slipning A",
+        "Kurskod": "VER1206"
+    },
+    {
+        "Kurs": "Slipning B",
+        "Kurskod": "VER1207"
+    },
+    {
+        "Kurs": "Verkstadsteknik grundkurs",
+        "Kurskod": "VER1209"
+    },
+    {
+        "Kurs": "Formverktyg A",
+        "Kurskod": "VERK1201"
+    },
+    {
+        "Kurs": "Formverktyg B",
+        "Kurskod": "VERK1202"
+    },
+    {
+        "Kurs": "Gnistbearbetning",
+        "Kurskod": "VERK1203"
+    },
+    {
+        "Kurs": "Jiggar och fixturer",
+        "Kurskod": "VERK1204"
+    },
+    {
+        "Kurs": "Pressverktyg A",
+        "Kurskod": "VERK1205"
+    },
+    {
+        "Kurs": "Pressverktyg B",
+        "Kurskod": "VERK1206"
+    },
+    {
+        "Kurs": "Verktygsteknik grundkurs",
+        "Kurskod": "VERK1207"
+    },
+    {
+        "Kurs": "Industrirör A",
+        "Kurskod": "VVT1201"
+    },
+    {
+        "Kurs": "Industrirör B",
+        "Kurskod": "VVT1202"
+    },
+    {
+        "Kurs": "Ventilation A",
+        "Kurskod": "VVT1203"
+    },
+    {
+        "Kurs": "Ventilation B",
+        "Kurskod": "VVT1204"
+    },
+    {
+        "Kurs": "VVS svets A",
+        "Kurskod": "VVT1205"
+    },
+    {
+        "Kurs": "VVS svets B",
+        "Kurskod": "VVT1206"
+    },
+    {
+        "Kurs": "VVS-teknik A",
+        "Kurskod": "VVT1207"
+    },
+    {
+        "Kurs": "VVS-teknik B",
+        "Kurskod": "VVT1208"
+    },
+    {
+        "Kurs": "VVS-teknik C",
+        "Kurskod": "VVT1209"
     }
 ]
