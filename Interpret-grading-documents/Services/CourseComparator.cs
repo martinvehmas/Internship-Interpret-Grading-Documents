@@ -108,12 +108,11 @@ public class CourseComparator
     {
         foreach (var subject in graduationDocument.Subjects)
         {
-            // Normalize the subject name for comparison
-            string subjectNameKey = subject.SubjectName.Trim();
+            string bestMatch = FindBestMatch(subject.SubjectName);
 
-            if (validationCourses.ContainsKey(subjectNameKey))
+            if (bestMatch != null && validationCourses.ContainsKey(bestMatch))
             {
-                var validationCourse = validationCourses[subjectNameKey];
+                var validationCourse = validationCourses[bestMatch];
                 subject.GymnasiumPoints = validationCourse.Points.ToString();
                 subject.CourseCode = validationCourse.CourseCode;
             }
