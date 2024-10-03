@@ -83,10 +83,10 @@ namespace Interpret_grading_documents.Services
                 ChatCompletion chatCompletion = await GetChatCompletionAsync(client, messages);
                 GraduationDocument document = DeserializeResponse(chatCompletion.Content[0].Text);
 
-                CompareCourses(document);
-                ValidateDocument(document, reliabilityResult);
+                var updatedDocument = CompareCourses(document);
+                ValidateDocument(updatedDocument, reliabilityResult);
 
-                return document;
+                return updatedDocument;
             }
             finally
             {
@@ -230,11 +230,13 @@ namespace Interpret_grading_documents.Services
             return JsonSerializer.Deserialize<GraduationDocument>(jsonResponse);
         }
 
-        private void CompareCourses(GraduationDocument document)
+        private GraduationDocument CompareCourses(GraduationDocument document)
         {
             string validationJsonPath = Path.Combine("Data", "kurser.json");
             CourseComparator courseComparator = new CourseComparator(document, validationJsonPath);
-            courseComparator.CompareCourses();
+            var updatedDocument = courseComparator.CompareCourses();
+
+            return updatedDocument;
         }
 
         private void ValidateDocument(GraduationDocument document, ImageReliabilityResult reliabilityResult)
