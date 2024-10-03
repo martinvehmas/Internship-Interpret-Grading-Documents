@@ -50,10 +50,28 @@ public class CourseComparator
         return unmatchedSubjects;
     }
 
-    public void CompareCourses()
+    public GraduationDocument UpdateMatchedSubjects()
+    {
+        foreach (var subject in graduationDocument.Subjects)
+        {
+            // Normalize the subject name for comparison
+            string subjectNameKey = subject.SubjectName.Trim();
+
+            if (validationCourses.ContainsKey(subjectNameKey))
+            {
+                var validationCourse = validationCourses[subjectNameKey];
+                subject.GymnasiumPoints = validationCourse.Points.ToString();
+                subject.CourseCode = validationCourse.CourseCode;
+            }
+        }
+        return graduationDocument;
+    }
+
+    public GraduationDocument CompareCourses()
     {
         int totalPoints = GetTotalPoints();
         List<string> unmatchedSubjects = GetUnmatchedSubjects();
+        var updatedDocument = UpdateMatchedSubjects();
 
         Console.WriteLine($"Total Points of Matched Courses: {totalPoints}");
         Console.WriteLine("Subjects that did not match any courses:");
@@ -62,6 +80,8 @@ public class CourseComparator
         {
             Console.WriteLine(subject);
         }
+
+        return updatedDocument;
     }
 }
 
