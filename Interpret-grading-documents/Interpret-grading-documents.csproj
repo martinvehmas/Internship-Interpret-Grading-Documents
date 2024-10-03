@@ -9,6 +9,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="Azure.AI.FormRecognizer" Version="4.1.0" />
+		<PackageReference Include="FuzzySharp" Version="2.0.2" />
 		<PackageReference Include="Magick.NET-Q8-AnyCPU" Version="14.0.0" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 		<PackageReference Include="OpenAI" Version="2.0.0-beta.13" />
