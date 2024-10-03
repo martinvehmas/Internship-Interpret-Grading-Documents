@@ -42,7 +42,7 @@ public class CourseComparator
 
         foreach (var validationCourse in validationCourses.Keys)
         {
-            int score = Fuzz.Ratio(subjectName, validationCourse);
+            int score = Fuzz.Ratio(subjectName.ToLower(), validationCourse.ToLower());
 
             if (score > bestScore)
             {
