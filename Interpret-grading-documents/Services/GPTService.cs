@@ -179,6 +179,13 @@ namespace Interpret_grading_documents.Services
             var jsonResponse = chatCompletion.Content[0].Text;
             GraduationDocument document = JsonSerializer.Deserialize<GraduationDocument>(jsonResponse);
 
+            var inputJsonPath = document;
+            string validationJsonPath = Path.Combine("Data", "kurser.json");
+
+            CourseComparator courseComparator = new CourseComparator(inputJsonPath, validationJsonPath);
+            courseComparator.CompareCourses();
+
+
             var isDataValid = checker.ValidateData(document);
 
             if (!isDataValid)
