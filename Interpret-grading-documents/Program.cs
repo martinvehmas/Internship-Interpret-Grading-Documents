@@ -1,4 +1,5 @@
 using Interpret_grading_documents.Services;
+using OpenAI.Chat;
 
 namespace Interpret_grading_documents
 {
@@ -9,6 +10,7 @@ namespace Interpret_grading_documents
             var builder = WebApplication.CreateBuilder(args);
 
             // Retrieve the Environment Variable
+
             var apiKey = Environment.GetEnvironmentVariable("AZURE_FORM_RECOGNIZER_API_KEY");
 
             if (string.IsNullOrEmpty(apiKey))
@@ -18,7 +20,10 @@ namespace Interpret_grading_documents
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-            builder.Services.AddControllersWithViews();
+
+            // Register GPTService
+            builder.Services.AddHttpClient<GPTService>();
+
 
             // Register Form Recognizer Service
             builder.Services.AddSingleton<FormRecognizerService>(provider =>
