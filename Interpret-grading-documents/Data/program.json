@@ -1,0 +1,455 @@
+[
+    {
+        "Program": "Barn- och fritidsprogrammet",
+        "Programkod": "BF",
+        "Inriktningar": [
+            {
+                "Inriktning": "Fritid och hälsa",
+                "Kod": "BFFRI"
+            },
+            {
+                "Inriktning": "Pedagogiskt och socialt arbete",
+                "Kod": "BFPEA"
+            }
+        ]
+    },
+    {
+        "Program": "Bygg- och anläggningsprogrammet",
+        "Programkod": "BA",
+        "Inriktningar": [
+            {
+                "Inriktning": "Anläggningsfordon",
+                "Kod": "BAANL"
+            },
+            {
+                "Inriktning": "Husbyggnad",
+                "Kod": "BAHUS"
+            },
+            {
+                "Inriktning": "Mark och anläggning",
+                "Kod": "BAMAR"
+            },
+            {
+                "Inriktning": "Måleri",
+                "Kod": "BAMAL"
+            },
+            {
+                "Inriktning": "Plåtslageri",
+                "Kod": "BAPLA"
+            }
+        ]
+    },
+    {
+        "Program": "Ekonomiprogrammet",
+        "Programkod": "EK",
+        "Inriktningar": [
+            {
+                "Inriktning": "Ekonomi",
+                "Kod": "EKEKO"
+            },
+            {
+                "Inriktning": "Juridik",
+                "Kod": "EKJUR"
+            }
+        ]
+    },
+    {
+        "Program": "El- och energiprogrammet",
+        "Programkod": "EE",
+        "Inriktningar": [
+            {
+                "Inriktning": "Automation",
+                "Kod": "EEAUT"
+            },
+            {
+                "Inriktning": "Dator- och kommunikationsteknik",
+                "Kod": "EEDAT"
+            },
+            {
+                "Inriktning": "Elteknik",
+                "Kod": "EEELT"
+            },
+            {
+                "Inriktning": "Energiteknik",
+                "Kod": "EEENE"
+            }
+        ]
+    },
+    {
+        "Program": "Estetiska programmet",
+        "Programkod": "ES",
+        "Inriktningar": [
+            {
+                "Inriktning": "Bild och formgivning",
+                "Kod": "ESBIL"
+            },
+            {
+                "Inriktning": "Dans",
+                "Kod": "ESDAN"
+            },
+            {
+                "Inriktning": "Estetik och media",
+                "Kod": "ESEST"
+            },
+            {
+                "Inriktning": "Musik",
+                "Kod": "ESMUS"
+            },
+            {
+                "Inriktning": "Teater",
+                "Kod": "ESTEA"
+            }
+        ]
+    },
+    {
+        "Program": "Flygteknikutbildningen",
+        "Programkod": "FX",
+        "Inriktningar": [
+            {
+                "Inriktning": "Flygplan",
+                "Kod": "FXFLY"
+            },
+            {
+                "Inriktning": "Helikopter",
+                "Kod": "FXHEL"
+            }
+        ]
+    },
+    {
+        "Program": "Fordons- och transportprogrammet",
+        "Programkod": "FT",
+        "Inriktningar": [
+            {
+                "Inriktning": "Karosseri och lackering",
+                "Kod": "FTKAR"
+            },
+            {
+                "Inriktning": "Lastbil och mobila maskiner",
+                "Kod": "FTLAS"
+            },
+            {
+                "Inriktning": "Personbil",
+                "Kod": "FTPER"
+            },
+            {
+                "Inriktning": "Transport",
+                "Kod": "FTTRA"
+            }
+        ]
+    },
+    {
+        "Program": "Försäljnings- och serviceprogrammet",
+        "Programkod": "FS",
+        "Inriktningar": []
+    },
+    {
+        "Program": "Hantverksprogrammet",
+        "Programkod": "HV",
+        "Inriktningar": [
+            {
+                "Inriktning": "Finsnickeri",
+                "Kod": "HVFIN"
+            },
+            {
+                "Inriktning": "Florist",
+                "Kod": "HVFLO"
+            },
+            {
+                "Inriktning": "Frisör, barberare, hår- och makeupstylist",
+                "Kod": "HVFRS"
+            },
+            {
+                "Inriktning": "Textil design",
+                "Kod": "HVTEX"
+            },
+            {
+                "Inriktning": "Övriga hantverk",
+                "Kod": "HVXXX"
+            }
+        ]
+    },
+    {
+        "Program": "Hotell- och turismprogrammet",
+        "Programkod": "HT",
+        "Inriktningar": []
+    },
+    {
+        "Program": "Humanistiska programmet",
+        "Programkod": "HU",
+        "Inriktningar": [
+            {
+                "Inriktning": "Kultur",
+                "Kod": "HUKUL"
+            },
+            {
+                "Inriktning": "Språk",
+                "Kod": "HUSPR"
+            }
+        ]
+    },
+    {
+        "Program": "Industritekniska programmet",
+        "Programkod": "IN",
+        "Inriktningar": [
+            {
+                "Inriktning": "Driftsäkerhet och underhåll",
+                "Kod": "INDRI"
+            },
+            {
+                "Inriktning": "Processteknik",
+                "Kod": "INPRO"
+            },
+            {
+                "Inriktning": "Produkt och maskinteknik",
+                "Kod": "INPRK"
+            },
+            {
+                "Inriktning": "Svetsteknik",
+                "Kod": "INSVE"
+            }
+        ]
+    },
+    {
+        "Program": "Marinteknikutbildningen",
+        "Programkod": "MX",
+        "Inriktningar": [
+            {
+                "Inriktning": "El och elektronik",
+                "Kod": "MXELO"
+            },
+            {
+                "Inriktning": "Service och reparation",
+                "Kod": "MXSER"
+            }
+        ]
+    },
+    {
+        "Program": "Naturbruksprogrammet",
+        "Programkod": "NB",
+        "Inriktningar": [
+            {
+                "Inriktning": "Djurvård",
+                "Kod": "NBDJR"
+            },
+            {
+                "Inriktning": "Hästhållning",
+                "Kod": "NBHAT"
+            },
+            {
+                "Inriktning": "Lantbruk",
+                "Kod": "NBLAN"
+            },
+            {
+                "Inriktning": "Naturturism",
+                "Kod": "NBNAT"
+            },
+            {
+                "Inriktning": "Skogsbruk",
+                "Kod": "NBSKG"
+            },
+            {
+                "Inriktning": "Trädgård",
+                "Kod": "NBTRA"
+            }
+        ]
+    },
+    {
+        "Program": "Naturvetenskapsprogrammet",
+        "Programkod": "NA",
+        "Inriktningar": [
+            {
+                "Inriktning": "Naturvetenskap",
+                "Kod": "NANAT"
+            },
+            {
+                "Inriktning": "Naturvetenskap och samhälle",
+                "Kod": "NANAS"
+            }
+        ]
+    },
+    {
+        "Program": "Restaurang- och livsmedelsprogrammet",
+        "Programkod": "RL",
+        "Inriktningar": [
+            {
+                "Inriktning": "Bageri och konditori",
+                "Kod": "RLBAG"
+            },
+            {
+                "Inriktning": "Kök och servering",
+                "Kod": "RLKOK"
+            }
+        ]
+    },
+    {
+        "Program": "Samhällsvetenskapsprogrammet",
+        "Programkod": "SA",
+        "Inriktningar": [
+            {
+                "Inriktning": "Beteendevetenskap",
+                "Kod": "SABET"
+            },
+            {
+                "Inriktning": "Medier, information och kommunikation",
+                "Kod": "SAMED"
+            },
+            {
+                "Inriktning": "Samhällsvetenskap",
+                "Kod": "SASAM"
+            }
+        ]
+    },
+    {
+        "Program": "Sjöfartsutbildningen",
+        "Programkod": "SX",
+        "Inriktningar": [
+            {
+                "Inriktning": "Däck",
+                "Kod": "SXDAC"
+            },
+            {
+                "Inriktning": "Maskin",
+                "Kod": "SXMAS"
+            }
+        ]
+    },
+    {
+        "Program": "Teknikprogrammet",
+        "Programkod": "TE",
+        "Inriktningar": [
+            {
+                "Inriktning": "Design och produktutveckling",
+                "Kod": "TEDES"
+            },
+            {
+                "Inriktning": "Informations- och medieteknik",
+                "Kod": "TEINF"
+            },
+            {
+                "Inriktning": "Produktionsteknik",
+                "Kod": "TEPRO"
+            },
+            {
+                "Inriktning": "Samhällsbyggande och miljö",
+                "Kod": "TESAM"
+            },
+            {
+                "Inriktning": "Teknikvetenskap",
+                "Kod": "TETEK"
+            }
+        ]
+    },
+    {
+        "Program": "Tågteknikutbildningen",
+        "Programkod": "TX",
+        "Inriktningar": []
+    },
+    {
+        "Program": "Utbildningen samiska näringar",
+        "Programkod": "UX",
+        "Inriktningar": []
+    },
+    {
+        "Program": "VVS- och fastighetsprogrammet",
+        "Programkod": "VF",
+        "Inriktningar": [
+            {
+                "Inriktning": "Fastighet",
+                "Kod": "VFFAS"
+            },
+            {
+                "Inriktning": "Kyl- och värmepumpsteknik",
+                "Kod": "VFKYL"
+            },
+            {
+                "Inriktning": "Ventilation",
+                "Kod": "VFVET"
+            },
+            {
+                "Inriktning": "VVS",
+                "Kod": "VFVVS"
+            }
+        ]
+    },
+    {
+        "Program": "Vård- och omsorgsprogrammet",
+        "Programkod": "VO",
+        "Inriktningar": []
+    },
+    {
+        "Program": "Yrkesdansarutbildningen",
+        "Programkod": "YX",
+        "Inriktningar": []
+    },
+    {
+        "Program": "Flygteknikutbildningen",
+        "Programkod": "RX",
+        "Inriktningar": [
+            {
+                "Inriktning": "Flygplan",
+                "Kod": "RXFLY"
+            },
+            {
+                "Inriktning": "Helikopter",
+                "Kod": "RXHEL"
+            }
+        ]
+    },
+    {
+        "Program": "Handels- och administrationsprogrammet",
+        "Programkod": "HA",
+        "Inriktningar": [
+            {
+                "Inriktning": "Administrativ service",
+                "Kod": "HAADM"
+            },
+            {
+                "Inriktning": "Handel och service",
+                "Kod": "HAHAN"
+            }
+        ]
+    },
+    {
+        "Program": "Marinteknikutbildningen",
+        "Programkod": "RX",
+        "Inriktningar": [
+            {
+                "Inriktning": "El och elektronik",
+                "Kod": "RXELO"
+            },
+            {
+                "Inriktning": "Service och reparation",
+                "Kod": "RXSER"
+            }
+        ]
+    },
+    {
+        "Program": "Sjöfartsutbildningen",
+        "Programkod": "RX",
+        "Inriktningar": [
+            {
+                "Inriktning": "Däck",
+                "Kod": "RXDAC"
+            },
+            {
+                "Inriktning": "Maskin",
+                "Kod": "RXMAS"
+            }
+        ]
+    },
+    {
+        "Program": "Tågteknikutbildningen",
+        "Programkod": "RX",
+        "Inriktningar": []
+    },
+    {
+        "Program": "Utbildningen samiska näringar",
+        "Programkod": "RX",
+        "Inriktningar": []
+    },
+    {
+        "Program": "Yrkesdansarutbildningen",
+        "Programkod": "RX",
+        "Inriktningar": []
+    }
+]

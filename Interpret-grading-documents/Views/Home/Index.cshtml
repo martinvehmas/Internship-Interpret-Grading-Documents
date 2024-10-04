@@ -1,45 +1,78 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-    var keyValuePairs = ViewData["KeyValuePairs"] as Dictionary<string, List<string>>;
-}
+﻿<div class="container mt-5">
+    <div class="text-center">
+        <h1 class="display-4">Grading Document</h1>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+        <h2 class="mt-4">Extracted Data</h2>
 
-    <h2>Extracted Key-Value Pairs:</h2>
-    @if (keyValuePairs != null && keyValuePairs.Any())
-    {
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Key</th>
-                    <th>Values</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var pair in keyValuePairs)
+        <div class="mt-3">
+            @if (Model != null)
+            {
+                <h3 class="mt-4">Image Reliability</h3>
+                <div class="card mt-2">
+                    <div class="card-body">
+                        <p class="card-text"><strong>Reliability Score:</strong> @Model.ImageReliability.ReliabilityScore.ToString("F2")%</p>
+                        <p class="card-text"><strong>File Format:</strong> @Model.ImageReliability.FileFormat</p>
+                    </div>
+                </div>
+
+                @if (@Model.ImageReliability.ReliabilityScore > 0)
                 {
-                    <tr>
-                        <td>@pair.Key</td>
-                        <td>
-                            @if (pair.Value != null && pair.Value.Any())
+                    <div class="card mt-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Student Information</h5>
+                            <p class="card-text"><strong>Full Name:</strong> @Model.FullName</p>
+                            <p class="card-text"><strong>Social Security Number:</strong> @Model.PersonalId</p>
+                            <p class="card-text"><strong>Graduation Date:</strong> @Model.GraduationDate</p>
+                            <p class="card-text"><strong>School Name:</strong> @Model.SchoolName</p>
+                            <p class="card-text"><strong>Program Name:</strong> @Model.ProgramName</p>
+                            <p class="card-text"><strong>Specialization:</strong> @Model.Specialization</p>
+                        </div>
+                    </div>
+
+                    <h3 class="mt-4">Subjects</h3>
+                    <table class="table table-striped mt-2">
+                        <thead>
+                            <tr>
+                                <th>Subject Name</th>
+                                <th>Course Code</th>
+                                <th>Grade</th>
+                                <th>Gymnasium Points</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var subject in Model.Subjects)
                             {
-                                <ul>
-                                    @foreach (var value in pair.Value)
-                                    {
-                                        <li>@value</li>
-                                    }
-                                </ul>
+                                <tr>
+                                    <td>@subject.SubjectName</td>
+                                    <td>@(string.IsNullOrEmpty(subject.CourseCode) ? "N/A" : subject.CourseCode)</td>
+                                    <td>@subject.Grade</td>
+                                    <td>@(subject.GymnasiumPoints)</td>
+                                </tr>
                             }
-                        </td>
-                    </tr>
+                        </tbody>
+                    </table>
                 }
-            </tbody>
-        </table>
-    }
-    else
-    {
-        <p>No key-value pairs found.</p>
-    }
+                else
+                {
+                    <div class="alert alert-warning mt-4" role="alert">
+                        Data could not be displayed due to low image reliability.
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="alert alert-info" role="alert">
+                    No data extracted yet. Upload a document below to analyze the data.
+                </div>
+            }
+        </div>
+
+        <form asp-action="ProcessText" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="uploadedFile">Upload Document (PDF, JPG, PNG):</label>
+                <input type="file" class="form-control-file" id="uploadedFile" name="uploadedFile" accept=".pdf,.jpg,.jpeg,.png" required />
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Analyze Data</button>
+        </form>
+    </div>
 </div>
