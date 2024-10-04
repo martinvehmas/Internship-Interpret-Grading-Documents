@@ -198,5 +198,47 @@ namespace Interpret_grading_documents.Services
             // Check if personalId matches the pattern
             return Regex.IsMatch(personalId, pattern);
         }
+
+        public static List<Mat> SegmentImage(string imagePath, string outputDirectory)
+        {
+            // Load the image
+            Mat img = Cv2.ImRead(imagePath, ImreadModes.Color);
+
+            // Convert to grayscale
+            Mat gray = new Mat();
+            Cv2.CvtColor(img, gray, ColorConversionCodes.BGR2GRAY);
+
+            // Use thresholding to isolate text areas
+            Mat binary = new Mat();
+            Cv2.Threshold(gray, binary, 128, 255, ThresholdTypes.BinaryInv);
+
+            // Detect contours of text blocks or regions
+            OpenCvSharp.Point[][] contours;
+            HierarchyIndex[] hierarchy;
+            Cv2.FindContours(binary, out contours, out hierarchy, RetrievalModes.External, ContourApproximationModes.ApproxSimple);
+
+            List<Mat> croppedSections = new List<Mat>();
+
+            int counter = 0;
+            foreach (var contour in contours)
+            {
+                Rect boundingRect = Cv2.BoundingRect(contour);
+
+                // Optionally filter small areas to remove noise
+                if (boundingRect.Width > 50 && boundingRect.Height > 20) // Adjust size based on your document
+                {
+                    Mat section = new Mat(img, boundingRect); // Crop the detected section
+                    croppedSections.Add(section);
+
+                    // Save the cropped section to a file for inspection
+                    string outputFilePath = Path.Combine(outputDirectory, $"segment_{counter}.png");
+                    Cv2.ImWrite(outputFilePath, section);
+                    counter++;
+                }
+            }
+
+            return croppedSections;
+        }
+
     }
 }
