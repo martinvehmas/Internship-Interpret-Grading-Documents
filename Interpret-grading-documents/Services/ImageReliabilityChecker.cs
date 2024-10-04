@@ -199,7 +199,7 @@ namespace Interpret_grading_documents.Services
             return Regex.IsMatch(personalId, pattern);
         }
 
-        public static List<Mat> SegmentImage(string imagePath, string outputDirectory)
+        public static List<Mat> SegmentImageWithTableDetection(string imagePath, string outputDirectory)
         {
             // Load the image
             Mat img = Cv2.ImRead(imagePath, ImreadModes.Color);
@@ -208,14 +208,35 @@ namespace Interpret_grading_documents.Services
             Mat gray = new Mat();
             Cv2.CvtColor(img, gray, ColorConversionCodes.BGR2GRAY);
 
-            // Use thresholding to isolate text areas
+            // Apply adaptive thresholding to handle varying lighting conditions
             Mat binary = new Mat();
-            Cv2.Threshold(gray, binary, 128, 255, ThresholdTypes.BinaryInv);
+            Cv2.AdaptiveThreshold(gray, binary, 255, AdaptiveThresholdTypes.MeanC, ThresholdTypes.BinaryInv, 15, 10);
 
-            // Detect contours of text blocks or regions
+            // Use morphological transformations to clean up the image
+            Mat kernel = Cv2.GetStructuringElement(MorphShapes.Rect, new OpenCvSharp.Size(2, 2));
+            Cv2.MorphologyEx(binary, binary, MorphTypes.Close, kernel);
+
+            // Detect horizontal and vertical lines to find tables
+            Mat horizontal = binary.Clone();
+            int horizontalSize = horizontal.Cols / 30;
+            Mat horizontalStructure = Cv2.GetStructuringElement(MorphShapes.Rect, new OpenCvSharp.Size(horizontalSize, 1));
+            Cv2.Erode(horizontal, horizontal, horizontalStructure);
+            Cv2.Dilate(horizontal, horizontal, horizontalStructure);
+
+            Mat vertical = binary.Clone();
+            int verticalSize = vertical.Rows / 30;
+            Mat verticalStructure = Cv2.GetStructuringElement(MorphShapes.Rect, new OpenCvSharp.Size(1, verticalSize));
+            Cv2.Erode(vertical, vertical, verticalStructure);
+            Cv2.Dilate(vertical, vertical, verticalStructure);
+
+            // Combine horizontal and vertical lines to create a table mask
+            Mat tableMask = new Mat();
+            Cv2.Add(horizontal, vertical, tableMask);
+
+            // Find contours in the table mask
             OpenCvSharp.Point[][] contours;
             HierarchyIndex[] hierarchy;
-            Cv2.FindContours(binary, out contours, out hierarchy, RetrievalModes.External, ContourApproximationModes.ApproxSimple);
+            Cv2.FindContours(tableMask, out contours, out hierarchy, RetrievalModes.External, ContourApproximationModes.ApproxSimple);
 
             List<Mat> croppedSections = new List<Mat>();
 
@@ -225,7 +246,7 @@ namespace Interpret_grading_documents.Services
                 Rect boundingRect = Cv2.BoundingRect(contour);
 
                 // Optionally filter small areas to remove noise
-                if (boundingRect.Width > 50 && boundingRect.Height > 20) // Adjust size based on your document
+                if (boundingRect.Width > 100 && boundingRect.Height > 20) // Adjust size based on your document
                 {
                     Mat section = new Mat(img, boundingRect); // Crop the detected section
                     croppedSections.Add(section);
@@ -239,6 +260,5 @@ namespace Interpret_grading_documents.Services
 
             return croppedSections;
         }
-
     }
 }

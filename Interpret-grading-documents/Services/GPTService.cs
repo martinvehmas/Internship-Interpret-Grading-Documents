@@ -166,6 +166,8 @@ namespace Interpret_grading_documents.Services
             var checker = new ImageReliabilityChecker();
             try
             {
+                var test = ImageReliabilityChecker.SegmentImageWithTableDetection(imagePath, Path.Combine(Directory.GetCurrentDirectory(), "SampleImages"));
+                Console.WriteLine("Debug");
                 return checker.CheckImageReliability(imagePath);
             }
             catch (Exception)
