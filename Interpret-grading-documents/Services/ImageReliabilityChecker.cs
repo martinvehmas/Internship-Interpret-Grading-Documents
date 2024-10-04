@@ -204,13 +204,42 @@ namespace Interpret_grading_documents.Services
             // Load the image
             Mat img = Cv2.ImRead(imagePath, ImreadModes.Color);
 
-            // Convert to grayscale
+            // Define a list to store the cropped sections
+            List<Mat> croppedSections = new List<Mat>();
+
+            // Get the dimensions of the image
+            int imageHeight = img.Rows;
+            int imageWidth = img.Cols;
+
+            // Define the region for the top part (Header section)
+            // Assuming the top portion is roughly the top 20-25% of the document
+            int headerHeight = imageHeight / 4; // Adjust as needed
+            Rect headerRect = new Rect(0, 0, imageWidth, headerHeight);
+
+            // Crop the header section
+            Mat headerSection = new Mat(img, headerRect);
+            croppedSections.Add(headerSection);
+
+            // Save the header section for inspection
+            string headerFilePath = Path.Combine(outputDirectory, "header_segment.png");
+            Cv2.ImWrite(headerFilePath, headerSection);
+
+            // Process the rest of the image (bottom part)
+            // Define the region for the table section (remaining 75% of the image)
+            int tableStartY = headerHeight;
+            Rect tableRect = new Rect(0, tableStartY, imageWidth, imageHeight - headerHeight);
+            Mat tableSection = new Mat(img, tableRect);
+
+            // Convert the table section to grayscale
             Mat gray = new Mat();
-            Cv2.CvtColor(img, gray, ColorConversionCodes.BGR2GRAY);
+            Cv2.CvtColor(tableSection, gray, ColorConversionCodes.BGR2GRAY);
+
+            // Apply Gaussian blur to reduce noise
+            Cv2.GaussianBlur(gray, gray, new OpenCvSharp.Size(5, 5), 0);
 
             // Apply adaptive thresholding to handle varying lighting conditions
             Mat binary = new Mat();
-            Cv2.AdaptiveThreshold(gray, binary, 255, AdaptiveThresholdTypes.MeanC, ThresholdTypes.BinaryInv, 15, 10);
+            Cv2.AdaptiveThreshold(gray, binary, 255, AdaptiveThresholdTypes.GaussianC, ThresholdTypes.BinaryInv, 21, 15);
 
             // Use morphological transformations to clean up the image
             Mat kernel = Cv2.GetStructuringElement(MorphShapes.Rect, new OpenCvSharp.Size(2, 2));
@@ -218,13 +247,13 @@ namespace Interpret_grading_documents.Services
 
             // Detect horizontal and vertical lines to find tables
             Mat horizontal = binary.Clone();
-            int horizontalSize = horizontal.Cols / 30;
+            int horizontalSize = horizontal.Cols / 20;
             Mat horizontalStructure = Cv2.GetStructuringElement(MorphShapes.Rect, new OpenCvSharp.Size(horizontalSize, 1));
             Cv2.Erode(horizontal, horizontal, horizontalStructure);
             Cv2.Dilate(horizontal, horizontal, horizontalStructure);
 
             Mat vertical = binary.Clone();
-            int verticalSize = vertical.Rows / 30;
+            int verticalSize = vertical.Rows / 20;
             Mat verticalStructure = Cv2.GetStructuringElement(MorphShapes.Rect, new OpenCvSharp.Size(1, verticalSize));
             Cv2.Erode(vertical, vertical, verticalStructure);
             Cv2.Dilate(vertical, vertical, verticalStructure);
@@ -238,17 +267,19 @@ namespace Interpret_grading_documents.Services
             HierarchyIndex[] hierarchy;
             Cv2.FindContours(tableMask, out contours, out hierarchy, RetrievalModes.External, ContourApproximationModes.ApproxSimple);
 
-            List<Mat> croppedSections = new List<Mat>();
-
             int counter = 0;
             foreach (var contour in contours)
             {
                 Rect boundingRect = Cv2.BoundingRect(contour);
 
                 // Optionally filter small areas to remove noise
-                if (boundingRect.Width > 100 && boundingRect.Height > 20) // Adjust size based on your document
+                if (boundingRect.Width > 50 && boundingRect.Height > 50)
                 {
-                    Mat section = new Mat(img, boundingRect); // Crop the detected section
+                    // Adjust the bounding rectangle to take into account the starting Y offset from cropping
+                    Rect adjustedBoundingRect = new Rect(boundingRect.X, boundingRect.Y + tableStartY, boundingRect.Width, boundingRect.Height);
+
+                    // Crop the detected section from the original image (using adjusted coordinates)
+                    Mat section = new Mat(img, adjustedBoundingRect);
                     croppedSections.Add(section);
 
                     // Save the cropped section to a file for inspection
@@ -260,5 +291,7 @@ namespace Interpret_grading_documents.Services
 
             return croppedSections;
         }
+
+
     }
 }

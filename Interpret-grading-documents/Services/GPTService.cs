@@ -2,6 +2,7 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using ImageMagick;
+using OpenCvSharp;
 
 namespace Interpret_grading_documents.Services
 {
@@ -79,12 +80,12 @@ namespace Interpret_grading_documents.Services
                 (processedImagePath, contentType) = await ProcessUploadedFileAsync(tempFilePath);
                 ImageReliabilityResult reliabilityResult = CheckImageReliability(processedImagePath);
 
+                // Segment the image to detect tables and extract segments
+                var imageSegments = ImageReliabilityChecker.SegmentImageWithTableDetection(processedImagePath, Path.Combine(Directory.GetCurrentDirectory(), "ImageSegments"));
+
                 ChatClient client = InitializeChatClient();
 
-                byte[] imageBytes = await File.ReadAllBytesAsync(processedImagePath);
-                BinaryData binaryImageData = BinaryData.FromBytes(imageBytes);
-
-                List<ChatMessage> messages = PrepareChatMessages(binaryImageData, contentType);
+                List<ChatMessage> messages = PrepareChatMessages(imageSegments, contentType);
 
                 ChatCompletion chatCompletion = await GetChatCompletionAsync(client, messages);
                 GraduationDocument document = DeserializeResponse(chatCompletion.Content[0].Text);
@@ -96,7 +97,7 @@ namespace Interpret_grading_documents.Services
             }
             finally
             {
-                CleanUpTempFiles(tempFilePath, processedImagePath); 
+                CleanUpTempFiles(tempFilePath, processedImagePath);
             }
         }
 
@@ -172,8 +173,6 @@ namespace Interpret_grading_documents.Services
             var checker = new ImageReliabilityChecker();
             try
             {
-                var test = ImageReliabilityChecker.SegmentImageWithTableDetection(imagePath, Path.Combine(Directory.GetCurrentDirectory(), "SampleImages"));
-                Console.WriteLine("Debug");
                 return checker.CheckImageReliability(imagePath);
             }
             catch (Exception)
@@ -187,9 +186,9 @@ namespace Interpret_grading_documents.Services
             return new ChatClient("gpt-4o-mini", _apiKey);
         }
 
-        private List<ChatMessage> PrepareChatMessages(BinaryData imageData, string contentType)
+        private List<ChatMessage> PrepareChatMessages(List<Mat> imageSegments, string contentType)
         {
-            return new List<ChatMessage>
+            var chatMessages = new List<ChatMessage>
             {
                 new UserChatMessage(
                     ChatMessageContentPart.CreateTextPart("Vänligen extrahera följande data från bilden, svara endast med JSON, formatera det inte med <pre> eller liknande. Säkerställ att alla betygen är korrekta och överenstämmer med deras ämne."),
@@ -222,10 +221,22 @@ namespace Interpret_grading_documents.Services
                         "       },\n" +
                         "       ... fler ämnen\n" +
                         "   ]\n" +
-                        "}"),
-                    ChatMessageContentPart.CreateImagePart(imageData, contentType)
+                        "}")
                 )
             };
+
+            foreach (var imageSegment in imageSegments)
+            {
+                byte[] imageBytes;
+                using (var ms = new MemoryStream())
+                {
+                    imageSegment.WriteToStream(ms);
+                    imageBytes = ms.ToArray();
+                }
+                chatMessages.Add(new UserChatMessage(ChatMessageContentPart.CreateImagePart(BinaryData.FromBytes(imageBytes), contentType)));
+            }
+
+            return chatMessages;
         }
 
         private async Task<ChatCompletion> GetChatCompletionAsync(ChatClient client, List<ChatMessage> messages)
