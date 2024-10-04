@@ -26,13 +26,13 @@ namespace Interpret_grading_documents
 
 
             // Register Form Recognizer Service
-            builder.Services.AddSingleton<FormRecognizerService>(provider =>
-            {
-                var configuration = provider.GetRequiredService<IConfiguration>();
-                var endpoint = configuration["AzureFormRecognizer:Endpoint"];
-                // var apiKey = configuration["AzureFormRecognizer:ApiKey"];
-                return new FormRecognizerService(endpoint, apiKey);
-            });
+            //builder.Services.AddSingleton<FormRecognizerService>(provider =>
+            //{
+            //    var configuration = provider.GetRequiredService<IConfiguration>();
+            //    var endpoint = configuration["AzureFormRecognizer:Endpoint"];
+            //    // var apiKey = configuration["AzureFormRecognizer:ApiKey"];
+            //    return new FormRecognizerService(endpoint, apiKey);
+            //});
 
             var app = builder.Build();
 
