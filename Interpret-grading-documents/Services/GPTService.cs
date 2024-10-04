@@ -30,6 +30,12 @@ namespace Interpret_grading_documents.Services
             [JsonPropertyName("specialization")]
             public string Specialization { get; set; }
 
+            [JsonPropertyName("school_form")]
+            public string SchoolForm { get; set; }
+
+            [JsonPropertyName("curriculum")]
+            public string Curriculum { get; set; }
+
             [JsonPropertyName("subjects")]
             public List<Subject> Subjects { get; set; }
 
@@ -191,10 +197,12 @@ namespace Interpret_grading_documents.Services
                         "1. Fullständigt namn\n" +
                         "2. Personnummer\n" +
                         "3. Examensdatum\n" +
-                        "4. Skolans namn\n" +
-                        "5. Programnamn\n" +
+                        "4. Skolans namn (Exempel: Bromma gymnasium, YrkesAkademin, NTI Gymnasiet Luleå, Okänt gymnasium)\n" +
+                        "5. Programnamn (Exempel: El- och energiprogrammet, Estetiska programmet, Hantverksprogrammet, Okänt program)\n" +
                         "6. Specialisering och detaljer om utbildning\n" +
-                        "7. Lista över ämnen med följande detaljer:\n" +
+                        "7. Skolform (En av de följande: Grundskola, Gymnasieskola, Komvux utbildning, Högskola, Okänd utbildningsform)\n" +
+                        "8. Läroplan (Titta på typen av betyg, till exempel MVG, VG en skolform innan GY11, grundskolebetyg är Lgr11 eller Lgr22.)\n" +
+                        "9. Lista över ämnen med följande detaljer:\n" +
                         "   - Ämnesnamn\n" +
                         "   - Betyg\n" +
                         "Vänligen se till att formatera svaret i JSON-format som detta:\n" +
@@ -205,6 +213,8 @@ namespace Interpret_grading_documents.Services
                         "   'school_name': 'Skolans Namn',\n" +
                         "   'program_name': 'Programnamn',\n" +
                         "   'specialization': 'Specialisering',\n" +
+                        "   'school_form': 'School Form',\n" +
+                        "   'curriculum': 'Curriculum',\n" +
                         "   'subjects': [\n" +
                         "       {\n" +
                         "           'subject_name': 'Ämnesnamn',\n" +
