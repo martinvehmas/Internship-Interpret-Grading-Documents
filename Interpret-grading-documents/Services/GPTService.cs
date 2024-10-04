@@ -85,7 +85,7 @@ namespace Interpret_grading_documents.Services
 
                 ChatClient client = InitializeChatClient();
 
-                List<ChatMessage> messages = PrepareChatMessages(imageSegments, contentType);
+                List<ChatMessage> messages = PrepareChatMessages(imageSegments, contentType, processedImagePath);
 
                 ChatCompletion chatCompletion = await GetChatCompletionAsync(client, messages);
                 GraduationDocument document = DeserializeResponse(chatCompletion.Content[0].Text);
@@ -186,7 +186,7 @@ namespace Interpret_grading_documents.Services
             return new ChatClient("gpt-4o-mini", _apiKey);
         }
 
-        private List<ChatMessage> PrepareChatMessages(List<Mat> imageSegments, string contentType)
+        private List<ChatMessage> PrepareChatMessages(List<Mat> imageSegments, string contentType, string originalImagePath)
         {
             var chatMessages = new List<ChatMessage>
             {
@@ -225,15 +225,24 @@ namespace Interpret_grading_documents.Services
                 )
             };
 
-            foreach (var imageSegment in imageSegments)
+            if (imageSegments.Count < 2)
             {
-                byte[] imageBytes;
-                using (var ms = new MemoryStream())
-                {
-                    imageSegment.WriteToStream(ms);
-                    imageBytes = ms.ToArray();
-                }
+                // if fewer than 2 segments, add the original image
+                byte[] imageBytes = File.ReadAllBytes(originalImagePath);
                 chatMessages.Add(new UserChatMessage(ChatMessageContentPart.CreateImagePart(BinaryData.FromBytes(imageBytes), contentType)));
+            }
+            else
+            {
+                foreach (var imageSegment in imageSegments)
+                {
+                    byte[] imageBytes;
+                    using (var ms = new MemoryStream())
+                    {
+                        imageSegment.WriteToStream(ms);
+                        imageBytes = ms.ToArray();
+                    }
+                    chatMessages.Add(new UserChatMessage(ChatMessageContentPart.CreateImagePart(BinaryData.FromBytes(imageBytes), contentType)));
+                }
             }
 
             return chatMessages;
