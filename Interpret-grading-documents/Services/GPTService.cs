@@ -64,7 +64,10 @@ namespace Interpret_grading_documents.Services
 
             [JsonPropertyName("points")]
             public string? GymnasiumPoints { get; set; }
+
+            public double FuzzyMatchScore { get; set; }
         }
+
 
         public GPTService(HttpClient httpClient)
         {
