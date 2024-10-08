@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using System.Text;
+using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace Interpret_grading_documents.Data
@@ -71,7 +72,7 @@ namespace Interpret_grading_documents.Data
 
                     string courseDetailsJson = JsonSerializer.Serialize(courseDetails, new JsonSerializerOptions { WriteIndented = true });
 
-                    File.WriteAllText(outputPath, courseDetailsJson);
+                    File.WriteAllText(outputPath, courseDetailsJson, Encoding.UTF8);
 
                     Console.WriteLine("Courses have been successfully saved to kurserApi.Json.");
 
