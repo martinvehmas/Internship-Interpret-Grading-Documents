@@ -102,7 +102,7 @@ namespace Interpret_grading_documents.Services
                 ChatCompletion chatCompletion = await GetChatCompletionAsync(client, messages);
                 GraduationDocument document = DeserializeResponse(chatCompletion.Content[0].Text);
 
-                var updatedDocument = CompareCourses(document);
+                var updatedDocument = await CompareCourses(document);
                 ValidateDocument(updatedDocument, reliabilityResult);
 
                 return updatedDocument;
@@ -274,8 +274,10 @@ namespace Interpret_grading_documents.Services
             return JsonSerializer.Deserialize<GraduationDocument>(jsonResponse);
         }
 
-        private GraduationDocument CompareCourses(GraduationDocument document)
+        private async Task<GraduationDocument> CompareCourses(GraduationDocument document)
         {
+            var coursesFromApi = await ValidationData.GetCoursesFromApi();
+
             var updatedDocument = CourseComparator.CompareCourses(ValidationData.GetCourses(), document);
 
             return updatedDocument;
