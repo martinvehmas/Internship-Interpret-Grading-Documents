@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -59,7 +60,6 @@ namespace Interpret_grading_documents.Data
 
                     var options = new JsonSerializerOptions
                     {
-                        PropertyNameCaseInsensitive = true
                     };
                     CourseApiResponse apiResponse = JsonSerializer.Deserialize<CourseApiResponse>(responseBody, options);
 
@@ -70,7 +70,7 @@ namespace Interpret_grading_documents.Data
                         Points = int.TryParse(c.CoursePoints, out int points) ? (int?)points : null
                     }).ToList();
 
-                    string courseDetailsJson = JsonSerializer.Serialize(courseDetails, new JsonSerializerOptions { WriteIndented = true });
+                    string courseDetailsJson = JsonSerializer.Serialize(courseDetails, new JsonSerializerOptions { WriteIndented = true, Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping});
 
                     File.WriteAllText(outputPath, courseDetailsJson, Encoding.UTF8);
 
@@ -83,13 +83,14 @@ namespace Interpret_grading_documents.Data
                 catch (HttpRequestException e)
                 {
                     Console.WriteLine($"Request error: {e.Message}");
+                    throw;
                 }
                 catch (Exception e)
                 {
                     Console.WriteLine($"An error occurred: {e.Message}");
+                    throw;
                 }
             }
-            return null;
         }
 
     }
