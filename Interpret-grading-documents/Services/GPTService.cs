@@ -41,6 +41,14 @@ namespace Interpret_grading_documents.Services
             public List<Subject> Subjects { get; set; }
 
             public ImageReliabilityResult ImageReliability { get; set; }
+
+            public int TotalPoints
+            {
+                get
+                {
+                    return Subjects.Sum(s => s.GymnasiumPoints != null ? int.Parse(s.GymnasiumPoints) : 0);
+                }
+            }
         }
 
         public class Subject
