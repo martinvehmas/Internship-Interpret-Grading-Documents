@@ -3,6 +3,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using ImageMagick;
 using OpenCvSharp;
+using Interpret_grading_documents.Data;
 
 namespace Interpret_grading_documents.Services
 {
@@ -275,9 +276,7 @@ namespace Interpret_grading_documents.Services
 
         private GraduationDocument CompareCourses(GraduationDocument document)
         {
-            string validationJsonPath = Path.Combine("Data", "kurser.json");
-            CourseComparator courseComparator = new CourseComparator(document, validationJsonPath);
-            var updatedDocument = courseComparator.CompareCourses();
+            var updatedDocument = CourseComparator.CompareCourses(ValidationData.GetCourses(), document);
 
             return updatedDocument;
         }
