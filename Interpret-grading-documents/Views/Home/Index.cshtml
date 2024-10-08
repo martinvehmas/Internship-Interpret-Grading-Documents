@@ -55,7 +55,7 @@
                             <p class="card-text"><strong>Specialization:</strong> @Model.Specialization</p>
                             <p class="card-text"><strong>School Form:</strong> @Model.SchoolForm</p>
                             <p class="card-text"><strong>Curriculum:</strong> @Model.Curriculum</p>
-                        <p class="card-text"><strong>Total points:</strong> @Model.TotalPoints</p> <!-- Added Total Points -->
+                            <p class="card-text"><strong>Total points:</strong> <span id="totalPointsDisplay">@Model.TotalPoints</span></p>
                         </div>
                     </div>
 
@@ -151,6 +151,7 @@
                     Subjects: {},
                     StudentInfo: {}
                 };
+                var originalTotalPoints = parseFloat(document.getElementById('totalPointsDisplay').textContent);
 
                 function makeCellEditable(cell, isEditable) {
                     cell.addEventListener('click', function (e) {
@@ -166,6 +167,14 @@
 
                         input.addEventListener('blur', function () {
                             var newValue = input.value.trim();
+                            if (cell.getAttribute('data-field') === 'GymnasiumPoints') {
+                                // Allow only numbers for Gymnasium Points
+                                if (isNaN(newValue) || newValue === "") {
+                                    newValue = ""; // If invalid, set the value to an empty string
+                                } else {
+                                    newValue = parseInt(newValue); // Parse to an integer to avoid decimals
+                                }
+                            }
                             cell.textContent = newValue;
 
                             var subjectName = cell.parentElement.querySelector('td:first-child').textContent.trim();
@@ -245,9 +254,17 @@
 
                 // Save Changes button functionality
                 document.getElementById('saveChangesButton').addEventListener('click', function () {
-                    // Hide the save changes button
                     this.style.display = 'none';
-                    // Implement your save logic here
+
+                    var newTotalPoints = 0;
+                    document.querySelectorAll('.editable-cell[data-field="GymnasiumPoints"]').forEach(function (cell) {
+                        var points = parseInt(cell.textContent.trim());
+                        if (!isNaN(points)) {
+                            newTotalPoints += points;
+                        }
+                    });
+
+                    document.getElementById('totalPointsDisplay').textContent = newTotalPoints;
                 });
             });
 
