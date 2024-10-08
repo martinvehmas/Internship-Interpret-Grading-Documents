@@ -1,80 +1,243 @@
-﻿<div class="container mt-5">
+﻿@model Interpret_grading_documents.Services.GPTService.GraduationDocument
+
+<div class="container mt-5">
     <div class="text-center">
         <h1 class="display-4">Grading Document</h1>
 
-        <h2 class="mt-4">Extracted Data</h2>
+        @if (Model != null)
+        {
+            <h2 class="mt-4">Review the Data</h2>
+            <p>Please review the extracted data below and make any necessary corrections. It is important that the information is accurate.</p>
 
-        <div class="mt-3">
-            @if (Model != null)
+            <h3 class="mt-4">Image Reliability</h3>
+            <div class="card mt-2">
+                <div class="card-body">
+                    <p class="card-text"><strong>Reliability Score:</strong> @Model.ImageReliability.ReliabilityScore.ToString("F2")%</p>
+                    <p class="card-text"><strong>File Format:</strong> @Model.ImageReliability.FileFormat</p>
+                </div>
+            </div>
+
+            @if (@Model.ImageReliability.ReliabilityScore > 0)
             {
-                <h3 class="mt-4">Image Reliability</h3>
-                <div class="card mt-2">
+                <div class="card mt-4">
                     <div class="card-body">
-                        <p class="card-text"><strong>Reliability Score:</strong> @Model.ImageReliability.ReliabilityScore.ToString("F2")%</p>
-                        <p class="card-text"><strong>File Format:</strong> @Model.ImageReliability.FileFormat</p>
+                        <h5 class="card-title">Student Information</h5>
+
+                        <p class="card-text">
+                            <strong>Full Name:</strong>
+                            <span class="editable-cell student-info" data-field="FullName">
+                                @Model.FullName
+                            </span>
+                            <small class="form-text text-muted">(Click to edit)</small>
+                        </p>
+
+                        <p class="card-text">
+                            <strong>Social Security Number:</strong>
+                            <span class="editable-cell student-info" data-field="PersonalId">
+                                @Model.PersonalId
+                            </span>
+                            <small class="form-text text-muted">(Click to edit)</small>
+                        </p>
+
+                        <p class="card-text"><strong>Graduation Date:</strong> @Model.GraduationDate</p>
+                        <p class="card-text"><strong>School Name:</strong> @Model.SchoolName</p>
+                        <p class="card-text"><strong>Program Name:</strong> @Model.ProgramName</p>
+                        <p class="card-text"><strong>Specialization:</strong> @Model.Specialization</p>
+                        <p class="card-text"><strong>School Form:</strong> @Model.SchoolForm</p>
+                        <p class="card-text"><strong>Curriculum:</strong> @Model.Curriculum</p>
                     </div>
                 </div>
 
-                @if (@Model.ImageReliability.ReliabilityScore > 0)
-                {
-                    <div class="card mt-4">
-                        <div class="card-body">
-                            <h5 class="card-title">Student Information</h5>
-                            <p class="card-text"><strong>Full Name:</strong> @Model.FullName</p>
-                            <p class="card-text"><strong>Social Security Number:</strong> @Model.PersonalId</p>
-                            <p class="card-text"><strong>Graduation Date:</strong> @Model.GraduationDate</p>
-                            <p class="card-text"><strong>School Name:</strong> @Model.SchoolName</p>
-                            <p class="card-text"><strong>Program Name:</strong> @Model.ProgramName</p>
-                            <p class="card-text"><strong>Specialization:</strong> @Model.Specialization</p>
-                            <p class="card-text"><strong>School Form:</strong> @Model.SchoolForm</p>
-                            <p class="card-text"><strong>Curriculum:</strong> @Model.Curriculum</p>
-                        </div>
-                    </div>
+                <h3 class="mt-4">Subjects</h3>
+                <p class="text-muted">Please review and correct the grades below. It's essential that the grades are accurate for the record-keeping process.</p> <!-- New instructional message -->
 
-                    <h3 class="mt-4">Subjects</h3>
-                    <table class="table table-striped mt-2">
-                        <thead>
-                            <tr>
-                                <th>Subject Name</th>
-                                <th>Course Code</th>
-                                <th>Grade</th>
-                                <th>Gymnasium Points</th>
+                <table class="table table-striped mt-2">
+                    <thead>
+                        <tr>
+                            <th>Subject Name</th>
+                            <th>Course Code</th>
+                            <th>Grade</th>
+                            <th>Gymnasium Points</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var subject in Model.Subjects)
+                        {
+                            var isFuzzyMatch = subject.FuzzyMatchScore < 100.0;
+                            var fuzzyScore = subject.FuzzyMatchScore;
+                            var isBelowThreshold = fuzzyScore < 80.0;
+
+                            <tr class="@(isFuzzyMatch ? "table-warning" : "")">
+                                <td>@subject.SubjectName</td>
+
+                                <td class="editable-cell @(isFuzzyMatch ? "needs-review" : "readonly-cell")" data-field="CourseCode" data-id="@subject.SubjectName">
+                                    @(string.IsNullOrEmpty(subject.CourseCode) ? "N/A" : subject.CourseCode)
+                                </td>
+                                <td class="editable-cell" data-field="Grade" data-id="@subject.SubjectName">
+                                    @subject.Grade
+                                </td>
+                                <td class="editable-cell @(isFuzzyMatch ? "needs-review" : "readonly-cell")" data-field="GymnasiumPoints" data-id="@subject.SubjectName">
+                                    @(subject.GymnasiumPoints)
+                                </td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var subject in Model.Subjects)
+
+                            @if (isFuzzyMatch && !isBelowThreshold)
                             {
                                 <tr>
-                                    <td>@subject.SubjectName</td>
-                                    <td>@(string.IsNullOrEmpty(subject.CourseCode) ? "N/A" : subject.CourseCode)</td>
-                                    <td>@subject.Grade</td>
-                                    <td>@(subject.GymnasiumPoints)</td>
+                                    <td colspan="4">
+                                        <div class="alert alert-info mt-2">
+                                            <strong>Note:</strong> We are <strong>@fuzzyScore%</strong> sure that this is the correct match. Please review it carefully and confirm.
+                                        </div>
+                                    </td>
                                 </tr>
                             }
-                        </tbody>
-                    </table>
-                }
-                else
-                {
-                    <div class="alert alert-warning mt-4" role="alert">
-                        Data could not be displayed due to low image reliability.
-                    </div>
-                }
+                            else if (isBelowThreshold)
+                            {
+                                <tr>
+                                    <td colspan="4">
+                                        <div class="alert alert-danger mt-2">
+                                            <strong>Attention:</strong> We could not find a match for this course. Please help us correct the details.
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+
+                <button id="saveChangesButton" class="btn btn-success mt-3" style="display:none;">Save Changes</button>
+
             }
             else
             {
-                <div class="alert alert-info" role="alert">
-                    No data extracted yet. Upload a document below to analyze the data.
+                <div class="alert alert-warning mt-4" role="alert">
+                    Data could not be displayed due to low image reliability.
                 </div>
             }
-        </div>
-
-        <form asp-action="ProcessText" method="post" enctype="multipart/form-data">
-            <div class="form-group">
-                <label for="uploadedFile">Upload Document (PDF, JPG, PNG):</label>
-                <input type="file" class="form-control-file" id="uploadedFile" name="uploadedFile" accept=".pdf,.jpg,.jpeg,.png" required />
+        }
+        else
+        {
+            <div class="alert alert-info mt-4" role="alert">
+                No data extracted yet. Upload a document below to analyze the data.
             </div>
-            <button type="submit" class="btn btn-primary mt-3">Analyze Data</button>
-        </form>
+
+            <form asp-action="ProcessText" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="uploadedFile">Upload Document (PDF, JPG, PNG):</label>
+                    <input type="file" class="form-control-file" id="uploadedFile" name="uploadedFile" accept=".pdf,.jpg,.jpeg,.png" required />
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">Analyze Data</button>
+            </form>
+        }
     </div>
 </div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var editedData = {
+                Subjects: {},
+                StudentInfo: {}
+            };
+
+            function makeCellEditable(cell, isEditable) {
+                cell.addEventListener('click', function (e) {
+                    var cell = e.target;
+                    if (cell.querySelector('input') || !isEditable) return;
+
+                    var originalValue = cell.textContent.trim();
+                    var input = document.createElement('input');
+                    input.type = 'text';
+                    input.value = originalValue;
+                    input.className = 'form-control';
+                    input.style.width = '100%';
+
+                    input.addEventListener('blur', function () {
+                        var newValue = input.value.trim();
+                        cell.textContent = newValue;
+
+                        var subjectName = cell.parentElement.querySelector('td:first-child').textContent.trim();
+                        var fieldName = cell.getAttribute('data-field');
+
+                        if (!editedData.Subjects[subjectName]) {
+                            editedData.Subjects[subjectName] = {};
+                        }
+                        editedData.Subjects[subjectName][fieldName] = newValue;
+
+                        document.getElementById('saveChangesButton').style.display = 'block';
+                    });
+
+                    input.addEventListener('keydown', function (e) {
+                        if (e.key === 'Enter') {
+                            e.preventDefault();
+                            input.blur();
+                        }
+                    });
+
+                    cell.textContent = '';
+                    cell.appendChild(input);
+                    input.focus();
+                });
+            }
+
+            // Make grade cells editable for all subjects
+            document.querySelectorAll('.editable-cell[data-field="Grade"]').forEach(function (cell) {
+                makeCellEditable(cell, true);
+            });
+
+            // Make CourseCode and GymnasiumPoints editable only if FuzzyMatchScore < 100
+            document.querySelectorAll('.editable-cell.needs-review').forEach(function (cell) {
+                makeCellEditable(cell, true);
+            });
+
+            // Make readonly cells uneditable
+            document.querySelectorAll('.readonly-cell').forEach(function (cell) {
+                makeCellEditable(cell, false);
+            });
+
+            // Make FullName and PersonalId editable
+            document.querySelectorAll('.editable-cell.student-info').forEach(function (cell) {
+                cell.addEventListener('click', function (e) {
+                    var cell = e.target;
+                    if (cell.querySelector('input')) return; // Already editing
+
+                    var originalValue = cell.textContent.trim();
+                    var input = document.createElement('input');
+                    input.type = 'text';
+                    input.value = originalValue;
+                    input.className = 'form-control';
+                    input.style.width = '100%';
+
+                    input.addEventListener('blur', function () {
+                        var newValue = input.value.trim();
+                        cell.textContent = newValue;
+
+                        // Save the change
+                        var fieldName = cell.getAttribute('data-field');
+                        editedData.StudentInfo[fieldName] = newValue;
+
+                        // Show save changes button
+                        document.getElementById('saveChangesButton').style.display = 'block';
+                    });
+
+                    input.addEventListener('keydown', function (e) {
+                        if (e.key === 'Enter') {
+                            e.preventDefault();
+                            input.blur();
+                        }
+                    });
+
+                    cell.textContent = '';
+                    cell.appendChild(input);
+                    input.focus();
+                });
+            });
+
+            // Save Changes button functionality
+            document.getElementById('saveChangesButton').addEventListener('click', function () {
+                // Hide the save changes button
+                this.style.display = 'none';
+            });
+        });
+    </script>
+}
