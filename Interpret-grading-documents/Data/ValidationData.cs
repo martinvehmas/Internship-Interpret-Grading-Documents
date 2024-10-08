@@ -11,6 +11,7 @@ namespace Interpret_grading_documents.Data
         public string CourseCode { get; set; }
         public int? Points { get; set; }
     }
+
     public class CourseApiResponse
     {
         [JsonPropertyName("courses")]
@@ -44,6 +45,7 @@ namespace Interpret_grading_documents.Data
             }
             return validationCourses;
         }
+
         public static async Task<Dictionary<string, CourseDetail>> GetCoursesFromApi()
         {
             string url = "https://api.skolverket.se/syllabus/v1/courses?timespan=LATEST";
@@ -76,7 +78,10 @@ namespace Interpret_grading_documents.Data
 
                     Console.WriteLine("Courses have been successfully saved to kurserApi.Json.");
 
-                    var validationCoursesApi = courseDetails.ToDictionary(c => c.CourseCode, c => c);
+                    var validationCoursesApi = courseDetails
+                        .GroupBy(c => c.CourseName)
+                        .ToDictionary(group => group.Key, group => group.First());
+
 
                     return validationCoursesApi;
                 }
@@ -95,4 +100,3 @@ namespace Interpret_grading_documents.Data
 
     }
 }
-
