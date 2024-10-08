@@ -42,7 +42,6 @@ namespace Interpret_grading_documents.Data
             }
             return validationCourses;
         }
-
         public static async Task<Dictionary<string, CourseDetail>> GetCoursesFromApi()
         {
             string url = "https://api.skolverket.se/syllabus/v1/courses?timespan=LATEST";
@@ -55,9 +54,7 @@ namespace Interpret_grading_documents.Data
                     HttpResponseMessage response = await client.GetAsync(url);
                     response.EnsureSuccessStatusCode();
 
-                    
                     string responseBody = await response.Content.ReadAsStringAsync();
-
 
                     var options = new JsonSerializerOptions
                     {
@@ -65,7 +62,6 @@ namespace Interpret_grading_documents.Data
                     };
                     CourseApiResponse apiResponse = JsonSerializer.Deserialize<CourseApiResponse>(responseBody, options);
 
-                    
                     var courseDetails = apiResponse.Courses.Select(c => new CourseDetail
                     {
                         CourseCode = c.CourseCode,
@@ -73,22 +69,14 @@ namespace Interpret_grading_documents.Data
                         Points = int.TryParse(c.CoursePoints, out int points) ? (int?)points : null
                     }).ToList();
 
-                    
                     string courseDetailsJson = JsonSerializer.Serialize(courseDetails, new JsonSerializerOptions { WriteIndented = true });
 
                     File.WriteAllText(outputPath, courseDetailsJson);
 
                     Console.WriteLine("Courses have been successfully saved to kurserApi.Json.");
 
-                    
-                    string validationJson = File.ReadAllText(outputPath);
-                    var validationCoursesApi = JsonSerializer.Deserialize<Dictionary<string, CourseDetail>>(validationJson);
+                    var validationCoursesApi = courseDetails.ToDictionary(c => c.CourseCode, c => c);
 
-                    // Assign CourseName to each CourseDetail (since the key is the course name)
-                    foreach (var kvp in validationCoursesApi)
-                    {
-                        kvp.Value.CourseCode = kvp.Key;
-                    }
                     return validationCoursesApi;
                 }
                 catch (HttpRequestException e)
@@ -102,6 +90,7 @@ namespace Interpret_grading_documents.Data
             }
             return null;
         }
+
     }
 }
 
