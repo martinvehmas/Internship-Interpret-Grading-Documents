@@ -80,6 +80,16 @@ public static class CourseComparator
 
                 totalPoints += validationCourses[bestMatch].Points ?? 0;
             }
+            else if (bestMatch != null && json.ContainsKey(bestMatch))
+            {
+                Console.WriteLine($"Adding points for subject '{subject.SubjectName}' with match '{bestMatch}' - Points: {json[bestMatch].Points}");
+
+                // Update the subject details
+                subject.GymnasiumPoints = json[bestMatch].Points.ToString();
+                subject.CourseCode = json[bestMatch].CourseCode;
+
+                totalPoints += json[bestMatch].Points ?? 0;
+            }
         }
 
         return totalPoints;
@@ -118,6 +128,14 @@ public static class CourseComparator
                 subject.SubjectName = bestMatch;
                 subject.GymnasiumPoints = validationCourse.Points.ToString();
                 subject.CourseCode = validationCourse.CourseCode;
+            }
+            else if(bestMatch != null && json.ContainsKey(bestMatch))
+            {
+                var jsonCourse = json[bestMatch];
+
+                subject.SubjectName = bestMatch;
+                subject.GymnasiumPoints = jsonCourse.Points.ToString();
+                subject.CourseCode = jsonCourse.CourseCode;
             }
         }
         return graduationDocument;
