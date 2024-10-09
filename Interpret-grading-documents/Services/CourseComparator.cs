@@ -16,6 +16,9 @@ public static class CourseComparator
         string bestMatch = null;
         int bestScore = 0;
 
+        string bestMatchJson = null;
+        int bestScoreJson = 0;
+
         foreach (var validationCourse in validationCourses.Keys)
         {
             int score = Fuzz.Ratio(subjectName.ToLower(), validationCourse.ToLower());
@@ -34,14 +37,19 @@ public static class CourseComparator
             {
                 int score = Fuzz.Ratio(subjectName.ToLower(), jsonCourse.ToLower());
 
-                if (score > bestScore)
+                if (score > bestScoreJson)
                 {
-                    bestScore = score;
-                    bestMatch = jsonCourse;
+                    bestScoreJson = score;
+                    bestMatchJson = jsonCourse;
                 }
             }
         }
 
+        if (bestScoreJson > bestScore)
+        {
+            bestScore = bestScoreJson;
+            bestMatch = bestMatchJson;
+        }
 
         if (bestScore >= matchThreshold)
         {
