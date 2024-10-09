@@ -73,7 +73,7 @@ namespace Interpret_grading_documents.Services
         public GPTService(HttpClient httpClient)
         {
             _httpClient = httpClient;
-            _apiKey = Environment.GetEnvironmentVariable("GPT_API_KEY");
+            _apiKey = Environment.GetEnvironmentVariable("OPENAI_API_KEY");
 
             if (string.IsNullOrEmpty(_apiKey))
             {
@@ -237,7 +237,7 @@ namespace Interpret_grading_documents.Services
                 )
             };
 
-            if (imageSegments.Count < 2)
+            if (true)
             {
                 // if fewer than 2 segments, add the original image
                 byte[] imageBytes = File.ReadAllBytes(originalImagePath);
@@ -278,7 +278,7 @@ namespace Interpret_grading_documents.Services
         {
             var coursesFromApi = await ValidationData.GetCoursesFromApi();
 
-            var updatedDocument = CourseComparator.CompareCourses(coursesFromApi, document);
+            var updatedDocument = CourseComparator.CompareCourses(coursesFromApi, document, ValidationData.GetCourses());
 
             return updatedDocument;
         }
