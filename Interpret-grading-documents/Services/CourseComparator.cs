@@ -11,7 +11,7 @@ public static class CourseComparator
 {
     private const int matchThreshold = 80;
 
-    private static (string BestMatch, int BestScore) FindBestMatch(Dictionary<string, CourseDetail> validationCourses, string subjectName)
+    private static (string BestMatch, int BestScore) FindBestMatch(Dictionary<string, CourseDetail> validationCourses, string subjectName, Dictionary<string, CourseDetail> json)
     {
         string bestMatch = null;
         int bestScore = 0;
@@ -27,6 +27,22 @@ public static class CourseComparator
             }
         }
 
+
+        if (bestScore < 100)
+        {
+            foreach (var jsonCourse in json.Keys)
+            {
+                int score = Fuzz.Ratio(subjectName.ToLower(), jsonCourse.ToLower());
+
+                if (score > bestScore)
+                {
+                    bestScore = score;
+                    bestMatch = jsonCourse;
+                }
+            }
+        }
+
+
         if (bestScore >= matchThreshold)
         {
             Console.WriteLine($"Fuzzy match found! Original: '{subjectName}' => Matched with: '{bestMatch}' (Score: {bestScore})");
@@ -37,13 +53,13 @@ public static class CourseComparator
         return (null, bestScore);
     }
 
-    public static int GetTotalPoints(Dictionary<string, CourseDetail> validationCourses, GraduationDocument graduationDocument)
+    public static int GetTotalPoints(Dictionary<string, CourseDetail> validationCourses, GraduationDocument graduationDocument , Dictionary<string, CourseDetail> json)
     {
         int totalPoints = 0;
 
         foreach (var subject in graduationDocument.Subjects)
         {
-            var (bestMatch, bestScore) = FindBestMatch(validationCourses, subject.SubjectName);
+            var (bestMatch, bestScore) = FindBestMatch(validationCourses, subject.SubjectName, json);
             subject.FuzzyMatchScore = bestScore;  // Set the fuzzy match score for the subject
 
             if (bestMatch != null && validationCourses.ContainsKey(bestMatch))
@@ -61,13 +77,13 @@ public static class CourseComparator
         return totalPoints;
     }
 
-    public static List<string> GetUnmatchedSubjects(Dictionary<string, CourseDetail> validationCourses, GraduationDocument graduationDocument)
+    public static List<string> GetUnmatchedSubjects(Dictionary<string, CourseDetail> validationCourses, GraduationDocument graduationDocument, Dictionary<string, CourseDetail> json)
     {
         var unmatchedSubjects = new List<string>();
 
         foreach (var subject in graduationDocument.Subjects)
         {
-            var (bestMatch, bestScore) = FindBestMatch(validationCourses, subject.SubjectName);
+            var (bestMatch, bestScore) = FindBestMatch(validationCourses, subject.SubjectName, json);
             subject.FuzzyMatchScore = bestScore;  // Set the fuzzy match score for the subject
 
             if (bestMatch == null)
@@ -80,11 +96,11 @@ public static class CourseComparator
         return unmatchedSubjects;
     }
 
-    public static GraduationDocument UpdateMatchedSubjects(Dictionary<string, CourseDetail> validationCourses, GraduationDocument graduationDocument)
+    public static GraduationDocument UpdateMatchedSubjects(Dictionary<string, CourseDetail> validationCourses, GraduationDocument graduationDocument, Dictionary<string, CourseDetail> json)
     {
         foreach (var subject in graduationDocument.Subjects)
         {
-            var (bestMatch, bestScore) = FindBestMatch(validationCourses, subject.SubjectName);
+            var (bestMatch, bestScore) = FindBestMatch(validationCourses, subject.SubjectName, json);
             subject.FuzzyMatchScore = bestScore;  // Set the fuzzy match score for the subject
 
             if (bestMatch != null && validationCourses.ContainsKey(bestMatch))
@@ -98,11 +114,11 @@ public static class CourseComparator
         }
         return graduationDocument;
     }
-    public static GraduationDocument CompareCourses(Dictionary<string, CourseDetail> validationCourses, GraduationDocument graduationDocument)
+    public static GraduationDocument CompareCourses(Dictionary<string, CourseDetail> validationCourses, GraduationDocument graduationDocument, Dictionary<string, CourseDetail> json)
     {
-        int totalPoints = GetTotalPoints(validationCourses, graduationDocument);
-        List<string> unmatchedSubjects = GetUnmatchedSubjects(validationCourses, graduationDocument);
-        var updatedDocument = UpdateMatchedSubjects(validationCourses, graduationDocument);
+        int totalPoints = GetTotalPoints(validationCourses, graduationDocument, json);
+        List<string> unmatchedSubjects = GetUnmatchedSubjects(validationCourses, graduationDocument, json);
+        var updatedDocument = UpdateMatchedSubjects(validationCourses, graduationDocument, json);
 
         Console.WriteLine($"Total Points of Matched Courses: {totalPoints}");
         Console.WriteLine("Subjects that did not match any courses:");

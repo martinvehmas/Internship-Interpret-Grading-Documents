@@ -278,7 +278,7 @@ namespace Interpret_grading_documents.Services
         {
             var coursesFromApi = await ValidationData.GetCoursesFromApi();
 
-            var updatedDocument = CourseComparator.CompareCourses(coursesFromApi, document);
+            var updatedDocument = CourseComparator.CompareCourses(coursesFromApi, document, ValidationData.GetCourses());
 
             return updatedDocument;
         }
