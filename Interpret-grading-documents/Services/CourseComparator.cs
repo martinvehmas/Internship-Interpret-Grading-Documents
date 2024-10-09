@@ -11,13 +11,15 @@ public static class CourseComparator
 {
     private const int matchThreshold = 80;
 
-    private static (string BestMatch, int BestScore) FindBestMatch(Dictionary<string, CourseDetail> validationCourses, string subjectName, Dictionary<string, CourseDetail> json)
+    private static (string BestMatch, int BestScore, string GradeType) FindBestMatch(Dictionary<string, CourseDetail> validationCourses, string subjectName, Dictionary<string, CourseDetail> json)
     {
         string bestMatch = null;
         int bestScore = 0;
 
         string bestMatchJson = null;
         int bestScoreJson = 0;
+
+        string gradeType = "Betygsdokument 2011 eller senare";
 
         foreach (var validationCourse in validationCourses.Keys)
         {
@@ -49,16 +51,17 @@ public static class CourseComparator
         {
             bestScore = bestScoreJson;
             bestMatch = bestMatchJson;
+            gradeType = "Betygsdokument före 2011";
         }
 
         if (bestScore >= matchThreshold)
         {
             Console.WriteLine($"Fuzzy match found! Original: '{subjectName}' => Matched with: '{bestMatch}' (Score: {bestScore})");
-            return (bestMatch, bestScore);
+            return (bestMatch, bestScore, gradeType);
         }
 
         Console.WriteLine($"No valid match found for '{subjectName}' (Best score: {bestScore}) - Below match threshold of {matchThreshold}");
-        return (null, bestScore);
+        return (null, bestScore, null);
     }
 
     public static int GetTotalPoints(Dictionary<string, CourseDetail> validationCourses, GraduationDocument graduationDocument , Dictionary<string, CourseDetail> json)
@@ -67,7 +70,7 @@ public static class CourseComparator
 
         foreach (var subject in graduationDocument.Subjects)
         {
-            var (bestMatch, bestScore) = FindBestMatch(validationCourses, subject.SubjectName, json);
+            var (bestMatch, bestScore, gradeType) = FindBestMatch(validationCourses, subject.SubjectName, json);
             subject.FuzzyMatchScore = bestScore;  // Set the fuzzy match score for the subject
 
             if (bestMatch != null && validationCourses.ContainsKey(bestMatch))
@@ -101,7 +104,7 @@ public static class CourseComparator
 
         foreach (var subject in graduationDocument.Subjects)
         {
-            var (bestMatch, bestScore) = FindBestMatch(validationCourses, subject.SubjectName, json);
+            var (bestMatch, bestScore, gradeType) = FindBestMatch(validationCourses, subject.SubjectName, json);
             subject.FuzzyMatchScore = bestScore;  // Set the fuzzy match score for the subject
 
             if (bestMatch == null)
@@ -118,7 +121,9 @@ public static class CourseComparator
     {
         foreach (var subject in graduationDocument.Subjects)
         {
-            var (bestMatch, bestScore) = FindBestMatch(validationCourses, subject.SubjectName, json);
+            var (bestMatch, bestScore,gradeType) = FindBestMatch(validationCourses, subject.SubjectName, json);
+            graduationDocument.Curriculum = gradeType; 
+
             subject.FuzzyMatchScore = bestScore;  // Set the fuzzy match score for the subject
 
             if (bestMatch != null && validationCourses.ContainsKey(bestMatch))
