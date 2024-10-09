@@ -98,7 +98,6 @@ public static class CourseComparator
         }
         return graduationDocument;
     }
-
     public static GraduationDocument CompareCourses(Dictionary<string, CourseDetail> validationCourses, GraduationDocument graduationDocument)
     {
         int totalPoints = GetTotalPoints(validationCourses, graduationDocument);
