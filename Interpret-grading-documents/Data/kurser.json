@@ -1,134 +1,6 @@
 {
-  "Administration – specialisering": {
-    "CourseCode": "ADMADM00S",
-    "Points": 100
-  },
-  "Administration 1": {
-    "CourseCode": "ADMADM01",
-    "Points": 100
-  },
-  "Administration 2": {
-    "CourseCode": "ADMADM02",
-    "Points": 100
-  },
-  "Personaladministration": {
-    "CourseCode": "ADM1209",
-    "Points": 50
-  },
-  "Receptions- och konferensservice": {
-    "CourseCode": "ADMREC0",
-    "Points": 100
-  },
-  "Affärskommunikation": {
-    "CourseCode": "AFFAFÄ00S",
-    "Points": 100
-  },
-  "Aktiviteter och upplevelser": {
-    "CourseCode": "TURAKT0",
-    "Points": 100
-  },
-  "Besöksnäringen": {
-    "CourseCode": "TURBEÖ0",
-    "Points": 100
-  },
-  "Guide och reseledare": {
-    "CourseCode": "TURGUI0",
-    "Points": 100
-  },
-  "Turistbyråservice": {
-    "CourseCode": "TURTUR0",
-    "Points": 100
-  },
-  "Värdskap på resmålet": {
-    "CourseCode": "TURVÄR0",
-    "Points": 100
-  },
-  "Anatomi och fysiologi 1": {
-    "CourseCode": "ANOANA01",
-    "Points": 50
-  },
-  "Anatomi och fysiologi 2": {
-    "CourseCode": "ANOANA02",
-    "Points": 50
-  },
-  "Animation – specialisering": {
-    "CourseCode": "ANIANI00S",
-    "Points": 100
-  },
-  "Animation 1": {
-    "CourseCode": "ANIANI01",
-    "Points": 100
-  },
-  "Animation 2": {
-    "CourseCode": "ANIANI02",
-    "Points": 100
-  },
-  "Anläggning – gröna ytor": {
-    "CourseCode": "ANLANL0",
-    "Points": 200
-  },
-  "Anläggning – ledningsbyggnad": {
-    "CourseCode": "ANLANÄ0",
-    "Points": 200
-  },
-  "Anläggning – stensättning": {
-    "CourseCode": "ANLANG0",
-    "Points": 100
-  },
-  "Anläggning – vägbyggnad": {
-    "CourseCode": "ANLANN0",
-    "Points": 100
-  },
-  "Anläggning 1": {
-    "CourseCode": "ANLANL01",
-    "Points": 100
-  },
-  "Anläggning 2": {
-    "CourseCode": "ANLANL02",
-    "Points": 200
-  },
-  "Anläggningsprocessen": {
-    "CourseCode": "ANLANS0",
-    "Points": 200
-  },
-  "Anläggningsförare – process": {
-    "CourseCode": "ANAANL0",
-    "Points": 100
-  },
-  "Anläggningsförare 1": {
-    "CourseCode": "ANAANA01",
-    "Points": 200
-  },
-  "Anläggningsförare 2": {
-    "CourseCode": "ANAANA02",
-    "Points": 200
-  },
-  "Anläggningsförare 3": {
-    "CourseCode": "ANAANA03",
-    "Points": 200
-  },
-  "Anläggningsförare 4": {
-    "CourseCode": "ANAANA04",
-    "Points": 200
-  },
-  "Arkitektur – hus": {
-    "CourseCode": "ARKARK0",
-    "Points": 100
-  },
-  "Arkitektur – rum": {
-    "CourseCode": "ARKARI0",
-    "Points": 100
-  },
-  "Artificiell intelligens 1": {
-    "CourseCode": "ARTART01",
-    "Points": 100
-  },
-  "Artificiell intelligens 2": {
-    "CourseCode": "ARTART02",
-    "Points": 100
-  },
-  "ATV och motorcykel": {
-    "CourseCode": "ATOATV0",
+  "Reparation av motorcyklar och ATV": {
+    "CourseCode": "ATVREP0",
     "Points": 200
   },
   "Allmän automationsteknik": {
@@ -139,841 +11,9 @@
     "CourseCode": "AUTAVH0",
     "Points": 100
   },
-  "Bageri – specialisering": {
-    "CourseCode": "BAGBAG00S",
-    "Points": 100
-  },
-  "Bageri 1": {
-    "CourseCode": "BAGBAG01",
-    "Points": 100
-  },
-  "Bageri 2": {
-    "CourseCode": "BAGBAG02",
-    "Points": 200
-  },
-  "Bageri 3": {
-    "CourseCode": "BAGBAG03",
-    "Points": 100
-  },
-  "Bageri 4": {
-    "CourseCode": "BAGBAG04",
-    "Points": 100
-  },
-  "Choklad och konfektyr": {
-    "CourseCode": "KOND1201",
-    "Points": 100
-  },
-  "Konditori – specialisering": {
-    "CourseCode": "BAGKON00S",
-    "Points": 100
-  },
-  "Konditori 1": {
-    "CourseCode": "BAGKON01",
-    "Points": 100
-  },
-  "Konditori 2": {
-    "CourseCode": "BAGKON02",
-    "Points": 200
-  },
-  "Konditori 3": {
-    "CourseCode": "BAGKON03",
-    "Points": 100
-  },
-  "Konditori 4": {
-    "CourseCode": "BAGKON04",
-    "Points": 100
-  },
-  "Banskötsel för hästsport": {
-    "CourseCode": "BANBAN0",
-    "Points": 100
-  },
-  "Barn- och ungdomshälsa": {
-    "CourseCode": "BAOBAR0",
-    "Points": 100
-  },
-  "Barn- och ungdomssjukvård": {
-    "CourseCode": "OMV1202",
-    "Points": 200
-  },
-  "Beläggning": {
-    "CourseCode": "ATE1202",
-    "Points": 150
-  },
-  "Beläggningsarbeten": {
-    "CourseCode": "BELBEÄ0",
-    "Points": 100
-  },
-  "Beläggningsmaskiner": {
-    "CourseCode": "BELBEG0",
-    "Points": 100
-  },
-  "Bergarbeten": {
-    "CourseCode": "ATE1203",
-    "Points": 150
-  },
-  "Bergborrning": {
-    "CourseCode": "ATE1204",
-    "Points": 150
-  },
-  "Bergmaskiner": {
-    "CourseCode": "ATE1205",
-    "Points": 50
-  },
-  "Bergsprängning": {
-    "CourseCode": "ATE1206",
-    "Points": 200
-  },
-  "Betong 1 – lågform och platta på mark": {
-    "CourseCode": "BETBET01",
-    "Points": 100
-  },
-  "Betong 2 – väggar och pelare": {
-    "CourseCode": "BETBET02",
-    "Points": 100
-  },
-  "Betong 3 – bärlag": {
-    "CourseCode": "BETBET03",
-    "Points": 100
-  },
-  "Betong 4 – golv": {
-    "CourseCode": "BETBET04",
-    "Points": 100
-  },
-  "Bild": {
-    "CourseCode": "BF1201",
-    "Points": 150
-  },
-  "Bild och form – specialisering": {
-    "CourseCode": "BILBIL00S",
-    "Points": 100
-  },
-  "Bild och form 1a1": {
-    "CourseCode": "BILBIL01a1",
-    "Points": 50
-  },
-  "Bild och form 1a2": {
-    "CourseCode": "BILBIL01a2",
-    "Points": 50
-  },
-  "Bild och form 1b": {
-    "CourseCode": "BILBIL01b",
-    "Points": 100
-  },
-  "Form": {
-    "CourseCode": "BF1204",
-    "Points": 150
-  },
-  "Bildteori": {
-    "CourseCode": "BIDBIT0",
-    "Points": 100
-  },
-  "Biodling": {
-    "CourseCode": "NAM1202",
-    "Points": 50
-  },
-  "Biologi 1": {
-    "CourseCode": "BIOBIO01",
-    "Points": 100
-  },
-  "Biologi 2": {
-    "CourseCode": "BIOBIO02",
-    "Points": 100
-  },
-  "Bioteknik": {
-    "CourseCode": "BI1209",
-    "Points": 100
-  },
-  "Bevarandebiologi": {
-    "CourseCode": "BIGBEA0",
-    "Points": 100
-  },
-  "Biologi – naturbruk – specialisering": {
-    "CourseCode": "BIGBIG00S",
-    "Points": 100
-  },
-  "Djurens biologi": {
-    "CourseCode": "BIGDJE0",
-    "Points": 100
-  },
-  "Marken och växternas biologi": {
-    "CourseCode": "BIGMAN0",
-    "Points": 100
-  },
-  "Biologi i vattenmiljöer 1": {
-    "CourseCode": "BIIVAT01",
-    "Points": 100
-  },
-  "Biologi i vattenmiljöer 2": {
-    "CourseCode": "BIIVAT02",
-    "Points": 100
-  },
-  "Biologi i vattenmiljöer 3": {
-    "CourseCode": "BIIVAT03",
-    "Points": 100
-  },
-  "Akut omhändertagande": {
-    "CourseCode": "BEVAKU0",
-    "Points": 100
-  },
-  "Bevakning och säkerhet": {
-    "CourseCode": "BEVBEV0",
-    "Points": 300
-  },
-  "Brand och räddning": {
-    "CourseCode": "BEVBRA0",
-    "Points": 200
-  },
-  "Vardagsolyckor": {
-    "CourseCode": "BEVVAR0",
-    "Points": 100
-  },
-  "Bussteknik": {
-    "CourseCode": "BUSBUS0",
-    "Points": 100
-  },
-  "Bygg och anläggning 1": {
-    "CourseCode": "BYGBYG01",
-    "Points": 200
-  },
-  "Bygg och anläggning 2": {
-    "CourseCode": "BYGBYG02",
-    "Points": 200
-  },
-  "Byggstyrning": {
-    "CourseCode": "BYPBYG0",
-    "Points": 100
-  },
-  "Planering före byggstart": {
-    "CourseCode": "BYLPLA0",
-    "Points": 150
-  },
-  "Rit- och mätningsteknik": {
-    "CourseCode": "BYPRIT0",
-    "Points": 100
-  },
-  "Kustnavigation och säkerhet": {
-    "CourseCode": "BATKUS0",
-    "Points": 100
-  },
-  "Skärgårdsnavigation": {
-    "CourseCode": "BATSKA0",
-    "Points": 100
-  },
-  "Cad – specialisering": {
-    "CourseCode": "CADCAD00S",
-    "Points": 100
-  },
-  "Cad 1": {
-    "CourseCode": "CADCAD01",
-    "Points": 50
-  },
-  "Cad 2": {
-    "CourseCode": "CADCAD02",
-    "Points": 50
-  },
-  "Cad 3": {
-    "CourseCode": "CADCAD03",
-    "Points": 50
-  },
-  "Charkuteri – specialisering": {
-    "CourseCode": "STYCHA00S",
-    "Points": 100
-  },
-  "Charkuteri 1": {
-    "CourseCode": "STYCHA01",
-    "Points": 100
-  },
-  "Charkuteri 2": {
-    "CourseCode": "STYCHA02",
-    "Points": 100
-  },
-  "Charkuteri 3": {
-    "CourseCode": "STYCHA03",
-    "Points": 200
-  },
-  "Charkuteri 4": {
-    "CourseCode": "STYCHA04",
-    "Points": 100
-  },
-  "Akrobatik": {
-    "CourseCode": "CIRAKR00S",
-    "Points": 100
-  },
-  "Cirkus 1": {
-    "CourseCode": "CIRCIR01S",
-    "Points": 100
-  },
-  "Cirkus 2": {
-    "CourseCode": "CIRCIR02S",
-    "Points": 100
-  },
-  "Dansgestaltning 1": {
-    "CourseCode": "DANDAN01",
-    "Points": 100
-  },
-  "Dansgestaltning 2": {
-    "CourseCode": "DANDAN02",
-    "Points": 100
-  },
-  "Dansimprovisation": {
-    "CourseCode": "DANDAS0",
-    "Points": 100
-  },
-  "Dansimprovisation och komposition": {
-    "CourseCode": "DNS1204",
-    "Points": 150
-  },
-  "Koreografi": {
-    "CourseCode": "DANKOO0",
-    "Points": 100
-  },
-  "Repertoar": {
-    "CourseCode": "DANREE0",
-    "Points": 100
-  },
-  "Dansimprovisation och komposition för yrkesdansare – profil klassisk balett": {
-    "CourseCode": "DAGDAS3",
-    "Points": 100
-  },
-  "Dansimprovisation och komposition för yrkesdansare – profil modern nutida dans": {
-    "CourseCode": "DAGDAN3",
-    "Points": 100
-  },
-  "Pas de deux/partnering": {
-    "CourseCode": "DAGPAS3",
-    "Points": 100
-  },
-  "Repertoar för yrkesdansare": {
-    "CourseCode": "DAGREP3",
-    "Points": 100
-  },
-  "Scenisk verksamhet för yrkesdansare": {
-    "CourseCode": "DAGSCE3",
-    "Points": 100
-  },
-  "Dansorientering": {
-    "CourseCode": "DASDAO0",
-    "Points": 100
-  },
-  "Dansteknik – specialisering": {
-    "CourseCode": "DATDAN00S",
-    "Points": 100
-  },
-  "Dansteknik 1": {
-    "CourseCode": "DATDAS01S",
-    "Points": 100
-  },
-  "Dansteknik 2": {
-    "CourseCode": "DATDAS02S",
-    "Points": 100
-  },
-  "Dansteknik 3": {
-    "CourseCode": "DATDAS03S",
-    "Points": 100
-  },
-  "Dansteknik 4": {
-    "CourseCode": "DATDAS04S",
-    "Points": 100
-  },
-  "Dansträning": {
-    "CourseCode": "DNS1205",
-    "Points": 100
-  },
-  "Dansteknik – breddning": {
-    "CourseCode": "DAKDAN3",
-    "Points": 100
-  },
-  "Dansträning för yrkesdansare": {
-    "CourseCode": "DAKDAS3",
-    "Points": 100
-  },
-  "Klassisk balett 1a": {
-    "CourseCode": "DAKKLA31a",
-    "Points": 200
-  },
-  "Klassisk balett 1b": {
-    "CourseCode": "DAKKLA31b",
-    "Points": 200
-  },
-  "Klassisk balett 2": {
-    "CourseCode": "DAKKLA32",
-    "Points": 200
-  },
-  "Klassisk balett 3": {
-    "CourseCode": "DAKKLA33",
-    "Points": 200
-  },
-  "Modern nutida dans 1a": {
-    "CourseCode": "DAKMOD31a",
-    "Points": 200
-  },
-  "Modern nutida dans 1b": {
-    "CourseCode": "DAKMOD31b",
-    "Points": 200
-  },
-  "Modern nutida dans 2": {
-    "CourseCode": "DAKMOD32",
-    "Points": 200
-  },
-  "Modern nutida dans 3": {
-    "CourseCode": "DAKMOD33",
-    "Points": 200
-  },
-  "Dansteori": {
-    "CourseCode": "DAEDAT0",
-    "Points": 100
-  },
-  "Datalagring": {
-    "CourseCode": "DALDAT0",
-    "Points": 100
-  },
-  "Datoriserad mönsterhantering 1": {
-    "CourseCode": "MÖNDAT01",
-    "Points": 100
-  },
-  "Datoriserad mönsterhantering 2": {
-    "CourseCode": "MÖNDAT02",
-    "Points": 100
-  },
-  "Dator- och nätverksteknik": {
-    "CourseCode": "DAODAC0",
-    "Points": 100
-  },
-  "Datorsamordning och support": {
-    "CourseCode": "DAODAT0",
-    "Points": 100
-  },
-  "Datorteknik 1a": {
-    "CourseCode": "DAODAT01a",
-    "Points": 100
-  },
-  "Datorteknik 1b": {
-    "CourseCode": "DAODAT01b",
-    "Points": 100
-  },
-  "Digital kommunikationsteknik": {
-    "CourseCode": "DAODIG0",
-    "Points": 100
-  },
-  "Industriell informationsteknik": {
-    "CourseCode": "DAOINU0",
-    "Points": 100
-  },
-  "Multimediasystem": {
-    "CourseCode": "DAOMUL0",
-    "Points": 100
-  },
-  "Cad/cam": {
-    "CourseCode": "DARCAD0",
-    "Points": 100
-  },
-  "Datorstyrd produktion 1": {
-    "CourseCode": "DARDAT01S",
-    "Points": 100
-  },
-  "Datorstyrd produktion 2": {
-    "CourseCode": "DARDAT02",
-    "Points": 100
-  },
-  "Datorstyrd produktion 3": {
-    "CourseCode": "DARDAT03",
-    "Points": 100
-  },
-  "Datorstyrd produktion 4": {
-    "CourseCode": "DARDAT04",
-    "Points": 100
-  },
-  "Datorstyrd produktion 5": {
-    "CourseCode": "DARDAT05",
-    "Points": 100
-  },
-  "Datorstyrd produktion 6": {
-    "CourseCode": "DARDAT06",
-    "Points": 100
-  },
-  "Programmerbara datorsystem – spårfordon": {
-    "CourseCode": "DAYPRO0",
-    "Points": 200
-  },
-  "Design 1": {
-    "CourseCode": "DESDES01",
-    "Points": 100
-  },
-  "Design 2": {
-    "CourseCode": "DESDES02",
-    "Points": 100
-  },
-  "Designmodeller": {
-    "CourseCode": "MOD1201",
-    "Points": 150
-  },
-  "Digitalt skapande 1": {
-    "CourseCode": "DIGDIG01",
-    "Points": 100
-  },
-  "Digitalt skapande 2": {
-    "CourseCode": "DIGDIG02",
-    "Points": 100
-  },
-  "Djur – specialisering": {
-    "CourseCode": "DJUDJU00S",
-    "Points": 100
-  },
-  "Djur i zoohandel": {
-    "CourseCode": "DJUDJI0",
-    "Points": 200
-  },
-  "Djuren i naturbruket": {
-    "CourseCode": "DJUDJR0",
-    "Points": 100
-  },
-  "Djurhållning": {
-    "CourseCode": "DJUDJH0",
-    "Points": 100
-  },
-  "Sällskapsdjur 1": {
-    "CourseCode": "DJUSÄL01",
-    "Points": 100
-  },
-  "Sällskapsdjur 2": {
-    "CourseCode": "DJUSÄL02",
-    "Points": 100
-  },
-  "Djur för forskningsändamål": {
-    "CourseCode": "DJR1202",
-    "Points": 200
-  },
-  "Djurparksdjur 1": {
-    "CourseCode": "DJPDJU01",
-    "Points": 100
-  },
-  "Djurparksdjur 2": {
-    "CourseCode": "DJPDJU02",
-    "Points": 100
-  },
-  "Djurvård inom djurens hälso- och sjukvård 1": {
-    "CourseCode": "DJRDJU01",
-    "Points": 100
-  },
-  "Djurvård inom djurens hälso- och sjukvård 2": {
-    "CourseCode": "DJRDJU02",
-    "Points": 200
-  },
-  "Avhjälpande underhåll 1": {
-    "CourseCode": "DRIAVH01",
-    "Points": 100
-  },
-  "Avhjälpande underhåll 2": {
-    "CourseCode": "DRIAVH02",
-    "Points": 100
-  },
-  "Underhåll – driftsäkerhet": {
-    "CourseCode": "DRIUND0",
-    "Points": 100
-  },
-  "Underhåll – elteknik": {
-    "CourseCode": "DRIUNE0",
-    "Points": 100
-  },
-  "Underhåll – hydraulik": {
-    "CourseCode": "DRIUNR0",
-    "Points": 100
-  },
-  "Underhåll – hydraulik och pneumatik": {
-    "CourseCode": "DRIUNH0",
-    "Points": 100
-  },
-  "Underhåll – lager och smörjteknik": {
-    "CourseCode": "DRIUNÅ0",
-    "Points": 100
-  },
-  "Underhåll – mekatronik": {
-    "CourseCode": "DRIUNL0",
-    "Points": 100
-  },
-  "Underhåll – pneumatik": {
-    "CourseCode": "DRIUNP0",
-    "Points": 100
-  },
-  "Underhåll – produktionsmekanik": {
-    "CourseCode": "DRIUNO0",
-    "Points": 100
-  },
-  "Underhåll – pumpteknik": {
-    "CourseCode": "DRIUNU0",
-    "Points": 100
-  },
-  "Underhåll – transmissioner och uppriktning": {
-    "CourseCode": "DRIUNT0",
-    "Points": 100
-  },
-  "Underhåll – vibrationsteknik": {
-    "CourseCode": "DRIUNV0",
-    "Points": 100
-  },
-  "Barteknik": {
-    "CourseCode": "SERK1203",
-    "Points": 50
-  },
-  "Drycker": {
-    "CourseCode": "LMK1201",
-    "Points": 50
-  },
-  "Drycker – specialisering": {
-    "CourseCode": "DRYDRY00S",
-    "Points": 100
-  },
-  "Drycker och ansvarsfull alkoholservering": {
-    "CourseCode": "DRYDRC0",
-    "Points": 100
-  },
-  "Däckstjänst 1": {
-    "CourseCode": "DACDAC01",
-    "Points": 300
-  },
-  "Däckstjänst 2": {
-    "CourseCode": "DACDAC02",
-    "Points": 300
-  },
-  "Fartygsbefäl": {
-    "CourseCode": "FTT1203",
-    "Points": 100
-  },
-  "Radiokommunikation till sjöss": {
-    "CourseCode": "DACRAD0",
-    "Points": 50
-  },
-  "Belysningsnät": {
-    "CourseCode": "ELDBEY0",
-    "Points": 100
-  },
-  "Högspänningsnät": {
-    "CourseCode": "ELD1202",
-    "Points": 100
-  },
-  "Lågspänningsnät": {
-    "CourseCode": "ELD1204",
-    "Points": 150
-  },
-  "Nät- och transformatorstationer": {
-    "CourseCode": "ELDNÄT0",
-    "Points": 100
-  },
-  "Nätunderhållsarbete i stadsnät": {
-    "CourseCode": "ELDNÄU0",
-    "Points": 100
-  },
-  "Nätunderhållsarbete i vindkraftnät": {
-    "CourseCode": "ELDNÄN0",
-    "Points": 100
-  },
-  "Nätunderhållsarbete på luftledningsnät 0,4–24kV": {
-    "CourseCode": "ELDNÄD0",
-    "Points": 100
-  },
-  "Elektronik och mikrodatorteknik": {
-    "CourseCode": "ELEELR0",
-    "Points": 100
-  },
-  "Låg- och högfrekvenskretsar": {
-    "CourseCode": "ELELÅG0",
-    "Points": 100
-  },
-  "Mikrodatortillämpningar": {
-    "CourseCode": "ELEMIK0",
-    "Points": 100
-  },
-  "Elektronik – spårfordon": {
-    "CourseCode": "ELNELE0",
-    "Points": 100
-  },
-  "Elektronikproduktionsteknik": {
-    "CourseCode": "ELKELO0",
-    "Points": 100
-  },
-  "Provning och kontrollarbete": {
-    "CourseCode": "ELKPRV0",
-    "Points": 100
-  },
-  "Bild- och ljudanläggningar": {
-    "CourseCode": "ELTBID0",
-    "Points": 100
-  },
-  "Kontorstekniksystem": {
-    "CourseCode": "ELTKOT0",
-    "Points": 100
-  },
-  "Trådlösa radiosystem": {
-    "CourseCode": "ELTTRL0",
-    "Points": 100
-  },
-  "Antenn- och kabel-TV-teknik": {
-    "CourseCode": "ELRANT0",
-    "Points": 100
-  },
-  "Data- och medianät": {
-    "CourseCode": "ELRDAA0",
-    "Points": 100
-  },
-  "Elektromekanik": {
-    "CourseCode": "ELRELK0",
-    "Points": 100
-  },
-  "Elkraftteknik": {
-    "CourseCode": "ELRELF0",
-    "Points": 100
-  },
-  "Elementmontering": {
-    "CourseCode": "ELMELM0",
-    "Points": 100
-  },
-  "Elkraft och traktion – spårfordon": {
-    "CourseCode": "ELFELK0",
-    "Points": 150
-  },
-  "Ellära 1": {
-    "CourseCode": "ELLELL01",
-    "Points": 100
-  },
-  "Ellära 2": {
-    "CourseCode": "ELLELL02",
-    "Points": 100
-  },
-  "Praktisk ellära": {
-    "CourseCode": "ELLPRA0",
-    "Points": 100
-  },
-  "Ellära – spårfordon 1": {
-    "CourseCode": "LLAELL01",
-    "Points": 100
-  },
-  "Ellära – spårfordon 2": {
-    "CourseCode": "LLAELL02",
-    "Points": 100
-  },
-  "Digitalteknik och flyginstrument": {
-    "CourseCode": "FLYDII0",
-    "Points": 100
-  },
-  "Ellära – flyg": {
-    "CourseCode": "FLYELL0",
-    "Points": 100
-  },
   "Elmotordrivsystem": {
     "CourseCode": "AUTELD0",
     "Points": 100
-  },
-  "Elmätteknik 1": {
-    "CourseCode": "ELÄELM01",
-    "Points": 100
-  },
-  "Elmätteknik 2": {
-    "CourseCode": "ELÄELM02",
-    "Points": 100
-  },
-  "El- och hybridfordon 1": {
-    "CourseCode": "ELCELO01",
-    "Points": 100
-  },
-  "El- och hybridfordon 2": {
-    "CourseCode": "ELCELO02",
-    "Points": 100
-  },
-  "El- och verkstadsteknik": {
-    "CourseCode": "VERVER0",
-    "Points": 100
-  },
-  "Energiteknik 1": {
-    "CourseCode": "ENEENE01",
-    "Points": 100
-  },
-  "Energiteknik 2": {
-    "CourseCode": "ENEENE02",
-    "Points": 100
-  },
-  "Förnybar energi": {
-    "CourseCode": "ENEFÖR0",
-    "Points": 100
-  },
-  "Vatten- och processkemi": {
-    "CourseCode": "ENEVAE0",
-    "Points": 100
-  },
-  "Engelska 5": {
-    "CourseCode": "ENGENG05",
-    "Points": 100
-  },
-  "Engelska 6": {
-    "CourseCode": "ENGENG06",
-    "Points": 100
-  },
-  "Engelska 7": {
-    "CourseCode": "ENGENG07",
-    "Points": 100
-  },
-  "Engelska för döva 5": {
-    "CourseCode": "ENLENE05",
-    "Points": 100
-  },
-  "Engelska för döva 6": {
-    "CourseCode": "ENLENE06",
-    "Points": 100
-  },
-  "Engelska för döva 7": {
-    "CourseCode": "ENLENE07",
-    "Points": 100
-  },
-  "Entreprenörskap": {
-    "CourseCode": "ENTENR0",
-    "Points": 100
-  },
-  "Estetisk kommunikation 1": {
-    "CourseCode": "ESTEST01",
-    "Points": 100
-  },
-  "Estetisk kommunikation 2": {
-    "CourseCode": "ESTEST02",
-    "Points": 100
-  },
-  "Estetisk kommunikation 3": {
-    "CourseCode": "ESTEST03",
-    "Points": 100
-  },
-  "Eurytmi 1": {
-    "CourseCode": "EUREUR01",
-    "Points": 100
-  },
-  "Eurytmi 2": {
-    "CourseCode": "EUREUR02",
-    "Points": 100
-  },
-  "Eurytmi 3": {
-    "CourseCode": "EUREUR03",
-    "Points": 100
-  },
-  "Eurytmi 4": {
-    "CourseCode": "EUREUR04",
-    "Points": 100
-  },
-  "Eventteknik": {
-    "CourseCode": "EVEEVN0",
-    "Points": 100
-  },
-  "Ljudproduktionsteknik": {
-    "CourseCode": "ENSY1214",
-    "Points": null
-  },
-  "Ljus- och bildproduktionsteknik": {
-    "CourseCode": "EVELJS0",
-    "Points": 100
-  },
-  "Lasthantering och passagerarsäkerhet": {
-    "CourseCode": "FARLAS0",
-    "Points": 100
-  },
-  "Skeppsteknik": {
-    "CourseCode": "FARSKE0",
-    "Points": 50
   },
   "Fastighetsautomation 1": {
     "CourseCode": "AUTFAS01",
@@ -981,862 +21,6 @@
   },
   "Fastighetsautomation 2": {
     "CourseCode": "AUTFAS02",
-    "Points": 100
-  },
-  "Fastighetsförvaltning": {
-    "CourseCode": "FATE1202",
-    "Points": 100
-  },
-  "Fastighetskommunikation": {
-    "CourseCode": "FAFFAT0",
-    "Points": 100
-  },
-  "Informationsteknik i fastighetsförvaltning": {
-    "CourseCode": "FAFINF0",
-    "Points": 100
-  },
-  "Fastighetsservice – byggnader": {
-    "CourseCode": "FASFAS0",
-    "Points": 100
-  },
-  "Fastighetsservice – elarbeten": {
-    "CourseCode": "FASFAH0",
-    "Points": 100
-  },
-  "Fastighetsservice – VVS": {
-    "CourseCode": "FASFAE0",
-    "Points": 100
-  },
-  "Fastighetsservice – ytor": {
-    "CourseCode": "FASFAV0",
-    "Points": 100
-  },
-  "Film- och tv-produktion 1": {
-    "CourseCode": "FILFIL01",
-    "Points": 100
-  },
-  "Film- och tv-produktion 2": {
-    "CourseCode": "FILFIL02",
-    "Points": 100
-  },
-  "Filmproduktion": {
-    "CourseCode": "FILFIL0",
-    "Points": 100
-  },
-  "Manus för film och tv": {
-    "CourseCode": "FILMAN0",
-    "Points": 100
-  },
-  "Tv-produktion": {
-    "CourseCode": "FILTVP0",
-    "Points": 100
-  },
-  "Filosofi 1": {
-    "CourseCode": "FIOFIO01",
-    "Points": 50
-  },
-  "Filosofi 2": {
-    "CourseCode": "FIOFIO02",
-    "Points": 50
-  },
-  "Fiske 1": {
-    "CourseCode": "FISFIS01",
-    "Points": 100
-  },
-  "Fiske 2": {
-    "CourseCode": "FISFIS02",
-    "Points": 200
-  },
-  "Fiske 3": {
-    "CourseCode": "FISFIS03",
-    "Points": 100
-  },
-  "Fiskevård 1": {
-    "CourseCode": "FIKFIS01",
-    "Points": 100
-  },
-  "Fiskevård 2": {
-    "CourseCode": "FIKFIS02",
-    "Points": 200
-  },
-  "Fiskevård 3": {
-    "CourseCode": "FIKFIS03",
-    "Points": 100
-  },
-  "Flerbränslefordon": {
-    "CourseCode": "FLEFLR0",
-    "Points": 100
-  },
-  "Flygplansteknik": {
-    "CourseCode": "FLPFLY0",
-    "Points": 200
-  },
-  "Flygplatsen": {
-    "CourseCode": "FLGFLY0",
-    "Points": 200
-  },
-  "Fälthållning": {
-    "CourseCode": "FLGFAL0",
-    "Points": 200
-  },
-  "Fordon och redskap": {
-    "CourseCode": "NABFOR0",
-    "Points": 100
-  },
-  "Fordons- och transportbranschens villkor och arbetsområden": {
-    "CourseCode": "FORFOD0",
-    "Points": 200
-  },
-  "Fordonsteknik – introduktion": {
-    "CourseCode": "FODFOO0",
-    "Points": 200
-  },
-  "Fordonstestteknik": {
-    "CourseCode": "FOOFOR0",
-    "Points": 200
-  },
-  "Miljöer och utrustning för fordonstest": {
-    "CourseCode": "FOOMIL0",
-    "Points": 200
-  },
-  "Fackteckning och design": {
-    "CourseCode": "FOMFAC0",
-    "Points": 100
-  },
-  "Formgivning 1": {
-    "CourseCode": "FOMFOR01S",
-    "Points": 100
-  },
-  "Formgivning 2": {
-    "CourseCode": "FOMFOR02S",
-    "Points": 100
-  },
-  "Formgivning 3": {
-    "CourseCode": "FOMFOR03S",
-    "Points": 100
-  },
-  "Textil färg och form": {
-    "CourseCode": "FOG1205",
-    "Points": 50
-  },
-  "Fotografisk bild 1": {
-    "CourseCode": "FOTFOT01",
-    "Points": 100
-  },
-  "Fotografisk bild 2": {
-    "CourseCode": "FOTFOT02",
-    "Points": 100
-  },
-  "Fotografisk bild 3": {
-    "CourseCode": "FOTFOT03",
-    "Points": 100
-  },
-  "Fotografisk bild 4": {
-    "CourseCode": "FOTFOT04",
-    "Points": 100
-  },
-  "Båthantering och underhåll": {
-    "CourseCode": "FRDBAT0",
-    "Points": 100
-  },
-  "Båtsystem": {
-    "CourseCode": "FRDBAS0",
-    "Points": 200
-  },
-  "Konstruktion och reparation 1": {
-    "CourseCode": "FRDKON01",
-    "Points": 200
-  },
-  "Konstruktion och reparation 2": {
-    "CourseCode": "FRDKON02",
-    "Points": 200
-  },
-  "Plast- och lamineringsteknik": {
-    "CourseCode": "FRDPLA0",
-    "Points": 100
-  },
-  "Bad- och friskvårdsanläggningar": {
-    "CourseCode": "FRIBAD0",
-    "Points": 100
-  },
-  "Drift och underhåll av fritidsanläggningar": {
-    "CourseCode": "FRIDRF0",
-    "Points": 100
-  },
-  "Fritids- och friskvårdsverksamheter": {
-    "CourseCode": "FRIFRT0",
-    "Points": 200
-  },
-  "Fritidsmiljöer och arenor": {
-    "CourseCode": "FRIFRS0",
-    "Points": 100
-  },
-  "Fritids- och idrottskunskap": {
-    "CourseCode": "FRTFRD0",
-    "Points": 100
-  },
-  "Funktionsförmåga och funktionsnedsättning 1": {
-    "CourseCode": "FUTFUN01",
-    "Points": 100
-  },
-  "Funktionsförmåga och funktionsnedsättning 2": {
-    "CourseCode": "FUTFUN02",
-    "Points": 100
-  },
-  "Fysik 1a": {
-    "CourseCode": "FYSFYS01a",
-    "Points": 150
-  },
-  "Fysik 1b1": {
-    "CourseCode": "FYSFYS01b1",
-    "Points": 100
-  },
-  "Fysik 1b2": {
-    "CourseCode": "FYSFYS01b2",
-    "Points": 50
-  },
-  "Fysik 2": {
-    "CourseCode": "FYSFYS02",
-    "Points": 100
-  },
-  "Fysik 3": {
-    "CourseCode": "FYSFYS03",
-    "Points": 100
-  },
-  "Entreprenörskap och företagande": {
-    "CourseCode": "FÖRENT0",
-    "Points": 100
-  },
-  "Företagsekonomi – specialisering": {
-    "CourseCode": "FÖRFÖR00S",
-    "Points": 100
-  },
-  "Företagsekonomi 1": {
-    "CourseCode": "FÖRFÖR01",
-    "Points": 100
-  },
-  "Företagsekonomi 2": {
-    "CourseCode": "FÖRFÖR02",
-    "Points": 100
-  },
-  "Marknadsföring": {
-    "CourseCode": "FE1204",
-    "Points": 100
-  },
-  "Redovisning 1": {
-    "CourseCode": "FÖRRED01",
-    "Points": 100
-  },
-  "Redovisning 2": {
-    "CourseCode": "FÖRRED02",
-    "Points": 100
-  },
-  "Personlig försäljning 1": {
-    "CourseCode": "FÖSPER01",
-    "Points": 100
-  },
-  "Personlig försäljning 2": {
-    "CourseCode": "FÖSPER02",
-    "Points": 100
-  },
-  "Servicekunskap 1": {
-    "CourseCode": "FÖSSEV01",
-    "Points": 100
-  },
-  "Servicekunskap 2": {
-    "CourseCode": "FÖSSER02",
-    "Points": 100
-  },
-  "Gasturbinmotorer": {
-    "CourseCode": "FYT1211",
-    "Points": 100
-  },
-  "Geografi 1": {
-    "CourseCode": "GEOGEO01",
-    "Points": 100
-  },
-  "Geografi 2": {
-    "CourseCode": "GEOGEO02",
-    "Points": 100
-  },
-  "Geografiska informationssystem": {
-    "CourseCode": "GE1203",
-    "Points": 50
-  },
-  "Gerontologi och geriatrik": {
-    "CourseCode": "GERGER0",
-    "Points": 100
-  },
-  "Godshantering – vux": {
-    "CourseCode": "GODGOD1",
-    "Points": 100
-  },
-  "Hantering av varor och gods": {
-    "CourseCode": "GODHAT0",
-    "Points": 200
-  },
-  "Lastbärare": {
-    "CourseCode": "GODLAS0",
-    "Points": 200
-  },
-  "Maskinell godshantering": {
-    "CourseCode": "GODMAL0",
-    "Points": 200
-  },
-  "Tunga arbetsmaskiner": {
-    "CourseCode": "GODTUN0",
-    "Points": 200
-  },
-  "Godstrafik": {
-    "CourseCode": "GOSGOD0",
-    "Points": 200
-  },
-  "Godstransporter – specialisering": {
-    "CourseCode": "GOSGOD00S",
-    "Points": 100
-  },
-  "Lastbilsmonterad kran": {
-    "CourseCode": "GOSLAL0",
-    "Points": 100
-  },
-  "Golvläggning 1": {
-    "CourseCode": "GOLGOL01",
-    "Points": 100
-  },
-  "Golvläggning 2 – våtrum": {
-    "CourseCode": "GOLGOL02",
-    "Points": 100
-  },
-  "Golvläggning 3 – trä och laminat": {
-    "CourseCode": "GOLGOL03",
-    "Points": 200
-  },
-  "Grafisk illustration": {
-    "CourseCode": "GKO1204",
-    "Points": 100
-  },
-  "Grafisk illustration i pixelgrafik": {
-    "CourseCode": "GRAGRP0",
-    "Points": 100
-  },
-  "Grafisk illustration i vektorgrafik": {
-    "CourseCode": "GRAGRV0",
-    "Points": 100
-  },
-  "Grafisk kommunikation 1": {
-    "CourseCode": "GRAGRA01",
-    "Points": 100
-  },
-  "Grafisk kommunikation 2": {
-    "CourseCode": "GRAGRA02",
-    "Points": 100
-  },
-  "Grafiska arbetsflöden och analysmodeller": {
-    "CourseCode": "GRAGRA0",
-    "Points": 100
-  },
-  "Original, reproduktion och prepress": {
-    "CourseCode": "GRAGRR0",
-    "Points": 100
-  },
-  "Grafisk produktion 1": {
-    "CourseCode": "GRFGRF01",
-    "Points": 100
-  },
-  "Grafisk produktion 2": {
-    "CourseCode": "GRFGRF02",
-    "Points": 100
-  },
-  "Grafisk produktion 3": {
-    "CourseCode": "GRFGRF03",
-    "Points": 100
-  },
-  "Grafisk produktion 4": {
-    "CourseCode": "GRFGRF04",
-    "Points": 100
-  },
-  "Grundläggande vård och omsorg": {
-    "CourseCode": "GRUGRD0",
-    "Points": 100
-  },
-  "Gränssnitt 3D": {
-    "CourseCode": "GRÄGRN0",
-    "Points": 100
-  },
-  "Gränssnittsdesign": {
-    "CourseCode": "GRÄGRÄ0",
-    "Points": 100
-  },
-  "Grönyte- och småmaskinsteknik": {
-    "CourseCode": "GROGRO0",
-    "Points": 100
-  },
-  "Gymnasieingenjören i praktiken": {
-    "CourseCode": "GYMGYM0",
-    "Points": 200
-  },
-  "Affärsutveckling och ledarskap": {
-    "CourseCode": "HANAFR0",
-    "Points": 100
-  },
-  "Branschkunskap inom handel": {
-    "CourseCode": "HANBRA0",
-    "Points": 100
-  },
-  "Handel – specialisering": {
-    "CourseCode": "HANHAN00S",
-    "Points": 100
-  },
-  "Handel och hållbar utveckling": {
-    "CourseCode": "HANHAN0",
-    "Points": 100
-  },
-  "Praktisk marknadsföring 1": {
-    "CourseCode": "HANPRA01",
-    "Points": 100
-  },
-  "Praktisk marknadsföring 2": {
-    "CourseCode": "HANPRA02",
-    "Points": 100
-  },
-  "Barberare 2": {
-    "CourseCode": "HAVBAR02",
-    "Points": 200
-  },
-  "Barberare 3": {
-    "CourseCode": "HAVBAR03",
-    "Points": 200
-  },
-  "Barberare 4": {
-    "CourseCode": "HAVBAR04",
-    "Points": 200
-  },
-  "Barberare 5": {
-    "CourseCode": "HAVBAR05",
-    "Points": 200
-  },
-  "Barberare 6a": {
-    "CourseCode": "HAVBAR06a",
-    "Points": 100
-  },
-  "Barberare 6b": {
-    "CourseCode": "HAVBAR06b",
-    "Points": 50
-  },
-  "Finsnickeri 1": {
-    "CourseCode": "HAVFIN01",
-    "Points": 200
-  },
-  "Finsnickeri 2": {
-    "CourseCode": "HAVFIN02",
-    "Points": 200
-  },
-  "Finsnickeri 3": {
-    "CourseCode": "HAVFIN03",
-    "Points": 200
-  },
-  "Finsnickeri 4": {
-    "CourseCode": "HAVFIN04",
-    "Points": 200
-  },
-  "Finsnickeri 4 – specialisering": {
-    "CourseCode": "HAVFIN04S",
-    "Points": 50
-  },
-  "Finsnickeri 5": {
-    "CourseCode": "HAVFIN05",
-    "Points": 200
-  },
-  "Finsnickeri 5 – specialisering": {
-    "CourseCode": "HAVFIN05S",
-    "Points": 50
-  },
-  "Finsnickeri 6a": {
-    "CourseCode": "HAVFIN06a",
-    "Points": 100
-  },
-  "Finsnickeri 6b": {
-    "CourseCode": "HAVFIN06b",
-    "Points": 50
-  },
-  "Florist 1": {
-    "CourseCode": "HAVFLO01",
-    "Points": 200
-  },
-  "Florist 2": {
-    "CourseCode": "HAVFLO02",
-    "Points": 200
-  },
-  "Florist 3": {
-    "CourseCode": "HAVFLO03",
-    "Points": 200
-  },
-  "Florist 4": {
-    "CourseCode": "HAVFLO04",
-    "Points": 200
-  },
-  "Florist 4 – specialisering": {
-    "CourseCode": "HAVFLO04S",
-    "Points": 50
-  },
-  "Florist 5": {
-    "CourseCode": "HAVFLO05",
-    "Points": 200
-  },
-  "Florist 5 – specialisering": {
-    "CourseCode": "HAVFLO05S",
-    "Points": 50
-  },
-  "Florist 6a": {
-    "CourseCode": "HAVFLO06a",
-    "Points": 100
-  },
-  "Florist 6b": {
-    "CourseCode": "HAVFLO06b",
-    "Points": 50
-  },
-  "Frisör 1": {
-    "CourseCode": "HAVFRI01",
-    "Points": 200
-  },
-  "Frisör 2": {
-    "CourseCode": "HAVFRI02",
-    "Points": 200
-  },
-  "Frisör 3": {
-    "CourseCode": "HAVFRI03",
-    "Points": 200
-  },
-  "Frisör 4": {
-    "CourseCode": "HAVFRI04",
-    "Points": 200
-  },
-  "Frisör 4 – specialisering": {
-    "CourseCode": "HAVFRI04S",
-    "Points": 50
-  },
-  "Frisör 5": {
-    "CourseCode": "HAVFRI05",
-    "Points": 200
-  },
-  "Frisör 5 – specialisering": {
-    "CourseCode": "HAVFRI05S",
-    "Points": 50
-  },
-  "Frisör 6a": {
-    "CourseCode": "HAVFRI06a",
-    "Points": 100
-  },
-  "Frisör 6b": {
-    "CourseCode": "HAVFRI06b",
-    "Points": 50
-  },
-  "Hantverk – introduktion": {
-    "CourseCode": "HAVHAV0",
-    "Points": 200
-  },
-  "Hantverksteknik 1": {
-    "CourseCode": "HAVHNT01",
-    "Points": 200
-  },
-  "Hantverksteknik 2": {
-    "CourseCode": "HAVHNT02",
-    "Points": 200
-  },
-  "Hantverksteknik 3": {
-    "CourseCode": "HAVHNT03",
-    "Points": 200
-  },
-  "Hantverksteknik 4": {
-    "CourseCode": "HAVHNT04",
-    "Points": 200
-  },
-  "Hantverksteknik 4 – specialisering": {
-    "CourseCode": "HAVHNT04S",
-    "Points": 50
-  },
-  "Hantverksteknik 5": {
-    "CourseCode": "HAVHNT05",
-    "Points": 200
-  },
-  "Hantverksteknik 5 – specialisering": {
-    "CourseCode": "HAVHNT05S",
-    "Points": 50
-  },
-  "Hantverksteknik 6a": {
-    "CourseCode": "HAVHNT06a",
-    "Points": 100
-  },
-  "Hantverksteknik 6b": {
-    "CourseCode": "HAVHNT06b",
-    "Points": 50
-  },
-  "Hår- och makeupstylist 2": {
-    "CourseCode": "HAVHAR02",
-    "Points": 200
-  },
-  "Hår- och makeupstylist 3": {
-    "CourseCode": "HAVHAR03",
-    "Points": 200
-  },
-  "Hår- och makeupstylist 4": {
-    "CourseCode": "HAVHAR04",
-    "Points": 200
-  },
-  "Hår- och makeupstylist 5": {
-    "CourseCode": "HAVHAR05",
-    "Points": 200
-  },
-  "Textil design 1": {
-    "CourseCode": "HAVTEX01",
-    "Points": 200
-  },
-  "Textil design 2": {
-    "CourseCode": "HAVTEX02",
-    "Points": 200
-  },
-  "Textil design 3": {
-    "CourseCode": "HAVTEX03",
-    "Points": 200
-  },
-  "Textil design 4": {
-    "CourseCode": "HAVTEX04",
-    "Points": 200
-  },
-  "Textil design 4 – specialisering": {
-    "CourseCode": "HAVTEX04S",
-    "Points": 50
-  },
-  "Textil design 5": {
-    "CourseCode": "HAVTEX05",
-    "Points": 200
-  },
-  "Textil design 5 – specialisering": {
-    "CourseCode": "HAVTEX05S",
-    "Points": 50
-  },
-  "Textil design 6a": {
-    "CourseCode": "HAVTEX06a",
-    "Points": 100
-  },
-  "Textil design 6b": {
-    "CourseCode": "HAVTEX06b",
-    "Points": 50
-  },
-  "Material": {
-    "CourseCode": "HVKMAT0",
-    "Points": 100
-  },
-  "Material och miljö": {
-    "CourseCode": "HVKMAE0",
-    "Points": 100
-  },
-  "Miljö": {
-    "CourseCode": "HVKMIL0",
-    "Points": 100
-  },
-  "Tradition och utveckling": {
-    "CourseCode": "HVKTRA0",
-    "Points": 100
-  },
-  "Helikopterteknik": {
-    "CourseCode": "HELHEL0",
-    "Points": 200
-  },
-  "Hippologi – anatomi och fysiologi": {
-    "CourseCode": "HIOHIP0",
-    "Points": 100
-  },
-  "Hippologi – avel och hästens hälsa": {
-    "CourseCode": "HIOHIO0",
-    "Points": 100
-  },
-  "Hippologi – etologi": {
-    "CourseCode": "HIOHIL0",
-    "Points": 100
-  },
-  "Historia 1a1": {
-    "CourseCode": "HISHIS01a1",
-    "Points": 50
-  },
-  "Historia 1a2": {
-    "CourseCode": "HISHIS01a2",
-    "Points": 50
-  },
-  "Historia 1b": {
-    "CourseCode": "HISHIS01b",
-    "Points": 100
-  },
-  "Historia 2a": {
-    "CourseCode": "HISHIS02a",
-    "Points": 100
-  },
-  "Historia 2b – kultur": {
-    "CourseCode": "HISHIS02b",
-    "Points": 100
-  },
-  "Historia 3": {
-    "CourseCode": "HISHIS03",
-    "Points": 100
-  },
-  "Hjulutrustning": {
-    "CourseCode": "HJUHJU0",
-    "Points": 200
-  },
-  "Hjulutrustning – specialisering": {
-    "CourseCode": "HJUHJT00S",
-    "Points": 100
-  },
-  "Humanistisk och samhällsvetenskaplig specialisering": {
-    "CourseCode": "HUMHUM00S",
-    "Points": 100
-  },
-  "Humanistisk och samhällsvetenskaplig spets": {
-    "CourseCode": "HUAHUM30S",
-    "Points": 50
-  },
-  "Hundkunskap 1": {
-    "CourseCode": "HUNHUN01",
-    "Points": 100
-  },
-  "Hundkunskap 2": {
-    "CourseCode": "HUNHUN02",
-    "Points": 100
-  },
-  "Hundkunskap 3": {
-    "CourseCode": "HUNHUN03",
-    "Points": 100
-  },
-  "Träning av hund": {
-    "CourseCode": "HUNTRN0",
-    "Points": 100
-  },
-  "Husbyggnad 1": {
-    "CourseCode": "HUSHUS01",
-    "Points": 100
-  },
-  "Husbyggnad 2": {
-    "CourseCode": "HUSHUS02",
-    "Points": 200
-  },
-  "Husbyggnad 3 – ombyggnad": {
-    "CourseCode": "HUSHUS03",
-    "Points": 200
-  },
-  "Husbyggnadsprocessen": {
-    "CourseCode": "HUSHUB0",
-    "Points": 200
-  },
-  "Specialyrken 1": {
-    "CourseCode": "HUBSPC01S",
-    "Points": 100
-  },
-  "Specialyrken 2": {
-    "CourseCode": "HUBSPC02S",
-    "Points": 200
-  },
-  "Specialyrken 3": {
-    "CourseCode": "HUBSPC03S",
-    "Points": 200
-  },
-  "Husvagnar och husbilar": {
-    "CourseCode": "HUVHUS0",
-    "Points": 300
-  },
-  "Hygien": {
-    "CourseCode": "HYGHYG0",
-    "Points": 100
-  },
-  "Hållbart samhällsbyggande": {
-    "CourseCode": "MKU1201",
-    "Points": 100
-  },
-  "Miljö- och energikunskap": {
-    "CourseCode": "HÅLMIJ0",
-    "Points": 100
-  },
-  "Politik och hållbar utveckling": {
-    "CourseCode": "HÅLPOL0",
-    "Points": 100
-  },
-  "Ergonomi": {
-    "CourseCode": "IDH1203",
-    "Points": 50
-  },
-  "Hälsopedagogik": {
-    "CourseCode": "LPL1203",
-    "Points": 50
-  },
-  "Kost och hälsa": {
-    "CourseCode": "HALKOC0",
-    "Points": 100
-  },
-  "Mental träning": {
-    "CourseCode": "HALMEN0",
-    "Points": 100
-  },
-  "Hälso- och sjukvård 1": {
-    "CourseCode": "HAOHAL01",
-    "Points": 100
-  },
-  "Hälso- och sjukvård 2": {
-    "CourseCode": "HAOHAL02",
-    "Points": 100
-  },
-  "Räddningsmedicin": {
-    "CourseCode": "SJURÄD0",
-    "Points": 100
-  },
-  "Friskvård och hälsa": {
-    "CourseCode": "HAAFRI0",
-    "Points": 100
-  },
-  "Komplementärmedicin": {
-    "CourseCode": "HAAKOM0",
-    "Points": 100
-  },
-  "Kost, måltid och munhälsa": {
-    "CourseCode": "HAAKOS0",
-    "Points": 100
-  },
-  "Den unga hästens utveckling 1a": {
-    "CourseCode": "HÄTDEN01a",
-    "Points": 100
-  },
-  "Den unga hästens utveckling 1b": {
-    "CourseCode": "HÄTDEN01b",
-    "Points": 100
-  },
-  "Den unga hästens utveckling 2": {
-    "CourseCode": "HÄTDEN02",
-    "Points": 100
-  },
-  "Hästkunskap 1": {
-    "CourseCode": "HÄTHÄS01",
-    "Points": 100
-  },
-  "Hästkunskap 2": {
-    "CourseCode": "HÄTHÄS02",
-    "Points": 100
-  },
-  "Hästkunskap 3": {
-    "CourseCode": "HÄTHÄS03",
-    "Points": 100
-  },
-  "Idrott och hälsa 1": {
-    "CourseCode": "IDRIDR01",
-    "Points": 100
-  },
-  "Idrott och hälsa 1 – specialisering": {
-    "CourseCode": "IDRIDO01",
-    "Points": 100
-  },
-  "Idrott och hälsa 2": {
-    "CourseCode": "IDRIDR02",
-    "Points": 100
-  },
-  "Idrott och hälsa 2 – specialisering": {
-    "CourseCode": "IDRIDO02",
     "Points": 100
   },
   "Industriautomation": {
@@ -1847,1425 +31,105 @@
     "CourseCode": "AUTROB0",
     "Points": 100
   },
-  "Industriella produktionsmetoder 1": {
-    "CourseCode": "INNIND31",
-    "Points": 100
-  },
-  "Industriella produktionsmetoder 2": {
-    "CourseCode": "INNIND32",
-    "Points": 100
-  },
-  "Industriella produktionsmetoder 3": {
-    "CourseCode": "INNIND33",
-    "Points": 100
-  },
-  "Industriell automationsteknik": {
-    "CourseCode": "IDUIND3",
-    "Points": 100
-  },
-  "Industriell it": {
-    "CourseCode": "IDUIIT3",
-    "Points": 100
-  },
-  "Industriell PLC-teknik": {
-    "CourseCode": "IDUPLC3",
-    "Points": 100
-  },
-  "Industriell robotteknik": {
-    "CourseCode": "IDUROB3",
-    "Points": 100
-  },
-  "Tillämpad automationsteknik": {
-    "CourseCode": "IDUTIL3",
-    "Points": 100
-  },
-  "Industriell design 1": {
-    "CourseCode": "INLIND31",
-    "Points": 100
-  },
-  "Industriell design 2": {
-    "CourseCode": "INLIND32",
-    "Points": 100
-  },
-  "VVS MMA-svetsning rör": {
-    "CourseCode": "INVVVS0",
-    "Points": 100
-  },
-  "VVS TIG-svetsning rör": {
-    "CourseCode": "VVSVVI0",
-    "Points": 100
-  },
-  "Industrirörteknik 1": {
-    "CourseCode": "INDIND01",
-    "Points": 100
-  },
-  "Industrirörteknik 2": {
-    "CourseCode": "INDIND02",
-    "Points": 100
-  },
-  "Industrirörteknik 3": {
-    "CourseCode": "INDIND03",
-    "Points": 200
-  },
-  "Industritekniska processer 1": {
-    "CourseCode": "INUINU01",
-    "Points": 100
-  },
-  "Industritekniska processer 2": {
-    "CourseCode": "INUINU02",
-    "Points": 100
-  },
-  "Industritekniska processer 3": {
-    "CourseCode": "INUINU03",
-    "Points": 100
-  },
-  "Industritekniska processer 4": {
-    "CourseCode": "INUINU04",
-    "Points": 100
-  },
-  "Laboratorieteknik": {
-    "CourseCode": "INULAB0",
-    "Points": 200
-  },
-  "Industriteknisk fördjupning 1": {
-    "CourseCode": "PRFPRF01",
+  "Grundläggande mätningsteknik": {
+    "CourseCode": "BYLGRN0",
     "Points": 50
   },
-  "Industriteknisk fördjupning 2": {
-    "CourseCode": "PRFPRF02",
-    "Points": 50
-  },
-  "Information och kommunikation 1": {
-    "CourseCode": "INFINF01",
-    "Points": 100
-  },
-  "Information och kommunikation 2": {
-    "CourseCode": "INFINF02",
-    "Points": 100
-  },
-  "Datakommunikation och informationssäkerhet": {
-    "CourseCode": "INODAT0",
-    "Points": 200
-  },
-  "Informationsteknisk arkitektur": {
-    "CourseCode": "INOINF0",
-    "Points": 100
-  },
-  "Nätverks- och kommunikationstjänster": {
-    "CourseCode": "INONAT0",
-    "Points": 100
-  },
-  "Inköp 1": {
-    "CourseCode": "INKINK01",
-    "Points": 100
-  },
-  "Inköp 2": {
-    "CourseCode": "INKINK02",
-    "Points": 100
-  },
-  "Logistik 1": {
-    "CourseCode": "INKLOG01",
-    "Points": 100
-  },
-  "Logistik 2": {
-    "CourseCode": "INKLOG02",
-    "Points": 100
-  },
-  "Transport och spedition": {
-    "CourseCode": "HNDL1214",
-    "Points": 50
-  },
-  "Belysningsteknik": {
-    "CourseCode": "ELI1201",
-    "Points": 50
-  },
-  "Elinstallationer": {
-    "CourseCode": "INSELI0",
-    "Points": 200
-  },
-  "Elmotorstyrning": {
-    "CourseCode": "INSELS0",
-    "Points": 100
-  },
-  "Kommunikationsnät 1": {
-    "CourseCode": "INSKOM01",
-    "Points": 100
-  },
-  "Kommunikationsnät 2": {
-    "CourseCode": "INSKOM02",
-    "Points": 100
-  },
-  "Kommunikationsnät 3": {
-    "CourseCode": "INSKOM03",
-    "Points": 100
-  },
-  "Affärsjuridik": {
-    "CourseCode": "RK1201",
-    "Points": 50
-  },
-  "Privatjuridik": {
-    "CourseCode": "JURPRI0",
-    "Points": 100
-  },
-  "Rätten och samhället": {
-    "CourseCode": "JURRÄT0",
-    "Points": 100
-  },
-  "Järnvägsbyggnad 1": {
-    "CourseCode": "JÄRJÄR01",
-    "Points": 100
-  },
-  "Järnvägsbyggnad 2": {
-    "CourseCode": "JÄRJÄR02",
-    "Points": 200
-  },
-  "Järnvägsbyggnad 3": {
-    "CourseCode": "JÄRJÄR03",
-    "Points": 200
-  },
-  "Allmän järnvägsteknik": {
-    "CourseCode": "JÄNALM0",
-    "Points": 100
-  },
-  "Elteknik": {
-    "CourseCode": "JÄNELN0",
-    "Points": 300
-  },
-  "Signalteknik": {
-    "CourseCode": "JÄNSIG0",
-    "Points": 300
-  },
-  "Karosserikonstruktioner och inredning": {
-    "CourseCode": "KARKAR0",
-    "Points": 200
-  },
-  "Riktbänkssystem": {
-    "CourseCode": "KARRIK0",
-    "Points": 200
-  },
-  "Riktningsteknik – introduktion": {
-    "CourseCode": "KARRIT0",
-    "Points": 200
-  },
-  "Skadebesiktning och produktionsflöde": {
-    "CourseCode": "KARSKA0",
-    "Points": 100
-  },
-  "Skarvnings- och sammanfogningsteknik": {
-    "CourseCode": "KARSKR0",
-    "Points": 300
-  },
-  "Småreparationer – karosseri": {
-    "CourseCode": "KARSMA0",
-    "Points": 100
-  },
-  "Kemi 1": {
-    "CourseCode": "KEMKEM01",
-    "Points": 100
-  },
-  "Kemi 2": {
-    "CourseCode": "KEMKEM02",
-    "Points": 100
-  },
-  "Klassisk grekiska – språk och kultur 1": {
-    "CourseCode": "KLAKLA01",
-    "Points": 100
-  },
-  "Klassisk grekiska – språk och kultur 2": {
-    "CourseCode": "KLAKLA02",
-    "Points": 100
-  },
-  "Kolvmotorer": {
-    "CourseCode": "KOLKOL0",
-    "Points": 200
-  },
-  "Evenemang": {
-    "CourseCode": "KONEVE0",
-    "Points": 100
-  },
-  "Konferens 1": {
-    "CourseCode": "KONKOF01",
-    "Points": 100
-  },
-  "Konferens 2": {
-    "CourseCode": "KONKON02",
-    "Points": 100
-  },
-  "Konferens 3": {
-    "CourseCode": "KONKON03",
-    "Points": 100
-  },
-  "Konferens och evenemang": {
-    "CourseCode": "KONKOF0",
-    "Points": 100
-  },
-  "Rums- och konferensbokning": {
-    "CourseCode": "KONRUM0",
-    "Points": 100
-  },
-  "Konsthantverk 1": {
-    "CourseCode": "KOHHAN01",
-    "Points": 100
-  },
-  "Konsthantverk 2": {
-    "CourseCode": "KOHHAN02",
-    "Points": 100
-  },
-  "Konsthantverk 3": {
-    "CourseCode": "KOHHAN03",
-    "Points": 100
-  },
-  "Konsthantverk 4": {
-    "CourseCode": "KOHHAN04",
-    "Points": 100
-  },
-  "Konsthantverk 5": {
-    "CourseCode": "KOHHAN05",
-    "Points": 100
-  },
-  "Film- och tv-kunskap": {
-    "CourseCode": "KOSFIL0",
-    "Points": 100
-  },
-  "Konstarterna och samhället": {
-    "CourseCode": "KOSKOS0",
-    "Points": 50
-  },
-  "Kultur- och idéhistoria": {
-    "CourseCode": "KUHI1202",
-    "Points": 100
-  },
-  "Samtida kulturuttryck": {
-    "CourseCode": "KOSSAT0",
-    "Points": 100
-  },
-  "Konstruktion 1": {
-    "CourseCode": "KOTKOS01",
-    "Points": 100
-  },
-  "Konstruktion 2": {
-    "CourseCode": "KOTKOS02",
-    "Points": 100
-  },
-  "Konstruktion 3": {
-    "CourseCode": "KOTKOS03",
-    "Points": 100
-  },
-  "Konstruktionsteknik": {
-    "CourseCode": "KORKON3",
-    "Points": 100
-  },
-  "Materialteknik": {
-    "CourseCode": "KORMAT3",
-    "Points": 100
-  },
-  "Mekanik och hållfasthetslära": {
-    "CourseCode": "KORMEK3",
-    "Points": 100
-  },
-  "Tillämpad konstruktionsteknik": {
-    "CourseCode": "KORTIL3",
-    "Points": 100
-  },
-  "Kraft- och värmeteknik 1": {
-    "CourseCode": "KRAKRA01",
-    "Points": 200
-  },
-  "Kraft- och värmeteknik 2": {
-    "CourseCode": "KRAKRA02",
-    "Points": 200
-  },
-  "Reservkraft": {
-    "CourseCode": "KRARER0",
-    "Points": 100
-  },
-  "Kyl- och värmepumpsteknik – energieffektivisering": {
-    "CourseCode": "KYLKYL0",
-    "Points": 100
-  },
-  "Kyl- och värmepumpsteknik – grund": {
-    "CourseCode": "KYLKYO0",
-    "Points": 100
-  },
-  "Kyl- och värmepumpsteknik – installation": {
-    "CourseCode": "KYLKYC0",
-    "Points": 200
-  },
-  "Kyl- och värmepumpsteknik – miljö och säkerhet": {
-    "CourseCode": "KYLKYH0",
-    "Points": 100
-  },
-  "Kyl- och värmepumpsteknik – service": {
-    "CourseCode": "KYLKYV0",
-    "Points": 200
-  },
-  "Baskurs i lackering": {
-    "CourseCode": "LACBAK0",
-    "Points": 300
-  },
-  "Färg och dekorationslackering": {
-    "CourseCode": "LACFÄR0",
-    "Points": 100
-  },
-  "Industriell lackering": {
-    "CourseCode": "LACINS0",
-    "Points": 200
-  },
-  "Lackeringssystem": {
-    "CourseCode": "LAC1209",
+  "Planering före byggstart": {
+    "CourseCode": "BYLPLA0",
     "Points": 150
   },
-  "Lackeringsteknik – applicering": {
-    "CourseCode": "LACLAK0",
-    "Points": 100
-  },
-  "Lackeringsteknik – introduktion": {
-    "CourseCode": "LACLAE0",
+  "Produktionsstyrning i byggskedet": {
+    "CourseCode": "BYLPRO0",
     "Points": 200
   },
-  "Lackeringsteknik för tunga fordon": {
-    "CourseCode": "LACLAR0",
-    "Points": 200
-  },
-  "Produktionsflöden": {
-    "CourseCode": "LACPRD0",
+  "Datalagring": {
+    "CourseCode": "DALDAT0",
     "Points": 100
   },
-  "Småreparationer – lackering": {
-    "CourseCode": "LACSMA0",
+  "Bild- och ljudanläggningar": {
+    "CourseCode": "ELTBID0",
     "Points": 100
   },
-  "Lageradministration och terminallogistik": {
-    "CourseCode": "LAGLAG0",
-    "Points": 200
-  },
-  "Lagerprocesser": {
-    "CourseCode": "LAGLAP0",
-    "Points": 200
-  },
-  "Plocklagerhantering": {
-    "CourseCode": "LAGPLO0",
-    "Points": 100
-  },
-  "Lantbruksdjur – specialisering": {
-    "CourseCode": "LANLAN00S",
-    "Points": 100
-  },
-  "Lantbruksdjur 1": {
-    "CourseCode": "LANLAN01",
-    "Points": 100
-  },
-  "Lantbruksdjur 2": {
-    "CourseCode": "LANLAN02",
-    "Points": 100
-  },
-  "Lantbruksmaskiner 1": {
-    "CourseCode": "NABLAT01",
-    "Points": 100
-  },
-  "Lantbruksmaskiner 2": {
-    "CourseCode": "NABLAT02",
-    "Points": 100
-  },
-  "Lantbruksmaskinsteknik": {
-    "CourseCode": "LAKLAN0",
-    "Points": 100
-  },
-  "Brandlarmssystem": {
-    "CourseCode": "LARBRN0",
-    "Points": 100
-  },
-  "CCTV-system": {
-    "CourseCode": "LARCCT0",
-    "Points": 100
-  },
-  "Inbrottslarmssystem": {
-    "CourseCode": "LARINB0",
-    "Points": 100
-  },
-  "Larm-, övervaknings- och säkerhetssystem": {
-    "CourseCode": "LARLAM0",
-    "Points": 100
-  },
-  "Passersystem": {
-    "CourseCode": "LARPAS0",
-    "Points": 100
-  },
-  "Lastbilar – chassi och bromsar": {
-    "CourseCode": "LAPLAC0",
-    "Points": 200
-  },
-  "Lastbilar – kraftöverföring": {
-    "CourseCode": "LAPLAS0",
-    "Points": 100
-  },
-  "Lastbilar – system- och diagnosteknik 1": {
-    "CourseCode": "LAPLAS01",
-    "Points": 100
-  },
-  "Lastbilar – system- och diagnosteknik 2": {
-    "CourseCode": "LAPLAS02",
-    "Points": 100
-  },
-  "Lastbilar och mobila maskiner – förbränningsmotorer": {
-    "CourseCode": "LAILAT0",
-    "Points": 200
-  },
-  "Lastbilar och mobila maskiner – basteknik": {
-    "CourseCode": "LAALAT0",
-    "Points": 100
-  },
-  "Lastbilar och mobila maskiner – service och underhåll 1": {
-    "CourseCode": "LAALAS01",
-    "Points": 100
-  },
-  "Lastbilar och mobila maskiner – service och underhåll 2": {
-    "CourseCode": "LAALAS02",
-    "Points": 100
-  },
-  "Lastbilar och mobila maskiner – verkstad och elteknik": {
-    "CourseCode": "LAALAS0",
-    "Points": 100
-  },
-  "Lastbilspåbyggnad – specialisering": {
-    "CourseCode": "LALLAS00S",
-    "Points": 100
-  },
-  "Lastmaskiner och truckar": {
-    "CourseCode": "NABLAA0",
-    "Points": 100
-  },
-  "Latin – språk och kultur 1": {
-    "CourseCode": "LATLAT01",
-    "Points": 100
-  },
-  "Latin – språk och kultur 2": {
-    "CourseCode": "LATLAT02",
-    "Points": 100
-  },
-  "Latin – språk och kultur 3": {
-    "CourseCode": "LATLAT03",
-    "Points": 100
-  },
-  "Ledarskap och organisation": {
-    "CourseCode": "LEDLED0",
-    "Points": 100
-  },
-  "Livsmedels- och näringskunskap 1": {
-    "CourseCode": "LIVLIV01",
-    "Points": 100
-  },
-  "Livsmedels- och näringskunskap 2": {
-    "CourseCode": "LIVLIV02",
-    "Points": 100
-  },
-  "Film- och interaktiv ljudproduktion": {
-    "CourseCode": "LJUFIL0",
-    "Points": 100
-  },
-  "Ljudproduktion 1": {
-    "CourseCode": "LJULJU01",
-    "Points": 100
-  },
-  "Ljudproduktion 2": {
-    "CourseCode": "LJULJU02",
-    "Points": 100
-  },
-  "Radioproduktion": {
-    "CourseCode": "LJURAD0",
-    "Points": 100
-  },
-  "Låsinstallation": {
-    "CourseCode": "LAOLAS0",
-    "Points": 200
-  },
-  "Låsteknik": {
-    "CourseCode": "LAOLAT0",
-    "Points": 200
-  },
-  "Mönsterkonstruktion 1": {
-    "CourseCode": "MÖNMÖN01",
-    "Points": 100
-  },
-  "Mönsterkonstruktion 2": {
-    "CourseCode": "MÖNMÖN02",
+  "Kontorstekniksystem": {
+    "CourseCode": "ELTKOT0",
     "Points": 100
   },
   "Marina elektroniksystem": {
     "CourseCode": "ELTMAR0",
     "Points": 100
   },
-  "Båtel 1": {
-    "CourseCode": "MAIBAT01",
+  "Trådlösa radiosystem": {
+    "CourseCode": "ELTTRL0",
     "Points": 100
   },
-  "Båtel 2": {
-    "CourseCode": "MAIBAT02",
+  "Installationer": {
+    "CourseCode": "ELPINS0",
     "Points": 100
   },
-  "Marinelektronik 1": {
-    "CourseCode": "MAIMAR01",
-    "Points": 100
-  },
-  "Marinelektronik 2": {
-    "CourseCode": "MAIMAR02",
-    "Points": 100
-  },
-  "Marinelektronik 3": {
-    "CourseCode": "MAIMAR03",
-    "Points": 100
-  },
-  "Motorelektronik 1": {
-    "CourseCode": "MAIMOT01",
-    "Points": 100
-  },
-  "Motorelektronik 2": {
-    "CourseCode": "MAIMOT02",
-    "Points": 100
-  },
-  "Diagnos och reparation": {
-    "CourseCode": "MANDIA0",
-    "Points": 100
-  },
-  "Intervallservice": {
-    "CourseCode": "MANINT0",
-    "Points": 100
-  },
-  "Marinmotor – introduktion": {
-    "CourseCode": "MANMAR0",
-    "Points": 100
-  },
-  "Nyinstallation": {
-    "CourseCode": "MANNYI0",
-    "Points": 100
-  },
-  "Maskinbefäl": {
-    "CourseCode": "FTT1205",
-    "Points": 100
-  },
-  "Maskintjänst 1": {
-    "CourseCode": "MAKMAS01",
-    "Points": 300
-  },
-  "Maskintjänst 2": {
-    "CourseCode": "MAKMAS02",
-    "Points": 300
-  },
-  "Massage 1": {
-    "CourseCode": "MAAMAA01",
-    "Points": 100
-  },
-  "Massage 2": {
-    "CourseCode": "MAAMAA02",
-    "Points": 100
-  },
-  "Matematik – specialisering": {
-    "CourseCode": "MATMAT00S",
-    "Points": 100
-  },
-  "Matematik 1a": {
-    "CourseCode": "MATMAT01a",
-    "Points": 100
-  },
-  "Matematik 1b": {
-    "CourseCode": "MATMAT01b",
-    "Points": 100
-  },
-  "Matematik 1c": {
-    "CourseCode": "MATMAT01c",
-    "Points": 100
-  },
-  "Matematik 2a": {
-    "CourseCode": "MATMAT02a",
-    "Points": 100
-  },
-  "Matematik 2b": {
-    "CourseCode": "MATMAT02b",
-    "Points": 100
-  },
-  "Matematik 2c": {
-    "CourseCode": "MATMAT02c",
-    "Points": 100
-  },
-  "Matematik 3b": {
-    "CourseCode": "MATMAT03b",
-    "Points": 100
-  },
-  "Matematik 3c": {
-    "CourseCode": "MATMAT03c",
-    "Points": 100
-  },
-  "Matematik 4": {
-    "CourseCode": "MATMAT04",
-    "Points": 100
-  },
-  "Matematik 5": {
-    "CourseCode": "MATMAT05",
-    "Points": 100
-  },
-  "Materialkunskap 1": {
-    "CourseCode": "MAEMAT01",
-    "Points": 100
-  },
-  "Materialkunskap 2": {
-    "CourseCode": "MAEMAT02",
-    "Points": 100
-  },
-  "Matlagning – specialisering": {
-    "CourseCode": "MALMAL00S",
-    "Points": 100
-  },
-  "Matlagning 1": {
-    "CourseCode": "MALMAL01",
-    "Points": 100
-  },
-  "Matlagning 2": {
-    "CourseCode": "MALMAL02",
+  "Projektering": {
+    "CourseCode": "ELPPRO0",
     "Points": 200
   },
-  "Matlagning 3": {
-    "CourseCode": "MALMAL03",
-    "Points": 200
-  },
-  "Matlagning 4": {
-    "CourseCode": "MALMAL04",
-    "Points": 200
-  },
-  "Specialkoster": {
-    "CourseCode": "MALSPE0",
+  "Aerodynamik": {
+    "CourseCode": "FLYAER0",
     "Points": 100
   },
-  "Mat och butik – specialisering": {
-    "CourseCode": "MAOMAT00S",
+  "Digitalteknik och flyginstrument": {
+    "CourseCode": "FLYDII0",
     "Points": 100
   },
-  "Mat och butik 1": {
-    "CourseCode": "MAOMAT01",
+  "Elektronik – flyg": {
+    "CourseCode": "FLYELT0",
     "Points": 100
   },
-  "Mat och butik 2": {
-    "CourseCode": "MAOMAT02",
+  "Ellära – flyg": {
+    "CourseCode": "FLYELL0",
     "Points": 100
   },
-  "Mat och dryck i kombination": {
-    "CourseCode": "MACMAT0",
-    "Points": 100
-  },
-  "Elektromedicinsk teknik": {
-    "CourseCode": "MEIELE0",
-    "Points": 100
-  },
-  "Gas- och vätsketeknik": {
-    "CourseCode": "METE1202",
+  "Flyglagstiftning": {
+    "CourseCode": "FLYFLY0",
     "Points": 50
   },
-  "Radiologiska utrustningar": {
-    "CourseCode": "MEIRAD0",
-    "Points": 100
-  },
-  "Journalistik, reklam och information 1": {
-    "CourseCode": "MEEJOU01",
-    "Points": 100
-  },
-  "Journalistik, reklam och information 2": {
-    "CourseCode": "MEEJOU02",
-    "Points": 100
-  },
-  "Textkommunikation": {
-    "CourseCode": "MEETET0",
-    "Points": 100
-  },
-  "Medieproduktion 1": {
-    "CourseCode": "MEPMEI01",
-    "Points": 100
-  },
-  "Medieproduktion 2": {
-    "CourseCode": "MEPMEI02",
-    "Points": 100
-  },
-  "Medier, samhälle och kommunikation 1": {
-    "CourseCode": "MERMEE01",
-    "Points": 100
-  },
-  "Medier, samhälle och kommunikation 2": {
-    "CourseCode": "MERMEE02",
-    "Points": 100
-  },
-  "Mekatronik 1": {
-    "CourseCode": "MEKMEK01",
-    "Points": 100
-  },
-  "Mekatronik 2": {
-    "CourseCode": "MEKMEK02",
-    "Points": 100
-  },
-  "Mjukvarudesign": {
-    "CourseCode": "MJUMJU0",
-    "Points": 100
-  },
-  "Mobila applikationer": {
-    "CourseCode": "WEBMOB0",
-    "Points": 100
-  },
-  "Bandschaktare": {
-    "CourseCode": "MOBBAN0",
-    "Points": 100
-  },
-  "Grävmaskiner": {
-    "CourseCode": "MOBGRV0",
+  "Flygplanslära": {
+    "CourseCode": "FLYFLG0",
     "Points": 200
   },
-  "Hjullastare": {
-    "CourseCode": "AMT1204",
-    "Points": 150
-  },
-  "Teleskoplastare": {
-    "CourseCode": "AMT1207",
-    "Points": 100
-  },
-  "Väghyvel": {
-    "CourseCode": "AMT1208",
+  "Gasturbinmotorer": {
+    "CourseCode": "FLYGAT0",
     "Points": 200
   },
-  "Mobila maskiner – hydraulsystem": {
-    "CourseCode": "MOLMOI0",
+  "Helikopterlära": {
+    "CourseCode": "FLYHEL0",
     "Points": 200
   },
-  "Mobila maskiner – kraftöverföring": {
-    "CourseCode": "MOLMOB0",
-    "Points": 100
-  },
-  "Mobila maskiner – system- och diagnosteknik 1": {
-    "CourseCode": "MOLMOB01",
-    "Points": 100
-  },
-  "Mobila maskiner – system- och diagnosteknik 2": {
-    "CourseCode": "MOLMOB02",
-    "Points": 100
-  },
-  "Kinesiska 1": {
-    "CourseCode": "MODZHO01",
-    "Points": 100
-  },
-  "Kinesiska 2": {
-    "CourseCode": "MODZHO02",
-    "Points": 100
-  },
-  "Kinesiska 3": {
-    "CourseCode": "MODZHO03",
-    "Points": 100
-  },
-  "Kinesiska 4": {
-    "CourseCode": "MODZHO04",
-    "Points": 100
-  },
-  "Kinesiska 5": {
-    "CourseCode": "MODZHO05",
-    "Points": 100
-  },
-  "Kinesiska 6": {
-    "CourseCode": "MODZHO06",
-    "Points": 100
-  },
-  "Kinesiska 7": {
-    "CourseCode": "MODZHO07",
-    "Points": 100
-  },
-  "Moderna språk 1": {
-    "CourseCode": "MODXXX01",
-    "Points": 100
-  },
-  "Moderna språk 2": {
-    "CourseCode": "MODXXX02",
-    "Points": 100
-  },
-  "Moderna språk 3": {
-    "CourseCode": "MODXXX03",
-    "Points": 100
-  },
-  "Moderna språk 4": {
-    "CourseCode": "MODXXX04",
-    "Points": 100
-  },
-  "Moderna språk 5": {
-    "CourseCode": "MODXXX05",
-    "Points": 100
-  },
-  "Moderna språk 6": {
-    "CourseCode": "MODXXX06",
-    "Points": 100
-  },
-  "Moderna språk 7": {
-    "CourseCode": "MODXXX07",
-    "Points": 100
-  },
-  "Modersmål – aktiv tvåspråkighet": {
-    "CourseCode": "MOEMOD0",
-    "Points": 100
-  },
-  "Modersmål 1": {
-    "CourseCode": "MOEXXX01",
-    "Points": 100
-  },
-  "Modersmål 2": {
-    "CourseCode": "MOEXXX02",
-    "Points": 100
-  },
-  "Motor- och röjmotorsåg 1": {
-    "CourseCode": "MOTMOT01",
-    "Points": 100
-  },
-  "Motor- och röjmotorsåg 2": {
-    "CourseCode": "MOTMOT02",
-    "Points": 100
-  },
-  "Mur- och putsverk 1 – grundmurar": {
-    "CourseCode": "MURMUR01",
-    "Points": 100
-  },
-  "Mur- och putsverk 2 – murverk": {
-    "CourseCode": "MURMUR02",
-    "Points": 100
-  },
-  "Mur- och putsverk 3 – puts": {
-    "CourseCode": "MURMUR03",
-    "Points": 100
-  },
-  "Bruksspel och ackompanjemang": {
-    "CourseCode": "MUSBRU0",
-    "Points": 100
-  },
-  "Ensemble 1": {
-    "CourseCode": "MUSENS01",
-    "Points": 100
-  },
-  "Ensemble 2": {
-    "CourseCode": "MUSENS02S",
-    "Points": 100
-  },
-  "Ensemble med körsång": {
-    "CourseCode": "MUSENS0",
+  "Kolvmotor": {
+    "CourseCode": "FLYKOL0",
     "Points": 200
   },
-  "Ensembleledning och dirigering": {
-    "CourseCode": "MUSENE0",
+  "Materiallära – flyg": {
+    "CourseCode": "FLYMAA0",
     "Points": 100
   },
-  "Instrument eller sång 1": {
-    "CourseCode": "MUSINS01S",
+  "Mänskliga faktorer": {
+    "CourseCode": "FLYMAS0",
     "Points": 100
   },
-  "Instrument eller sång 2": {
-    "CourseCode": "MUSINS02S",
-    "Points": 100
-  },
-  "Instrument eller sång 3": {
-    "CourseCode": "MUSINS03S",
-    "Points": 100
-  },
-  "Körsång 1": {
-    "CourseCode": "MUSKÖS01",
-    "Points": 100
-  },
-  "Körsång 2": {
-    "CourseCode": "MUSKÖS02S",
-    "Points": 100
-  },
-  "Musik": {
-    "CourseCode": "MUSMUS0",
-    "Points": 100
-  },
-  "Musik för yrkesdansare": {
-    "CourseCode": "MUSMUK0",
-    "Points": 50
-  },
-  "Musikimprovisation": {
-    "CourseCode": "MUSMUI0",
-    "Points": 100
-  },
-  "Musikproduktion 1": {
-    "CourseCode": "MUSMUS01",
-    "Points": 100
-  },
-  "Musikproduktion 2": {
-    "CourseCode": "MUSMUS02",
-    "Points": 100
-  },
-  "Rytmik": {
-    "CourseCode": "MUSRYT0",
-    "Points": 100
-  },
-  "Arrangering och komposition 1": {
-    "CourseCode": "MUIARA01",
-    "Points": 100
-  },
-  "Arrangering och komposition 2": {
-    "CourseCode": "MUIARA02",
-    "Points": 100
-  },
-  "Gehörs- och musiklära 1": {
-    "CourseCode": "MUIGEH01",
-    "Points": 100
-  },
-  "Gehörs- och musiklära 2": {
-    "CourseCode": "MUIGEH02",
-    "Points": 100
-  },
-  "Måleri – dekorationstekniker": {
-    "CourseCode": "MARMAE0",
-    "Points": 100
-  },
-  "Måleri – äldre måleritekniker": {
-    "CourseCode": "MARMAR0",
-    "Points": 100
-  },
-  "Måleri 1": {
-    "CourseCode": "MARMAL01",
+  "Underhållsteknik – flyg": {
+    "CourseCode": "FLYUNS0",
     "Points": 200
   },
-  "Måleri 2": {
-    "CourseCode": "MARMAL02",
+  "Gymnasieingenjören i praktiken": {
+    "CourseCode": "GYMGYM0",
     "Points": 200
   },
-  "Måleri 3": {
-    "CourseCode": "MARMAL03",
-    "Points": 200
-  },
-  "Måleri 4": {
-    "CourseCode": "MARMAL04",
-    "Points": 200
-  },
-  "Måleri 5": {
-    "CourseCode": "MARMAL05",
-    "Points": 200
-  },
-  "Måleriprocessen": {
-    "CourseCode": "MARMAL0",
-    "Points": 200
-  },
-  "Branschkunskap inom restaurang och livsmedel": {
-    "CourseCode": "MÅTBRC0",
-    "Points": 100
-  },
-  "Etik och människans livsvillkor": {
-    "CourseCode": "MÄNETI0",
-    "Points": 100
-  },
-  "Internationellt arbete": {
-    "CourseCode": "MÄNINA0",
-    "Points": 100
-  },
-  "Människan i industrin 1": {
-    "CourseCode": "MÄIMÄN01",
-    "Points": 100
-  },
-  "Människan i industrin 2": {
-    "CourseCode": "MÄIMÄN02",
-    "Points": 100
-  },
-  "Människans språk 1": {
-    "CourseCode": "MÄKMÄK01",
-    "Points": 100
-  },
-  "Människans språk 2": {
-    "CourseCode": "MÄKMÄK02",
-    "Points": 100
-  },
-  "Människans säkerhet": {
-    "CourseCode": "MÄSMÄN0",
-    "Points": 100
-  },
-  "Distribuerade styrsystem": {
-    "CourseCode": "MÄTDIS0",
-    "Points": 100
-  },
-  "Mät- och reglerteknik": {
-    "CourseCode": "MÄTE1207",
-    "Points": 100
-  },
-  "Mät- och styrteknik": {
-    "CourseCode": "MÄTMÄO0",
-    "Points": 100
-  },
-  "Programmerbara styrsystem": {
-    "CourseCode": "MÄTPRR0",
-    "Points": 100
-  },
-  "Naturbruk": {
-    "CourseCode": "NAUNAU0",
-    "Points": 200
-  },
-  "Byggnadsunderhåll": {
-    "CourseCode": "NABT1203",
-    "Points": 100
-  },
-  "Hästsportanläggningars skötsel och drift 1": {
-    "CourseCode": "NARHAS01",
-    "Points": 100
-  },
-  "Hästsportanläggningars skötsel och drift 2": {
-    "CourseCode": "NARHAS02",
-    "Points": 100
-  },
-  "Guidning i naturbruksmiljöer": {
-    "CourseCode": "NAGGUD0",
-    "Points": 100
-  },
-  "Naturguidning 1": {
-    "CourseCode": "NAGNAT01",
-    "Points": 100
-  },
-  "Naturguidning 2": {
-    "CourseCode": "NAGNAT02",
-    "Points": 200
-  },
-  "Naturkunskap 1a1": {
-    "CourseCode": "NAKNAK01a1",
-    "Points": 50
-  },
-  "Naturkunskap 1a2": {
-    "CourseCode": "NAKNAK01a2",
-    "Points": 50
-  },
-  "Naturkunskap 1b": {
-    "CourseCode": "NAKNAK01b",
-    "Points": 100
-  },
-  "Naturkunskap 2": {
-    "CourseCode": "NAKNAK02",
-    "Points": 100
-  },
-  "Natur- och landskapsvård": {
-    "CourseCode": "NATNAT0",
-    "Points": 100
-  },
-  "Naturturism 1": {
-    "CourseCode": "NAMNAT01",
-    "Points": 100
-  },
-  "Naturturism 2": {
-    "CourseCode": "NAMNAT02",
-    "Points": 100
-  },
-  "Naturturism 3": {
-    "CourseCode": "NAMNAT03",
-    "Points": 100
-  },
-  "Naturvetenskaplig specialisering": {
-    "CourseCode": "NAVNAT00S",
-    "Points": 100
-  },
-  "Naturvetenskaplig spets": {
-    "CourseCode": "NAENAT30S",
-    "Points": 50
-  },
-  "Administration av nätverks- och serverutrustning": {
-    "CourseCode": "NÄVADM0",
-    "Points": 100
-  },
-  "Nätverksadministration": {
-    "CourseCode": "NÄVNÄV0",
-    "Points": 100
-  },
-  "Nätverkssäkerhet": {
-    "CourseCode": "NÄVNÄE0",
-    "Points": 100
-  },
-  "Nätverksteknik": {
-    "CourseCode": "NÄVNÄR0",
-    "Points": 100
-  },
-  "Nätverksteknologier": {
-    "CourseCode": "NÄVNÄK0",
-    "Points": 100
-  },
-  "Odling i växthus – specialisering": {
-    "CourseCode": "ODIODI00S",
-    "Points": 100
-  },
-  "Odling i växthus 1": {
-    "CourseCode": "ODIODL01",
-    "Points": 100
-  },
-  "Odling i växthus 2": {
-    "CourseCode": "ODIODL02",
-    "Points": 100
-  },
-  "Omvårdnad 1": {
-    "CourseCode": "OMVOMV01",
-    "Points": 100
-  },
-  "Omvårdnad 2": {
-    "CourseCode": "OMVOMV02",
-    "Points": 100
-  },
-  "Aktivitetsledarskap": {
-    "CourseCode": "PEDAKI00S",
-    "Points": 100
-  },
-  "Barns lärande och växande": {
-    "CourseCode": "PEDBAS0",
-    "Points": 100
-  },
-  "Kommunikation": {
-    "CourseCode": "LPL1204",
-    "Points": 50
-  },
-  "Lärande och utveckling": {
-    "CourseCode": "PEDLÄR0",
-    "Points": 100
-  },
-  "Människors miljöer": {
-    "CourseCode": "PEDMÄI0",
-    "Points": 100
-  },
-  "Pedagogiska teorier och praktiker": {
-    "CourseCode": "PEDPED0",
-    "Points": 100
-  },
-  "Pedagogiskt ledarskap": {
-    "CourseCode": "LPL1208",
-    "Points": 100
-  },
-  "Vårdpedagogik och handledning": {
-    "CourseCode": "PEAVÅD0",
-    "Points": 100
-  },
-  "Dramapedagogik": {
-    "CourseCode": "PEGDRA0",
-    "Points": 100
-  },
-  "Pedagogiskt arbete": {
-    "CourseCode": "PEGPEA0",
-    "Points": 200
-  },
-  "Skapande verksamhet": {
-    "CourseCode": "EOS1204",
-    "Points": 100
-  },
-  "Personbilar – chassi och bromsar": {
-    "CourseCode": "REPPEO0",
-    "Points": 100
-  },
-  "Personbilar – förbränningsmotorer": {
-    "CourseCode": "REPPER0",
-    "Points": 100
-  },
-  "Personbilar – kraftöverföring": {
-    "CourseCode": "REPPES0",
-    "Points": 100
-  },
-  "Personbilar – system- och diagnosteknik 1": {
-    "CourseCode": "REPPER01",
-    "Points": 200
-  },
-  "Personbilar – system- och diagnosteknik 2": {
-    "CourseCode": "REPPER02",
-    "Points": 100
-  },
-  "Personbilar – basteknik": {
-    "CourseCode": "SEOPEB0",
-    "Points": 100
-  },
-  "Personbilar – service och underhåll 1": {
-    "CourseCode": "SEOPER01",
-    "Points": 100
-  },
-  "Personbilar – service och underhåll 2": {
-    "CourseCode": "SEOPER02",
-    "Points": 100
-  },
-  "Personbilar – verkstad och elteknik": {
-    "CourseCode": "SEOPER0",
-    "Points": 100
-  },
-  "Persontrafik – vux": {
-    "CourseCode": "PESPER1",
-    "Points": 200
-  },
-  "Persontrafik 1a": {
-    "CourseCode": "PESPER01a",
-    "Points": 200
-  },
-  "Persontrafik 1b": {
-    "CourseCode": "PESPER01b",
-    "Points": 200
-  },
-  "Persontransporter – specialisering": {
-    "CourseCode": "PESPER00S",
-    "Points": 100
-  },
-  "Taxitrafik": {
-    "CourseCode": "PESTAX0",
-    "Points": 100
-  },
-  "Plåtslageri – grunder": {
-    "CourseCode": "PLÅPLÅ0",
-    "Points": 100
-  },
-  "Plåtslageriprocessen": {
-    "CourseCode": "PLÅPLS0",
-    "Points": 200
-  },
-  "Byggnadsplåtslageri 1": {
-    "CourseCode": "PLTBYG01",
-    "Points": 200
-  },
-  "Byggnadsplåtslageri 2": {
-    "CourseCode": "PLTBYG02",
-    "Points": 200
-  },
-  "Byggnadsplåtslageri 3": {
-    "CourseCode": "PLTBYG03",
-    "Points": 200
-  },
-  "Byggnadsplåtslageri 4": {
-    "CourseCode": "PLTBYG04",
-    "Points": 200
-  },
-  "Kulturplåtslageri": {
-    "CourseCode": "PLTKUU0",
-    "Points": 100
-  },
-  "Lättbyggnadsteknik": {
-    "CourseCode": "PLTLÄT0",
-    "Points": 200
-  },
-  "Plåtslageri – svetstekniker": {
-    "CourseCode": "PLTPLT0",
-    "Points": 100
-  },
-  "Processdatorsystem": {
-    "CourseCode": "MÄTE1208",
-    "Points": 50
-  },
-  "Processmätteknik 1": {
-    "CourseCode": "PROPRC01",
-    "Points": 100
-  },
-  "Processmätteknik 2": {
-    "CourseCode": "PROPRC02",
-    "Points": 100
-  },
-  "Processreglering": {
-    "CourseCode": "PROPRE0",
-    "Points": 100
-  },
-  "Processteknik – energi 1": {
-    "CourseCode": "PRCPRO31",
-    "Points": 100
-  },
-  "Processteknik – energi 2": {
-    "CourseCode": "PRCPRO32",
-    "Points": 100
-  },
-  "Processteknik – kemi 1": {
-    "CourseCode": "PREKEM31",
-    "Points": 100
-  },
-  "Processteknik – kemi 2": {
-    "CourseCode": "PREKEM32",
-    "Points": 100
-  },
-  "Produktionsfilosofi 1": {
-    "CourseCode": "PRTPRO01",
-    "Points": 100
-  },
-  "Produktionsfilosofi 2": {
-    "CourseCode": "PRTPRO02",
-    "Points": 100
-  },
-  "Produktionskunskap 1": {
-    "CourseCode": "PRDPRO01",
-    "Points": 100
-  },
-  "Produktionskunskap 2": {
-    "CourseCode": "PRDPRO02",
-    "Points": 100
-  },
-  "Industriell mätteknik – fördjupning": {
-    "CourseCode": "PRUINU0",
-    "Points": 50
-  },
-  "Industriell mätteknik – grund": {
-    "CourseCode": "PRUIND0",
-    "Points": 50
-  },
-  "Interna transporter": {
-    "CourseCode": "PRUINE00S",
-    "Points": 50
-  },
-  "Produktionsutrustning 1": {
-    "CourseCode": "PRUPRD01S",
-    "Points": 100
-  },
-  "Produktionsutrustning 2": {
-    "CourseCode": "PRUPRD02S",
-    "Points": 100
-  },
-  "Produktionsutrustning 3": {
-    "CourseCode": "PRUPRD03S",
-    "Points": 100
-  },
-  "Produktionsutrustning 4": {
-    "CourseCode": "PRUPRD04",
-    "Points": 100
-  },
-  "Verktygskunskap": {
-    "CourseCode": "PRUVEY0",
-    "Points": 100
-  },
-  "Industriell digitalisering": {
-    "CourseCode": "PRNIND3",
-    "Points": 100
-  },
-  "Produktionsutveckling 1": {
-    "CourseCode": "PRNPRO31",
-    "Points": 100
-  },
-  "Produktionsutveckling 2": {
-    "CourseCode": "PRNPRO32",
-    "Points": 100
-  },
-  "Produktutveckling 1": {
-    "CourseCode": "PRKPRK01",
-    "Points": 100
-  },
-  "Produktutveckling 2": {
-    "CourseCode": "PRKPRK02",
-    "Points": 100
-  },
-  "Programmering 1": {
-    "CourseCode": "PRRPRR01",
-    "Points": 100
-  },
-  "Programmering 2": {
-    "CourseCode": "PRRPRR02",
-    "Points": 100
-  },
-  "Programmering 3": {
-    "CourseCode": "PRRPRR33",
-    "Points": 100
-  },
-  "Psykiatri 1": {
-    "CourseCode": "PSYPSY01",
+  "Frukost och bufféservering": {
+    "CourseCode": "HOTFRU0",
     "Points": 100
   },
-  "Psykiatri 2": {
-    "CourseCode": "PSYPSK02",
+  "Hotelladministration": {
+    "CourseCode": "HOTHOT0",
     "Points": 100
-  },
-  "Psykologi 1": {
-    "CourseCode": "PSKPSY01",
-    "Points": 50
-  },
-  "Psykologi 2a": {
-    "CourseCode": "PSKPSY02a",
-    "Points": 50
-  },
-  "Psykologi 2b": {
-    "CourseCode": "PSKPSY02b",
-    "Points": 50
   },
   "Logi": {
     "CourseCode": "HOTLOG0",
@@ -3283,950 +147,6 @@
     "CourseCode": "HOTREC03",
     "Points": 100
   },
-  "Religionskunskap – specialisering": {
-    "CourseCode": "RELREL0",
-    "Points": 100
-  },
-  "Religionskunskap 1": {
-    "CourseCode": "RELREL01",
-    "Points": 50
-  },
-  "Religionskunskap 2": {
-    "CourseCode": "RELREL02",
-    "Points": 50
-  },
-  "Städservice": {
-    "CourseCode": "REGSTA0",
-    "Points": 100
-  },
-  "Renen och dess naturmiljö 1": {
-    "CourseCode": "RENREN01",
-    "Points": 100
-  },
-  "Renen och dess naturmiljö 2": {
-    "CourseCode": "RENREN02",
-    "Points": 100
-  },
-  "Renen och rennäringen 1": {
-    "CourseCode": "RENREE01",
-    "Points": 100
-  },
-  "Renen och rennäringen 2": {
-    "CourseCode": "RENREE02",
-    "Points": 100
-  },
-  "Hållbar turism": {
-    "CourseCode": "TURHÅL0",
-    "Points": 100
-  },
-  "Marknadsföring och försäljning": {
-    "CourseCode": "TURMAS0",
-    "Points": 100
-  },
-  "Reseproduktion och försäljning": {
-    "CourseCode": "TURRES0",
-    "Points": 100
-  },
-  "Resmål och resvägar": {
-    "CourseCode": "TURREM0",
-    "Points": 100
-  },
-  "Körning 1": {
-    "CourseCode": "RIDKÖR01",
-    "Points": 100
-  },
-  "Körning 2": {
-    "CourseCode": "RIDKÖR02",
-    "Points": 100
-  },
-  "Ridning 1": {
-    "CourseCode": "RIDRID01",
-    "Points": 100
-  },
-  "Ridning 2": {
-    "CourseCode": "RIDRID02",
-    "Points": 100
-  },
-  "Ridning för ridlärare": {
-    "CourseCode": "RINRIN0",
-    "Points": 100
-  },
-  "Ridning och körning": {
-    "CourseCode": "RIDRID0",
-    "Points": 200
-  },
-  "Rättspsykiatri": {
-    "CourseCode": "RATRAT0",
-    "Points": 100
-  },
-  "Samernas kultur och historia": {
-    "CourseCode": "SAESAM0",
-    "Points": 100
-  },
-  "BIM-samordning": {
-    "CourseCode": "SAHBIM3",
-    "Points": 100
-  },
-  "Byggnadsverk": {
-    "CourseCode": "SAHBYV0",
-    "Points": 100
-  },
-  "Byggprocessen": {
-    "CourseCode": "SAHBYC3",
-    "Points": 100
-  },
-  "Miljöcertifierade hus": {
-    "CourseCode": "SAHMIL3",
-    "Points": 100
-  },
-  "Internationell ekonomi": {
-    "CourseCode": "FE1210",
-    "Points": 50
-  },
-  "Internationella relationer": {
-    "CourseCode": "SH1204",
-    "Points": 50
-  },
-  "Samhällskunskap 1a1": {
-    "CourseCode": "SAMSAM01a1",
-    "Points": 50
-  },
-  "Samhällskunskap 1a2": {
-    "CourseCode": "SAMSAM01a2",
-    "Points": 50
-  },
-  "Samhällskunskap 1b": {
-    "CourseCode": "SAMSAM01b",
-    "Points": 100
-  },
-  "Samhällskunskap 2": {
-    "CourseCode": "SAMSAM02",
-    "Points": 100
-  },
-  "Samhällskunskap 3": {
-    "CourseCode": "SAMSAM03",
-    "Points": 100
-  },
-  "Samisk mat och matkultur": {
-    "CourseCode": "SASSAM0",
-    "Points": 100
-  },
-  "Samisk hantverkskultur": {
-    "CourseCode": "SAISAM0",
-    "Points": 50
-  },
-  "Samiskt hantverk 1": {
-    "CourseCode": "SAISAM01S",
-    "Points": 100
-  },
-  "Samiskt hantverk 2": {
-    "CourseCode": "SAISAM02S",
-    "Points": 100
-  },
-  "Samiskt hantverk 3": {
-    "CourseCode": "SAISAM03S",
-    "Points": 100
-  },
-  "Samiskt hantverk 4": {
-    "CourseCode": "SAISAM04",
-    "Points": 100
-  },
-  "Samiskt hantverk 5": {
-    "CourseCode": "SAISAM05",
-    "Points": 100
-  },
-  "Kälsvets 1": {
-    "CourseCode": "SAAKÄL01S",
-    "Points": 100
-  },
-  "Kälsvets 2": {
-    "CourseCode": "SAAKÄL02S",
-    "Points": 100
-  },
-  "Rörsvets 1": {
-    "CourseCode": "SAARÖR01S",
-    "Points": 100
-  },
-  "Rörsvets 2": {
-    "CourseCode": "SAARÖR02S",
-    "Points": 100
-  },
-  "Sammanfogning": {
-    "CourseCode": "SAASAA0",
-    "Points": 100
-  },
-  "Stumsvets 1": {
-    "CourseCode": "SAASTU01S",
-    "Points": 100
-  },
-  "Stumsvets 2": {
-    "CourseCode": "SAASTU02S",
-    "Points": 100
-  },
-  "Svets grund": {
-    "CourseCode": "SAASVT0",
-    "Points": 100
-  },
-  "Arrangemang": {
-    "CourseCode": "SERARR0",
-    "Points": 100
-  },
-  "Frukost och bufféservering": {
-    "CourseCode": "HOTFRU0",
-    "Points": 100
-  },
-  "Matsalshantverk": {
-    "CourseCode": "SERMAF0",
-    "Points": 100
-  },
-  "Servering – specialisering": {
-    "CourseCode": "SERSER00S",
-    "Points": 100
-  },
-  "Servering 1": {
-    "CourseCode": "SERSER01",
-    "Points": 100
-  },
-  "Servering 2": {
-    "CourseCode": "SERSER02",
-    "Points": 200
-  },
-  "Service och bemötande 1": {
-    "CourseCode": "SEVSEV01",
-    "Points": 100
-  },
-  "Service och bemötande 2": {
-    "CourseCode": "SEVSEV02",
-    "Points": 100
-  },
-  "Serviceteknik – naturbruk – specialisering": {
-    "CourseCode": "SEISER00S",
-    "Points": 100
-  },
-  "Serviceteknik – naturbruk 1": {
-    "CourseCode": "SEISEI01",
-    "Points": 100
-  },
-  "Serviceteknik – naturbruk 2": {
-    "CourseCode": "SEISEI02",
-    "Points": 100
-  },
-  "Grundläggande säkerhet": {
-    "CourseCode": "SJOGRN0",
-    "Points": 100
-  },
-  "Säkerhet och miljö": {
-    "CourseCode": "SJOSAE0",
-    "Points": 200
-  },
-  "Fiske och vattenvård 1": {
-    "CourseCode": "SKOFIS01",
-    "Points": 100
-  },
-  "Fiske och vattenvård 2": {
-    "CourseCode": "SKOFIS02",
-    "Points": 200
-  },
-  "Jakt och viltvård – specialisering": {
-    "CourseCode": "SKOJAK00S",
-    "Points": 100
-  },
-  "Jakt och viltvård 1": {
-    "CourseCode": "SKOJAK01",
-    "Points": 100
-  },
-  "Jakt och viltvård 2": {
-    "CourseCode": "SKOJAK02",
-    "Points": 200
-  },
-  "Mångbruk av skog": {
-    "CourseCode": "SKOMÅN0",
-    "Points": 100
-  },
-  "Skogsbruksmaskinsteknik": {
-    "CourseCode": "SKBSKO0",
-    "Points": 100
-  },
-  "Avverkningsmaskiner": {
-    "CourseCode": "SKOG1203",
-    "Points": 150
-  },
-  "Skogsmaskiner – specialisering": {
-    "CourseCode": "NABSKO00S",
-    "Points": 200
-  },
-  "Småskalig skogsteknik": {
-    "CourseCode": "NABSMÅ0",
-    "Points": 100
-  },
-  "Terrängtransporter": {
-    "CourseCode": "NABTER0",
-    "Points": 100
-  },
-  "Virkestransport med skotare": {
-    "CourseCode": "NABVIE0",
-    "Points": 100
-  },
-  "Skogsskötsel – specialisering": {
-    "CourseCode": "SKGSKG00S",
-    "Points": 100
-  },
-  "Skogsskötsel 1": {
-    "CourseCode": "SKGSKO01",
-    "Points": 100
-  },
-  "Skogsskötsel 2": {
-    "CourseCode": "SKGSKO02",
-    "Points": 100
-  },
-  "Virkeslära": {
-    "CourseCode": "SKGVIR0",
-    "Points": 100
-  },
-  "Virkesmätning": {
-    "CourseCode": "SKOG1211",
-    "Points": 150
-  },
-  "Beskärning och trädvård": {
-    "CourseCode": "SKÖBEK0",
-    "Points": 100
-  },
-  "Skötsel av utemiljöer": {
-    "CourseCode": "SKÖSKÖ0",
-    "Points": 100
-  },
-  "Skötsel av utemiljöer – specialisering": {
-    "CourseCode": "SKÖSKÖ00S",
-    "Points": 100
-  },
-  "Pistmaskiner och utrustning": {
-    "CourseCode": "SNOPIM0",
-    "Points": 200
-  },
-  "Pistmaskinkörning": {
-    "CourseCode": "SNOPIS0",
-    "Points": 100
-  },
-  "Reparation av snöfordon": {
-    "CourseCode": "SNOREP0",
-    "Points": 300
-  },
-  "Reparation av snöskoter": {
-    "CourseCode": "SNOREE0",
-    "Points": 100
-  },
-  "Snöfordon – introduktion": {
-    "CourseCode": "SNOSNO0",
-    "Points": 200
-  },
-  "Social omsorg 1": {
-    "CourseCode": "SOASOC01",
-    "Points": 100
-  },
-  "Social omsorg 2": {
-    "CourseCode": "SOASOC02",
-    "Points": 100
-  },
-  "Socialpedagogik": {
-    "CourseCode": "SOASOC0",
-    "Points": 100
-  },
-  "Socialt arbete 1": {
-    "CourseCode": "SOCSOC01",
-    "Points": 100
-  },
-  "Socialt arbete 2": {
-    "CourseCode": "SOCSOC02",
-    "Points": 100
-  },
-  "Etnicitet och kulturmöten": {
-    "CourseCode": "SOIETN0",
-    "Points": 100
-  },
-  "Sociologi": {
-    "CourseCode": "SOISOO0",
-    "Points": 100
-  },
-  "Ungdomskulturer": {
-    "CourseCode": "SOIUNG0",
-    "Points": 100
-  },
-  "Idrottsledarskap": {
-    "CourseCode": "SPEIDT3",
-    "Points": 100
-  },
-  "Idrottsspecialisering 1": {
-    "CourseCode": "SPEIDS31",
-    "Points": 100
-  },
-  "Idrottsspecialisering 2": {
-    "CourseCode": "SPEIDS32",
-    "Points": 100
-  },
-  "Idrottsspecialisering 3": {
-    "CourseCode": "SPEIDS33",
-    "Points": 100
-  },
-  "Tränings- och tävlingslära 1": {
-    "CourseCode": "SPETRA31",
-    "Points": 100
-  },
-  "Tränings- och tävlingslära 2": {
-    "CourseCode": "SPETRA32",
-    "Points": 100
-  },
-  "Tränings- och tävlingslära 3": {
-    "CourseCode": "SPETRA33",
-    "Points": 100
-  },
-  "Specialpedagogik 1": {
-    "CourseCode": "SPCSPE01",
-    "Points": 100
-  },
-  "Specialpedagogik 2": {
-    "CourseCode": "SPCSPE02",
-    "Points": 100
-  },
-  "Sprinklerteknik 1": {
-    "CourseCode": "SPNSPR01",
-    "Points": 100
-  },
-  "Sprinklerteknik 2": {
-    "CourseCode": "SPNSPR02",
-    "Points": 100
-  },
-  "Språk specialisering – retorik 1a": {
-    "CourseCode": "SPAXXX01a",
-    "Points": 50
-  },
-  "Språk specialisering – retorik 1b": {
-    "CourseCode": "SPAXXX01b",
-    "Points": 100
-  },
-  "Språk specialisering – skrivande": {
-    "CourseCode": "SPAXXX0",
-    "Points": 100
-  },
-  "Spårfordon – grund": {
-    "CourseCode": "SPOSPA0",
-    "Points": 150
-  },
-  "Finstyckning": {
-    "CourseCode": "STYFIN0",
-    "Points": 100
-  },
-  "Styckning – specialisering": {
-    "CourseCode": "STYSTY00S",
-    "Points": 100
-  },
-  "Styckning 1": {
-    "CourseCode": "STYSTY01",
-    "Points": 100
-  },
-  "Styckning 2": {
-    "CourseCode": "STYSTY02",
-    "Points": 100
-  },
-  "Styckning 3": {
-    "CourseCode": "STYSTY03",
-    "Points": 200
-  },
-  "Styckning 4": {
-    "CourseCode": "STYSTY04",
-    "Points": 100
-  },
-  "Kundmottagning och reservdelshantering": {
-    "CourseCode": "SUPKUN0",
-    "Points": 100
-  },
-  "Service och reparationsarbete": {
-    "CourseCode": "SUPSER0",
-    "Points": 100
-  },
-  "Support och hemservice": {
-    "CourseCode": "SUPSUP0",
-    "Points": 100
-  },
-  "Litteratur": {
-    "CourseCode": "SVELIT0",
-    "Points": 100
-  },
-  "Retorik": {
-    "CourseCode": "SVERET0",
-    "Points": 100
-  },
-  "Skrivande": {
-    "CourseCode": "SVESKR0",
-    "Points": 100
-  },
-  "Svenska 1": {
-    "CourseCode": "SVESVE01",
-    "Points": 100
-  },
-  "Svenska 2": {
-    "CourseCode": "SVESVE02",
-    "Points": 100
-  },
-  "Svenska 3": {
-    "CourseCode": "SVESVE03",
-    "Points": 100
-  },
-  "Svenska för döva 1": {
-    "CourseCode": "SVNSVN01",
-    "Points": 100
-  },
-  "Svenska för döva 2": {
-    "CourseCode": "SVNSVN02",
-    "Points": 100
-  },
-  "Svenska för döva 3": {
-    "CourseCode": "SVNSVN03",
-    "Points": 100
-  },
-  "Svenska som andraspråk 1": {
-    "CourseCode": "SVASVA01",
-    "Points": 100
-  },
-  "Svenska som andraspråk 2": {
-    "CourseCode": "SVASVA02",
-    "Points": 100
-  },
-  "Svenska som andraspråk 3": {
-    "CourseCode": "SVASVA03",
-    "Points": 100
-  },
-  "Svenskt teckenspråk – aktiv tvåspråkighet": {
-    "CourseCode": "SVKSVE0",
-    "Points": 100
-  },
-  "Svenskt teckenspråk 1": {
-    "CourseCode": "SVKSVK01",
-    "Points": 100
-  },
-  "Svenskt teckenspråk 2": {
-    "CourseCode": "SVKSVK02",
-    "Points": 100
-  },
-  "Svenskt teckenspråk för hörande 1": {
-    "CourseCode": "SVTSVT01",
-    "Points": 100
-  },
-  "Svenskt teckenspråk för hörande 2": {
-    "CourseCode": "SVTSVT02",
-    "Points": 100
-  },
-  "Svenskt teckenspråk för hörande 3": {
-    "CourseCode": "SVTSVT03",
-    "Points": 100
-  },
-  "Svenskt teckenspråk för hörande 4": {
-    "CourseCode": "SVTSVT04",
-    "Points": 100
-  },
-  "Svenskt teckenspråk för hörande 5": {
-    "CourseCode": "SVTSVT05",
-    "Points": 100
-  },
-  "Svenskt teckenspråk för hörande 6": {
-    "CourseCode": "SVTSVT06",
-    "Points": 100
-  },
-  "Svenskt teckenspråk för hörande 7": {
-    "CourseCode": "SVTSVT07",
-    "Points": 100
-  },
-  "Injusteringsteknik": {
-    "CourseCode": "SYSINJ0",
-    "Points": 100
-  },
-  "Systemuppbyggnad": {
-    "CourseCode": "SYSSYT0",
-    "Points": 100
-  },
-  "Värmelära": {
-    "CourseCode": "SYSVÄM0",
-    "Points": 100
-  },
-  "Systemteknik – spårfordon": {
-    "CourseCode": "SYTSYS0",
-    "Points": 150
-  },
-  "Dramatik och dramaturgi": {
-    "CourseCode": "TEADRM0",
-    "Points": 100
-  },
-  "Fysisk teater": {
-    "CourseCode": "TEA1201",
-    "Points": 50
-  },
-  "Ljud och ljus": {
-    "CourseCode": "TEALJU00S",
-    "Points": 100
-  },
-  "Regi": {
-    "CourseCode": "TEAREG0",
-    "Points": 100
-  },
-  "Röst": {
-    "CourseCode": "TEARÖS0",
-    "Points": 100
-  },
-  "Scenisk gestaltning 1": {
-    "CourseCode": "TEASCE01",
-    "Points": 100
-  },
-  "Scenisk gestaltning 2": {
-    "CourseCode": "TEASCE02",
-    "Points": 100
-  },
-  "Scenisk gestaltning 3": {
-    "CourseCode": "TEASCE03",
-    "Points": 100
-  },
-  "Sceniskt karaktärsarbete": {
-    "CourseCode": "TEA1208",
-    "Points": 100
-  },
-  "Sceniskt karaktärsarbete – text": {
-    "CourseCode": "TEASCN0",
-    "Points": 100
-  },
-  "Scenografi, mask och kostym": {
-    "CourseCode": "TEASCE00S",
-    "Points": 100
-  },
-  "Teaterteori": {
-    "CourseCode": "TEATEA0",
-    "Points": 100
-  },
-  "Teknik – specialisering": {
-    "CourseCode": "TEKTEK00S",
-    "Points": 100
-  },
-  "Teknik 1": {
-    "CourseCode": "TEKTEK01",
-    "Points": 150
-  },
-  "Teknik 2": {
-    "CourseCode": "TEKTEK02",
-    "Points": 100
-  },
-  "Komponenter och system el": {
-    "CourseCode": "TEYKOM3",
-    "Points": 100
-  },
-  "Projektering el 1": {
-    "CourseCode": "TEYPRO31",
-    "Points": 100
-  },
-  "Projektering el 2": {
-    "CourseCode": "TEYPRO32",
-    "Points": 100
-  },
-  "Komponenter och system VVS": {
-    "CourseCode": "TESKOP3",
-    "Points": 100
-  },
-  "Projektering VVS 1": {
-    "CourseCode": "TESPRO31",
-    "Points": 100
-  },
-  "Projektering VVS 2": {
-    "CourseCode": "TESPRO32",
-    "Points": 100
-  },
-  "Brand- och ljudisolering": {
-    "CourseCode": "TEIBRA0",
-    "Points": 200
-  },
-  "Industriisolering": {
-    "CourseCode": "TEIINT0",
-    "Points": 200
-  },
-  "Kondensisolering": {
-    "CourseCode": "TEIKOD0",
-    "Points": 100
-  },
-  "VVS-isolering": {
-    "CourseCode": "TEIVVS0",
-    "Points": 100
-  },
-  "Ytbeklädnad – grund": {
-    "CourseCode": "TEIYTB0",
-    "Points": 200
-  },
-  "Tillverkningsunderlag 1": {
-    "CourseCode": "TILTIL01",
-    "Points": 100
-  },
-  "Tillverkningsunderlag 2": {
-    "CourseCode": "TILTIL02",
-    "Points": 100
-  },
-  "Tillämpad programmering": {
-    "CourseCode": "TIPTIL0",
-    "Points": 100
-  },
-  "Trafikövervakning och signalsystem – spårfordon": {
-    "CourseCode": "TRFTRA0",
-    "Points": 100
-  },
-  "Fordonskombinationer – godstransporter": {
-    "CourseCode": "TRAFOR0",
-    "Points": 200
-  },
-  "Fordonskombinationer – persontransporter": {
-    "CourseCode": "TRAFOD0",
-    "Points": 100
-  },
-  "Yrkestrafik – vux": {
-    "CourseCode": "TRAYRK1",
-    "Points": 300
-  },
-  "Yrkestrafik 1a": {
-    "CourseCode": "TRAYRK01a",
-    "Points": 200
-  },
-  "Yrkestrafik 1b": {
-    "CourseCode": "TRAYRK01b",
-    "Points": 300
-  },
-  "Trav 1": {
-    "CourseCode": "RIDTRA01",
-    "Points": 100
-  },
-  "Trav 2": {
-    "CourseCode": "RIDTRA02",
-    "Points": 100
-  },
-  "Truckteknik": {
-    "CourseCode": "TRCTRU0",
-    "Points": 200
-  },
-  "Bygga i trä": {
-    "CourseCode": "TRÄBYG0",
-    "Points": 100
-  },
-  "Timring": {
-    "CourseCode": "TRÄTIM0",
-    "Points": 100
-  },
-  "Trä 1 – stommar": {
-    "CourseCode": "TRÄTRK01",
-    "Points": 100
-  },
-  "Trä 2 – beklädnad": {
-    "CourseCode": "TRÄTRK02",
-    "Points": 100
-  },
-  "Trä 3 – montage": {
-    "CourseCode": "TRÄTRK03",
-    "Points": 100
-  },
-  "Trädgårdsanläggning – specialisering": {
-    "CourseCode": "TRDTRÄ00S",
-    "Points": 100
-  },
-  "Trädgårdsanläggning 1": {
-    "CourseCode": "TRDTRÄ01",
-    "Points": 100
-  },
-  "Trädgårdsanläggning 2": {
-    "CourseCode": "TRDTRÄ02",
-    "Points": 100
-  },
-  "Trädgårdsmaskiner": {
-    "CourseCode": "NABTRG0",
-    "Points": 100
-  },
-  "Trädgårdsodling": {
-    "CourseCode": "ODLTRÅ0",
-    "Points": 100
-  },
-  "Trädgårdsodling – grönsaker, frukt och bär": {
-    "CourseCode": "ODLTRR0",
-    "Points": 100
-  },
-  "Trädgårdsodling – plantskoleväxter": {
-    "CourseCode": "ODLTRS0",
-    "Points": 100
-  },
-  "Trädgårdsodling – specialisering": {
-    "CourseCode": "TRRTRA00S",
-    "Points": 100
-  },
-  "Träningslära 1": {
-    "CourseCode": "TRNTRN01",
-    "Points": 100
-  },
-  "Träningslära 2": {
-    "CourseCode": "TRNTRN02",
-    "Points": 100
-  },
-  "Tätskikt våtrum": {
-    "CourseCode": "TÄTTÄT0",
-    "Points": 100
-  },
-  "Flygunderhåll": {
-    "CourseCode": "UNDFLY0",
-    "Points": 200
-  },
-  "Materiallära – flyg": {
-    "CourseCode": "FLYMAA0",
-    "Points": 100
-  },
-  "Utställningsdesign 1": {
-    "CourseCode": "UTSUTS01",
-    "Points": 100
-  },
-  "Utställningsdesign 2": {
-    "CourseCode": "UTSUTS02",
-    "Points": 100
-  },
-  "Utställningsdesign 3": {
-    "CourseCode": "UTSUTS03S",
-    "Points": 100
-  },
-  "Fiskodling 1": {
-    "CourseCode": "VANFIS01",
-    "Points": 200
-  },
-  "Fiskodling 2": {
-    "CourseCode": "VANFIS02",
-    "Points": 200
-  },
-  "Vattenbruk – grunder": {
-    "CourseCode": "VANVAT0",
-    "Points": 100
-  },
-  "Vattenbruk – specialisering": {
-    "CourseCode": "VANVAE00S",
-    "Points": 100
-  },
-  "Drift, underhåll, säkerhet och miljö": {
-    "CourseCode": "VAEDRT0",
-    "Points": 200
-  },
-  "Generatorer och transformatorer": {
-    "CourseCode": "VAKR1201",
-    "Points": 100
-  },
-  "Hydraulik, kraftstationshydraulik och turbiner": {
-    "CourseCode": "VAEHYD0",
-    "Points": 100
-  },
-  "Kontrollanläggningar": {
-    "CourseCode": "VAKR1203",
-    "Points": 200
-  },
-  "Vattenkraftstationer": {
-    "CourseCode": "VAEVAN0",
-    "Points": 100
-  },
-  "Dricksvatten": {
-    "CourseCode": "VATDRI0",
-    "Points": 100
-  },
-  "Rening av förorenat vatten": {
-    "CourseCode": "VATREN0",
-    "Points": 100
-  },
-  "Vatten- och miljöteknik": {
-    "CourseCode": "VATVAT0",
-    "Points": 200
-  },
-  "Vattenreningens mikrobiologi": {
-    "CourseCode": "VMT1207",
-    "Points": 50
-  },
-  "Ventilationsisolering": {
-    "CourseCode": "VENVET0",
-    "Points": 200
-  },
-  "Ventilationsmontering 1": {
-    "CourseCode": "VENVEN01",
-    "Points": 100
-  },
-  "Ventilationsmontering 2": {
-    "CourseCode": "VENVEN02",
-    "Points": 200
-  },
-  "Ventilationsservice": {
-    "CourseCode": "BYPL1215",
-    "Points": 150
-  },
-  "Ventilationsplåtslageri 1": {
-    "CourseCode": "VENVET01",
-    "Points": 100
-  },
-  "Ventilationsplåtslageri 2": {
-    "CourseCode": "VENVET02",
-    "Points": 200
-  },
-  "Luftbehandling": {
-    "CourseCode": "BYPL1205",
-    "Points": 50
-  },
-  "Luftbehandlingsanläggningar": {
-    "CourseCode": "VETLUT0",
-    "Points": 200
-  },
-  "Luftbehandlingssystem": {
-    "CourseCode": "VETLUE0",
-    "Points": 100
-  },
-  "Luftströmning": {
-    "CourseCode": "VETLUS0",
-    "Points": 200
-  },
-  "Ventilationsteknik – injustering": {
-    "CourseCode": "VETVEL0",
-    "Points": 100
-  },
-  "Verkstad – spårfordon": {
-    "CourseCode": "VEAVER0",
-    "Points": 100
-  },
-  "Verktygs- och materialhantering": {
-    "CourseCode": "VEKVEK0",
-    "Points": 100
-  },
-  "Visuell kommunikation": {
-    "CourseCode": "VISVIS0",
-    "Points": 100
-  },
-  "Entreprenadteknik": {
-    "CourseCode": "VVSENT0",
-    "Points": 100
-  },
-  "Sanitetsteknik 1": {
-    "CourseCode": "VVSSAN01",
-    "Points": 100
-  },
-  "Sanitetsteknik 2": {
-    "CourseCode": "VVSSAN02",
-    "Points": 100
-  },
-  "VVS gassvetsning rör": {
-    "CourseCode": "VVSVVG0",
-    "Points": 100
-  },
-  "VVS svets och lödning rör": {
-    "CourseCode": "VVSVVS0",
-    "Points": 100
-  },
-  "VVS-teknik": {
-    "CourseCode": "VVSVVT0",
-    "Points": 200
-  },
-  "Värmeteknik 1": {
-    "CourseCode": "VVSVÄR01",
-    "Points": 100
-  },
-  "Värmeteknik 2": {
-    "CourseCode": "VVSVÄR02",
-    "Points": 100
-  },
   "Våningsservice 1": {
     "CourseCode": "HOTVÅN01",
     "Points": 100
@@ -4239,124 +159,16 @@
     "CourseCode": "HOTVÅN03",
     "Points": 100
   },
-  "Vård och omsorg – specialisering": {
-    "CourseCode": "VADVAD00S",
-    "Points": 100
-  },
-  "Växtkunskap – fastighetsskötsel": {
-    "CourseCode": "VÄXVÄK0",
-    "Points": 100
-  },
-  "Växtkunskap 1": {
-    "CourseCode": "VÄXVÄX01",
-    "Points": 100
-  },
-  "Växtkunskap 2": {
-    "CourseCode": "VÄXVÄX02",
-    "Points": 100
-  },
-  "Odling av djurfoder": {
-    "CourseCode": "ODLODL0",
-    "Points": 100
-  },
-  "Växtodling – specialisering": {
-    "CourseCode": "VAOVAT00S",
-    "Points": 100
-  },
-  "Växtodling 1": {
-    "CourseCode": "ODLVÄT01",
-    "Points": 100
-  },
-  "Växtodling 2": {
-    "CourseCode": "ODLVÄT02",
-    "Points": 100
-  },
-  "Webbserverprogrammering 1": {
-    "CourseCode": "WEBWEB01",
-    "Points": 100
-  },
-  "Webbserverprogrammering 2": {
-    "CourseCode": "WEBWEB02",
-    "Points": 100
-  },
-  "Webbtjänster": {
-    "CourseCode": "WESWET3",
-    "Points": 100
-  },
-  "Webbutveckling 1": {
-    "CourseCode": "WEBWEU01",
-    "Points": 100
-  },
-  "Webbutveckling 2": {
-    "CourseCode": "WEBWEU02",
-    "Points": 100
-  },
-  "Webbutveckling 3": {
-    "CourseCode": "WEBWEU03",
-    "Points": 100
-  },
-  "Aerodynamik": {
-    "CourseCode": "FYT1201",
-    "Points": 50
-  },
-  "Flyglagstiftning": {
-    "CourseCode": "FLYFLY0",
-    "Points": 50
-  },
-  "Mänskliga faktorer": {
-    "CourseCode": "FLYMAS0",
-    "Points": 100
-  },
-  "Yttre miljö – anläggningar": {
-    "CourseCode": "YTTYTT0",
-    "Points": 100
-  },
-  "Yttre miljö – maskiner och verktyg": {
-    "CourseCode": "YTTYTR0",
-    "Points": 100
-  },
-  "Reparation av motorcyklar och ATV": {
-    "CourseCode": "ATVREP0",
+  "Datakommunikation och informationssäkerhet": {
+    "CourseCode": "INODAT0",
     "Points": 200
   },
-  "Grundläggande mätningsteknik": {
-    "CourseCode": "BYLGRN0",
-    "Points": 50
-  },
-  "Produktionsstyrning i byggskedet": {
-    "CourseCode": "BYLPRO0",
-    "Points": 200
-  },
-  "Installationer": {
-    "CourseCode": "ELPINS0",
+  "Informationsteknisk arkitektur": {
+    "CourseCode": "INOINF0",
     "Points": 100
   },
-  "Projektering": {
-    "CourseCode": "ELPPRO0",
-    "Points": 200
-  },
-  "Elektronik – flyg": {
-    "CourseCode": "FLYELT0",
-    "Points": 100
-  },
-  "Flygplanslära": {
-    "CourseCode": "FYT1207",
-    "Points": 150
-  },
-  "Helikopterlära": {
-    "CourseCode": "FYT1212",
-    "Points": 100
-  },
-  "Kolvmotor": {
-    "CourseCode": "FLYKOL0",
-    "Points": 200
-  },
-  "Underhållsteknik – flyg": {
-    "CourseCode": "FLYUNS0",
-    "Points": 200
-  },
-  "Hotelladministration": {
-    "CourseCode": "HOK1201",
+  "Nätverks- och kommunikationstjänster": {
+    "CourseCode": "INONAT0",
     "Points": 100
   },
   "Sanitet och tappvatten": {
@@ -4427,6 +239,66 @@
     "CourseCode": "MEDMED02",
     "Points": 100
   },
+  "Mjukvarudesign": {
+    "CourseCode": "MJUMJU0",
+    "Points": 100
+  },
+  "Datoriserad mönsterhantering 1": {
+    "CourseCode": "MÖNDAT01",
+    "Points": 100
+  },
+  "Datoriserad mönsterhantering 2": {
+    "CourseCode": "MÖNDAT02",
+    "Points": 100
+  },
+  "Mönsterkonstruktion 1": {
+    "CourseCode": "MÖNMÖN01",
+    "Points": 100
+  },
+  "Mönsterkonstruktion 2": {
+    "CourseCode": "MÖNMÖN02",
+    "Points": 100
+  },
+  "Avverkningsmaskiner": {
+    "CourseCode": "NABAVV0",
+    "Points": 100
+  },
+  "Fordon och redskap": {
+    "CourseCode": "NABFOR0",
+    "Points": 100
+  },
+  "Lantbruksmaskiner 1": {
+    "CourseCode": "NABLAT01",
+    "Points": 100
+  },
+  "Lantbruksmaskiner 2": {
+    "CourseCode": "NABLAT02",
+    "Points": 100
+  },
+  "Lastmaskiner och truckar": {
+    "CourseCode": "NABLAA0",
+    "Points": 100
+  },
+  "Skogsmaskiner – specialisering": {
+    "CourseCode": "NABSKO00S",
+    "Points": 200
+  },
+  "Småskalig skogsteknik": {
+    "CourseCode": "NABSMÅ0",
+    "Points": 100
+  },
+  "Terrängtransporter": {
+    "CourseCode": "NABTER0",
+    "Points": 100
+  },
+  "Trädgårdsmaskiner": {
+    "CourseCode": "NABTRG0",
+    "Points": 100
+  },
+  "Virkestransport med skotare": {
+    "CourseCode": "NABVIE0",
+    "Points": 100
+  },
   "Näthandel 1": {
     "CourseCode": "NÄTNÄT01",
     "Points": 100
@@ -4435,8 +307,52 @@
     "CourseCode": "NÄTNÄT02",
     "Points": 100
   },
+  "Administration av nätverks- och serverutrustning": {
+    "CourseCode": "NÄVADM0",
+    "Points": 100
+  },
+  "Nätverksadministration": {
+    "CourseCode": "NÄVNÄV0",
+    "Points": 100
+  },
+  "Nätverkssäkerhet": {
+    "CourseCode": "NÄVNÄE0",
+    "Points": 100
+  },
+  "Nätverksteknik": {
+    "CourseCode": "NÄVNÄR0",
+    "Points": 100
+  },
+  "Nätverksteknologier": {
+    "CourseCode": "NÄVNÄK0",
+    "Points": 100
+  },
   "Odling – specialisering": {
     "CourseCode": "ODLODL00S",
+    "Points": 100
+  },
+  "Odling av djurfoder": {
+    "CourseCode": "ODLODL0",
+    "Points": 100
+  },
+  "Trädgårdsodling": {
+    "CourseCode": "ODLTRÅ0",
+    "Points": 100
+  },
+  "Trädgårdsodling – grönsaker, frukt och bär": {
+    "CourseCode": "ODLTRR0",
+    "Points": 100
+  },
+  "Trädgårdsodling – plantskoleväxter": {
+    "CourseCode": "ODLTRS0",
+    "Points": 100
+  },
+  "Växtodling 1": {
+    "CourseCode": "ODLVÄT01",
+    "Points": 100
+  },
+  "Växtodling 2": {
+    "CourseCode": "ODLVÄT02",
     "Points": 100
   },
   "Bromsar, kaross och chassi": {
@@ -4463,16 +379,60 @@
     "CourseCode": "PERREA0",
     "Points": 300
   },
+  "Produktionsfilosofi 1": {
+    "CourseCode": "PRTPRO01",
+    "Points": 100
+  },
+  "Produktionsfilosofi 2": {
+    "CourseCode": "PRTPRO02",
+    "Points": 100
+  },
+  "Körning 1": {
+    "CourseCode": "RIDKÖR01",
+    "Points": 100
+  },
+  "Körning 2": {
+    "CourseCode": "RIDKÖR02",
+    "Points": 100
+  },
+  "Ridning 1": {
+    "CourseCode": "RIDRID01",
+    "Points": 100
+  },
+  "Ridning 2": {
+    "CourseCode": "RIDRID02",
+    "Points": 100
+  },
+  "Ridning och körning": {
+    "CourseCode": "RIDRID0",
+    "Points": 200
+  },
+  "Trav 1": {
+    "CourseCode": "RIDTRA01",
+    "Points": 100
+  },
+  "Trav 2": {
+    "CourseCode": "RIDTRA02",
+    "Points": 100
+  },
   "Akutsjukvård": {
     "CourseCode": "SJUAKU0",
     "Points": 200
   },
+  "Barn- och ungdomssjukvård": {
+    "CourseCode": "SJUBAR0",
+    "Points": 200
+  },
   "Hemsjukvård": {
-    "CourseCode": "OMV1207",
+    "CourseCode": "SJUHEM0",
     "Points": 100
   },
   "Palliativ vård": {
     "CourseCode": "SJULIN0",
+    "Points": 100
+  },
+  "Räddningsmedicin": {
+    "CourseCode": "SJURÄD0",
     "Points": 100
   },
   "Digitalteknik och programmering": {
@@ -4515,13 +475,157 @@
     "CourseCode": "SPFSTY0",
     "Points": 100
   },
+  "Charkuteri – specialisering": {
+    "CourseCode": "STYCHA00S",
+    "Points": 100
+  },
+  "Charkuteri 1": {
+    "CourseCode": "STYCHA01",
+    "Points": 100
+  },
+  "Charkuteri 2": {
+    "CourseCode": "STYCHA02",
+    "Points": 100
+  },
+  "Charkuteri 3": {
+    "CourseCode": "STYCHA03",
+    "Points": 200
+  },
+  "Charkuteri 4": {
+    "CourseCode": "STYCHA04",
+    "Points": 100
+  },
+  "Finstyckning": {
+    "CourseCode": "STYFIN0",
+    "Points": 100
+  },
+  "Styckning – specialisering": {
+    "CourseCode": "STYSTY00S",
+    "Points": 100
+  },
+  "Styckning 1": {
+    "CourseCode": "STYSTY01",
+    "Points": 100
+  },
+  "Styckning 2": {
+    "CourseCode": "STYSTY02",
+    "Points": 100
+  },
+  "Styckning 3": {
+    "CourseCode": "STYSTY03",
+    "Points": 200
+  },
+  "Styckning 4": {
+    "CourseCode": "STYSTY04",
+    "Points": 100
+  },
   "Teknik i vård och omsorg": {
     "CourseCode": "TENTEK0",
+    "Points": 100
+  },
+  "Tillämpad programmering": {
+    "CourseCode": "TIPTIL0",
+    "Points": 100
+  },
+  "Aktiviteter och upplevelser": {
+    "CourseCode": "TURAKT0",
+    "Points": 100
+  },
+  "Besöksnäringen": {
+    "CourseCode": "TURBEÖ0",
+    "Points": 100
+  },
+  "Guide och reseledare": {
+    "CourseCode": "TURGUI0",
+    "Points": 100
+  },
+  "Hållbar turism": {
+    "CourseCode": "TURHÅL0",
+    "Points": 100
+  },
+  "Marknadsföring och försäljning": {
+    "CourseCode": "TURMAS0",
+    "Points": 100
+  },
+  "Reseproduktion och försäljning": {
+    "CourseCode": "TURRES0",
+    "Points": 100
+  },
+  "Resmål och resvägar": {
+    "CourseCode": "TURREM0",
+    "Points": 100
+  },
+  "Turistbyråservice": {
+    "CourseCode": "TURTUR0",
+    "Points": 100
+  },
+  "Värdskap på resmålet": {
+    "CourseCode": "TURVÄR0",
+    "Points": 100
+  },
+  "Ventilationsisolering": {
+    "CourseCode": "VENVET0",
+    "Points": 200
+  },
+  "Ventilationsmontering 1": {
+    "CourseCode": "VENVEN01",
+    "Points": 100
+  },
+  "Ventilationsmontering 2": {
+    "CourseCode": "VENVEN02",
+    "Points": 200
+  },
+  "Ventilationsplåtslageri 1": {
+    "CourseCode": "VENVET01",
+    "Points": 100
+  },
+  "Ventilationsplåtslageri 2": {
+    "CourseCode": "VENVET02",
+    "Points": 200
+  },
+  "Ventilationsservice": {
+    "CourseCode": "VENVEI0",
+    "Points": 100
+  },
+  "Entreprenadteknik": {
+    "CourseCode": "VVSENT0",
+    "Points": 100
+  },
+  "Sanitetsteknik 1": {
+    "CourseCode": "VVSSAN01",
+    "Points": 100
+  },
+  "Sanitetsteknik 2": {
+    "CourseCode": "VVSSAN02",
+    "Points": 100
+  },
+  "VVS gassvetsning rör": {
+    "CourseCode": "VVSVVG0",
     "Points": 100
   },
   "VVS svets industrirör": {
     "CourseCode": "VVSVVV0",
     "Points": 200
+  },
+  "VVS svets och lödning rör": {
+    "CourseCode": "VVSVVS0",
+    "Points": 100
+  },
+  "VVS TIG-svetsning rör": {
+    "CourseCode": "VVSVVI0",
+    "Points": 100
+  },
+  "VVS-teknik": {
+    "CourseCode": "VVSVVT0",
+    "Points": 200
+  },
+  "Värmeteknik 1": {
+    "CourseCode": "VVSVÄR01",
+    "Points": 100
+  },
+  "Värmeteknik 2": {
+    "CourseCode": "VVSVÄR02",
+    "Points": 100
   },
   "Vård- och omsorgsarbete 1": {
     "CourseCode": "VÅRVÅR01",
@@ -4530,6 +634,30 @@
   "Vård- och omsorgsarbete 2": {
     "CourseCode": "VÅRVÅR02",
     "Points": 150
+  },
+  "Mobila applikationer": {
+    "CourseCode": "WEBMOB0",
+    "Points": 100
+  },
+  "Webbserverprogrammering 1": {
+    "CourseCode": "WEBWEB01",
+    "Points": 100
+  },
+  "Webbserverprogrammering 2": {
+    "CourseCode": "WEBWEB02",
+    "Points": 100
+  },
+  "Webbutveckling 1": {
+    "CourseCode": "WEBWEU01",
+    "Points": 100
+  },
+  "Webbutveckling 2": {
+    "CourseCode": "WEBWEU02",
+    "Points": 100
+  },
+  "Webbutveckling 3": {
+    "CourseCode": "WEBWEU03",
+    "Points": 100
   },
   "Administration A": {
     "CourseCode": "ADM1201",
@@ -4567,6 +695,10 @@
     "CourseCode": "ADM1208",
     "Points": 100
   },
+  "Personaladministration": {
+    "CourseCode": "ADM1209",
+    "Points": 50
+  },
   "Arbete på väg": {
     "CourseCode": "AMT1201",
     "Points": 50
@@ -4574,6 +706,10 @@
   "Grävmaskin och grävlastare": {
     "CourseCode": "AMT1203",
     "Points": 200
+  },
+  "Hjullastare": {
+    "CourseCode": "AMT1204",
+    "Points": 150
   },
   "Mobilkran": {
     "CourseCode": "AMT1205",
@@ -4583,6 +719,14 @@
     "CourseCode": "AMT1206",
     "Points": 50
   },
+  "Teleskoplastare": {
+    "CourseCode": "AMT1207",
+    "Points": 100
+  },
+  "Väghyvel": {
+    "CourseCode": "AMT1208",
+    "Points": 200
+  },
   "Anläggning": {
     "CourseCode": "ATE1201",
     "Points": 100
@@ -4590,6 +734,26 @@
   "Ballastkunskap": {
     "CourseCode": "ATE1212",
     "Points": 50
+  },
+  "Beläggning": {
+    "CourseCode": "ATE1202",
+    "Points": 150
+  },
+  "Bergarbeten": {
+    "CourseCode": "ATE1203",
+    "Points": 150
+  },
+  "Bergborrning": {
+    "CourseCode": "ATE1204",
+    "Points": 150
+  },
+  "Bergmaskiner": {
+    "CourseCode": "ATE1205",
+    "Points": 50
+  },
+  "Bergsprängning": {
+    "CourseCode": "ATE1206",
+    "Points": 200
   },
   "Grundläggning": {
     "CourseCode": "ATE1207",
@@ -4671,6 +835,10 @@
     "CourseCode": "BRT1202",
     "Points": 50
   },
+  "Bild": {
+    "CourseCode": "BF1201",
+    "Points": 150
+  },
   "Bild och form, fördjupning": {
     "CourseCode": "BF1203",
     "Points": 200
@@ -4678,6 +846,10 @@
   "Bild och form, grundkurs": {
     "CourseCode": "BF1202",
     "Points": 50
+  },
+  "Form": {
+    "CourseCode": "BF1204",
+    "Points": 150
   },
   "Biologi - breddning": {
     "CourseCode": "BI1203",
@@ -4690,6 +862,10 @@
   "Biologi B": {
     "CourseCode": "BI1202",
     "Points": 50
+  },
+  "Bioteknik": {
+    "CourseCode": "BI1209",
+    "Points": 100
   },
   "Ekologi": {
     "CourseCode": "BI1204",
@@ -4743,6 +919,10 @@
     "CourseCode": "BYPL1204",
     "Points": 50
   },
+  "Luftbehandling": {
+    "CourseCode": "BYPL1205",
+    "Points": 50
+  },
   "Luftmängdsmätning": {
     "CourseCode": "BYPL1206",
     "Points": 100
@@ -4777,6 +957,10 @@
   },
   "Ventilationsanläggningar": {
     "CourseCode": "BYPL1214",
+    "Points": 150
+  },
+  "Ventilationsservice": {
+    "CourseCode": "BYPL1215",
     "Points": 150
   },
   "Byggkunskap": {
@@ -4871,6 +1055,14 @@
     "CourseCode": "DNS1203",
     "Points": 100
   },
+  "Dansimprovisation och komposition": {
+    "CourseCode": "DNS1204",
+    "Points": 150
+  },
+  "Dansträning": {
+    "CourseCode": "DNS1205",
+    "Points": 100
+  },
   "Datorkunskap": {
     "CourseCode": "DAA1201",
     "Points": 50
@@ -4931,6 +1123,10 @@
     "CourseCode": "DJR1201",
     "Points": 200
   },
+  "Djur för forskningsändamål": {
+    "CourseCode": "DJR1202",
+    "Points": 200
+  },
   "Djurhållning i park": {
     "CourseCode": "DJR1203",
     "Points": 200
@@ -4985,6 +1181,18 @@
   },
   "Drift och underhåll": {
     "CourseCode": "ELD1201",
+    "Points": 150
+  },
+  "Högspänningsnät": {
+    "CourseCode": "ELD1202",
+    "Points": 100
+  },
+  "Kontrollanläggningar": {
+    "CourseCode": "VAKR1203",
+    "Points": 200
+  },
+  "Lågspänningsnät": {
+    "CourseCode": "ELD1204",
     "Points": 150
   },
   "Nätstationer i jordkabelnät": {
@@ -5095,6 +1303,10 @@
     "CourseCode": "ENSY1213",
     "Points": null
   },
+  "Ljudproduktionsteknik": {
+    "CourseCode": "ENSY1214",
+    "Points": null
+  },
   "Marinelektronik": {
     "CourseCode": "ENSY1215",
     "Points": null
@@ -5118,6 +1330,10 @@
   "Videoproduktionsteknik": {
     "CourseCode": "ENSY1219",
     "Points": null
+  },
+  "Belysningsteknik": {
+    "CourseCode": "ELI1201",
+    "Points": 50
   },
   "Elarbetsmiljö och säkerhet": {
     "CourseCode": "ELI1202",
@@ -5207,6 +1423,10 @@
     "CourseCode": "EOS1203",
     "Points": 50
   },
+  "Skapande verksamhet": {
+    "CourseCode": "EOS1204",
+    "Points": 100
+  },
   "Estetisk verksamhet": {
     "CourseCode": "ESV1201",
     "Points": 50
@@ -5231,9 +1451,17 @@
     "CourseCode": "FTT1202",
     "Points": 450
   },
+  "Fartygsbefäl": {
+    "CourseCode": "FTT1203",
+    "Points": 100
+  },
   "Jourtjänst maskin": {
     "CourseCode": "FTT1204",
     "Points": 50
+  },
+  "Maskinbefäl": {
+    "CourseCode": "FTT1205",
+    "Points": 100
   },
   "Maskintjänst": {
     "CourseCode": "FTT1206",
@@ -5262,6 +1490,10 @@
   "Byggnader och utrustning": {
     "CourseCode": "FATE1201",
     "Points": 150
+  },
+  "Fastighetsförvaltning": {
+    "CourseCode": "FATE1202",
+    "Points": 100
   },
   "Köks- och tvättutrustning": {
     "CourseCode": "FATE1203",
@@ -5315,6 +1547,10 @@
     "CourseCode": "FITE1206",
     "Points": 100
   },
+  "Aerodynamik": {
+    "CourseCode": "FYT1201",
+    "Points": 50
+  },
   "Ellära för flygmekaniker A": {
     "CourseCode": "FYT1202",
     "Points": 50
@@ -5335,6 +1571,10 @@
     "CourseCode": "FYT1206",
     "Points": 100
   },
+  "Flygplanslära": {
+    "CourseCode": "FYT1207",
+    "Points": 150
+  },
   "Flygteknisk fysik": {
     "CourseCode": "FYT1208",
     "Points": 100
@@ -5342,6 +1582,14 @@
   "Flygteknisk underhållsteknik": {
     "CourseCode": "FYT1210",
     "Points": 200
+  },
+  "Gasturbinmotorer": {
+    "CourseCode": "FYT1211",
+    "Points": 100
+  },
+  "Helikopterlära": {
+    "CourseCode": "FYT1212",
+    "Points": 100
   },
   "Materiallära och komponentkunskap": {
     "CourseCode": "FYT1213",
@@ -5415,6 +1663,10 @@
     "CourseCode": "FOG1204",
     "Points": 200
   },
+  "Textil färg och form": {
+    "CourseCode": "FOG1205",
+    "Points": 50
+  },
   "Fotografisk bild A": {
     "CourseCode": "FBL1201",
     "Points": 100
@@ -5475,6 +1727,14 @@
     "CourseCode": "FE1203",
     "Points": 150
   },
+  "Internationell ekonomi": {
+    "CourseCode": "FE1210",
+    "Points": 50
+  },
+  "Marknadsföring": {
+    "CourseCode": "FE1204",
+    "Points": 100
+  },
   "Organisation och ledarskap": {
     "CourseCode": "FE1205",
     "Points": 50
@@ -5497,6 +1757,10 @@
   },
   "Geografi B": {
     "CourseCode": "GE1202",
+    "Points": 50
+  },
+  "Geografiska informationssystem": {
+    "CourseCode": "GE1203",
     "Points": 50
   },
   "Gjuteriteknik A": {
@@ -5591,6 +1855,10 @@
     "CourseCode": "GOTE1209",
     "Points": 150
   },
+  "Grafisk illustration": {
+    "CourseCode": "GKO1204",
+    "Points": 100
+  },
   "Grafisk kommunikation A": {
     "CourseCode": "GKO1201",
     "Points": 100
@@ -5653,6 +1921,10 @@
   },
   "Telefonförsäljning": {
     "CourseCode": "HNDL1213",
+    "Points": 50
+  },
+  "Transport och spedition": {
+    "CourseCode": "HNDL1214",
     "Points": 50
   },
   "Hantverksorientering": {
@@ -5718,6 +1990,10 @@
   "Hotell C": {
     "CourseCode": "HOK1204",
     "Points": 200
+  },
+  "Hotelladministration": {
+    "CourseCode": "HOK1201",
+    "Points": 100
   },
   "Konferens": {
     "CourseCode": "HOK1205",
@@ -5797,6 +2073,10 @@
   },
   "Ställningsbyggnad": {
     "CourseCode": "HUS1215",
+    "Points": 50
+  },
+  "Ergonomi": {
+    "CourseCode": "IDH1203",
     "Points": 50
   },
   "Idrott och hälsa A": {
@@ -5915,6 +2195,10 @@
     "CourseCode": "GRK1202",
     "Points": 100
   },
+  "Choklad och konfektyr": {
+    "CourseCode": "KOND1201",
+    "Points": 100
+  },
   "Konditori A": {
     "CourseCode": "KOND1202",
     "Points": 100
@@ -5950,6 +2234,10 @@
   "Filmkunskap": {
     "CourseCode": "KUHI1201",
     "Points": 50
+  },
+  "Kultur- och idéhistoria": {
+    "CourseCode": "KUHI1202",
+    "Points": 100
   },
   "Kultur- och konstanalys": {
     "CourseCode": "KUHI1203",
@@ -6019,6 +2307,10 @@
     "CourseCode": "LAC1208",
     "Points": 100
   },
+  "Lackeringssystem": {
+    "CourseCode": "LAC1209",
+    "Points": 150
+  },
   "Lackeringsutrustning": {
     "CourseCode": "LAC1210",
     "Points": 150
@@ -6046,6 +2338,10 @@
   "Latin C": {
     "CourseCode": "LAS1203",
     "Points": 100
+  },
+  "Drycker": {
+    "CourseCode": "LMK1201",
+    "Points": 50
   },
   "Livsmedel A": {
     "CourseCode": "LMK1202",
@@ -6095,6 +2391,14 @@
     "CourseCode": "LPL1202",
     "Points": 50
   },
+  "Hälsopedagogik": {
+    "CourseCode": "LPL1203",
+    "Points": 50
+  },
+  "Kommunikation": {
+    "CourseCode": "LPL1204",
+    "Points": 50
+  },
   "Ledarskap inom lek och idrott": {
     "CourseCode": "LPL1205",
     "Points": 50
@@ -6106,6 +2410,10 @@
   "Natur och friluftsliv B": {
     "CourseCode": "LPL1207",
     "Points": 50
+  },
+  "Pedagogiskt ledarskap": {
+    "CourseCode": "LPL1208",
+    "Points": 100
   },
   "Arbetsmaskiner service": {
     "CourseCode": "MTK1203",
@@ -6303,6 +2611,10 @@
     "CourseCode": "METE1201",
     "Points": 50
   },
+  "Gas- och vätsketeknik": {
+    "CourseCode": "METE1202",
+    "Points": 50
+  },
   "Kemisk analysteknik": {
     "CourseCode": "METE1203",
     "Points": 100
@@ -6343,6 +2655,10 @@
     "CourseCode": "MPR1202",
     "Points": 100
   },
+  "Hållbart samhällsbyggande": {
+    "CourseCode": "MKU1201",
+    "Points": 100
+  },
   "Miljökunskap": {
     "CourseCode": "MKU1202",
     "Points": 100
@@ -6358,6 +2674,10 @@
   "Miljöteknik": {
     "CourseCode": "MKU1205",
     "Points": 50
+  },
+  "Designmodeller": {
+    "CourseCode": "MOD1201",
+    "Points": 150
   },
   "Industrimodeller": {
     "CourseCode": "MOD1202",
@@ -6507,6 +2827,10 @@
     "CourseCode": "MÄTE1203",
     "Points": 150
   },
+  "Mät- och reglerteknik": {
+    "CourseCode": "MÄTE1207",
+    "Points": 100
+  },
   "Mätteknik A": {
     "CourseCode": "MÄTE1204",
     "Points": 50
@@ -6517,6 +2841,10 @@
   },
   "Mätteknik C": {
     "CourseCode": "MÄTE1206",
+    "Points": 50
+  },
+  "Processdatorsystem": {
+    "CourseCode": "MÄTE1208",
     "Points": 50
   },
   "Processkunskap": {
@@ -6603,6 +2931,10 @@
     "CourseCode": "NAM1201",
     "Points": 100
   },
+  "Biodling": {
+    "CourseCode": "NAM1202",
+    "Points": 50
+  },
   "Energiråvara": {
     "CourseCode": "NAM1203",
     "Points": 50
@@ -6657,6 +2989,10 @@
   },
   "Basmaskin service": {
     "CourseCode": "NABT1202",
+    "Points": 100
+  },
+  "Byggnadsunderhåll": {
+    "CourseCode": "NABT1203",
     "Points": 100
   },
   "Motor- och röjmotorsåg": {
@@ -6739,6 +3075,10 @@
     "CourseCode": "OMV1201",
     "Points": 50
   },
+  "Barn- och ungdomssjukvård": {
+    "CourseCode": "OMV1202",
+    "Points": 200
+  },
   "Folkhälsokunskap": {
     "CourseCode": "OMV1203",
     "Points": 50
@@ -6753,6 +3093,10 @@
   },
   "Handledning": {
     "CourseCode": "OMV1206",
+    "Points": 100
+  },
+  "Hemsjukvård": {
+    "CourseCode": "OMV1207",
     "Points": 100
   },
   "Informations- och kommunikationsteknologi i vård och omsorg": {
@@ -6891,6 +3235,10 @@
     "CourseCode": "RID1205",
     "Points": 100
   },
+  "Affärsjuridik": {
+    "CourseCode": "RK1201",
+    "Points": 50
+  },
   "Miljöjuridik": {
     "CourseCode": "RK1202",
     "Points": 50
@@ -6911,6 +3259,10 @@
     "CourseCode": "RBL1203",
     "Points": 200
   },
+  "Internationella relationer": {
+    "CourseCode": "SH1204",
+    "Points": 50
+  },
   "Samhällskunskap A": {
     "CourseCode": "SH1201",
     "Points": 100
@@ -6929,6 +3281,10 @@
   },
   "Ansvarsfull alkoholhantering": {
     "CourseCode": "SERK1202",
+    "Points": 50
+  },
+  "Barteknik": {
+    "CourseCode": "SERK1203",
     "Points": 50
   },
   "Bordsdekorationer": {
@@ -6959,6 +3315,10 @@
     "CourseCode": "SKOG1202",
     "Points": 50
   },
+  "Avverkningsmaskiner": {
+    "CourseCode": "SKOG1203",
+    "Points": 150
+  },
   "Röjningsarbete": {
     "CourseCode": "SKOG1204",
     "Points": 50
@@ -6986,6 +3346,10 @@
   "Virkesbehandling B": {
     "CourseCode": "SKOG1210",
     "Points": 50
+  },
+  "Virkesmätning": {
+    "CourseCode": "SKOG1211",
+    "Points": 150
   },
   "Virkestransport A": {
     "CourseCode": "SKOG1212",
@@ -7227,6 +3591,10 @@
     "CourseCode": "SVST1227",
     "Points": 50
   },
+  "Fysisk teater": {
+    "CourseCode": "TEA1201",
+    "Points": 50
+  },
   "Ljus- och ljudteknik": {
     "CourseCode": "TEA1202",
     "Points": 100
@@ -7249,6 +3617,10 @@
   },
   "Scenisk produktion": {
     "CourseCode": "TEA1207",
+    "Points": 100
+  },
+  "Sceniskt karaktärsarbete": {
+    "CourseCode": "TEA1208",
     "Points": 100
   },
   "Sceniskt ledarskap": {
@@ -7699,6 +4071,10 @@
     "CourseCode": "VMT1206",
     "Points": 200
   },
+  "Vattenreningens mikrobiologi": {
+    "CourseCode": "VMT1207",
+    "Points": 50
+  },
   "Fiskodling": {
     "CourseCode": "VTB1201",
     "Points": 150
@@ -7726,6 +4102,10 @@
   "Yrkesfiske": {
     "CourseCode": "VTB1207",
     "Points": 200
+  },
+  "Generatorer och transformatorer": {
+    "CourseCode": "VAKR1201",
+    "Points": 100
   },
   "Hydraulik och turbiner": {
     "CourseCode": "VAKR1202",
