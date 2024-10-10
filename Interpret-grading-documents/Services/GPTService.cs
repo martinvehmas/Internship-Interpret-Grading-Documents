@@ -1,4 +1,5 @@
-﻿using OpenAI.Chat;
+﻿using System.Security;
+using OpenAI.Chat;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using ImageMagick;
@@ -15,6 +16,7 @@ namespace Interpret_grading_documents.Services
         public class GraduationDocument
         {
             public Guid Id { get; set; } = Guid.NewGuid();
+            public string DocumentName { get; set; }
 
             [JsonPropertyName("full_name")]
             public string FullName { get; set; }
@@ -114,6 +116,9 @@ namespace Interpret_grading_documents.Services
                     ChatCompletion chatCompletion = await GetChatCompletionAsync(client, messages);
 
                     GraduationDocument document = DeserializeResponse(chatCompletion.Content[0].Text);
+
+                    // Set the document name using the uploaded file's name
+                    document.DocumentName = Path.GetFileName(uploadedFile.FileName);
 
                     var updatedDocument = await CompareCourses(document);
                     ValidateDocument(updatedDocument, reliabilityResult);

@@ -12,7 +12,7 @@ namespace Interpret_grading_documents.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly GPTService _gptService;
         
-        private List<GPTService.GraduationDocument> _analyzedDocuments = new List<GPTService.GraduationDocument>();
+        private static List<GPTService.GraduationDocument> _analyzedDocuments = new List<GPTService.GraduationDocument>();
 
         public HomeController(ILogger<HomeController> logger, GPTService gptService)
         {
@@ -22,7 +22,7 @@ namespace Interpret_grading_documents.Controllers
 
         public IActionResult Index()
         {
-            return View(null);
+            return View(_analyzedDocuments);
         }
 
         [HttpPost]
@@ -51,14 +51,14 @@ namespace Interpret_grading_documents.Controllers
         {
             return View();
         }
-        //public IActionResult ViewFDocument(Guid id)
-        //{
-        //    var document = _analyzedDocuments.Find(d => d.Id == id);
-        //    if (document == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    return View(document);
-        //}
+        public IActionResult ViewDocument(Guid id)
+        {
+            var document = _analyzedDocuments.Find(d => d.Id == id);
+            if (document == null)
+            {
+                return NotFound();
+            }
+            return View(document);
+        }
     }
 }
