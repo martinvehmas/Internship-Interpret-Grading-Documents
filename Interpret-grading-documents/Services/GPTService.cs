@@ -228,8 +228,7 @@ namespace Interpret_grading_documents.Services
                         "5. Programnamn (Exempel: El- och energiprogrammet, Estetiska programmet, Hantverksprogrammet, Okänt program)\n" +
                         "6. Specialisering och detaljer om utbildning\n" +
                         "7. Skolform (En av de följande: Grundskola, Gymnasieskola, Komvux utbildning, Högskola, Okänd utbildningsform)\n" +
-                        "8. Läroplan (Titta på typen av betyg, till exempel MVG, VG en skolform innan GY11, grundskolebetyg är Lgr11 eller Lgr22.)\n" +
-                        "9. Lista över ämnen med följande detaljer:\n" +
+                        "8. Lista över ämnen med följande detaljer:\n" +
                         "   - Ämnesnamn\n" +
                         "   - Kurskod\n" +
                         "   - Betyg\n" +
@@ -243,7 +242,6 @@ namespace Interpret_grading_documents.Services
                         "   'program_name': 'Programnamn',\n" +
                         "   'specialization': 'Specialisering',\n" +
                         "   'school_form': 'School Form',\n" +
-                        "   'curriculum': 'Curriculum',\n" +
                         "   'subjects': [\n" +
                         "       {\n" +
                         "           'subject_name': 'Ämnesnamn',\n" +
