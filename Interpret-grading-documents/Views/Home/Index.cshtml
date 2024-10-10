@@ -154,7 +154,7 @@
                 <input type="file" id="uploadedFiles" accept=".pdf,.jpg,.jpeg,.png" multiple style="display: none;" />
 
                 <!-- Drag and Drop Area -->
-                <div id="dropZone" class="border border-primary rounded p-5 text-center mb-3 cursor-pointer" tabindex="0">
+                <div id="dropZone" class="drop-zone" tabindex="0">
                     <p class="mb-0">Drag and drop your documents here or click to select files.</p>
                 </div>
 
@@ -169,6 +169,23 @@
     </div>
 
     @section Scripts {
+        <style>
+            .drop-zone {
+                border: 2px dashed #ccc;
+                border-radius: 5px;
+                padding: 30px;
+                text-align: center;
+                cursor: pointer;
+                color: #aaa;
+                transition: border-color 0.3s, background-color 0.3s;
+            }
+
+            .drop-zone.drag-over {
+                border-color: #333;
+                background-color: #f0f0f0;
+                color: #333;
+            }
+        </style>
         <script>
             document.addEventListener('DOMContentLoaded', function () {
                 const fileList = document.getElementById('fileList');
@@ -452,20 +469,17 @@
 
                 dropZone.addEventListener('dragover', function (e) {
                     e.preventDefault();
-                    e.stopPropagation();
-                    dropZone.classList.add('bg-light');
+                    dropZone.classList.add('drag-over');
                 });
 
                 dropZone.addEventListener('dragleave', function (e) {
                     e.preventDefault();
-                    e.stopPropagation();
-                    dropZone.classList.remove('bg-light');
+                    dropZone.classList.remove('drag-over');
                 });
 
                 dropZone.addEventListener('drop', function (e) {
                     e.preventDefault();
-                    e.stopPropagation();
-                    dropZone.classList.remove('bg-light');
+                    dropZone.classList.remove('drag-over');
 
                     if (e.dataTransfer.files.length > 0) {
                         const files = Array.from(e.dataTransfer.files);
@@ -483,13 +497,6 @@
                 });
             });
         </script>
-
     }
-    <style>
-    /* Change cursor to pointer on hover over drop zone */
-        #dropZone:hover {
-            cursor: pointer;
-        }
-    </style>
 </div>
 
