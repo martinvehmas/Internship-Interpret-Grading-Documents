@@ -83,10 +83,6 @@ public static class CourseComparator
             {
                 Console.WriteLine($"Adding points for subject '{subject.SubjectName}' with match '{bestMatch}' - Points: {json[bestMatch].Points}");
 
-                // Update the subject details
-                subject.GymnasiumPoints = json[bestMatch].Points.ToString();
-                subject.CourseCode = json[bestMatch].CourseCode;
-
                 totalPoints += json[bestMatch].Points ?? 0;
             }
         }
@@ -122,14 +118,14 @@ public static class CourseComparator
 
             subject.FuzzyMatchScore = bestScore;  // Set the fuzzy match score for the subject
 
+            // Store the original values before updating
+            subject.OriginalSubjectName = subject.SubjectName;
+            subject.OriginalCourseCode = subject.CourseCode;
+            subject.OriginalGymnasiumPoints = subject.GymnasiumPoints;
+
             if (bestMatch != null && validationCourses.ContainsKey(bestMatch))
             {
                 var validationCourse = validationCourses[bestMatch];
-
-                // Store the original values before updating
-                subject.OriginalSubjectName = subject.SubjectName;
-                subject.OriginalCourseCode = subject.CourseCode;
-                subject.OriginalGymnasiumPoints = subject.GymnasiumPoints;
 
                 subject.SubjectName = bestMatch;
                 subject.GymnasiumPoints = validationCourse.Points.ToString();

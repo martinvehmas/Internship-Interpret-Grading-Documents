@@ -47,7 +47,14 @@ namespace Interpret_grading_documents.Services
             {
                 get
                 {
-                    return Subjects.Sum(s => s.GymnasiumPoints != null ? int.Parse(s.GymnasiumPoints) : 0);
+                    return Subjects.Sum(s =>
+                    {
+                        if (int.TryParse(s.GymnasiumPoints, out int points))
+                        {
+                            return points;
+                        }
+                        return 0;
+                    });
                 }
             }
         }
