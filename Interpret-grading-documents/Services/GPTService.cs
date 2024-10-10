@@ -80,10 +80,6 @@ namespace Interpret_grading_documents.Services
             public string? OriginalGymnasiumPoints { get; set; }
         }
 
-
-
-
-
         public GPTService(HttpClient httpClient)
         {
             _httpClient = httpClient;
@@ -95,40 +91,44 @@ namespace Interpret_grading_documents.Services
             }
         }
 
-        public async Task<GraduationDocument> ProcessTextPrompt(IFormFile uploadedFile)
+        public async Task<List<GraduationDocument>> ProcessTextPrompts(IList<IFormFile> uploadedFiles)
         {
-            string tempFilePath = await SaveUploadedFileAsync(uploadedFile);
-            string processedImagePath = null;
-            string contentType;
+            var documents = new List<GraduationDocument>();
 
-            try
+            foreach (var uploadedFile in uploadedFiles)
             {
-                (processedImagePath, contentType) = await ProcessUploadedFileAsync(tempFilePath);
-                ImageReliabilityResult reliabilityResult = CheckImageReliability(processedImagePath);
+                string tempFilePath = await SaveUploadedFileAsync(uploadedFile);
+                string processedImagePath = null;
+                string contentType;
 
-                // Segment the image to detect tables and extract segments
-                var imageSegments = ImageReliabilityChecker.SegmentImageWithTableDetection(processedImagePath, Path.Combine(Directory.GetCurrentDirectory(), "ImageSegments"));
+                try
+                {
+                    (processedImagePath, contentType) = await ProcessUploadedFileAsync(tempFilePath);
+                    ImageReliabilityResult reliabilityResult = CheckImageReliability(processedImagePath);
 
-                ChatClient client = InitializeChatClient();
+                    // Segment the image to detect tables and extract segments
+                    var imageSegments = ImageReliabilityChecker.SegmentImageWithTableDetection(processedImagePath, Path.Combine(Directory.GetCurrentDirectory(), "ImageSegments"));
 
-                List<ChatMessage> messages = PrepareChatMessages(imageSegments, contentType, processedImagePath);
+                    ChatClient client = InitializeChatClient();
 
-                ChatCompletion chatCompletion = await GetChatCompletionAsync(client, messages);
-                Console.WriteLine(chatCompletion);
-                Console.WriteLine("");
-                GraduationDocument document = DeserializeResponse(chatCompletion.Content[0].Text);
+                    List<ChatMessage> messages = PrepareChatMessages(imageSegments, contentType, processedImagePath);
+                    ChatCompletion chatCompletion = await GetChatCompletionAsync(client, messages);
 
-                var updatedDocument = await CompareCourses(document);
-                ValidateDocument(updatedDocument, reliabilityResult);
+                    GraduationDocument document = DeserializeResponse(chatCompletion.Content[0].Text);
 
-                return updatedDocument;
+                    var updatedDocument = await CompareCourses(document);
+                    ValidateDocument(updatedDocument, reliabilityResult);
+
+                    documents.Add(updatedDocument);
+                }
+                finally
+                {
+                    CleanUpTempFiles(tempFilePath, processedImagePath);
+                }
             }
-            finally
-            {
-                CleanUpTempFiles(tempFilePath, processedImagePath);
-            }
+
+            return documents;
         }
-
 
         #region Private Methods
 
