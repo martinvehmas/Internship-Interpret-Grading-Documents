@@ -67,7 +67,14 @@ namespace Interpret_grading_documents.Services
             public string? GymnasiumPoints { get; set; }
 
             public double FuzzyMatchScore { get; set; }
+
+            public string? OriginalSubjectName { get; set; }
+            public string? OriginalCourseCode { get; set; }
+            public string? OriginalGymnasiumPoints { get; set; }
         }
+
+
+
 
 
         public GPTService(HttpClient httpClient)
@@ -100,6 +107,8 @@ namespace Interpret_grading_documents.Services
                 List<ChatMessage> messages = PrepareChatMessages(imageSegments, contentType, processedImagePath);
 
                 ChatCompletion chatCompletion = await GetChatCompletionAsync(client, messages);
+                Console.WriteLine(chatCompletion);
+                Console.WriteLine("");
                 GraduationDocument document = DeserializeResponse(chatCompletion.Content[0].Text);
 
                 var updatedDocument = await CompareCourses(document);
@@ -215,7 +224,9 @@ namespace Interpret_grading_documents.Services
                         "8. Läroplan (Titta på typen av betyg, till exempel MVG, VG en skolform innan GY11, grundskolebetyg är Lgr11 eller Lgr22.)\n" +
                         "9. Lista över ämnen med följande detaljer:\n" +
                         "   - Ämnesnamn\n" +
+                        "   - Kurskod\n" +
                         "   - Betyg\n" +
+                        "   - Poäng (Detta ska alltid vara en sträng)\n" +
                         "Vänligen se till att formatera svaret i JSON-format som detta:\n" +
                         "{\n" +
                         "   'full_name': 'Fullständigt Namn',\n" +
@@ -229,7 +240,9 @@ namespace Interpret_grading_documents.Services
                         "   'subjects': [\n" +
                         "       {\n" +
                         "           'subject_name': 'Ämnesnamn',\n" +
+                        "           'course_code': 'Ämneskod',\n" +
                         "           'grade': 'Betyg',\n" +
+                        "           'points': 'Poäng',\n" +
                         "       },\n" +
                         "       ... fler ämnen\n" +
                         "   ]\n" +

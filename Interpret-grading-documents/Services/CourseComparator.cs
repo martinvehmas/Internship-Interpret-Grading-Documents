@@ -50,10 +50,6 @@ public static class CourseComparator
             {
                 Console.WriteLine($"Adding points for subject '{subject.SubjectName}' with match '{bestMatch}' - Points: {validationCourses[bestMatch].Points}");
 
-                // Update the subject details
-                subject.GymnasiumPoints = validationCourses[bestMatch].Points.ToString();
-                subject.CourseCode = validationCourses[bestMatch].CourseCode;
-
                 totalPoints += validationCourses[bestMatch].Points ?? 0;
             }
         }
@@ -91,6 +87,11 @@ public static class CourseComparator
             {
                 var validationCourse = validationCourses[bestMatch];
 
+                // Store the original values before updating
+                subject.OriginalSubjectName = subject.SubjectName;
+                subject.OriginalCourseCode = subject.CourseCode;
+                subject.OriginalGymnasiumPoints = subject.GymnasiumPoints;
+
                 subject.SubjectName = bestMatch;
                 subject.GymnasiumPoints = validationCourse.Points.ToString();
                 subject.CourseCode = validationCourse.CourseCode;
@@ -98,6 +99,8 @@ public static class CourseComparator
         }
         return graduationDocument;
     }
+
+
     public static GraduationDocument CompareCourses(Dictionary<string, CourseDetail> validationCourses, GraduationDocument graduationDocument)
     {
         int totalPoints = GetTotalPoints(validationCourses, graduationDocument);
