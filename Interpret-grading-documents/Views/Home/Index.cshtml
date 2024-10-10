@@ -147,11 +147,15 @@
                 </div>
 
                 <form asp-action="ProcessText" method="post" enctype="multipart/form-data">
-                    <div class="form-group">
-                        <label for="uploadedFile">Upload Document (PDF, JPG, PNG):</label>
-                        <input type="file" class="form-control-file" id="uploadedFile" name="uploadedFile" accept=".pdf,.jpg,.jpeg,.png" required />
+                    <!-- Hidden File Input -->
+                    <input type="file" id="uploadedFile" name="uploadedFile" accept=".pdf,.jpg,.jpeg,.png" required style="display: none;" />
+
+                    <!-- Drag and Drop Area -->
+                    <div id="dropZone" class="border border-primary rounded p-5 text-center mb-3 cursor-pointer" tabindex="0">
+                        <p class="mb-0">Drag and drop your document here or click to select a file.</p>
                     </div>
-                    <button type="submit" class="btn btn-primary mt-3" id="analyzeButton">Analyze Data</button>
+
+                    <button type="submit" class="btn btn-primary" id="analyzeButton">Analyze Data</button>
                 </form>
             }
         </div>
@@ -376,6 +380,61 @@
                 setTimeout(function () {
                     document.forms[0].submit();
                 }, 500); // Adjust delay as needed
+            });
+
+            // Drag and drop script
+            document.addEventListener('DOMContentLoaded', function () {
+                // Drag-and-Drop Functionality
+                var dropZone = document.getElementById('dropZone');
+                var fileInput = document.getElementById('uploadedFile');
+
+                // Click on drop zone triggers file input click
+                dropZone.addEventListener('click', function () {
+                    fileInput.click();
+                });
+
+                // Handle keyboard events on drop zone
+                dropZone.addEventListener('keydown', function (e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        fileInput.click();
+                    }
+                });
+
+                // Highlight drop zone on drag over
+                dropZone.addEventListener('dragover', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    dropZone.classList.add('bg-light');
+                });
+
+                // Remove highlight when drag leaves
+                dropZone.addEventListener('dragleave', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    dropZone.classList.remove('bg-light');
+                });
+
+                // Handle file drop
+                dropZone.addEventListener('drop', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    dropZone.classList.remove('bg-light');
+
+                    if (e.dataTransfer.files.length > 0) {
+                        fileInput.files = e.dataTransfer.files;
+
+                        // Update the drop zone to reflect the selected file
+                        dropZone.innerHTML = '<p class="mb-0">' + fileInput.files[0].name + ' selected.</p>';
+                    }
+                });
+
+                // Update drop zone when file input changes
+                fileInput.addEventListener('change', function () {
+                    if (fileInput.files.length > 0) {
+                        dropZone.innerHTML = '<p class="mb-0">' + fileInput.files[0].name + ' selected.</p>';
+                    }
+                });
             });
         </script>
     }
