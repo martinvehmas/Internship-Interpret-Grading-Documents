@@ -174,8 +174,9 @@
                 const fileList = document.getElementById('fileList');
                 const uploadedFilesInput = document.getElementById('uploadedFiles');
                 const analyzeButton = document.getElementById('analyzeButton');
+                const dropZone = document.getElementById('dropZone');
                 let uploadedFiles = [];
-              
+
                 var editedData = {
                     Subjects: {},
                     StudentInfo: {}
@@ -436,64 +437,53 @@
                     }
                 });
 
- 
-            });
-
-            // Drag and drop script
-            document.addEventListener('DOMContentLoaded', function () {
-                // Drag-and-Drop Functionality
-                var dropZone = document.getElementById('dropZone');
-                var fileInput = document.getElementById('uploadedFile');
-
-                // Click on drop zone triggers file input click
+                // Drag and drop functionality
+                // Note: Ensure that this code is inside the same DOMContentLoaded event listener
                 dropZone.addEventListener('click', function () {
-                    fileInput.click();
+                    uploadedFilesInput.click();
                 });
 
-                // Handle keyboard events on drop zone
                 dropZone.addEventListener('keydown', function (e) {
                     if (e.key === 'Enter' || e.key === ' ') {
                         e.preventDefault();
-                        fileInput.click();
+                        uploadedFilesInput.click();
                     }
                 });
 
-                // Highlight drop zone on drag over
                 dropZone.addEventListener('dragover', function (e) {
                     e.preventDefault();
                     e.stopPropagation();
                     dropZone.classList.add('bg-light');
                 });
 
-                // Remove highlight when drag leaves
                 dropZone.addEventListener('dragleave', function (e) {
                     e.preventDefault();
                     e.stopPropagation();
                     dropZone.classList.remove('bg-light');
                 });
 
-                // Handle file drop
                 dropZone.addEventListener('drop', function (e) {
                     e.preventDefault();
                     e.stopPropagation();
                     dropZone.classList.remove('bg-light');
 
                     if (e.dataTransfer.files.length > 0) {
-                        fileInput.files = e.dataTransfer.files;
+                        const files = Array.from(e.dataTransfer.files);
 
-                        // Update the drop zone to reflect the selected file
-                        dropZone.innerHTML = '<p class="mb-0">' + fileInput.files[0].name + ' selected.</p>';
-                    }
-                });
+                        // Update the uploadedFiles array
+                        uploadedFiles.push(...files);
 
-                // Update drop zone when file input changes
-                fileInput.addEventListener('change', function () {
-                    if (fileInput.files.length > 0) {
-                        dropZone.innerHTML = '<p class="mb-0">' + fileInput.files[0].name + ' selected.</p>';
+                        // Update the file input's files
+                        const dataTransfer = new DataTransfer();
+                        uploadedFiles.forEach(file => dataTransfer.items.add(file));
+                        uploadedFilesInput.files = dataTransfer.files;
+
+                        displayFiles();
                     }
                 });
             });
         </script>
+
     }
     <style>
     /* Change cursor to pointer on hover over drop zone */
