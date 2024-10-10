@@ -11,6 +11,8 @@ namespace Interpret_grading_documents.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly GPTService _gptService;
+        
+        private List<GPTService.GraduationDocument> _analyzedDocuments = new List<GPTService.GraduationDocument>();
 
         public HomeController(ILogger<HomeController> logger, GPTService gptService)
         {
@@ -33,9 +35,15 @@ namespace Interpret_grading_documents.Controllers
                 return View("Index", null);
             }
 
-            var extractedData = await _gptService.ProcessTextPrompts(uploadedFiles);
+            foreach (var uploadedFile in uploadedFiles)
+            {
+                var extractedData = await _gptService.ProcessTextPrompts(uploadedFile);
+                _analyzedDocuments.Add(extractedData);
+            }
 
-            return View("Index", extractedData);
+            
+
+            return View("Index", _analyzedDocuments);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
@@ -43,5 +51,14 @@ namespace Interpret_grading_documents.Controllers
         {
             return View();
         }
+        //public IActionResult ViewFDocument(Guid id)
+        //{
+        //    var document = _analyzedDocuments.Find(d => d.Id == id);
+        //    if (document == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    return View(document);
+        //}
     }
 }

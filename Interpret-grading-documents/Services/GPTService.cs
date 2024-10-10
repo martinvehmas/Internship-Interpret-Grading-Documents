@@ -14,6 +14,8 @@ namespace Interpret_grading_documents.Services
 
         public class GraduationDocument
         {
+            public Guid Id { get; set; } = Guid.NewGuid();
+
             [JsonPropertyName("full_name")]
             public string FullName { get; set; }
 
@@ -91,12 +93,9 @@ namespace Interpret_grading_documents.Services
             }
         }
 
-        public async Task<List<GraduationDocument>> ProcessTextPrompts(IList<IFormFile> uploadedFiles)
+        public async Task<GraduationDocument> ProcessTextPrompts(IFormFile uploadedFile)
         {
-            var documents = new List<GraduationDocument>();
-
-            foreach (var uploadedFile in uploadedFiles)
-            {
+            
                 string tempFilePath = await SaveUploadedFileAsync(uploadedFile);
                 string processedImagePath = null;
                 string contentType;
@@ -119,15 +118,14 @@ namespace Interpret_grading_documents.Services
                     var updatedDocument = await CompareCourses(document);
                     ValidateDocument(updatedDocument, reliabilityResult);
 
-                    documents.Add(updatedDocument);
+                    return document;
                 }
                 finally
                 {
                     CleanUpTempFiles(tempFilePath, processedImagePath);
                 }
-            }
+            
 
-            return documents;
         }
 
         #region Private Methods
