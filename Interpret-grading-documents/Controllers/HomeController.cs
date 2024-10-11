@@ -10,6 +10,8 @@ namespace Interpret_grading_documents.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private static List<GPTService.GraduationDocument> _analyzedDocuments = new List<GPTService.GraduationDocument>();
+
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -18,7 +20,7 @@ namespace Interpret_grading_documents.Controllers
 
         public IActionResult Index()
         {
-            return View(null);
+            return View(_analyzedDocuments);
         }
 
         [HttpPost]
@@ -31,15 +33,30 @@ namespace Interpret_grading_documents.Controllers
                 return View("Index", null);
             }
 
-            var extractedData = await GPTService.ProcessTextPrompts(uploadedFiles);
+            foreach (var uploadedFile in uploadedFiles)
+            {
+                var extractedData = await GPTService.ProcessTextPrompts(uploadedFile);
+                _analyzedDocuments.Add(extractedData);
+            }
 
-            return View("Index", extractedData);
+            
+
+            return View("Index", _analyzedDocuments);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View();
+        }
+        public IActionResult ViewDocument(Guid id)
+        {
+            var document = _analyzedDocuments.Find(d => d.Id == id);
+            if (document == null)
+            {
+                return NotFound();
+            }
+            return View(document);
         }
     }
 }
