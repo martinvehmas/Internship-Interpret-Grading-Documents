@@ -23,11 +23,11 @@
             </div>
 
             <div class="mt-3">
-                    <h4>Uploaded Files</h4>
+                <h4>Uploaded Files</h4>
                 <ul id="fileList" class="list-group"></ul>
             </div>
 
-            <button id="analyzeButton" class="btn btn-primary mt-3" style="display:none;">Analyze Data</button>
+            <button id="analyzeButton" class="btn btn-primary mt-3 d-block mx-auto d-none">Analyze Data</button>
 
             <div class="mt-4">
                 <a asp-action="ViewUploadedDocuments" asp-controller="Home" class="btn btn-secondary">View Uploaded Documents</a>
@@ -89,7 +89,11 @@
                         fileList.appendChild(li);
                     });
 
-                    analyzeButton.style.display = uploadedFiles.length > 0 ? 'block' : 'none';
+                    if (uploadedFiles.length > 0) {
+                        analyzeButton.classList.remove('d-none');
+                    } else {
+                        analyzeButton.classList.add('d-none');
+                    }
                 }
 
                 analyzeButton.addEventListener('click', function () {
@@ -182,6 +186,8 @@
                         displayFiles();
                     }
                 });
+
+                displayFiles();
             });
         </script>
     }
