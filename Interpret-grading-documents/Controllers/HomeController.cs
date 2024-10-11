@@ -30,7 +30,7 @@ namespace Interpret_grading_documents.Controllers
             {
                 // Optionally, add a ModelState error or a TempData message to inform the user
                 ViewBag.Error = "Please upload valid documents.";
-                return View("Index", null);
+                return View("Index");
             }
 
             foreach (var uploadedFile in uploadedFiles)
@@ -39,10 +39,9 @@ namespace Interpret_grading_documents.Controllers
                 _analyzedDocuments.Add(extractedData);
             }
 
-            
-
-            return View("Index", _analyzedDocuments);
+            return RedirectToAction("ViewUploadedDocuments");
         }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
@@ -57,6 +56,10 @@ namespace Interpret_grading_documents.Controllers
                 return NotFound();
             }
             return View(document);
+        }
+        public IActionResult ViewUploadedDocuments()
+        {
+            return View(_analyzedDocuments);
         }
     }
 }

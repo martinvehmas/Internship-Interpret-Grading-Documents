@@ -94,12 +94,9 @@ namespace Interpret_grading_documents.Services
                     (processedImagePath, contentType) = await ProcessUploadedFileAsync(tempFilePath);
                     ImageReliabilityResult reliabilityResult = CheckImageReliability(processedImagePath);
 
-                    // Segment the image to detect tables and extract segments
-                    var imageSegments = ImageReliabilityChecker.SegmentImageWithTableDetection(processedImagePath, Path.Combine(Directory.GetCurrentDirectory(), "ImageSegments"));
-
                     ChatClient client = InitializeChatClient();
 
-                    List<ChatMessage> messages = PrepareChatMessages(imageSegments, contentType, processedImagePath);
+                    List<ChatMessage> messages = PrepareChatMessages(contentType, processedImagePath);
                     ChatCompletion chatCompletion = await GetChatCompletionAsync(client, messages);
 
                     GraduationDocument document = DeserializeResponse(chatCompletion.Content[0].Text);
@@ -211,7 +208,7 @@ namespace Interpret_grading_documents.Services
             return new ChatClient("gpt-4o-mini", apiKey);
         }
 
-        private static List<ChatMessage> PrepareChatMessages(List<Mat> imageSegments, string contentType, string originalImagePath)
+        private static List<ChatMessage> PrepareChatMessages(string contentType, string originalImagePath)
         {
             var chatMessages = new List<ChatMessage>
             {
