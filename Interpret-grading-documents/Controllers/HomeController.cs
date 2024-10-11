@@ -10,14 +10,12 @@ namespace Interpret_grading_documents.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly GPTService _gptService;
-        
         private static List<GPTService.GraduationDocument> _analyzedDocuments = new List<GPTService.GraduationDocument>();
 
-        public HomeController(ILogger<HomeController> logger, GPTService gptService)
+
+        public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
-            _gptService = gptService;
         }
 
         public IActionResult Index()
@@ -37,7 +35,7 @@ namespace Interpret_grading_documents.Controllers
 
             foreach (var uploadedFile in uploadedFiles)
             {
-                var extractedData = await _gptService.ProcessTextPrompts(uploadedFile);
+                var extractedData = await GPTService.ProcessTextPrompts(uploadedFile);
                 _analyzedDocuments.Add(extractedData);
             }
 

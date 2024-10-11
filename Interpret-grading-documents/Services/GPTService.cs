@@ -8,11 +8,8 @@ using Interpret_grading_documents.Data;
 
 namespace Interpret_grading_documents.Services
 {
-    public class GPTService
+    public static class GPTService
     {
-        private readonly HttpClient _httpClient;
-        private readonly string _apiKey;
-
         public class GraduationDocument
         {
             public Guid Id { get; set; } = Guid.NewGuid();
@@ -84,18 +81,8 @@ namespace Interpret_grading_documents.Services
             public string? OriginalGymnasiumPoints { get; set; }
         }
 
-        public GPTService(HttpClient httpClient)
-        {
-            _httpClient = httpClient;
-            _apiKey = Environment.GetEnvironmentVariable("OPENAI_API_KEY");
+        public static async Task<GraduationDocument> ProcessTextPrompts(IFormFile uploadedFile)
 
-            if (string.IsNullOrEmpty(_apiKey))
-            {
-                throw new InvalidOperationException("API key for GPT is not set in the environment variables.");
-            }
-        }
-
-        public async Task<GraduationDocument> ProcessTextPrompts(IFormFile uploadedFile)
         {
             
                 string tempFilePath = await SaveUploadedFileAsync(uploadedFile);
@@ -135,7 +122,7 @@ namespace Interpret_grading_documents.Services
 
         #region Private Methods
 
-        private async Task<string> SaveUploadedFileAsync(IFormFile uploadedFile)
+        private static async Task<string> SaveUploadedFileAsync(IFormFile uploadedFile)
         {
             string tempFilePath = Path.Combine(Path.GetTempPath(), $"{Guid.NewGuid()}{Path.GetExtension(uploadedFile.FileName).ToLower()}");
             using (var stream = new FileStream(tempFilePath, FileMode.Create))
@@ -145,7 +132,7 @@ namespace Interpret_grading_documents.Services
             return tempFilePath;
         }
 
-        private async Task<(string processedImagePath, string contentType)> ProcessUploadedFileAsync(string tempFilePath)
+        private static async Task<(string processedImagePath, string contentType)> ProcessUploadedFileAsync(string tempFilePath)
         {
             string extension = Path.GetExtension(tempFilePath).ToLower();
             string processedImagePath = tempFilePath;
@@ -168,7 +155,7 @@ namespace Interpret_grading_documents.Services
             return (processedImagePath, contentType);
         }
 
-        private async Task<string> ConvertPdfToJpgAsync(string pdfPath)
+        private static async Task<string> ConvertPdfToJpgAsync(string pdfPath)
         {
             string jpgPath = Path.Combine(Path.GetTempPath(), $"{Guid.NewGuid()}.jpg");
 
@@ -189,7 +176,7 @@ namespace Interpret_grading_documents.Services
             return jpgPath;
         }
 
-        private string GetImageContentType(string extension)
+        private static string GetImageContentType(string extension)
         {
             return extension switch
             {
@@ -199,7 +186,7 @@ namespace Interpret_grading_documents.Services
             };
         }
 
-        private ImageReliabilityResult CheckImageReliability(string imagePath)
+        private static ImageReliabilityResult CheckImageReliability(string imagePath)
         {
             var checker = new ImageReliabilityChecker();
             try
@@ -212,12 +199,19 @@ namespace Interpret_grading_documents.Services
             }
         }
 
-        private ChatClient InitializeChatClient()
+        private static ChatClient InitializeChatClient()
         {
-            return new ChatClient("gpt-4o-mini", _apiKey);
+            string apiKey = Environment.GetEnvironmentVariable("OPENAI_API_KEY");
+
+            if (string.IsNullOrEmpty(apiKey))
+            {
+                throw new InvalidOperationException("API key for GPT is not set in the environment variables.");
+            }
+
+            return new ChatClient("gpt-4o-mini", apiKey);
         }
 
-        private List<ChatMessage> PrepareChatMessages(List<Mat> imageSegments, string contentType, string originalImagePath)
+        private static List<ChatMessage> PrepareChatMessages(List<Mat> imageSegments, string contentType, string originalImagePath)
         {
             var chatMessages = new List<ChatMessage>
             {
@@ -258,30 +252,13 @@ namespace Interpret_grading_documents.Services
                 )
             };
 
-            if (true)
-            {
-                // if fewer than 2 segments, add the original image
-                byte[] imageBytes = File.ReadAllBytes(originalImagePath);
-                chatMessages.Add(new UserChatMessage(ChatMessageContentPart.CreateImagePart(BinaryData.FromBytes(imageBytes), contentType)));
-            }
-            else
-            {
-                foreach (var imageSegment in imageSegments)
-                {
-                    byte[] imageBytes;
-                    using (var ms = new MemoryStream())
-                    {
-                        imageSegment.WriteToStream(ms);
-                        imageBytes = ms.ToArray();
-                    }
-                    chatMessages.Add(new UserChatMessage(ChatMessageContentPart.CreateImagePart(BinaryData.FromBytes(imageBytes), contentType)));
-                }
-            }
+            byte[] imageBytes = File.ReadAllBytes(originalImagePath);
+            chatMessages.Add(new UserChatMessage(ChatMessageContentPart.CreateImagePart(BinaryData.FromBytes(imageBytes), contentType)));
 
             return chatMessages;
         }
 
-        private async Task<ChatCompletion> GetChatCompletionAsync(ChatClient client, List<ChatMessage> messages)
+        private static async Task<ChatCompletion> GetChatCompletionAsync(ChatClient client, List<ChatMessage> messages)
         {
             var completionOptions = new ChatCompletionOptions
             {
@@ -290,12 +267,12 @@ namespace Interpret_grading_documents.Services
             return await client.CompleteChatAsync(messages, completionOptions);
         }
 
-        private GraduationDocument DeserializeResponse(string jsonResponse)
+        private static GraduationDocument DeserializeResponse(string jsonResponse)
         {
             return JsonSerializer.Deserialize<GraduationDocument>(jsonResponse);
         }
 
-        private async Task<GraduationDocument> CompareCourses(GraduationDocument document)
+        private static async Task<GraduationDocument> CompareCourses(GraduationDocument document)
         {
             var coursesFromApi = await ValidationData.GetCoursesFromApi();
 
@@ -304,7 +281,7 @@ namespace Interpret_grading_documents.Services
             return updatedDocument;
         }
 
-        private void ValidateDocument(GraduationDocument document, ImageReliabilityResult reliabilityResult)
+        private static void ValidateDocument(GraduationDocument document, ImageReliabilityResult reliabilityResult)
         {
             var checker = new ImageReliabilityChecker();
             bool isDataValid = checker.ValidateData(document);
@@ -317,7 +294,7 @@ namespace Interpret_grading_documents.Services
             document.ImageReliability = reliabilityResult;
         }
 
-        private void CleanUpTempFiles(string tempFilePath, string processedImagePath)
+        private static void CleanUpTempFiles(string tempFilePath, string processedImagePath)
         {
             try
             {
