@@ -248,25 +248,8 @@ namespace Interpret_grading_documents.Services
                 )
             };
 
-            if (true)
-            {
-                // If fewer than 2 segments, add the original image
-                byte[] imageBytes = File.ReadAllBytes(originalImagePath);
-                chatMessages.Add(new UserChatMessage(ChatMessageContentPart.CreateImagePart(BinaryData.FromBytes(imageBytes), contentType)));
-            }
-            else
-            {
-                foreach (var imageSegment in imageSegments)
-                {
-                    byte[] imageBytes;
-                    using (var ms = new MemoryStream())
-                    {
-                        imageSegment.WriteToStream(ms);
-                        imageBytes = ms.ToArray();
-                    }
-                    chatMessages.Add(new UserChatMessage(ChatMessageContentPart.CreateImagePart(BinaryData.FromBytes(imageBytes), contentType)));
-                }
-            }
+            byte[] imageBytes = File.ReadAllBytes(originalImagePath);
+            chatMessages.Add(new UserChatMessage(ChatMessageContentPart.CreateImagePart(BinaryData.FromBytes(imageBytes), contentType)));
 
             return chatMessages;
         }
