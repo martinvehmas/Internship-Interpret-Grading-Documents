@@ -10,12 +10,10 @@ namespace Interpret_grading_documents.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly GPTService _gptService;
 
-        public HomeController(ILogger<HomeController> logger, GPTService gptService)
+        public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
-            _gptService = gptService;
         }
 
         public IActionResult Index()
@@ -33,7 +31,7 @@ namespace Interpret_grading_documents.Controllers
                 return View("Index", null);
             }
 
-            var extractedData = await _gptService.ProcessTextPrompts(uploadedFiles);
+            var extractedData = await GPTService.ProcessTextPrompts(uploadedFiles);
 
             return View("Index", extractedData);
         }
