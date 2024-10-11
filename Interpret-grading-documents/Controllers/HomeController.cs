@@ -61,5 +61,26 @@ namespace Interpret_grading_documents.Controllers
         {
             return View(_analyzedDocuments);
         }
+
+        [HttpPost]
+        public IActionResult RemoveDocument(Guid id)
+        {
+            var document = _analyzedDocuments.Find(d => d.Id == id);
+            if (document != null)
+            {
+                _analyzedDocuments.Remove(document);
+
+                Console.WriteLine($"Document {document.DocumentName} was successfully removed");
+                Console.WriteLine($"\nDocuments remaining:");
+
+                foreach (var doc in _analyzedDocuments)
+                {
+                    Console.WriteLine(doc.DocumentName);
+                }
+
+                return RedirectToAction("ViewUploadedDocuments");
+            }
+            return NotFound();
+        }
     }
 }
