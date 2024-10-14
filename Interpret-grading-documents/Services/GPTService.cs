@@ -158,7 +158,13 @@ namespace Interpret_grading_documents.Services
 
             using (var images = new MagickImageCollection())
             {
-                images.Read(pdfPath);
+                var settings = new MagickReadSettings
+                {
+                    Density = new Density(300)
+                };
+
+                images.Read(pdfPath, settings);
+
                 if (images.Count > 0)
                 {
                     images[0].Format = MagickFormat.Jpeg;
@@ -298,7 +304,7 @@ namespace Interpret_grading_documents.Services
                 File.Delete(tempFilePath);
                 if (!tempFilePath.Equals(processedImagePath, StringComparison.OrdinalIgnoreCase))
                 {
-                    File.Delete(processedImagePath);
+                  File.Delete(processedImagePath);
                 }
             }
             catch (IOException ex)
