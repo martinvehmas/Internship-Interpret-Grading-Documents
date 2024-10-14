@@ -135,7 +135,7 @@ namespace Interpret_grading_documents.Services
             string processedImagePath = tempFilePath;
             string contentType;
 
-            if (extension == ".pdf" || extension == ".pdf")
+            if (extension == ".pdf" || extension == ".webp")
             {
                 processedImagePath = await ConvertToJpgAsync(tempFilePath);
                 contentType = "image/jpeg";
