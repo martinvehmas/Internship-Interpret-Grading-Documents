@@ -21,6 +21,8 @@
             <div id="dropZone" class="drop-zone" tabindex="0">
                 <p class="mb-0">Drag and drop your documents here or click to select files.</p>
             </div>
+            <!-- display error messages -->
+            <div id="errorMessage" class="alert alert-danger mt-3" style="display: none;"></div>
 
             <div class="mt-3">
                 <h4>Uploaded Files</h4>
@@ -59,11 +61,41 @@
                 const uploadedFilesInput = document.getElementById('uploadedFiles');
                 const analyzeButton = document.getElementById('analyzeButton');
                 const dropZone = document.getElementById('dropZone');
+                const errorMessage = document.getElementById('errorMessage');
                 let uploadedFiles = [];
+
+                // Define allowed file types and maximum file size (e.g., 5MB)
+                const allowedFileTypes = ['application/pdf', 'image/jpeg', 'image/png', 'image/jpg', 'image/webp'];
+                const maxFileSize = 5 * 1024 * 1024; // 5 MB in bytes
+
+                function displayError(message) {
+                    errorMessage.textContent = message;
+                    errorMessage.style.display = 'block';
+                }
+
+                function clearError() {
+                    errorMessage.style.display = 'none';
+                }
+
+                function validateFile(file) {
+                    if (!allowedFileTypes.includes(file.type)) {
+                        displayError(`Invalid file type: ${file.name}. Only PDF, JPG, and PNG files are allowed.`);
+                        return false;
+                    }
+                    if (file.size > maxFileSize) {
+                        displayError(`File too large: ${file.name}. Max file size is 5 MB.`);
+                        return false;
+                    }
+                    clearError();
+                    return true;
+                }
+
 
                 uploadedFilesInput.addEventListener('change', function () {
                     const files = Array.from(uploadedFilesInput.files);
-                    uploadedFiles.push(...files);
+                    const validFiles = files.filter(validateFile);
+
+                    uploadedFiles.push(...validFiles);
 
                     displayFiles();
                 });
@@ -174,11 +206,11 @@
 
                     if (e.dataTransfer.files.length > 0) {
                         const files = Array.from(e.dataTransfer.files);
+                        const validFiles = files.filter(validateFile);
 
-                        // Update the uploadedFiles array
-                        uploadedFiles.push(...files);
+                        uploadedFiles.push(...validFiles);
 
-                        // Update the file input's files
+    
                         const dataTransfer = new DataTransfer();
                         uploadedFiles.forEach(file => dataTransfer.items.add(file));
                         uploadedFilesInput.files = dataTransfer.files;
