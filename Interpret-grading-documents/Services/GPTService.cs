@@ -135,9 +135,9 @@ namespace Interpret_grading_documents.Services
             string processedImagePath = tempFilePath;
             string contentType;
 
-            if (extension == ".pdf")
+            if (extension == ".pdf" || extension == ".pdf")
             {
-                processedImagePath = await ConvertPdfToJpgAsync(tempFilePath);
+                processedImagePath = await ConvertToJpgAsync(tempFilePath);
                 contentType = "image/jpeg";
             }
             else if (extension == ".jpg" || extension == ".jpeg" || extension == ".png")
@@ -152,7 +152,7 @@ namespace Interpret_grading_documents.Services
             return (processedImagePath, contentType);
         }
 
-        private static async Task<string> ConvertPdfToJpgAsync(string pdfPath)
+        private static async Task<string> ConvertToJpgAsync(string pdfPath)
         {
             string jpgPath = Path.Combine(Path.GetTempPath(), $"{Guid.NewGuid()}.jpg");
 
