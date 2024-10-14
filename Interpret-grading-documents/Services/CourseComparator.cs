@@ -33,19 +33,18 @@ public static class CourseComparator
         }
 
 
-        if (bestScore < 100)
+        
+        foreach (var jsonCourse in json.Keys)
         {
-            foreach (var jsonCourse in json.Keys)
-            {
-                int score = Fuzz.Ratio(subjectName.ToLower(), jsonCourse.ToLower());
+            int score = Fuzz.Ratio(subjectName.ToLower(), jsonCourse.ToLower());
 
-                if (score > bestScoreJson)
-                {
-                    bestScoreJson = score;
-                    bestMatchJson = jsonCourse;
-                }
+            if (score > bestScoreJson)
+            {
+                bestScoreJson = score;
+                bestMatchJson = jsonCourse;
             }
         }
+
 
         if (bestScoreJson > bestScore)
         {
@@ -72,6 +71,33 @@ public static class CourseComparator
         {
             var (bestMatch, bestScore, gradeType) = FindBestMatch(validationCourses, subject.SubjectName, json);
             subject.FuzzyMatchScore = bestScore;  // Set the fuzzy match score for the subject
+
+
+            if (bestMatch != null && validationCourses.ContainsKey(bestMatch) && json.ContainsKey(bestMatch))
+            {
+                
+                var validationCourseCode = validationCourses[bestMatch].CourseCode;
+                var jsonCourseCode = json[bestMatch].CourseCode;
+
+                int validationCourseScore = Fuzz.Ratio(subject.CourseCode.ToLower(), validationCourseCode.ToLower());
+                int jsonCourseScore = Fuzz.Ratio(subject.CourseCode.ToLower(), jsonCourseCode.ToLower());
+
+                if (jsonCourseScore > validationCourseScore)
+                {
+                    Console.WriteLine($"Adding points for subject '{subject.SubjectName}' with match '{bestMatch}' - Points: {json[bestMatch].Points}");
+
+                    totalPoints += json[bestMatch].Points ?? 0;
+
+                }
+                else
+                {
+                    Console.WriteLine($"Adding points for subject '{subject.SubjectName}' with match '{bestMatch}' - Points: {validationCourses[bestMatch].Points}");
+
+                    totalPoints += validationCourses[bestMatch].Points ?? 0;
+                }
+
+                continue; 
+            }
 
             if (bestMatch != null && validationCourses.ContainsKey(bestMatch))
             {
@@ -122,6 +148,37 @@ public static class CourseComparator
             subject.OriginalSubjectName = subject.SubjectName;
             subject.OriginalCourseCode = subject.CourseCode;
             subject.OriginalGymnasiumPoints = subject.GymnasiumPoints;
+
+
+            if (bestMatch != null && validationCourses.ContainsKey(bestMatch) && json.ContainsKey(bestMatch))
+            {
+                
+                    var validationCourseCode = validationCourses[bestMatch].CourseCode;
+                    var jsonCourseCode = json[bestMatch].CourseCode;
+
+                    int validationCourseScore = Fuzz.Ratio(subject.CourseCode.ToLower(), validationCourseCode.ToLower());
+                    int jsonCourseScore = Fuzz.Ratio(subject.CourseCode.ToLower(), jsonCourseCode.ToLower());
+
+                    if (jsonCourseScore > validationCourseScore)
+                    {
+                        var jsonCourse = json[bestMatch];
+
+                        subject.SubjectName = bestMatch;
+                        subject.GymnasiumPoints = jsonCourse.Points.ToString();
+                        subject.CourseCode = jsonCourse.CourseCode;
+
+                    }
+                    else
+                    {
+                        var validationCourse = validationCourses[bestMatch];
+
+                        subject.SubjectName = bestMatch;
+                        subject.GymnasiumPoints = validationCourse.Points.ToString();
+                        subject.CourseCode = validationCourse.CourseCode;
+                    }
+
+                    continue; 
+            }
 
             if (bestMatch != null && validationCourses.ContainsKey(bestMatch))
             {
