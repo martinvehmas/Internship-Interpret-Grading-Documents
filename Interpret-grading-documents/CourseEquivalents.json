@@ -1,37 +1,55 @@
-﻿[
-  {
-    "group_name": "Engelska",
-    "courses": [
-      {
-        "name": "Engelska 6",
-        "code": "ENG6"
-      },
-      {
-        "name": "Engelska B",
-        "code": "ENG1202"
-      }
-    ]
-  },
-  {
-    "group_name": "Matematik 1",
-    "courses": [
-      {
-        "name": "Matematik 1a",
-        "code": "MAT1A"
-      },
-      {
-        "name": "Matematik 1b",
-        "code": "MAT1B"
-      },
-      {
-        "name": "Matematik 1c",
-        "code": "MAT1C"
-      },
-      {
-        "name": "Matematik A",
-        "code": "MA1201"
-      }
-    ]
-  }
-
-]
+﻿{
+  "subjects": [
+    {
+      "name": "Engelska",
+      "courses": [
+        {
+          "name": "Engelska 5",
+          "code": "ENGENG05",
+          "level": 5,
+          "alternatives": [
+            {
+              "name": "Engelska A",
+              "code": "EN1201"
+            }
+          ]
+        },
+        {
+          "name": "Engelska 6",
+          "code": "ENGENG06",
+          "level": 6,
+          "alternatives": [
+            {
+              "name": "Engelska B",
+              "code": "EN1202"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Matematik",
+      "courses": [
+        {
+          "name": "Matematik 1a",
+          "code": "MATMAT01a",
+          "level": 1,
+          "alternatives": [
+            {
+              "name": "Matematik 1b",
+              "code": "MATMAT01b"
+            },
+            {
+              "name": "Matematik 1c",
+              "code": "MATMAT01c"
+            },
+            {
+              "name": "Matematik A",
+              "code": "MA1201"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

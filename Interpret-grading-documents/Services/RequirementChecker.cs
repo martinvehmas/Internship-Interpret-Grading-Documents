@@ -7,10 +7,16 @@ using System.Text.Json.Serialization;
 
 namespace Interpret_grading_documents.Services
 {
-    public class CourseEquivalent
+    public class CourseEquivalents
     {
-        [JsonPropertyName("group_name")]
-        public string GroupName { get; set; }
+        [JsonPropertyName("subjects")]
+        public List<Subject> Subjects { get; set; }
+    }
+
+    public class Subject
+    {
+        [JsonPropertyName("name")]
+        public string Name { get; set; }
 
         [JsonPropertyName("courses")]
         public List<Course> Courses { get; set; }
@@ -23,11 +29,17 @@ namespace Interpret_grading_documents.Services
 
         [JsonPropertyName("code")]
         public string Code { get; set; }
+
+        [JsonPropertyName("level")]
+        public int Level { get; set; }
+
+        [JsonPropertyName("alternatives")]
+        public List<Course> Alternatives { get; set; }
     }
 
     public static class RequirementChecker
     {
-        private static List<CourseEquivalent> CourseEquivalents = LoadCourseEquivalents();
+        private static CourseEquivalents CourseEquivalents = LoadCourseEquivalents();
 
         private static readonly Dictionary<string, int> GradeMappings = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase)
         {
@@ -51,7 +63,7 @@ namespace Interpret_grading_documents.Services
             { "0", 0 }
         };
 
-        private static List<CourseEquivalent> LoadCourseEquivalents()
+        private static CourseEquivalents LoadCourseEquivalents()
         {
             string jsonFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "CourseEquivalents.json");
             if (!File.Exists(jsonFilePath))
@@ -60,7 +72,7 @@ namespace Interpret_grading_documents.Services
             }
 
             string jsonContent = File.ReadAllText(jsonFilePath);
-            return JsonSerializer.Deserialize<List<CourseEquivalent>>(jsonContent);
+            return JsonSerializer.Deserialize<CourseEquivalents>(jsonContent);
         }
 
         public static bool DoesStudentMeetRequirement(GPTService.GraduationDocument document, string requiredCourseNameOrCode, string requiredMinimumGrade)
@@ -120,38 +132,51 @@ namespace Interpret_grading_documents.Services
         {
             var equivalentCourses = new List<Course>();
 
-
-            if (CourseEquivalents != null && CourseEquivalents.Count > 0)
+            if (CourseEquivalents != null && CourseEquivalents.Subjects != null)
             {
-                // Check all groups and their names
-                foreach (var group in CourseEquivalents)
+                foreach (var subject in CourseEquivalents.Subjects)
                 {
-                    if (group?.GroupName != null && group.GroupName.Equals(courseNameOrCode.Trim(), StringComparison.OrdinalIgnoreCase))
-                    {
-                        if (group.Courses != null)
-                        {
-                            equivalentCourses.AddRange(group.Courses);
-                        }
-                        break;
-                    }
-                }
+                    // Try to find the required course in this subject
+                    var requiredCourse = subject.Courses.FirstOrDefault(c =>
+                        c.Name.Equals(courseNameOrCode.Trim(), StringComparison.OrdinalIgnoreCase) ||
+                        c.Code.Equals(courseNameOrCode.Trim(), StringComparison.OrdinalIgnoreCase) ||
+                        (c.Alternatives != null && c.Alternatives.Any(a =>
+                            a.Name.Equals(courseNameOrCode.Trim(), StringComparison.OrdinalIgnoreCase) ||
+                            a.Code.Equals(courseNameOrCode.Trim(), StringComparison.OrdinalIgnoreCase)))
+                    );
 
-                if (equivalentCourses.Count == 0)
-                {
-                    // Check within the courses for name/code matches
-                    foreach (var group in CourseEquivalents)
+                    if (requiredCourse != null)
                     {
-                        if (group?.Courses != null)
+                        int requiredLevel = requiredCourse.Level;
+
+                        // Get all courses in this subject with level >= requiredLevel
+                        var higherLevelCourses = subject.Courses.Where(c => c.Level >= requiredLevel);
+
+                        foreach (var course in higherLevelCourses)
                         {
-                            foreach (var course in group.Courses)
+                            equivalentCourses.Add(new Course
                             {
-                                if (course.Name.Equals(courseNameOrCode.Trim(), StringComparison.OrdinalIgnoreCase) ||
-                                    course.Code.Equals(courseNameOrCode.Trim(), StringComparison.OrdinalIgnoreCase))
+                                Name = course.Name,
+                                Code = course.Code,
+                                Level = course.Level,
+                                Alternatives = null
+                            });
+
+                            if (course.Alternatives != null)
+                            {
+                                foreach (var alt in course.Alternatives)
                                 {
-                                    equivalentCourses.Add(course);
+                                    equivalentCourses.Add(new Course
+                                    {
+                                        Name = alt.Name,
+                                        Code = alt.Code,
+                                        Level = course.Level,
+                                        Alternatives = null
+                                    });
                                 }
                             }
                         }
+                        break;
                     }
                 }
             }
@@ -159,7 +184,7 @@ namespace Interpret_grading_documents.Services
             if (equivalentCourses.Count == 0)
             {
                 Console.WriteLine($"No equivalent courses found for {courseNameOrCode}, adding the original course as its own equivalent");
-                equivalentCourses.Add(new Course { Name = courseNameOrCode, Code = courseNameOrCode });
+                equivalentCourses.Add(new Course { Name = courseNameOrCode, Code = courseNameOrCode, Level = 0 });
             }
 
             return equivalentCourses;
