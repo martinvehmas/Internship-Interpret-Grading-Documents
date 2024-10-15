@@ -48,288 +48,307 @@
                 </div>
             </div>
 
-            <h3 class="mt-4">Subjects</h3>
-            <p class="text-muted">Please review and correct the grades below. It's essential that the grades are accurate for the record-keeping process.</p>
+                    <h3 class="mt-4">Subjects</h3>
+                    <p class="text-muted">Please review and correct the grades below. It's essential that the grades are accurate for the record-keeping process.</p>
 
-            <table class="table table-striped mt-2">
-                <thead>
-                <tr>
-                    <th>Subject Name</th>
-                    <th>Course Code</th>
-                    <th>Grade</th>
-                    <th>Gymnasium Points</th>
-                </tr>
-                </thead>
-                <tbody>
-                @foreach (var subject in Model.Subjects)
-                {
-                    var isFuzzyMatch = subject.FuzzyMatchScore < 100.0;
-                    var fuzzyScore = subject.FuzzyMatchScore;
-                    var isBelowThreshold = fuzzyScore < 80.0;
-                    var isUpdated = subject.OriginalSubjectName != null || subject.OriginalCourseCode != null || subject.OriginalGymnasiumPoints != null;
+                    <table class="table table-striped mt-2">
+                        <thead>
+                            <tr>
+                                <th>Subject Name</th>
+                                <th>Course Code</th>
+                                <th>Grade</th>
+                                <th>Gymnasium Points</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var subject in Model.Subjects)
+                            {
+                                var isFuzzyMatch = subject.FuzzyMatchScore < 100.0;
+                                var fuzzyScore = subject.FuzzyMatchScore;
+                                var isBelowThreshold = fuzzyScore < 80.0;
+                                var isUpdated = subject.OriginalSubjectName != null || subject.OriginalCourseCode != null || subject.OriginalGymnasiumPoints != null;
 
-                    <tr class="@(isFuzzyMatch ? "table-warning" : "")"
-                        data-id="@subject.SubjectName"
-                        data-original-subject-name="@subject.OriginalSubjectName"
-                        data-original-course-code="@subject.OriginalCourseCode"
-                        data-original-points="@subject.OriginalGymnasiumPoints">
+                                // Modified: Decide which values to display
+                                var displaySubjectName = subject.SubjectName;
+                                var displayCourseCode = subject.CourseCode;
+                                var displayGymnasiumPoints = subject.GymnasiumPoints;
 
-                        <td class="editable-cell @(isFuzzyMatch ? "needs-review" : "readonly-cell")" data-field="SubjectName" data-id="@subject.SubjectName">
-                            @subject.SubjectName
-                        </td>
-
-                        <td class="editable-cell @(isFuzzyMatch ? "needs-review" : "readonly-cell")" data-field="CourseCode" data-id="@subject.SubjectName">
-                            @(string.IsNullOrEmpty(subject.CourseCode) ? "N/A" : subject.CourseCode)
-                        </td>
-                        <td class="editable-cell" data-field="Grade" data-id="@subject.SubjectName">
-                            @subject.Grade
-                        </td>
-                        <td class="editable-cell @(isFuzzyMatch ? "needs-review" : "readonly-cell")" data-field="GymnasiumPoints" data-id="@subject.SubjectName">
-                            @(subject.GymnasiumPoints)
-                        </td>
-                    </tr>
-
-                    @if (isFuzzyMatch && !isBelowThreshold)
-                    {
-                        <tr>
-                            <td colspan="4">
-                                <div class="alert alert-info mt-2">
-                                    <strong>Note:</strong> We are <strong>@fuzzyScore%</strong> sure that this is the correct match. Please review it carefully and confirm.
-                                    @if (isUpdated)
+                                if (isFuzzyMatch && !isBelowThreshold)
+                                {
+                                    if (subject.OriginalSubjectName != null)
                                     {
-                                        <p class="mt-2">
-                                            <em>The system has modified this course. If the original details seem more accurate, you can restore the original values below.</em>
-                                        </p>
-                                        <button class="btn btn-warning btn-sm restore-btn mt-2" data-subject="@subject.SubjectName">Restore Original</button>
+                                        displaySubjectName = subject.OriginalSubjectName;
                                     }
-                                </div>
-                            </td>
-                        </tr>
-                    }
+                                    if (subject.OriginalCourseCode != null)
+                                    {
+                                        displayCourseCode = subject.OriginalCourseCode;
+                                    }
+                                    if (subject.OriginalGymnasiumPoints != null)
+                                    {
+                                        displayGymnasiumPoints = subject.OriginalGymnasiumPoints;
+                                    }
+                                }
+                                // Modified: End
 
-                    else if (isBelowThreshold)
-                    {
-                        <tr>
-                            <td colspan="4">
-                                <div class="alert alert-danger mt-2">
-                                    <strong>Attention:</strong> We could not find a match for this course. Please help us correct the details.
-                                </div>
-                            </td>
-                        </tr>
-                    }
-                }
-                </tbody>
-            </table>
-            <button id="saveChangesButton" class="btn btn-success mt-3" style="display:none;">Save Changes</button>
-        }
-        else
-        {
-            <div class="alert alert-warning mt-4" role="alert">
-                Data could not be displayed due to low image reliability.
-            </div>
-        }
-    
-    }
-    else
-    {
-        <div class="alert alert-info mt-4" role="alert">
-            No document details could be found.
-        </div>
-    }
-</div>
-</div>
-    <a asp-action="ViewUploadedDocuments" asp-controller="Home">Back to Documents</a>
-@section Scripts
-{
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var editedData = {
-                Subjects: {},
-                StudentInfo: {}
-            };
-            var originalTotalPoints = parseFloat(document.getElementById('totalPointsDisplay')?.textContent || "0");
+                                <tr class="@(isFuzzyMatch ? "table-warning" : "")"
+                                    data-id="@subject.SubjectName"
+                                    data-original-subject-name="@subject.OriginalSubjectName"
+                                    data-original-course-code="@subject.OriginalCourseCode"
+                                    data-original-points="@subject.OriginalGymnasiumPoints"
+                                    data-fuzzy-subject-name="@subject.SubjectName"
+                                    data-fuzzy-course-code="@subject.CourseCode"
+                                    data-fuzzy-points="@subject.GymnasiumPoints">
 
-            function toggleRestoreValues(button, subjectName) {
-                const row = button.closest('tr').previousElementSibling;
+                                    <td class="editable-cell @(isFuzzyMatch ? "needs-review" : "readonly-cell")" data-field="SubjectName" data-id="@subject.SubjectName">
+                                        @displaySubjectName
+                                    </td>
 
-                if (!row) {
-                    console.error(`Row for subject '${subjectName}' not found.`);
-                    return;
-                }
+                                    <td class="editable-cell @(isFuzzyMatch ? "needs-review" : "readonly-cell")" data-field="CourseCode" data-id="@subject.SubjectName">
+                                        @(string.IsNullOrEmpty(displayCourseCode) ? "N/A" : displayCourseCode)
+                                    </td>
+                                    <td class="editable-cell" data-field="Grade" data-id="@subject.SubjectName">
+                                        @subject.Grade
+                                    </td>
+                                    <td class="editable-cell @(isFuzzyMatch ? "needs-review" : "readonly-cell")" data-field="GymnasiumPoints" data-id="@subject.SubjectName">
+                                        @(displayGymnasiumPoints)
+                                    </td>
+                                </tr>
 
-                // Determine if we're currently showing the original or fuzzy matched values
-                const isRestoringOriginal = button.textContent.includes('Original');
+                                @if (isFuzzyMatch && !isBelowThreshold)
+                                {
+                                    <tr>
+                                        <td colspan="4">
+                                            <div class="alert alert-info mt-2">
+                                                <strong>Note:</strong> We are <strong>@fuzzyScore%</strong> sure that this is the correct match. Please review it carefully and confirm.
+                                                @if (isUpdated)
+                                                {
+                                                    <p class="mt-2">
+                                                        <em>The system has kept the original course details. If the fuzzy matched details seem more accurate, you can apply them below.</em>
+                                                    </p>
+                                                    <!-- Updated button text -->
+                                                    <button class="btn btn-warning btn-sm restore-btn mt-2" data-subject="@subject.SubjectName">Apply Fuzzy Matched Values</button>
+                                                   
+                                                }
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
 
-                if (isRestoringOriginal) {
-                    // Store the current fuzzy matched values before restoring original values
-                    const currentSubjectName = row.querySelector('[data-field="SubjectName"]').textContent;
-                    const currentCourseCode = row.querySelector('[data-field="CourseCode"]').textContent;
-                    const currentPoints = row.querySelector('[data-field="GymnasiumPoints"]').textContent;
-
-                    row.setAttribute('data-fuzzy-subject-name', currentSubjectName);
-                    row.setAttribute('data-fuzzy-course-code', currentCourseCode);
-                    row.setAttribute('data-fuzzy-points', currentPoints);
-
-                    // Restore the original values
-                    const originalSubjectName = row.getAttribute('data-original-subject-name');
-                    const originalCourseCode = row.getAttribute('data-original-course-code');
-                    const originalPoints = row.getAttribute('data-original-points');
-
-                    if (originalSubjectName) {
-                        row.querySelector('[data-field="SubjectName"]').textContent = originalSubjectName;
-                    }
-                    if (originalCourseCode) {
-                        row.querySelector('[data-field="CourseCode"]').textContent = originalCourseCode || "N/A";
-                    }
-                    if (originalPoints) {
-                        row.querySelector('[data-field="GymnasiumPoints"]').textContent = originalPoints || "0";
-                    }
-
-                    button.textContent = "Restore Fuzzy Matched";
-                } else {
-                    // Restore the fuzzy matched values
-                    const fuzzySubjectName = row.getAttribute('data-fuzzy-subject-name');
-                    const fuzzyCourseCode = row.getAttribute('data-fuzzy-course-code');
-                    const fuzzyPoints = row.getAttribute('data-fuzzy-points');
-
-                    if (fuzzySubjectName) {
-                        row.querySelector('[data-field="SubjectName"]').textContent = fuzzySubjectName;
-                    }
-                    if (fuzzyCourseCode) {
-                        row.querySelector('[data-field="CourseCode"]').textContent = fuzzyCourseCode || "N/A";
-                    }
-                    if (fuzzyPoints) {
-                        row.querySelector('[data-field="GymnasiumPoints"]').textContent = fuzzyPoints || "0";
-                    }
-
-                    button.textContent = "Restore Original";
-                }
-
-                document.getElementById('saveChangesButton').style.display = 'block';
-            }
-
-            // Attach restore functionality to each restore button in fuzzy match notifications
-            document.querySelectorAll('.restore-btn').forEach(function (btn) {
-                btn.addEventListener('click', function () {
-                    var subjectName = this.getAttribute('data-subject');
-                    toggleRestoreValues(this, subjectName);
-                });
-            });
-
-            function makeCellEditable(cell, isEditable) {
-                cell.addEventListener('click', function (e) {
-                    var cell = e.target;
-                    if (cell.querySelector('input') || !isEditable) return;
-
-                    var originalValue = cell.textContent.trim();
-                    var input = document.createElement('input');
-                    input.type = 'text';
-                    input.value = originalValue;
-                    input.className = 'form-control';
-                    input.style.width = '100%';
-
-                    input.addEventListener('blur', function () {
-                        var newValue = input.value.trim();
-                        if (cell.getAttribute('data-field') === 'GymnasiumPoints') {
-                            // Allow only numbers for Gymnasium Points
-                            if (isNaN(newValue) || newValue === "") {
-                                newValue = ""; // If invalid, set the value to an empty string
-                            } else {
-                                newValue = parseInt(newValue); // Parse to an integer to avoid decimals
+                                else if (isBelowThreshold)
+                                {
+                                    <tr>
+                                        <td colspan="4">
+                                            <div class="alert alert-danger mt-2">
+                                                <strong>Attention:</strong> We could not find a match for this course. Please help us correct the details.
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
                             }
-                        }
-                        cell.textContent = newValue;
+                        </tbody>
+                    </table>
+                    <button id="saveChangesButton" class="btn btn-success mt-3" style="display:none;">Save Changes</button>
+                }
+                else
+                {
+                    <div class="alert alert-warning mt-4" role="alert">
+                        Data could not be displayed due to low image reliability.
+                    </div>
+                }
 
-                        var subjectName = cell.parentElement.querySelector('td:first-child').textContent.trim();
-                        var fieldName = cell.getAttribute('data-field');
-
-                        if (!editedData.Subjects[subjectName]) {
-                            editedData.Subjects[subjectName] = {};
-                        }
-                        editedData.Subjects[subjectName][fieldName] = newValue;
-
-                        document.getElementById('saveChangesButton').style.display = 'block';
-                    });
-
-                    input.addEventListener('keydown', function (e) {
-                        if (e.key === 'Enter') {
-                            e.preventDefault();
-                            input.blur();
-                        }
-                    });
-
-                    cell.textContent = '';
-                    cell.appendChild(input);
-                    input.focus();
-                });
             }
+            else
+            {
+                <div class="alert alert-info mt-4" role="alert">
+                    No document details could be found.
+                </div>
+            }
+        </div>
+    </div>
+    <a asp-action="ViewUploadedDocuments" asp-controller="Home">Back to Documents</a>
+    @section Scripts
+    {
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var editedData = {
+                    Subjects: {},
+                    StudentInfo: {}
+                };
+                var originalTotalPoints = parseFloat(document.getElementById('totalPointsDisplay')?.textContent || "0");
 
-            // Make grade cells editable for all subjects
-            document.querySelectorAll('.editable-cell[data-field="Grade"]').forEach(function (cell) {
-                makeCellEditable(cell, true);
-            });
+                function toggleRestoreValues(button, subjectName) {
+                    const row = button.closest('tr').previousElementSibling;
 
-            // Make CourseCode and GymnasiumPoints editable only if FuzzyMatchScore < 100
-            document.querySelectorAll('.editable-cell.needs-review').forEach(function (cell) {
-                makeCellEditable(cell, true);
-            });
+                    if (!row) {
+                        console.error(`Row for subject '${subjectName}' not found.`);
+                        return;
+                    }
 
-            // Make readonly cells uneditable
-            document.querySelectorAll('.readonly-cell').forEach(function (cell) {
-                makeCellEditable(cell, false);
-            });
+                    // Determine if we're currently showing the original or fuzzy matched values
+                    const isApplyingFuzzy = button.textContent.includes('Fuzzy Matched');
 
-            // Make FullName and PersonalId editable
-            document.querySelectorAll('.editable-cell.student-info').forEach(function (cell) {
-                cell.addEventListener('click', function (e) {
-                    var cell = e.target;
-                    if (cell.querySelector('input')) return;
+                    if (isApplyingFuzzy) {
+                        // Apply the fuzzy matched values
+                        const fuzzySubjectName = row.getAttribute('data-fuzzy-subject-name');
+                        const fuzzyCourseCode = row.getAttribute('data-fuzzy-course-code');
+                        const fuzzyPoints = row.getAttribute('data-fuzzy-points');
 
-                    var originalValue = cell.textContent.trim();
-                    var input = document.createElement('input');
-                    input.type = 'text';
-                    input.value = originalValue;
-                    input.className = 'form-control';
-                    input.style.width = '100%';
+                        if (fuzzySubjectName) {
+                            row.querySelector('[data-field="SubjectName"]').textContent = fuzzySubjectName;
+                        }
+                        if (fuzzyCourseCode) {
+                            row.querySelector('[data-field="CourseCode"]').textContent = fuzzyCourseCode || "N/A";
+                        }
+                        if (fuzzyPoints) {
+                            row.querySelector('[data-field="GymnasiumPoints"]').textContent = fuzzyPoints || "0";
+                        }
 
-                    input.addEventListener('blur', function () {
-                        var newValue = input.value.trim();
-                        cell.textContent = newValue;
+                        button.textContent = "Revert to Original Values";
+                    } else {
+                        // Revert to the original values
+                        const originalSubjectName = row.getAttribute('data-original-subject-name');
+                        const originalCourseCode = row.getAttribute('data-original-course-code');
+                        const originalPoints = row.getAttribute('data-original-points');
 
-                        var fieldName = cell.getAttribute('data-field');
-                        editedData.StudentInfo[fieldName] = newValue;
+                        if (originalSubjectName) {
+                            row.querySelector('[data-field="SubjectName"]').textContent = originalSubjectName;
+                        }
+                        if (originalCourseCode) {
+                            row.querySelector('[data-field="CourseCode"]').textContent = originalCourseCode || "N/A";
+                        }
+                        if (originalPoints) {
+                            row.querySelector('[data-field="GymnasiumPoints"]').textContent = originalPoints || "0";
+                        }
 
-                        document.getElementById('saveChangesButton').style.display = 'block';
+                        button.textContent = "Apply Fuzzy Matched Values";
+                    }
+
+                    document.getElementById('saveChangesButton').style.display = 'block';
+                }
+
+                // Attach restore functionality to each restore button in fuzzy match notifications
+                document.querySelectorAll('.restore-btn').forEach(function (btn) {
+                    btn.addEventListener('click', function () {
+                        var subjectName = this.getAttribute('data-subject');
+                        toggleRestoreValues(this, subjectName);
                     });
+                });
 
-                    input.addEventListener('keydown', function (e) {
-                        if (e.key === 'Enter') {
-                            e.preventDefault();
-                            input.blur();
+                function makeCellEditable(cell, isEditable) {
+                    cell.addEventListener('click', function (e) {
+                        var cell = e.target;
+                        if (cell.querySelector('input') || !isEditable) return;
+
+                        var originalValue = cell.textContent.trim();
+                        var input = document.createElement('input');
+                        input.type = 'text';
+                        input.value = originalValue;
+                        input.className = 'form-control';
+                        input.style.width = '100%';
+
+                        input.addEventListener('blur', function () {
+                            var newValue = input.value.trim();
+                            if (cell.getAttribute('data-field') === 'GymnasiumPoints') {
+                                // Allow only numbers for Gymnasium Points
+                                if (isNaN(newValue) || newValue === "") {
+                                    newValue = ""; // If invalid, set the value to an empty string
+                                } else {
+                                    newValue = parseInt(newValue); // Parse to an integer to avoid decimals
+                                }
+                            }
+                            cell.textContent = newValue;
+
+                            var subjectName = cell.parentElement.querySelector('td:first-child').textContent.trim();
+                            var fieldName = cell.getAttribute('data-field');
+
+                            if (!editedData.Subjects[subjectName]) {
+                                editedData.Subjects[subjectName] = {};
+                            }
+                            editedData.Subjects[subjectName][fieldName] = newValue;
+
+                            document.getElementById('saveChangesButton').style.display = 'block';
+                        });
+
+                        input.addEventListener('keydown', function (e) {
+                            if (e.key === 'Enter') {
+                                e.preventDefault();
+                                input.blur();
+                            }
+                        });
+
+                        cell.textContent = '';
+                        cell.appendChild(input);
+                        input.focus();
+                    });
+                }
+
+                // Make grade cells editable for all subjects
+                document.querySelectorAll('.editable-cell[data-field="Grade"]').forEach(function (cell) {
+                    makeCellEditable(cell, true);
+                });
+
+                // Make CourseCode and GymnasiumPoints editable only if FuzzyMatchScore < 100
+                document.querySelectorAll('.editable-cell.needs-review').forEach(function (cell) {
+                    makeCellEditable(cell, true);
+                });
+
+                // Make readonly cells uneditable
+                document.querySelectorAll('.readonly-cell').forEach(function (cell) {
+                    makeCellEditable(cell, false);
+                });
+
+                // Make FullName and PersonalId editable
+                document.querySelectorAll('.editable-cell.student-info').forEach(function (cell) {
+                    cell.addEventListener('click', function (e) {
+                        var cell = e.target;
+                        if (cell.querySelector('input')) return;
+
+                        var originalValue = cell.textContent.trim();
+                        var input = document.createElement('input');
+                        input.type = 'text';
+                        input.value = originalValue;
+                        input.className = 'form-control';
+                        input.style.width = '100%';
+
+                        input.addEventListener('blur', function () {
+                            var newValue = input.value.trim();
+                            cell.textContent = newValue;
+
+                            var fieldName = cell.getAttribute('data-field');
+                            editedData.StudentInfo[fieldName] = newValue;
+
+                            document.getElementById('saveChangesButton').style.display = 'block';
+                        });
+
+                        input.addEventListener('keydown', function (e) {
+                            if (e.key === 'Enter') {
+                                e.preventDefault();
+                                input.blur();
+                            }
+                        });
+
+                        cell.textContent = '';
+                        cell.appendChild(input);
+                        input.focus();
+                    });
+                });
+
+                // Save Changes button functionality
+                document.getElementById('saveChangesButton')?.addEventListener('click', function () {
+                    this.style.display = 'none';
+
+                    var newTotalPoints = 0;
+                    document.querySelectorAll('.editable-cell[data-field="GymnasiumPoints"]').forEach(function (cell) {
+                        var points = parseInt(cell.textContent.trim());
+                        if (!isNaN(points)) {
+                            newTotalPoints += points;
                         }
                     });
 
-                    cell.textContent = '';
-                    cell.appendChild(input);
-                    input.focus();
+                    document.getElementById('totalPointsDisplay').textContent = newTotalPoints;
                 });
             });
+        </script>
+    }
 
-            // Save Changes button functionality
-            document.getElementById('saveChangesButton')?.addEventListener('click', function () {
-                this.style.display = 'none';
-
-                var newTotalPoints = 0;
-                document.querySelectorAll('.editable-cell[data-field="GymnasiumPoints"]').forEach(function (cell) {
-                    var points = parseInt(cell.textContent.trim());
-                    if (!isNaN(points)) {
-                        newTotalPoints += points;
-                    }
-                });
-
-                document.getElementById('totalPointsDisplay').textContent = newTotalPoints;
-            });
-        });
-    </script>
-}
 </div>
