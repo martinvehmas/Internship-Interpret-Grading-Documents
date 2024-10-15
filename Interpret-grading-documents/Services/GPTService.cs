@@ -85,36 +85,37 @@ namespace Interpret_grading_documents.Services
 
         {
             
-                string tempFilePath = await SaveUploadedFileAsync(uploadedFile);
-                string processedImagePath = null;
-                string contentType;
+            string tempFilePath = await SaveUploadedFileAsync(uploadedFile);
+            string processedImagePath = null;
+            string contentType;
 
-                try
-                {
-                    (processedImagePath, contentType) = await ProcessUploadedFileAsync(tempFilePath);
-                    ImageReliabilityResult reliabilityResult = CheckImageReliability(processedImagePath);
+            try
+            {
+                (processedImagePath, contentType) = await ProcessUploadedFileAsync(tempFilePath);
+                ImageReliabilityResult reliabilityResult = CheckImageReliability(processedImagePath);
 
-                    ChatClient client = InitializeChatClient();
+                ChatClient client = InitializeChatClient();
 
-                    List<ChatMessage> messages = PrepareChatMessages(contentType, processedImagePath);
-                    ChatCompletion chatCompletion = await GetChatCompletionAsync(client, messages);
+                List<ChatMessage> messages = PrepareChatMessages(contentType, processedImagePath);
+                ChatCompletion chatCompletion = await GetChatCompletionAsync(client, messages);
 
-                    GraduationDocument document = DeserializeResponse(chatCompletion.Content[0].Text);
+                GraduationDocument document = DeserializeResponse(chatCompletion.Content[0].Text);
 
-                    // Set the document name using the uploaded file's name
-                    document.DocumentName = Path.GetFileName(uploadedFile.FileName);
+                // Set the document name using the uploaded file's name
+                document.DocumentName = Path.GetFileName(uploadedFile.FileName);
 
-                    var updatedDocument = await CompareCourses(document);
-                    ValidateDocument(updatedDocument, reliabilityResult);
+                var test = RequirementChecker.DoesStudentMeetRequirement(document, "Matematik 1", "E");
+                Console.WriteLine(test);
 
-                    return document;
-                }
-                finally
-                {
-                    CleanUpTempFiles(tempFilePath, processedImagePath);
-                }
-            
+                var updatedDocument = await CompareCourses(document);
+                ValidateDocument(updatedDocument, reliabilityResult);
 
+                return document;
+            }
+            finally
+            {
+                CleanUpTempFiles(tempFilePath, processedImagePath);
+            }
         }
 
         #region Private Methods
@@ -304,7 +305,7 @@ namespace Interpret_grading_documents.Services
                 File.Delete(tempFilePath);
                 if (!tempFilePath.Equals(processedImagePath, StringComparison.OrdinalIgnoreCase))
                 {
-                  File.Delete(processedImagePath);
+                    File.Delete(processedImagePath);
                 }
             }
             catch (IOException ex)

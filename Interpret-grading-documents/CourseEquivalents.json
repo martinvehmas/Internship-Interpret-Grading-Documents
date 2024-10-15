@@ -1,0 +1,37 @@
+﻿[
+  {
+    "group_name": "Engelska",
+    "courses": [
+      {
+        "name": "Engelska 6",
+        "code": "ENG6"
+      },
+      {
+        "name": "Engelska B",
+        "code": "ENG1202"
+      }
+    ]
+  },
+  {
+    "group_name": "Matematik 1",
+    "courses": [
+      {
+        "name": "Matematik 1a",
+        "code": "MAT1A"
+      },
+      {
+        "name": "Matematik 1b",
+        "code": "MAT1B"
+      },
+      {
+        "name": "Matematik 1c",
+        "code": "MAT1C"
+      },
+      {
+        "name": "Matematik A",
+        "code": "MA1201"
+      }
+    ]
+  }
+
+]
