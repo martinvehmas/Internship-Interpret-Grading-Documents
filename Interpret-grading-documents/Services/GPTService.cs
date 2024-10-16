@@ -234,7 +234,7 @@ namespace Interpret_grading_documents.Services
                         "4. Skolans namn (Exempel: Bromma gymnasium, YrkesAkademin, NTI Gymnasiet Luleå, Okänt gymnasium)\n" +
                         "5. Programnamn (Exempel: El- och energiprogrammet, Estetiska programmet, Hantverksprogrammet, Okänt program)\n" +
                         "6. Specialisering och detaljer om utbildning\n" +
-                        "7. Skolform (En av de följande: Grundskola, Gymnasieskola, Komvux utbildning, Högskola, Okänd utbildningsform)\n" +
+                        "7. Skolform (En av de följande: Grundskola, Gymnasieskola, Komvux utbildning, Kommunal vuxenutbildning på gymnasienivå,  Högskola, Okänd utbildningsform)\n" +
                         "8. Lista över ämnen med följande detaljer:\n" +
                         "   - Ämnesnamn\n" +
                         "   - Kurskod\n" +
