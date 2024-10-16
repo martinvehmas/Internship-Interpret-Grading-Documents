@@ -119,14 +119,14 @@
                                     <tr>
                                         <td colspan="4">
                                             <div class="alert alert-info mt-2">
-                                                <strong>Note:</strong> We are <strong>@fuzzyScore%</strong> sure that this is the correct match. Please review it carefully and confirm.
+                                                <strong>Note:</strong> Quality of our suggested match is <strong>@fuzzyScore%</strong>. Please review it carefully and confirm.
                                                 @if (isUpdated)
                                                 {
                                                     <p class="mt-2">
-                                                        <em>The system has kept the original course details. If the fuzzy matched details seem more accurate, you can apply them below.</em>
+                                                        <em>Did you mean <strong>@subject.SubjectName</strong> instead of <strong>@subject.OriginalSubjectName</strong>?</em>
                                                     </p>
                                                     <!-- Updated button text -->
-                                                    <button class="btn btn-warning btn-sm restore-btn mt-2" data-subject="@subject.SubjectName">Apply Fuzzy Matched Values</button>
+                                                    <button class="btn btn-warning btn-sm restore-btn mt-2" data-subject="@subject.SubjectName">Apply Suggestion</button>
                                                    
                                                 }
                                             </div>
@@ -185,7 +185,7 @@
                     }
 
                     // Determine if we're currently showing the original or fuzzy matched values
-                    const isApplyingFuzzy = button.textContent.includes('Fuzzy Matched');
+                    const isApplyingFuzzy = button.textContent.includes('Apply Suggestion');
 
                     if (isApplyingFuzzy) {
                         // Apply the fuzzy matched values
@@ -220,7 +220,7 @@
                             row.querySelector('[data-field="GymnasiumPoints"]').textContent = originalPoints || "0";
                         }
 
-                        button.textContent = "Apply Fuzzy Matched Values";
+                        button.textContent = "Apply Suggestion";
                     }
 
                     document.getElementById('saveChangesButton').style.display = 'block';
