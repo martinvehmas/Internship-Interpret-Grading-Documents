@@ -41,6 +41,21 @@ namespace Interpret_grading_documents.Controllers
             return RedirectToAction("ViewUploadedDocuments");
         }
 
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View();
+        }
+        public IActionResult ViewDocument(Guid id)
+        {
+            var document = _analyzedDocuments.Find(d => d.Id == id);
+            if (document == null)
+            {
+                return NotFound();
+            }
+            return View(document);
+        }
+
         public IActionResult ViewUploadedDocuments()
         {
             return View(_analyzedDocuments);
@@ -49,11 +64,19 @@ namespace Interpret_grading_documents.Controllers
         [HttpPost]
         public IActionResult RemoveDocument(Guid id)
         {
-            var document = _analyzedDocuments.FirstOrDefault(d => d.Id == id);
+            var document = _analyzedDocuments.Find(d => d.Id == id);
             if (document != null)
             {
                 _analyzedDocuments.Remove(document);
-                _logger.LogInformation($"Document {document.DocumentName} was successfully removed");
+
+                Console.WriteLine($"Document {document.DocumentName} was successfully removed");
+                Console.WriteLine($"\nDocuments remaining:");
+
+                foreach (var doc in _analyzedDocuments)
+                {
+                    Console.WriteLine(doc.DocumentName);
+                }
+
                 return RedirectToAction("ViewUploadedDocuments");
             }
             return NotFound();
