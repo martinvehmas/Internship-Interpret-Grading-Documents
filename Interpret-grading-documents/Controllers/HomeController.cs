@@ -142,21 +142,24 @@ namespace Interpret_grading_documents.Controllers
         [HttpGet]
         public IActionResult CheckRequirements(Guid id)
         {
-            // Retrieve the document based on the provided ID
+            
             var document = _analyzedDocuments.Find(d => d.Id == id);
             if (document == null)
             {
                 return NotFound();
             }
 
-            // Perform the requirement check
-            bool meetsRequirement = RequirementChecker.DoesStudentMeetRequirement(document, "Matematik 1a", "E");
+            var requirementResults = RequirementChecker.DoesStudentMeetRequirement(document);
 
-            // Create a view model to pass the data to the view
+            // Determine if all requirements are met
+            bool meetsAllRequirements = requirementResults.Values.All(r => r.IsMet);
+
+            
             var model = new RequirementCheckViewModel
             {
                 Document = document,
-                MeetsRequirement = meetsRequirement
+                RequirementResults = requirementResults,
+                MeetsRequirement = meetsAllRequirements
             };
 
             return View(model);
@@ -164,7 +167,15 @@ namespace Interpret_grading_documents.Controllers
         public class RequirementCheckViewModel
         {
             public GPTService.GraduationDocument Document { get; set; }
+            public Dictionary<string, RequirementResult> RequirementResults { get; set; }
             public bool MeetsRequirement { get; set; }
+        }
+        public class RequirementResult
+        {
+            public string CourseName { get; set; }
+            public string RequiredGrade { get; set; }
+            public bool IsMet { get; set; }
+            public string StudentGrade { get; set; }
         }
     }
 }

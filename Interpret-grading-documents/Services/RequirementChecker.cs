@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using Interpret_grading_documents.Controllers;
 
 namespace Interpret_grading_documents.Services
 {
@@ -87,10 +88,10 @@ namespace Interpret_grading_documents.Services
             return JsonSerializer.Deserialize<CourseEquivalents>(jsonContent);
         }
 
-        public static bool DoesStudentMeetRequirement(GPTService.GraduationDocument document)
+        public static Dictionary<string, HomeController.RequirementResult> DoesStudentMeetRequirement(GPTService.GraduationDocument document)
         {
             Console.WriteLine("Checking if the student meets all course requirements.");
-            bool allRequirementsMet = true; // Assume all requirements are met initially
+            var allRequirementsMet = new Dictionary<string, HomeController.RequirementResult>(); // Change from bool to dictionary
 
             foreach (var subject in CourseEquivalents.Subjects)
             {
@@ -105,6 +106,7 @@ namespace Interpret_grading_documents.Services
                     var equivalentCourses = GetEquivalentCourses(requiredCourseNameOrCode);
 
                     bool courseRequirementMet = false;
+                    string studentGrade = null; // declare studentGrade
 
                     foreach (var studentSubject in document.Subjects)
                     {
@@ -113,6 +115,7 @@ namespace Interpret_grading_documents.Services
                             ec.Code.Equals(studentSubject.CourseCode.Trim(), StringComparison.OrdinalIgnoreCase)))
                         {
                             int studentGradeValue = GetGradeValue(studentSubject.Grade.Trim());
+                            studentGrade = studentSubject.Grade;
 
                             if (studentGradeValue >= requiredGradeValue)
                             {
@@ -130,19 +133,19 @@ namespace Interpret_grading_documents.Services
                     if (!courseRequirementMet)
                     {
                         Console.WriteLine($"Student does not meet the requirement for {requiredCourseNameOrCode}");
-                        allRequirementsMet = false; // Mark that not all requirements are met
+                        
                     }
+                    // Add the result to the dictionary
+                    allRequirementsMet[requiredCourseNameOrCode] = new HomeController.RequirementResult
+                    {
+                        CourseName = requiredCourseNameOrCode,
+                        RequiredGrade = requiredGrade,
+                        IsMet = courseRequirementMet,
+                        StudentGrade = studentGrade ?? "N/A"
+                    };
                 }
             }
 
-            if (allRequirementsMet)
-            {
-                Console.WriteLine("Student meets all course requirements.");
-            }
-            else
-            {
-                Console.WriteLine("Student does not meet all course requirements.");
-            }
 
             return allRequirementsMet;
         }
