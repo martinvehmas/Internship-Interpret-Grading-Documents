@@ -1,4 +1,4 @@
-﻿{
+{
   "subjects": [
     {
       "name": "Engelska",
@@ -11,8 +11,13 @@
             {
               "name": "Engelska A",
               "code": "EN1201"
+            },
+            {
+              "name": "Administration B",
+              "code": "ADM1202"
             }
-          ]
+          ],
+          "requiredGrade": "E"
         },
         {
           "name": "Engelska 6",
@@ -23,7 +28,8 @@
               "name": "Engelska B",
               "code": "EN1202"
             }
-          ]
+          ],
+          "requiredGrade": "E"
         }
       ]
     },
@@ -47,7 +53,8 @@
               "name": "Matematik A",
               "code": "MA1201"
             }
-          ]
+          ],
+          "requiredGrade": "D"
         }
       ]
     }

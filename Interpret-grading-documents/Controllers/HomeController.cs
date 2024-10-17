@@ -62,7 +62,11 @@ namespace Interpret_grading_documents.Controllers
         [HttpGet]
         public IActionResult CourseRequirementsManager()
         {
-            var courseEquivalents = LoadCourseEquivalents();
+            var courseEquivalents = LoadCourseEquivalents() ?? new CourseEquivalents
+            {
+                Subjects = new List<Subject>()
+            };
+
             var validationCourses = ValidationData.GetCourses();
 
             var availableCourses = validationCourses.Values.Select(c => new AvailableCourse
@@ -77,20 +81,8 @@ namespace Interpret_grading_documents.Controllers
         }
 
         [HttpPost]
-        public IActionResult SaveCourseEquivalents([FromBody] List<Course> courses)
+        public IActionResult SaveCourseEquivalents([FromBody] CourseEquivalents courseEquivalents)
         {
-            var courseEquivalents = new CourseEquivalents { Subjects = new List<Subject>() };
-
-            foreach (var subjectGroup in courses.GroupBy(c => c.Name))
-            {
-                var subject = new Subject
-                {
-                    Name = subjectGroup.Key,
-                    Courses = subjectGroup.ToList()
-                };
-                courseEquivalents.Subjects.Add(subject);
-            }
-
             SaveCourseEquivalentsToFile(courseEquivalents);
             return Json(new { success = true });
         }
@@ -105,7 +97,7 @@ namespace Interpret_grading_documents.Controllers
                     PropertyNameCaseInsensitive = true
                 });
             }
-            return new CourseEquivalents { Subjects = new List<Subject>() };
+            return null;
         }
 
         private void SaveCourseEquivalentsToFile(CourseEquivalents courseEquivalents)
