@@ -138,5 +138,33 @@ namespace Interpret_grading_documents.Controllers
             public string CourseName { get; set; }
             public string CourseCode { get; set; }
         }
+
+        [HttpGet]
+        public IActionResult CheckRequirements(Guid id)
+        {
+            // Retrieve the document based on the provided ID
+            var document = _analyzedDocuments.Find(d => d.Id == id);
+            if (document == null)
+            {
+                return NotFound();
+            }
+
+            // Perform the requirement check
+            bool meetsRequirement = RequirementChecker.DoesStudentMeetRequirement(document, "Matematik 1a", "E");
+
+            // Create a view model to pass the data to the view
+            var model = new RequirementCheckViewModel
+            {
+                Document = document,
+                MeetsRequirement = meetsRequirement
+            };
+
+            return View(model);
+        }
+        public class RequirementCheckViewModel
+        {
+            public GPTService.GraduationDocument Document { get; set; }
+            public bool MeetsRequirement { get; set; }
+        }
     }
 }
