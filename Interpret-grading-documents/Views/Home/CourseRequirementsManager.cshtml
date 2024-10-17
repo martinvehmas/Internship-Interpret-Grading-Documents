@@ -186,7 +186,6 @@
             submitChanges();
         }
 
-
         function initAutocomplete(inputElement, dropdownElement, getMatchingItems, onItemSelected) {
             inputElement.addEventListener("input", function () {
                 var searchTerm = this.value.toLowerCase();
@@ -286,11 +285,21 @@
             var courseIndex = document.getElementById("addCourseIndex").value;
             var subject = courseEquivalents.subjects[subjectIndex];
 
+            var courseName = document.getElementById("addCourseName").value.trim();
+            var courseCode = document.getElementById("addCourseCode").value.trim();
+            var level = document.getElementById("addLevel").value.trim();
+            var requiredGrade = document.getElementById("addRequiredGrade").value.trim();
+
+            if (courseName === '' || courseCode === '' || level === '' || requiredGrade === '') {
+                alert("Please fill in all required fields.");
+                return;
+            }
+
             var course = {
-                name: document.getElementById("addCourseName").value,
-                code: document.getElementById("addCourseCode").value,
-                level: parseInt(document.getElementById("addLevel").value),
-                requiredGrade: document.getElementById("addRequiredGrade").value,
+                name: courseName,
+                code: courseCode,
+                level: parseInt(level),
+                requiredGrade: requiredGrade,
                 alternatives: []
             };
 
@@ -300,10 +309,13 @@
                 var row = alternativeRows[i];
                 var altNameInput = row.querySelector(".alternative-name");
                 var altCodeInput = row.querySelector(".alternative-code");
-                var altName = altNameInput.value;
-                var altCode = altCodeInput.value;
+                var altName = altNameInput.value.trim();
+                var altCode = altCodeInput.value.trim();
                 if (altName && altCode) {
                     course.alternatives.push({ name: altName, code: altCode });
+                } else if (altName || altCode) {
+                    alert("Please fill in both name and code for each alternative.");
+                    return;
                 }
             }
 
@@ -322,16 +334,16 @@
             var div = document.createElement("div");
             div.className = "form-row mb-2 position-relative";
             div.innerHTML = `
-                        <div class="col">
-                            <input type="text" class="form-control alternative-name" placeholder="Alternative Name" value="${altName}" required />
-                            <div class="autocomplete-dropdown alternative-dropdown" style="display: none;"></div>
-                        </div>
-                        <div class="col">
-                            <input type="text" class="form-control alternative-code" placeholder="Alternative Code" value="${altCode}" required />
-                        </div>
-                        <div class="col-auto">
-                            <button type="button" class="btn btn-danger" onclick="this.parentElement.parentElement.remove()">Remove</button>
-                        </div>`;
+                                <div class="col">
+                                    <input type="text" class="form-control alternative-name" placeholder="Alternative Name" value="${altName}" required />
+                                    <div class="autocomplete-dropdown alternative-dropdown" style="display: none;"></div>
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control alternative-code" placeholder="Alternative Code" value="${altCode}" required />
+                                </div>
+                                <div class="col-auto">
+                                    <button type="button" class="btn btn-danger" onclick="this.parentElement.parentElement.remove()">Remove</button>
+                                </div>`;
             container.appendChild(div);
 
             var alternativeNameInput = div.querySelector(".alternative-name");
