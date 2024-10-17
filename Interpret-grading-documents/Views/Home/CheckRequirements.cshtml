@@ -1,0 +1,20 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model Interpret_grading_documents.Controllers.HomeController.RequirementCheckViewModel
+
+<div class="container mt-5">
+    <h2>Requirement Check for @Model.Document.FullName</h2>
+
+    <p>
+        Does the student meet the requirement for <strong>Matematik 1a</strong> with grade <strong>E</strong>?
+        @if (Model.MeetsRequirement)
+        {
+            <span class="text-success"><strong>Yes</strong></span>
+        }
+        else
+        {
+            <span class="text-danger"><strong>No</strong></span>
+        }
+    </p>
+
+    <a asp-action="ViewDocument" asp-controller="Home" asp-route-id="@Model.Document.Id" class="btn btn-secondary">Back to Document</a>
+</div>
