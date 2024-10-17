@@ -104,7 +104,7 @@ namespace Interpret_grading_documents.Services
                 // Set the document name using the uploaded file's name
                 document.DocumentName = Path.GetFileName(uploadedFile.FileName);
 
-                var test = RequirementChecker.DoesStudentMeetRequirement(document, "Matematik 1", "E");
+                var test = RequirementChecker.DoesStudentMeetRequirement(document, "Matematik 1a", "E");
                 Console.WriteLine(test);
 
                 var updatedDocument = await CompareCourses(document);

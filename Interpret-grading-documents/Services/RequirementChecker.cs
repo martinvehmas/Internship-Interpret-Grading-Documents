@@ -34,7 +34,19 @@ namespace Interpret_grading_documents.Services
         public int Level { get; set; }
 
         [JsonPropertyName("alternatives")]
-        public List<Course> Alternatives { get; set; }
+        public List<AlternativeCourse> Alternatives { get; set; } = new List<AlternativeCourse>();
+
+        [JsonPropertyName("requiredGrade")]
+        public string RequiredGrade { get; set; } // New property for required grade
+    }
+
+    public class AlternativeCourse
+    {
+        [JsonPropertyName("name")]
+        public string Name { get; set; }
+
+        [JsonPropertyName("code")]
+        public string Code { get; set; }
     }
 
     public static class RequirementChecker

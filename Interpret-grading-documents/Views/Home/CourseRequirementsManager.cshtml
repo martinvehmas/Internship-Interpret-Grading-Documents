@@ -1,0 +1,354 @@
+﻿@model Interpret_grading_documents.Services.CourseEquivalents
+
+@using System.Text.Json;
+
+@{
+    ViewData["Title"] = "Manage Course Requirements";
+}
+
+<div class="container mt-5">
+    <h1 class="display-4 text-center">Manage Course Equivalents</h1>
+
+    <div class="modal fade" id="editCourseModal" tabindex="-1" role="dialog" aria-labelledby="editCourseModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editCourseModalLabel">Edit Course</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeEditCourseModal()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="editCourseForm">
+                        <div class="form-group">
+                            <label for="editSubjectName">Subject Name</label>
+                            <input type="text" class="form-control" id="editSubjectName" readonly />
+                        </div>
+                        <div class="form-group">
+                            <label for="editCourseName">Course Name</label>
+                            <input type="text" class="form-control" id="editCourseName" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="editCourseCode">Course Code</label>
+                            <input type="text" class="form-control" id="editCourseCode" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="editLevel">Level</label>
+                            <input type="number" class="form-control" id="editLevel" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="editRequiredGrade">Required Grade</label>
+                            <select class="form-control" id="editRequiredGrade">
+                                <option value="A">A</option>
+                                <option value="B">B</option>
+                                <option value="C">C</option>
+                                <option value="D">D</option>
+                                <option value="E">E</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Alternatives</label>
+                            <div id="alternativesContainer"></div>
+                            <button type="button" class="btn btn-secondary" onclick="addAlternative()">Add Alternative</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <input type="hidden" id="editCourseIndex" />
+                    <input type="hidden" id="editSubjectIndex" />
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeEditCourseModal()">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="saveEditedCourse()">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-4">
+        <h3>Course List</h3>
+        @for (int subjectIndex = 0; subjectIndex < Model.Subjects.Count; subjectIndex++)
+        {
+            var subject = Model.Subjects[subjectIndex];
+            <div class="card mt-3">
+                <div class="card-header">
+                    <h4>@subject.Name</h4>
+                </div>
+                <div class="card-body">
+                    <table class="table table-striped mt-3">
+                        <thead>
+                            <tr>
+                                <th>Course Name</th>
+                                <th>Course Code</th>
+                                <th>Level</th>
+                                <th>Required Grade</th>
+                                <th>Alternatives</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (int courseIndex = 0; courseIndex < subject.Courses.Count; courseIndex++)
+                            {
+                                var course = subject.Courses[courseIndex];
+                                <tr>
+                                    <td>@course.Name</td>
+                                    <td>@course.Code</td>
+                                    <td>@course.Level</td>
+                                    <td>@course.RequiredGrade</td>
+                                    <td>
+                                        @if (course.Alternatives != null && course.Alternatives.Any())
+                                        {
+                                            foreach (var alt in course.Alternatives)
+                                            {
+                                                <div>@alt.Name (@alt.Code)</div>
+                                            }
+                                        }
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-warning btn-sm" onclick="openEditCourseModal(@subjectIndex, @courseIndex)">Edit</button>
+                                        <button class="btn btn-danger btn-sm" onclick="deleteCourse(@subjectIndex, @courseIndex)">Delete</button>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        }
+    </div>
+
+    <div class="mt-4">
+        <button class="btn btn-success" onclick="submitChanges()">Save All Changes</button>
+    </div>
+</div>
+
+@section Scripts {
+    <style>
+        .autocomplete-dropdown {
+            position: absolute;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            max-height: 150px;
+            overflow-y: auto;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            left: 0;
+            width: 100%;
+        }
+
+            .autocomplete-dropdown .dropdown-item {
+                padding: 8px 12px;
+                cursor: pointer;
+            }
+
+                .autocomplete-dropdown .dropdown-item:hover {
+                    background-color: #f1f1f1;
+                }
+    </style>
+
+    <script>
+        var courseEquivalents = @Html.Raw(JsonSerializer.Serialize(Model));
+        var availableCourses = @Html.Raw(JsonSerializer.Serialize(ViewBag.AvailableCourses));
+
+        function openEditCourseModal(subjectIndex, courseIndex) {
+            var subject = courseEquivalents.subjects[subjectIndex];
+            var course = subject.courses[courseIndex];
+
+            document.getElementById("editSubjectName").value = subject.name;
+            document.getElementById("editCourseName").value = course.name;
+            document.getElementById("editCourseCode").value = course.code;
+            document.getElementById("editLevel").value = course.level;
+            document.getElementById("editRequiredGrade").value = course.requiredGrade;
+
+            // Store indexes to identify the course later
+            document.getElementById("editSubjectIndex").value = subjectIndex;
+            document.getElementById("editCourseIndex").value = courseIndex;
+
+            // Populate alternatives
+            var alternativesContainer = document.getElementById("alternativesContainer");
+            alternativesContainer.innerHTML = '';
+            if (course.alternatives) {
+                course.alternatives.forEach(function (alt, index) {
+                    addAlternativeRow(alt.name, alt.code);
+                });
+            }
+
+            $('#editCourseModal').modal('show');
+        }
+
+        function closeEditCourseModal() {
+            $('#editCourseModal').modal('hide');
+            // Clear form fields
+            document.getElementById("editCourseForm").reset();
+            document.getElementById("alternativesContainer").innerHTML = '';
+        }
+
+        function addAlternative() {
+            addAlternativeRow('', '');
+        }
+
+        function addAlternativeRow(name, code) {
+            var alternativesContainer = document.getElementById("alternativesContainer");
+
+            var row = document.createElement('div');
+            row.className = 'form-row align-items-center position-relative';
+
+            var nameDiv = document.createElement('div');
+            nameDiv.className = 'col';
+            var nameInput = document.createElement('input');
+            nameInput.type = 'text';
+            nameInput.className = 'form-control mb-2';
+            nameInput.placeholder = 'Alternative Name';
+            nameInput.value = name;
+            nameDiv.appendChild(nameInput);
+
+            var codeDiv = document.createElement('div');
+            codeDiv.className = 'col';
+            var codeInput = document.createElement('input');
+            codeInput.type = 'text';
+            codeInput.className = 'form-control mb-2';
+            codeInput.placeholder = 'Alternative Code';
+            codeInput.value = code;
+            codeDiv.appendChild(codeInput);
+
+            var removeDiv = document.createElement('div');
+            removeDiv.className = 'col-auto';
+            var removeButton = document.createElement('button');
+            removeButton.type = 'button';
+            removeButton.className = 'btn btn-danger mb-2';
+            removeButton.innerText = 'Remove';
+            removeButton.onclick = function () {
+                alternativesContainer.removeChild(row);
+            };
+            removeDiv.appendChild(removeButton);
+
+            row.appendChild(nameDiv);
+            row.appendChild(codeDiv);
+            row.appendChild(removeDiv);
+
+            // Add autocomplete dropdown for the name input
+            var dropdown = document.createElement('div');
+            dropdown.className = 'autocomplete-dropdown';
+            dropdown.style.display = 'none';
+            row.appendChild(dropdown);
+
+            // Event listener for autocomplete
+            nameInput.addEventListener('input', function () {
+                var searchTerm = nameInput.value.toLowerCase();
+                dropdown.innerHTML = '';
+                if (searchTerm.length > 0) {
+                    var matchingCourses = getMatchingCourses(searchTerm);
+                    if (matchingCourses.length > 0) {
+                        matchingCourses.forEach(function (course) {
+                            var item = document.createElement('div');
+                            item.className = 'dropdown-item';
+                            item.innerText = course.CourseName;
+                            item.onclick = function () {
+                                nameInput.value = course.CourseName;
+                                codeInput.value = course.CourseCode;
+                                dropdown.style.display = 'none';
+                            };
+                            dropdown.appendChild(item);
+                        });
+                        // Set dropdown position dynamically
+                        var rect = nameInput.getBoundingClientRect();
+                        dropdown.style.top = (rect.height + 2) + 'px';
+                        dropdown.style.display = 'block';
+                    } else {
+                        dropdown.style.display = 'none';
+                    }
+                } else {
+                    dropdown.style.display = 'none';
+                }
+            });
+
+            // Hide dropdown when clicking outside
+            document.addEventListener('click', function (event) {
+                if (!row.contains(event.target)) {
+                    dropdown.style.display = 'none';
+                }
+            });
+
+            alternativesContainer.appendChild(row);
+        }
+
+        function getMatchingCourses(searchTerm) {
+            var matchingCourses = availableCourses.filter(function (course) {
+                return course.CourseName.toLowerCase().includes(searchTerm) || course.CourseCode.toLowerCase().includes(searchTerm);
+            });
+            return matchingCourses;
+        }
+
+        function saveEditedCourse() {
+            var subjectIndex = document.getElementById("editSubjectIndex").value;
+            var courseIndex = document.getElementById("editCourseIndex").value;
+
+            var subject = courseEquivalents.subjects[subjectIndex];
+            var course = subject.courses[courseIndex];
+
+            course.name = document.getElementById("editCourseName").value;
+            course.code = document.getElementById("editCourseCode").value;
+            course.level = parseInt(document.getElementById("editLevel").value);
+            course.requiredGrade = document.getElementById("editRequiredGrade").value;
+
+            var alternativesContainer = document.getElementById("alternativesContainer");
+            var alternativeRows = alternativesContainer.children;
+            course.alternatives = [];
+            for (var i = 0; i < alternativeRows.length; i++) {
+                var row = alternativeRows[i];
+                var inputs = row.getElementsByTagName('input');
+                var altName = inputs[0].value;
+                var altCode = inputs[1].value;
+                if (altName && altCode) {
+                    course.alternatives.push({ name: altName, code: altCode });
+                }
+            }
+
+            closeEditCourseModal();
+            submitChanges();
+        }
+
+        function deleteCourse(subjectIndex, courseIndex) {
+            if (!confirm("Are you sure you want to delete this course?")) return;
+            var subject = courseEquivalents.subjects[subjectIndex];
+            subject.courses.splice(courseIndex, 1);
+            location.reload();
+        }
+
+        function submitChanges() {
+            fetch('/Home/SaveCourseEquivalents', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(collectCourseData())
+            }).then(response => {
+                if (response.ok) {
+                    alert("Changes saved successfully.");
+                    location.reload();
+                } else {
+                    alert("Error saving changes.");
+                }
+            });
+        }
+
+        function collectCourseData() {
+            var courseData = [];
+            courseEquivalents.subjects.forEach(function (subject) {
+                subject.courses.forEach(function (course) {
+                    var data = {
+                        SubjectName: subject.name,
+                        CourseName: course.name,
+                        CourseCode: course.code,
+                        Level: course.level,
+                        RequiredGrade: course.requiredGrade,
+                        Alternatives: course.alternatives ? course.alternatives.map(function (alt) {
+                            return { Name: alt.name, Code: alt.code };
+                        }) : []
+                    };
+                    courseData.push(data);
+                });
+            });
+            return courseData;
+        }
+    </script>
+}
