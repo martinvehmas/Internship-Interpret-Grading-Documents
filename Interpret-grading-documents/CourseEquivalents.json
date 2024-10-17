@@ -11,10 +11,6 @@
             {
               "name": "Engelska A",
               "code": "EN1201"
-            },
-            {
-              "name": "Administration B",
-              "code": "ADM1202"
             }
           ],
           "requiredGrade": "E"
@@ -54,7 +50,7 @@
               "code": "MA1201"
             }
           ],
-          "requiredGrade": "D"
+          "requiredGrade": "E"
         }
       ]
     }

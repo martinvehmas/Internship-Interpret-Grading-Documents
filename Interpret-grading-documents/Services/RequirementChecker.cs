@@ -87,46 +87,67 @@ namespace Interpret_grading_documents.Services
             return JsonSerializer.Deserialize<CourseEquivalents>(jsonContent);
         }
 
-        public static bool DoesStudentMeetRequirement(GPTService.GraduationDocument document, string requiredCourseNameOrCode, string requiredMinimumGrade)
+        public static bool DoesStudentMeetRequirement(GPTService.GraduationDocument document)
         {
-            Console.WriteLine($"Checking if student meets the requirement for {requiredCourseNameOrCode} with minimum grade {requiredMinimumGrade}");
+            Console.WriteLine("Checking if the student meets all course requirements.");
+            bool allRequirementsMet = true; // Assume all requirements are met initially
 
-            int requiredGradeValue = GetGradeValue(requiredMinimumGrade);
-            Console.WriteLine($"Required grade value for {requiredMinimumGrade}: {requiredGradeValue}");
-
-            var equivalentCourses = GetEquivalentCourses(requiredCourseNameOrCode);
-            Console.WriteLine($"Equivalent courses for {requiredCourseNameOrCode}: {string.Join(", ", equivalentCourses.Select(c => c.Name + " (" + c.Code + ")"))}");
-
-            foreach (var studentSubject in document.Subjects)
+            foreach (var subject in CourseEquivalents.Subjects)
             {
-                Console.WriteLine($"Checking student's subject: {studentSubject.SubjectName.Trim()} ({studentSubject.CourseCode.Trim()}) with grade {studentSubject.Grade}");
-
-                if (equivalentCourses.Any(ec =>
-                    ec.Name.Equals(studentSubject.SubjectName.Trim(), StringComparison.OrdinalIgnoreCase) ||
-                    ec.Code.Equals(studentSubject.CourseCode.Trim(), StringComparison.OrdinalIgnoreCase)))
+                foreach (var course in subject.Courses)
                 {
-                    int studentGradeValue = GetGradeValue(studentSubject.Grade.Trim());
-                    Console.WriteLine($"Student's grade value for {studentSubject.SubjectName.Trim()}: {studentGradeValue}");
+                    string requiredCourseNameOrCode = course.Name;
+                    string requiredGrade = course.RequiredGrade;
 
-                    if (studentGradeValue >= requiredGradeValue)
+                    Console.WriteLine($"Checking requirement for course: {requiredCourseNameOrCode} with minimum grade: {requiredGrade}");
+
+                    int requiredGradeValue = GetGradeValue(requiredGrade);
+                    var equivalentCourses = GetEquivalentCourses(requiredCourseNameOrCode);
+
+                    bool courseRequirementMet = false;
+
+                    foreach (var studentSubject in document.Subjects)
                     {
-                        Console.WriteLine($"Student meets the requirement for {requiredCourseNameOrCode} with grade {studentSubject.Grade}");
-                        return true;
+                        if (equivalentCourses.Any(ec =>
+                            ec.Name.Equals(studentSubject.SubjectName.Trim(), StringComparison.OrdinalIgnoreCase) ||
+                            ec.Code.Equals(studentSubject.CourseCode.Trim(), StringComparison.OrdinalIgnoreCase)))
+                        {
+                            int studentGradeValue = GetGradeValue(studentSubject.Grade.Trim());
+
+                            if (studentGradeValue >= requiredGradeValue)
+                            {
+                                Console.WriteLine($"Student meets the requirement for {requiredCourseNameOrCode} with grade {studentSubject.Grade}");
+                                courseRequirementMet = true;
+                                break; // Requirement met for this course, no need to check further
+                            }
+                            else
+                            {
+                                Console.WriteLine($"Student's grade {studentSubject.Grade} is lower than the required grade {requiredGrade}");
+                            }
+                        }
                     }
-                    else
+
+                    if (!courseRequirementMet)
                     {
-                        Console.WriteLine($"Student's grade {studentSubject.Grade} is lower than the required grade {requiredMinimumGrade}");
+                        Console.WriteLine($"Student does not meet the requirement for {requiredCourseNameOrCode}");
+                        allRequirementsMet = false; // Mark that not all requirements are met
                     }
-                }
-                else
-                {
-                    Console.WriteLine($"No match found for student's subject {studentSubject.SubjectName.Trim()} in equivalent courses.");
                 }
             }
 
-            Console.WriteLine($"Student does not meet the requirement for {requiredCourseNameOrCode}");
-            return false;
+            if (allRequirementsMet)
+            {
+                Console.WriteLine("Student meets all course requirements.");
+            }
+            else
+            {
+                Console.WriteLine("Student does not meet all course requirements.");
+            }
+
+            return allRequirementsMet;
         }
+
+
 
         private static int GetGradeValue(string grade)
         {
