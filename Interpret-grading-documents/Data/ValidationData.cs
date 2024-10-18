@@ -48,7 +48,7 @@ namespace Interpret_grading_documents.Data
 
         public static async Task<Dictionary<string, CourseDetail>> GetCoursesFromApi()
         {
-            string url = "https://api.skolverket.se/syllabus/v1/courses?timespan=LATEST";
+            string url = "https://api.skolverket.se/syllabus/v1/courses?schooltype=GY&timespan=LATEST";
             string outputPath = Path.Combine("Data", "kurserApi.json");
 
             using (HttpClient client = new HttpClient())

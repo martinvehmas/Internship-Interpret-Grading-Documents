@@ -1,20 +1,5 @@
 ﻿[
   {
-    "CourseName": "Administration 1",
-    "CourseCode": "ADIADM51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Administration 2",
-    "CourseCode": "ADIADM52",
-    "Points": 100
-  },
-  {
-    "CourseName": "Administration 3",
-    "CourseCode": "ADIADM53",
-    "Points": 100
-  },
-  {
     "CourseName": "Administration – specialisering",
     "CourseCode": "ADMADM00S",
     "Points": 100
@@ -190,31 +175,6 @@
     "Points": 100
   },
   {
-    "CourseName": "Bageri- och konditorikunskap",
-    "CourseCode": "BAEBAG5",
-    "Points": 100
-  },
-  {
-    "CourseName": "Bageri 1",
-    "CourseCode": "BAEBAG51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Bageri 2",
-    "CourseCode": "BAEBAG52",
-    "Points": 100
-  },
-  {
-    "CourseName": "Konditori 1",
-    "CourseCode": "BAEKON51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Konditori 2",
-    "CourseCode": "BAEKON52",
-    "Points": 100
-  },
-  {
     "CourseName": "Bageri – specialisering",
     "CourseCode": "BAGBAG00S",
     "Points": 100
@@ -282,21 +242,6 @@
   {
     "CourseName": "Barn- och ungdomshälsa",
     "CourseCode": "BAOBAR0",
-    "Points": 100
-  },
-  {
-    "CourseName": "Barnet i förskolan 1",
-    "CourseCode": "BARBAR51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Barnet i förskolan 2",
-    "CourseCode": "BARBAR52",
-    "Points": 100
-  },
-  {
-    "CourseName": "Skapande verksamhet i förskolan",
-    "CourseCode": "BARSKA5",
     "Points": 100
   },
   {
@@ -382,36 +327,6 @@
   {
     "CourseName": "Vardagsolyckor",
     "CourseCode": "BEVVAR0",
-    "Points": 100
-  },
-  {
-    "CourseName": "Biologi – naturbruk",
-    "CourseCode": "BIABIO5",
-    "Points": 100
-  },
-  {
-    "CourseName": "Djurens biologi",
-    "CourseCode": "BIADJU5",
-    "Points": 100
-  },
-  {
-    "CourseName": "Marken och växternas biologi",
-    "CourseCode": "BIAMAR5",
-    "Points": 100
-  },
-  {
-    "CourseName": "Bild 1",
-    "CourseCode": "BIBBIL51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Bild 2",
-    "CourseCode": "BIBBIL52",
-    "Points": 100
-  },
-  {
-    "CourseName": "Bild 3",
-    "CourseCode": "BIBBIL53",
     "Points": 100
   },
   {
@@ -520,21 +435,6 @@
     "Points": 200
   },
   {
-    "CourseName": "Bygg och anläggning 1",
-    "CourseCode": "BYOBYG51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Bygg och anläggning 2",
-    "CourseCode": "BYOBYG52",
-    "Points": 100
-  },
-  {
-    "CourseName": "Bygg och anläggning 3",
-    "CourseCode": "BYOBYG53",
-    "Points": 100
-  },
-  {
     "CourseName": "Byggstyrning",
     "CourseCode": "BYPBYG0",
     "Points": 100
@@ -612,21 +512,6 @@
   {
     "CourseName": "Datalagring",
     "CourseCode": "DAADAT3",
-    "Points": 100
-  },
-  {
-    "CourseName": "Dans – specialområde",
-    "CourseCode": "DABDAN50S",
-    "Points": 100
-  },
-  {
-    "CourseName": "Dans 1",
-    "CourseCode": "DABDAN51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Dans 2",
-    "CourseCode": "DABDAN52",
     "Points": 100
   },
   {
@@ -902,11 +787,6 @@
   {
     "CourseName": "Digitalt skapande 2",
     "CourseCode": "DIGDIG02",
-    "Points": 100
-  },
-  {
-    "CourseName": "Digitalt skapande",
-    "CourseCode": "DIIDIG5",
     "Points": 100
   },
   {
@@ -1261,42 +1141,7 @@
   },
   {
     "CourseName": "Entreprenörskap",
-    "CourseCode": "ENRENT5",
-    "Points": 100
-  },
-  {
-    "CourseName": "Engelska 1",
-    "CourseCode": "ENSENG51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Engelska 2",
-    "CourseCode": "ENSENG52",
-    "Points": 100
-  },
-  {
-    "CourseName": "Engelska 3",
-    "CourseCode": "ENSENG53",
-    "Points": 100
-  },
-  {
-    "CourseName": "Entreprenörskap",
     "CourseCode": "ENTENR0",
-    "Points": 100
-  },
-  {
-    "CourseName": "Estetisk kommunikation 1",
-    "CourseCode": "ESIEST51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Estetisk kommunikation 2",
-    "CourseCode": "ESIEST52",
-    "Points": 100
-  },
-  {
-    "CourseName": "Estetisk verksamhet",
-    "CourseCode": "ESSEST5",
     "Points": 100
   },
   {
@@ -1332,21 +1177,6 @@
   {
     "CourseName": "Eurytmi 4",
     "CourseCode": "EUREUR04",
-    "Points": 100
-  },
-  {
-    "CourseName": "Eurytmi 1",
-    "CourseCode": "EUYEUR51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Eurytmi 2",
-    "CourseCode": "EUYEUR52",
-    "Points": 100
-  },
-  {
-    "CourseName": "Eurytmi 3",
-    "CourseCode": "EUYEUR53",
     "Points": 100
   },
   {
@@ -1417,21 +1247,6 @@
   {
     "CourseName": "Fastighetsservice – ytor",
     "CourseCode": "FASFAV0",
-    "Points": 100
-  },
-  {
-    "CourseName": "Fastighetsskötsel – byggnadsunderhåll",
-    "CourseCode": "FATBYG5",
-    "Points": 100
-  },
-  {
-    "CourseName": "Fastighetsskötsel",
-    "CourseCode": "FATFAT5",
-    "Points": 200
-  },
-  {
-    "CourseName": "Fastighetsskötsel – inre miljö",
-    "CourseCode": "FATINR5",
     "Points": 100
   },
   {
@@ -1520,31 +1335,6 @@
     "Points": 200
   },
   {
-    "CourseName": "Fotografisk bild 1",
-    "CourseCode": "FOAFOT51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Fotografisk bild 2",
-    "CourseCode": "FOAFOT52",
-    "Points": 100
-  },
-  {
-    "CourseName": "Fordonsbranschen",
-    "CourseCode": "FOBFOR5",
-    "Points": 200
-  },
-  {
-    "CourseName": "Form och design",
-    "CourseCode": "FOCFOR5",
-    "Points": 100
-  },
-  {
-    "CourseName": "Form och design – specialområde",
-    "CourseCode": "FOCFOR50S",
-    "Points": 100
-  },
-  {
     "CourseName": "Fordonsteknik – introduktion",
     "CourseCode": "FODFOO0",
     "Points": 200
@@ -1580,36 +1370,6 @@
     "Points": 100
   },
   {
-    "CourseName": "Fordonsteknik – cykel",
-    "CourseCode": "FONCYK5",
-    "Points": 100
-  },
-  {
-    "CourseName": "Fordonsteknik 1",
-    "CourseCode": "FONFOR51",
-    "Points": 200
-  },
-  {
-    "CourseName": "Fordonsteknik 2",
-    "CourseCode": "FONFOR52",
-    "Points": 100
-  },
-  {
-    "CourseName": "Fordonsteknik 3",
-    "CourseCode": "FONFOR53",
-    "Points": 100
-  },
-  {
-    "CourseName": "Körning – basmaskiner 1",
-    "CourseCode": "FONKOR51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Körning – basmaskiner 2",
-    "CourseCode": "FONKOR52",
-    "Points": 100
-  },
-  {
     "CourseName": "Fordonstestteknik",
     "CourseCode": "FOOFOR0",
     "Points": 200
@@ -1623,26 +1383,6 @@
     "CourseName": "Fordons- och transportbranschens villkor och arbetsområden",
     "CourseCode": "FORFOD0",
     "Points": 200
-  },
-  {
-    "CourseName": "Fordonsvård – personbil",
-    "CourseCode": "FOSFOD5",
-    "Points": 100
-  },
-  {
-    "CourseName": "Fordonsvård – tunga fordon",
-    "CourseCode": "FOSFOO5",
-    "Points": 100
-  },
-  {
-    "CourseName": "Rekonditionering 1",
-    "CourseCode": "FOSREK51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Rekonditionering 2",
-    "CourseCode": "FOSREK52",
-    "Points": 100
   },
   {
     "CourseName": "Fotografisk bild 1",
@@ -1708,21 +1448,6 @@
     "CourseName": "Fritids- och friskvårdsverksamheter",
     "CourseCode": "FRIFRT0",
     "Points": 200
-  },
-  {
-    "CourseName": "Friluftsliv",
-    "CourseCode": "FROFRI5",
-    "Points": 100
-  },
-  {
-    "CourseName": "Fritid och friskvård 1",
-    "CourseCode": "FROFRT51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Fritid och friskvård 2",
-    "CourseCode": "FROFRT52",
-    "Points": 100
   },
   {
     "CourseName": "Fritids- och idrottskunskap",
@@ -1825,16 +1550,6 @@
     "Points": 200
   },
   {
-    "CourseName": "Geografi 1",
-    "CourseCode": "GEGGEO51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Geografi 2",
-    "CourseCode": "GEGGEO52",
-    "Points": 100
-  },
-  {
     "CourseName": "Geografiska informationssystem",
     "CourseCode": "GEOGEO0",
     "Points": 100
@@ -1878,21 +1593,6 @@
     "CourseName": "Tunga arbetsmaskiner",
     "CourseCode": "GODTUN0",
     "Points": 200
-  },
-  {
-    "CourseName": "Godshantering 1",
-    "CourseCode": "GOHGOD51",
-    "Points": 200
-  },
-  {
-    "CourseName": "Godshantering 2",
-    "CourseCode": "GOHGOD52",
-    "Points": 100
-  },
-  {
-    "CourseName": "Godshantering – truck",
-    "CourseCode": "GOHGOS5",
-    "Points": 100
   },
   {
     "CourseName": "Golvläggning 1",
@@ -2020,46 +1720,6 @@
     "Points": 100
   },
   {
-    "CourseName": "Handel 1",
-    "CourseCode": "HADHAN51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Handel 2",
-    "CourseCode": "HADHAN52",
-    "Points": 100
-  },
-  {
-    "CourseName": "Handel 3",
-    "CourseCode": "HADHAN53",
-    "Points": 100
-  },
-  {
-    "CourseName": "Praktisk marknadsföring",
-    "CourseCode": "HADPRA5",
-    "Points": 100
-  },
-  {
-    "CourseName": "Hantverkstekniker 1",
-    "CourseCode": "HAEHAT51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Hantverkstekniker 2",
-    "CourseCode": "HAEHAT52",
-    "Points": 200
-  },
-  {
-    "CourseName": "Hantverkstekniker 3",
-    "CourseCode": "HAEHAT53",
-    "Points": 200
-  },
-  {
-    "CourseName": "Hantverk och produktion",
-    "CourseCode": "HAKHAN5",
-    "Points": 200
-  },
-  {
     "CourseName": "Ergonomi",
     "CourseCode": "HALERG0",
     "Points": 100
@@ -2122,41 +1782,6 @@
   {
     "CourseName": "Räddningsmedicin",
     "CourseCode": "HAORAD0",
-    "Points": 100
-  },
-  {
-    "CourseName": "Hälsa 1",
-    "CourseCode": "HASHAL51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Hälsa 2",
-    "CourseCode": "HASHAL52",
-    "Points": 100
-  },
-  {
-    "CourseName": "Hästkunskap 1",
-    "CourseCode": "HAUHAS51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Hästkunskap 2",
-    "CourseCode": "HAUHAS52",
-    "Points": 100
-  },
-  {
-    "CourseName": "Hästkunskap 3",
-    "CourseCode": "HAUHAS53",
-    "Points": 100
-  },
-  {
-    "CourseName": "Ridning och körning 1",
-    "CourseCode": "HAURID51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Ridning och körning 2",
-    "CourseCode": "HAURID52",
     "Points": 100
   },
   {
@@ -2445,16 +2070,6 @@
     "Points": 200
   },
   {
-    "CourseName": "Hem- och konsumentkunskap 1",
-    "CourseCode": "HEOHEM51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Hem- och konsumentkunskap 2",
-    "CourseCode": "HEOHEM52",
-    "Points": 100
-  },
-  {
     "CourseName": "Hippologi – etologi",
     "CourseCode": "HIOHIL0",
     "Points": 100
@@ -2500,36 +2115,6 @@
     "Points": 100
   },
   {
-    "CourseName": "Historia 1",
-    "CourseCode": "HITHIS51",
-    "Points": 50
-  },
-  {
-    "CourseName": "Historia 2",
-    "CourseCode": "HITHIS52",
-    "Points": 100
-  },
-  {
-    "CourseName": "Historia 3",
-    "CourseCode": "HITHIS53",
-    "Points": 100
-  },
-  {
-    "CourseName": "Hjulutrustningsteknik 1",
-    "CourseCode": "HJLHJU51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Hjulutrustningsteknik 2",
-    "CourseCode": "HJLHJU52",
-    "Points": 100
-  },
-  {
-    "CourseName": "Hjulutrustningsteknik 3",
-    "CourseCode": "HJLHJU53",
-    "Points": 100
-  },
-  {
     "CourseName": "Hjulutrustning – specialisering",
     "CourseCode": "HJUHJT00S",
     "Points": 100
@@ -2538,31 +2123,6 @@
     "CourseName": "Hjulutrustning",
     "CourseCode": "HJUHJU0",
     "Points": 200
-  },
-  {
-    "CourseName": "Hotell",
-    "CourseCode": "HOEHOT5",
-    "Points": 100
-  },
-  {
-    "CourseName": "Konferens och evenemang 1",
-    "CourseCode": "HOEKON51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Konferens och evenemang 2",
-    "CourseCode": "HOEKON52",
-    "Points": 100
-  },
-  {
-    "CourseName": "Våningsservice 1",
-    "CourseCode": "HOEVAN51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Våningsservice 2",
-    "CourseCode": "HOEVAN52",
-    "Points": 100
   },
   {
     "CourseName": "Humanistisk och samhällsvetenskaplig spets",
@@ -2705,21 +2265,6 @@
     "Points": 100
   },
   {
-    "CourseName": "Idrott och hälsa 1",
-    "CourseCode": "IDCIDR51",
-    "Points": 200
-  },
-  {
-    "CourseName": "Idrott och hälsa 2",
-    "CourseCode": "IDCIDR52",
-    "Points": 100
-  },
-  {
-    "CourseName": "Idrott och hälsa 3 – vald idrott",
-    "CourseCode": "IDCIDR53",
-    "Points": 100
-  },
-  {
     "CourseName": "Idrott och hälsa 1 – specialisering",
     "CourseCode": "IDRIDO01",
     "Points": 100
@@ -2795,21 +2340,6 @@
     "Points": 200
   },
   {
-    "CourseName": "Industriell produktion 1",
-    "CourseCode": "INEIND51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Industriell produktion 2",
-    "CourseCode": "INEIND52",
-    "Points": 100
-  },
-  {
-    "CourseName": "Industriell produktion 3",
-    "CourseCode": "INEIND53",
-    "Points": 100
-  },
-  {
     "CourseName": "Information och kommunikation 1",
     "CourseCode": "INFINF01",
     "Points": 100
@@ -2855,21 +2385,6 @@
     "Points": 100
   },
   {
-    "CourseName": "Digital kompetens",
-    "CourseCode": "INMDIG5",
-    "Points": 100
-  },
-  {
-    "CourseName": "Information och kommunikation 1",
-    "CourseCode": "INMINF51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Information och kommunikation 2",
-    "CourseCode": "INMINF52",
-    "Points": 100
-  },
-  {
     "CourseName": "Industriella produktionsmetoder 1",
     "CourseCode": "INNIND31",
     "Points": 100
@@ -2882,31 +2397,6 @@
   {
     "CourseName": "Industriella produktionsmetoder 3",
     "CourseCode": "INNIND33",
-    "Points": 100
-  },
-  {
-    "CourseName": "Inköp och logistik 1",
-    "CourseCode": "INPINK51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Inköp och logistik 2",
-    "CourseCode": "INPINK52",
-    "Points": 100
-  },
-  {
-    "CourseName": "Inköp och logistik 3",
-    "CourseCode": "INPINK53",
-    "Points": 100
-  },
-  {
-    "CourseName": "Näthandel 1",
-    "CourseCode": "INPNAT51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Näthandel 2",
-    "CourseCode": "INPNAT52",
     "Points": 100
   },
   {
@@ -3140,11 +2630,6 @@
     "Points": 100
   },
   {
-    "CourseName": "Konst och kultur",
-    "CourseCode": "KOOKUN5",
-    "Points": 100
-  },
-  {
     "CourseName": "Konstruktionsteknik",
     "CourseCode": "KORKON3",
     "Points": 100
@@ -3260,21 +2745,6 @@
     "Points": 100
   },
   {
-    "CourseName": "Lantbruksdjur 1",
-    "CourseCode": "LABLAN51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Lantbruksdjur 2",
-    "CourseCode": "LABLAN52",
-    "Points": 100
-  },
-  {
-    "CourseName": "Lantbruksdjur 3",
-    "CourseCode": "LABLAN53",
-    "Points": 100
-  },
-  {
     "CourseName": "Baskurs i lackering",
     "CourseCode": "LACBAK0",
     "Points": 300
@@ -3317,21 +2787,6 @@
   {
     "CourseName": "Småreparationer – lackering",
     "CourseCode": "LACSMA0",
-    "Points": 100
-  },
-  {
-    "CourseName": "Lager och terminal 1",
-    "CourseCode": "LAELAG51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Lager och terminal 2",
-    "CourseCode": "LAELAG52",
-    "Points": 100
-  },
-  {
-    "CourseName": "Plocklager",
-    "CourseCode": "LAEPLO5",
     "Points": 100
   },
   {
@@ -3470,21 +2925,6 @@
     "Points": 100
   },
   {
-    "CourseName": "Livsmedels- och näringskunskap",
-    "CourseCode": "LISLIV5",
-    "Points": 100
-  },
-  {
-    "CourseName": "Mat och butik 1",
-    "CourseCode": "LISMAT51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Mat och butik 2",
-    "CourseCode": "LISMAT52",
-    "Points": 100
-  },
-  {
     "CourseName": "Livsmedels- och näringskunskap 1",
     "CourseCode": "LIVLIV01",
     "Points": 100
@@ -3525,16 +2965,6 @@
     "Points": 100
   },
   {
-    "CourseName": "Lokalvård 1",
-    "CourseCode": "LOKLOK51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Lokalvård 2",
-    "CourseCode": "LOKLOK52",
-    "Points": 100
-  },
-  {
     "CourseName": "Massage 1",
     "CourseCode": "MAAMAA01",
     "Points": 100
@@ -3550,11 +2980,6 @@
     "Points": 100
   },
   {
-    "CourseName": "Måltids- och branschkunskap",
-    "CourseCode": "MADMAL5",
-    "Points": 200
-  },
-  {
     "CourseName": "Materialkunskap 1",
     "CourseCode": "MAEMAT01",
     "Points": 100
@@ -3562,31 +2987,6 @@
   {
     "CourseName": "Materialkunskap 2",
     "CourseCode": "MAEMAT02",
-    "Points": 100
-  },
-  {
-    "CourseName": "Måleri 1",
-    "CourseCode": "MAFMAL51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Måleri 2",
-    "CourseCode": "MAFMAL52",
-    "Points": 100
-  },
-  {
-    "CourseName": "Matlagning 1",
-    "CourseCode": "MAGMAT51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Matlagning 2",
-    "CourseCode": "MAGMAT52",
-    "Points": 100
-  },
-  {
-    "CourseName": "Matlagning 3",
-    "CourseCode": "MAGMAT53",
     "Points": 100
   },
   {
@@ -3670,21 +3070,6 @@
     "Points": 100
   },
   {
-    "CourseName": "Matematik 1",
-    "CourseCode": "MAMMAT51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Matematik 2",
-    "CourseCode": "MAMMAT52",
-    "Points": 100
-  },
-  {
-    "CourseName": "Matematik 3",
-    "CourseCode": "MAMMAT53",
-    "Points": 100
-  },
-  {
     "CourseName": "Diagnos och reparation",
     "CourseCode": "MANDIA0",
     "Points": 100
@@ -3717,11 +3102,6 @@
   {
     "CourseName": "Mat och butik 2",
     "CourseCode": "MAOMAT02",
-    "Points": 100
-  },
-  {
-    "CourseName": "Människokroppen",
-    "CourseCode": "MAPMAN5",
     "Points": 100
   },
   {
@@ -3820,21 +3200,6 @@
     "Points": 100
   },
   {
-    "CourseName": "Matupplevelser",
-    "CourseCode": "MAUMAT5",
-    "Points": 100
-  },
-  {
-    "CourseName": "Material och verktyg 1",
-    "CourseCode": "MAVMAT51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Material och verktyg 2",
-    "CourseCode": "MAVMAT52",
-    "Points": 100
-  },
-  {
     "CourseName": "Marina elektroniksystem",
     "CourseCode": "MAYMAR0",
     "Points": 100
@@ -3880,16 +3245,6 @@
     "Points": 100
   },
   {
-    "CourseName": "Animation",
-    "CourseCode": "MEOANI5",
-    "Points": 100
-  },
-  {
-    "CourseName": "Medieproduktion",
-    "CourseCode": "MEOMED5",
-    "Points": 100
-  },
-  {
     "CourseName": "Medieproduktion 1",
     "CourseCode": "MEPMEI01",
     "Points": 100
@@ -3912,11 +3267,6 @@
   {
     "CourseName": "Mjukvarudesign",
     "CourseCode": "MJKMJU3",
-    "Points": 100
-  },
-  {
-    "CourseName": "Människan",
-    "CourseCode": "MNNMAN5",
     "Points": 100
   },
   {
@@ -4065,31 +3415,6 @@
     "Points": 200
   },
   {
-    "CourseName": "Moderna språk",
-    "CourseCode": "MONXXX5",
-    "Points": 100
-  },
-  {
-    "CourseName": "Motorsåg",
-    "CourseCode": "MOOMOT5",
-    "Points": 100
-  },
-  {
-    "CourseName": "Röjmotorsåg",
-    "CourseCode": "MOOROJ5",
-    "Points": 100
-  },
-  {
-    "CourseName": "Modersmål 1",
-    "CourseCode": "MOSXXX51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Modersmål 2",
-    "CourseCode": "MOSXXX52",
-    "Points": 100
-  },
-  {
     "CourseName": "Motor- och röjmotorsåg 1",
     "CourseCode": "MOTMOT01",
     "Points": 100
@@ -4117,26 +3442,6 @@
   {
     "CourseName": "Gehörs- och musiklära 2",
     "CourseCode": "MUIGEH02",
-    "Points": 100
-  },
-  {
-    "CourseName": "Musikproduktion",
-    "CourseCode": "MUKMUP5",
-    "Points": 100
-  },
-  {
-    "CourseName": "Musik – specialområde",
-    "CourseCode": "MUKMUS50S",
-    "Points": 100
-  },
-  {
-    "CourseName": "Musik 1",
-    "CourseCode": "MUKMUS51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Musik 2",
-    "CourseCode": "MUKMUS52",
     "Points": 100
   },
   {
@@ -4295,11 +3600,6 @@
     "Points": 100
   },
   {
-    "CourseName": "Naturbruk",
-    "CourseCode": "NAANAT5",
-    "Points": 200
-  },
-  {
     "CourseName": "Naturvetenskaplig spets",
     "CourseCode": "NAENAT30S",
     "Points": 50
@@ -4380,31 +3680,6 @@
     "Points": 100
   },
   {
-    "CourseName": "Återvinning och kretslopp 1",
-    "CourseCode": "NANATE51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Återvinning och kretslopp 2",
-    "CourseCode": "NANATE52",
-    "Points": 100
-  },
-  {
-    "CourseName": "Naturkunskap 1",
-    "CourseCode": "NANNAT51",
-    "Points": 50
-  },
-  {
-    "CourseName": "Naturkunskap 2",
-    "CourseCode": "NANNAT52",
-    "Points": 100
-  },
-  {
-    "CourseName": "Naturkunskap 3",
-    "CourseCode": "NANNAT53",
-    "Points": 100
-  },
-  {
     "CourseName": "Byggnadsunderhåll",
     "CourseCode": "NARBYA0",
     "Points": 100
@@ -4417,16 +3692,6 @@
   {
     "CourseName": "Hästsportanläggningars skötsel och drift 2",
     "CourseCode": "NARHAS02",
-    "Points": 100
-  },
-  {
-    "CourseName": "Naturbruksteknik",
-    "CourseCode": "NASNAT5",
-    "Points": 100
-  },
-  {
-    "CourseName": "Naturbruksteknik – specialområde",
-    "CourseCode": "NASNAT50S",
     "Points": 100
   },
   {
@@ -4800,21 +4065,6 @@
     "Points": 100
   },
   {
-    "CourseName": "Religionskunskap 1",
-    "CourseCode": "REIREL51",
-    "Points": 50
-  },
-  {
-    "CourseName": "Religionskunskap 2",
-    "CourseCode": "REIREL52",
-    "Points": 100
-  },
-  {
-    "CourseName": "Religionskunskap 3",
-    "CourseCode": "REIREL53",
-    "Points": 100
-  },
-  {
     "CourseName": "Religionskunskap – specialisering",
     "CourseCode": "RELREL0",
     "Points": 100
@@ -5020,46 +4270,6 @@
     "Points": 100
   },
   {
-    "CourseName": "Sällskapsdjur – specialområde",
-    "CourseCode": "SAKSAL50S",
-    "Points": 100
-  },
-  {
-    "CourseName": "Sällskapsdjur 1",
-    "CourseCode": "SAKSAL51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Sällskapsdjur 2",
-    "CourseCode": "SAKSAL52",
-    "Points": 100
-  },
-  {
-    "CourseName": "Samhällskunskap – arbetslivets villkor",
-    "CourseCode": "SALARB5",
-    "Points": 100
-  },
-  {
-    "CourseName": "Samhällskunskap 1",
-    "CourseCode": "SALSAM51",
-    "Points": 50
-  },
-  {
-    "CourseName": "Samhällskunskap 2",
-    "CourseCode": "SALSAM52",
-    "Points": 100
-  },
-  {
-    "CourseName": "Samhällskunskap 3",
-    "CourseCode": "SALSAM53",
-    "Points": 100
-  },
-  {
-    "CourseName": "Trafikantkunskap",
-    "CourseCode": "SALTRA5",
-    "Points": 100
-  },
-  {
     "CourseName": "Internationell ekonomi",
     "CourseCode": "SAMINE0",
     "Points": 100
@@ -5097,41 +4307,6 @@
   {
     "CourseName": "Samisk mat och matkultur",
     "CourseCode": "SASSAM0",
-    "Points": 100
-  },
-  {
-    "CourseName": "Service och bemötande 1",
-    "CourseCode": "SECSER51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Service och bemötande 2",
-    "CourseCode": "SECSER52",
-    "Points": 100
-  },
-  {
-    "CourseName": "Frukost- och bufféservering 1",
-    "CourseCode": "SEEFRU51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Frukost- och bufféservering 2",
-    "CourseCode": "SEEFRU52",
-    "Points": 100
-  },
-  {
-    "CourseName": "Servering 1",
-    "CourseCode": "SEESER51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Servering 2",
-    "CourseCode": "SEESER52",
-    "Points": 100
-  },
-  {
-    "CourseName": "Servering 3",
-    "CourseCode": "SEESER53",
     "Points": 100
   },
   {
@@ -5210,26 +4385,6 @@
     "Points": 100
   },
   {
-    "CourseName": "Kurs A",
-    "CourseCode": "SFIKUA9",
-    "Points": null
-  },
-  {
-    "CourseName": "Kurs B",
-    "CourseCode": "SFIKUB9",
-    "Points": null
-  },
-  {
-    "CourseName": "Kurs C",
-    "CourseCode": "SFIKUC9",
-    "Points": null
-  },
-  {
-    "CourseName": "Kurs D",
-    "CourseCode": "SFIKUD9",
-    "Points": null
-  },
-  {
     "CourseName": "Grundläggande säkerhet",
     "CourseCode": "SJOGRN0",
     "Points": 100
@@ -5242,21 +4397,6 @@
   {
     "CourseName": "Skogsbruksmaskinsteknik",
     "CourseCode": "SKBSKO0",
-    "Points": 100
-  },
-  {
-    "CourseName": "Skötsel av utemiljöer 1",
-    "CourseCode": "SKESKO51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Skötsel av utemiljöer 2",
-    "CourseCode": "SKESKO52",
-    "Points": 100
-  },
-  {
-    "CourseName": "Skötsel av utemiljöer 3",
-    "CourseCode": "SKESKO53",
     "Points": 100
   },
   {
@@ -5337,21 +4477,6 @@
   {
     "CourseName": "Mångbruk av skog",
     "CourseCode": "SKOMÅN0",
-    "Points": 100
-  },
-  {
-    "CourseName": "Skogsbruk 1",
-    "CourseCode": "SKSSKG51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Skogsbruk 2",
-    "CourseCode": "SKSSKG52",
-    "Points": 100
-  },
-  {
-    "CourseName": "Skogsbruk 3",
-    "CourseCode": "SKSSKG53",
     "Points": 100
   },
   {
@@ -5495,31 +4620,6 @@
     "Points": 100
   },
   {
-    "CourseName": "Specialidrott 1",
-    "CourseCode": "SPISPE51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Specialidrott 2",
-    "CourseCode": "SPISPE52",
-    "Points": 100
-  },
-  {
-    "CourseName": "Specialidrott 3",
-    "CourseCode": "SPISPE53",
-    "Points": 100
-  },
-  {
-    "CourseName": "Tränings- och tävlingslära 1",
-    "CourseCode": "SPITRA51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Tränings- och tävlingslära 2",
-    "CourseCode": "SPITRA52",
-    "Points": 100
-  },
-  {
     "CourseName": "Sprinklerteknik 1",
     "CourseCode": "SPNSPR01",
     "Points": 100
@@ -5596,26 +4696,6 @@
   },
   {
     "CourseName": "Litteratur",
-    "CourseCode": "SVBLIT5",
-    "Points": 100
-  },
-  {
-    "CourseName": "Skrivande",
-    "CourseCode": "SVBSKR5",
-    "Points": 100
-  },
-  {
-    "CourseName": "Svenska 1",
-    "CourseCode": "SVBSVE51",
-    "Points": 200
-  },
-  {
-    "CourseName": "Svenska 2",
-    "CourseCode": "SVBSVE52",
-    "Points": 100
-  },
-  {
-    "CourseName": "Litteratur",
     "CourseCode": "SVELIT0",
     "Points": 100
   },
@@ -5672,26 +4752,6 @@
   {
     "CourseName": "Svenska för döva 3",
     "CourseCode": "SVNSVN03",
-    "Points": 100
-  },
-  {
-    "CourseName": "Svenska som andraspråk 1",
-    "CourseCode": "SVOSVE51",
-    "Points": 200
-  },
-  {
-    "CourseName": "Svenska som andraspråk 2",
-    "CourseCode": "SVOSVE52",
-    "Points": 100
-  },
-  {
-    "CourseName": "Svenskt teckenspråk 1",
-    "CourseCode": "SVPSVE51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Svenskt teckenspråk 2",
-    "CourseCode": "SVPSVE52",
     "Points": 100
   },
   {
@@ -5807,26 +4867,6 @@
   {
     "CourseName": "Teaterteori",
     "CourseCode": "TEATEA0",
-    "Points": 100
-  },
-  {
-    "CourseName": "Teater – specialområde",
-    "CourseCode": "TEETEA50S",
-    "Points": 100
-  },
-  {
-    "CourseName": "Teater 1",
-    "CourseCode": "TEETEA51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Teater 2",
-    "CourseCode": "TEETEA52",
-    "Points": 100
-  },
-  {
-    "CourseName": "Teater 3",
-    "CourseCode": "TEETEA53",
     "Points": 100
   },
   {
@@ -5965,21 +5005,6 @@
     "Points": 100
   },
   {
-    "CourseName": "Trädgårdsanläggning 1",
-    "CourseCode": "TRGTRA51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Trädgårdsanläggning 2",
-    "CourseCode": "TRGTRA52",
-    "Points": 100
-  },
-  {
-    "CourseName": "Trädgårdsanläggning 3",
-    "CourseCode": "TRGTRA53",
-    "Points": 100
-  },
-  {
     "CourseName": "Träningslära 1",
     "CourseCode": "TRNTRN01",
     "Points": 100
@@ -5987,31 +5012,6 @@
   {
     "CourseName": "Träningslära 2",
     "CourseCode": "TRNTRN02",
-    "Points": 100
-  },
-  {
-    "CourseName": "Odling på friland 1",
-    "CourseCode": "TROFRI51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Odling på friland 2",
-    "CourseCode": "TROFRI52",
-    "Points": 100
-  },
-  {
-    "CourseName": "Odling i växthus 1",
-    "CourseCode": "TROODL51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Odling i växthus 2",
-    "CourseCode": "TROODL52",
-    "Points": 100
-  },
-  {
-    "CourseName": "Trädgårdsodling – grund",
-    "CourseCode": "TROTRO5",
     "Points": 100
   },
   {
@@ -6150,21 +5150,6 @@
     "Points": 100
   },
   {
-    "CourseName": "Växtodling – grund",
-    "CourseCode": "VALVAX5",
-    "Points": 100
-  },
-  {
-    "CourseName": "Växtodling 1",
-    "CourseCode": "VALVAX51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Växtodling 2",
-    "CourseCode": "VALVAX52",
-    "Points": 100
-  },
-  {
     "CourseName": "Fiskodling 1",
     "CourseCode": "VANFIS01",
     "Points": 200
@@ -6205,21 +5190,6 @@
     "Points": 100
   },
   {
-    "CourseName": "Vård och omsorg 1",
-    "CourseCode": "VARVAR51",
-    "Points": 200
-  },
-  {
-    "CourseName": "Vård och omsorg 2",
-    "CourseCode": "VARVAR52",
-    "Points": 100
-  },
-  {
-    "CourseName": "Vård och omsorg 3",
-    "CourseCode": "VARVAR53",
-    "Points": 100
-  },
-  {
     "CourseName": "Dricksvatten",
     "CourseCode": "VATDRI0",
     "Points": 100
@@ -6238,16 +5208,6 @@
     "CourseName": "Vatten- och miljöteknik",
     "CourseCode": "VATVAT0",
     "Points": 200
-  },
-  {
-    "CourseName": "Växtkunskap 1",
-    "CourseCode": "VAXVAX51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Växtkunskap 2",
-    "CourseCode": "VAXVAX52",
-    "Points": 100
   },
   {
     "CourseName": "Verkstad – spårfordon",
@@ -6292,31 +5252,6 @@
   {
     "CourseName": "El- och verkstadsteknik",
     "CourseCode": "VERVER0",
-    "Points": 100
-  },
-  {
-    "CourseName": "Sammanfogningsteknik 1",
-    "CourseCode": "VESSAM51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Sammanfogningsteknik 2",
-    "CourseCode": "VESSAM52",
-    "Points": 100
-  },
-  {
-    "CourseName": "Skärande bearbetning 1",
-    "CourseCode": "VESSKA51",
-    "Points": 100
-  },
-  {
-    "CourseName": "Skärande bearbetning 2",
-    "CourseCode": "VESSKA52",
-    "Points": 100
-  },
-  {
-    "CourseName": "Verkstadsteknik – grund",
-    "CourseCode": "VESVER5",
     "Points": 100
   },
   {

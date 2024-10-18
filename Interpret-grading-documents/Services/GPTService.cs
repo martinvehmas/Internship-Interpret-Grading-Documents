@@ -15,6 +15,9 @@ namespace Interpret_grading_documents.Services
             public Guid Id { get; set; } = Guid.NewGuid();
             public string DocumentName { get; set; }
 
+            [JsonPropertyName("document_title")]
+            public string Title { get; set; }
+
             [JsonPropertyName("full_name")]
             public string FullName { get; set; }
 
@@ -58,8 +61,9 @@ namespace Interpret_grading_documents.Services
                     });
                 }
             }
+            public string HasValidDegree { get; set; }
         }
-
+        
         public class Subject
         {
             [JsonPropertyName("subject_name")]
@@ -104,11 +108,16 @@ namespace Interpret_grading_documents.Services
                 // Set the document name using the uploaded file's name
                 document.DocumentName = Path.GetFileName(uploadedFile.FileName);
 
+
                 var test = RequirementChecker.DoesStudentMeetRequirement(document);
                 Console.WriteLine(test);
 
                 var updatedDocument = await CompareCourses(document);
                 ValidateDocument(updatedDocument, reliabilityResult);
+
+                  
+                ExamValidator(updatedDocument);
+
 
                 return document;
             }
@@ -222,13 +231,14 @@ namespace Interpret_grading_documents.Services
                 new UserChatMessage(
                     ChatMessageContentPart.CreateTextPart("Vänligen extrahera följande data från bilden, svara endast med JSON, formatera det inte med <pre> eller liknande. Säkerställ att alla betygen är korrekta och överenstämmer med deras ämne."),
                     ChatMessageContentPart.CreateTextPart(
+                        "0. Dokumentets titel (Exempel: Examensbevis, Slutbetyg, Studiebevis\n" +
                         "1. Fullständigt namn\n" +
                         "2. Personnummer\n" +
                         "3. Examensdatum\n" +
                         "4. Skolans namn (Exempel: Bromma gymnasium, YrkesAkademin, NTI Gymnasiet Luleå, Okänt gymnasium)\n" +
                         "5. Programnamn (Exempel: El- och energiprogrammet, Estetiska programmet, Hantverksprogrammet, Okänt program)\n" +
                         "6. Specialisering och detaljer om utbildning\n" +
-                        "7. Skolform (En av de följande: Grundskola, Gymnasieskola, Komvux utbildning, Högskola, Okänd utbildningsform)\n" +
+                        "7. Skolform (En av de följande: Grundskola, Gymnasieskola, Komvux utbildning, Kommunal vuxenutbildning på gymnasienivå,  Högskola, Okänd utbildningsform)\n" +
                         "8. Lista över ämnen med följande detaljer:\n" +
                         "   - Ämnesnamn\n" +
                         "   - Kurskod\n" +
@@ -236,6 +246,7 @@ namespace Interpret_grading_documents.Services
                         "   - Poäng (Detta ska alltid vara en sträng)\n" +
                         "Vänligen se till att formatera svaret i JSON-format som detta:\n" +
                         "{\n" +
+                        "   'document_title': 'Dokumentets Titel',\n" +
                         "   'full_name': 'Fullständigt Namn',\n" +
                         "   'personal_id': 'xxxxxx-xxxx',\n" +
                         "   'graduation_date': 'ÅÅÅÅ-MM-DD',\n" +
@@ -312,6 +323,28 @@ namespace Interpret_grading_documents.Services
             {
                 Console.WriteLine($"Kunde inte ta bort temporärfilen: {ex.Message}");
             }
+        }
+
+        private static void ExamValidator(GraduationDocument document)
+        {
+            if (document.Title.Contains("Examensbevis", StringComparison.OrdinalIgnoreCase) ||
+                document.Title.Contains("Gymnasieexamen", StringComparison.OrdinalIgnoreCase))
+            {
+                if (document.SchoolForm.Contains("Gymnasieskola", StringComparison.OrdinalIgnoreCase))
+                {
+                    document.HasValidDegree = "Gymnasieexamen i gymnasieskolan";
+                }
+                else if (document.SchoolForm.Contains("Kommunal vuxenutbildning", StringComparison.OrdinalIgnoreCase) ||
+                         document.SchoolForm.Contains("Komvux utbildning", StringComparison.OrdinalIgnoreCase))
+                {
+                    document.HasValidDegree = "Examen i kommunal vuxenutbildning";
+                }
+            }
+            else
+            {
+                document.HasValidDegree = "Dokumentet påvisar ej examensbevis";
+            }
+
         }
 
         #endregion
