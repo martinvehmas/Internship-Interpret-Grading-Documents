@@ -140,7 +140,12 @@ public static class CourseComparator
         foreach (var subject in graduationDocument.Subjects)
         {
             var (bestMatch, bestScore,gradeType) = FindBestMatch(validationCourses, subject.SubjectName, json);
-            graduationDocument.Curriculum = gradeType; 
+
+            if (gradeType != null)
+            {
+                graduationDocument.Curriculum = gradeType; 
+            }
+                
 
             subject.FuzzyMatchScore = bestScore;  // Set the fuzzy match score for the subject
 

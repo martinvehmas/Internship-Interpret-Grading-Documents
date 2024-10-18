@@ -1,9 +1,7 @@
 using Interpret_grading_documents.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using System.Collections.Generic;
+using System.Text.Json;
+using Interpret_grading_documents.Data;
 
 namespace Interpret_grading_documents.Controllers
 {
@@ -12,6 +10,7 @@ namespace Interpret_grading_documents.Controllers
         private readonly ILogger<HomeController> _logger;
         private static List<GPTService.GraduationDocument> _analyzedDocuments = new List<GPTService.GraduationDocument>();
 
+        private readonly string courseEquivalentsFilePath = Path.Combine(Directory.GetCurrentDirectory(), "CourseEquivalents.json");
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -42,7 +41,6 @@ namespace Interpret_grading_documents.Controllers
             return RedirectToAction("ViewUploadedDocuments");
         }
 
-
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
@@ -57,6 +55,7 @@ namespace Interpret_grading_documents.Controllers
             }
             return View(document);
         }
+
         public IActionResult ViewUploadedDocuments()
         {
             return View(_analyzedDocuments);
@@ -81,6 +80,102 @@ namespace Interpret_grading_documents.Controllers
                 return RedirectToAction("ViewUploadedDocuments");
             }
             return NotFound();
+        }
+
+        [HttpGet]
+        public IActionResult CourseRequirementsManager()
+        {
+            var courseEquivalents = LoadCourseEquivalents() ?? new CourseEquivalents
+            {
+                Subjects = new List<Subject>()
+            };
+
+            var validationCourses = ValidationData.GetCourses();
+
+            var availableCourses = validationCourses.Values.Select(c => new AvailableCourse
+            {
+                CourseName = c.CourseName,
+                CourseCode = c.CourseCode
+            }).ToList();
+
+            ViewBag.AvailableCourses = availableCourses;
+
+            return View(courseEquivalents);
+        }
+
+        [HttpPost]
+        public IActionResult SaveCourseEquivalents([FromBody] CourseEquivalents courseEquivalents)
+        {
+            SaveCourseEquivalentsToFile(courseEquivalents);
+            return Json(new { success = true });
+        }
+
+        private CourseEquivalents LoadCourseEquivalents()
+        {
+            if (System.IO.File.Exists(courseEquivalentsFilePath))
+            {
+                var jsonContent = System.IO.File.ReadAllText(courseEquivalentsFilePath);
+                return JsonSerializer.Deserialize<CourseEquivalents>(jsonContent, new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                });
+            }
+            return null;
+        }
+
+        private void SaveCourseEquivalentsToFile(CourseEquivalents courseEquivalents)
+        {
+            var jsonContent = JsonSerializer.Serialize(courseEquivalents, new JsonSerializerOptions
+            {
+                WriteIndented = true,
+                PropertyNamingPolicy = null
+            });
+            System.IO.File.WriteAllText(courseEquivalentsFilePath, jsonContent);
+        }
+
+        public class AvailableCourse
+        {
+            public string CourseName { get; set; }
+            public string CourseCode { get; set; }
+        }
+
+        [HttpGet]
+        public IActionResult CheckRequirements(Guid id)
+        {
+            
+            var document = _analyzedDocuments.Find(d => d.Id == id);
+            if (document == null)
+            {
+                return NotFound();
+            }
+
+            var requirementResults = RequirementChecker.DoesStudentMeetRequirement(document);
+
+            // Determine if all requirements are met
+            bool meetsAllRequirements = requirementResults.Values.All(r => r.IsMet);
+
+            
+            var model = new RequirementCheckViewModel
+            {
+                Document = document,
+                RequirementResults = requirementResults,
+                MeetsRequirement = meetsAllRequirements
+            };
+
+            return View(model);
+        }
+        public class RequirementCheckViewModel
+        {
+            public GPTService.GraduationDocument Document { get; set; }
+            public Dictionary<string, RequirementResult> RequirementResults { get; set; }
+            public bool MeetsRequirement { get; set; }
+        }
+        public class RequirementResult
+        {
+            public string CourseName { get; set; }
+            public string RequiredGrade { get; set; }
+            public bool IsMet { get; set; }
+            public string StudentGrade { get; set; }
         }
     }
 }

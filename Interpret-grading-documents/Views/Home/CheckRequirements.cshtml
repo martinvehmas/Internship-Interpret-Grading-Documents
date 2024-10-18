@@ -1,0 +1,49 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model Interpret_grading_documents.Controllers.HomeController.RequirementCheckViewModel
+
+<div class="container mt-5">
+    <h2>Requirement Check for @Model.Document.FullName</h2>
+
+    @if (Model.MeetsRequirement)
+    {
+        <p class="text-success"><strong>The student meets all requirements.</strong></p>
+    }
+    else
+    {
+        <p class="text-danger"><strong>The student does not meet all requirements.</strong></p>
+    }
+
+    <table class="table table-bordered mt-4">
+        <thead>
+        <tr>
+            <th>Course Name</th>
+            <th>Required Grade</th>
+            <th>Student's Grade</th>
+            <th>Meets Requirement</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var kvp in Model.RequirementResults)
+        {
+            var result = kvp.Value;
+            <tr>
+                <td>@result.CourseName</td>
+                <td>@result.RequiredGrade</td>
+                <td>@result.StudentGrade</td>
+                <td>
+                    @if (result.IsMet)
+                    {
+                        <span class="text-success">Yes</span>
+                    }
+                    else
+                    {
+                        <span class="text-danger">No</span>
+                    }
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+
+    <a asp-action="ViewDocument" asp-controller="Home" asp-route-id="@Model.Document.Id" class="btn btn-secondary">Back to Document</a>
+</div>
