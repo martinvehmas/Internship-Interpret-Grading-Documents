@@ -2,6 +2,7 @@ using Interpret_grading_documents.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 using Interpret_grading_documents.Data;
+using Interpret_grading_documents.Models;
 
 namespace Interpret_grading_documents.Controllers
 {
@@ -133,11 +134,6 @@ namespace Interpret_grading_documents.Controllers
             System.IO.File.WriteAllText(courseEquivalentsFilePath, jsonContent);
         }
 
-        public class AvailableCourse
-        {
-            public string CourseName { get; set; }
-            public string CourseCode { get; set; }
-        }
 
         [HttpGet]
         public IActionResult CheckRequirements(Guid id)
@@ -163,19 +159,6 @@ namespace Interpret_grading_documents.Controllers
             };
 
             return View(model);
-        }
-        public class RequirementCheckViewModel
-        {
-            public GPTService.GraduationDocument Document { get; set; }
-            public Dictionary<string, RequirementResult> RequirementResults { get; set; }
-            public bool MeetsRequirement { get; set; }
-        }
-        public class RequirementResult
-        {
-            public string CourseName { get; set; }
-            public string RequiredGrade { get; set; }
-            public bool IsMet { get; set; }
-            public string StudentGrade { get; set; }
         }
     }
 }

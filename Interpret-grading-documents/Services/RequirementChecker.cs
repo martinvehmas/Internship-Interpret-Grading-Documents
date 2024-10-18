@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using Interpret_grading_documents.Controllers;
+using Interpret_grading_documents.Models;
 
 namespace Interpret_grading_documents.Services
 {
@@ -88,10 +89,10 @@ namespace Interpret_grading_documents.Services
             return JsonSerializer.Deserialize<CourseEquivalents>(jsonContent);
         }
 
-        public static Dictionary<string, HomeController.RequirementResult> DoesStudentMeetRequirement(GPTService.GraduationDocument document)
+        public static Dictionary<string, RequirementResult> DoesStudentMeetRequirement(GPTService.GraduationDocument document)
         {
             Console.WriteLine("Checking if the student meets all course requirements.");
-            var allRequirementsMet = new Dictionary<string, HomeController.RequirementResult>(); // Change from bool to dictionary
+            var allRequirementsMet = new Dictionary<string, RequirementResult>(); // Change from bool to dictionary
 
             foreach (var subject in CourseEquivalents.Subjects)
             {
@@ -136,7 +137,7 @@ namespace Interpret_grading_documents.Services
                         
                     }
                     // Add the result to the dictionary
-                    allRequirementsMet[requiredCourseNameOrCode] = new HomeController.RequirementResult
+                    allRequirementsMet[requiredCourseNameOrCode] = new RequirementResult
                     {
                         CourseName = requiredCourseNameOrCode,
                         RequiredGrade = requiredGrade,
