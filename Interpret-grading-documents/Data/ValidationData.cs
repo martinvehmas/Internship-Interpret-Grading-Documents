@@ -98,5 +98,18 @@ namespace Interpret_grading_documents.Data
             }
         }
 
+        public static async Task<Dictionary<string, CourseDetail>> GetCombinedCourses()
+        {
+            var coursesFromJson = GetCourses();
+
+            var coursesFromApi = await GetCoursesFromApi();
+
+            var combinedCourses = coursesFromJson
+                .Concat(coursesFromApi)
+                .GroupBy(kvp => kvp.Key)
+                .ToDictionary(group => group.Key, group => group.First().Value);
+
+            return combinedCourses;
+        }
     }
 }

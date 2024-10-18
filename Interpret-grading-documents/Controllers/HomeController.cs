@@ -83,14 +83,14 @@ namespace Interpret_grading_documents.Controllers
         }
 
         [HttpGet]
-        public IActionResult CourseRequirementsManager()
+        public async Task<IActionResult> CourseRequirementsManager()
         {
             var courseEquivalents = LoadCourseEquivalents() ?? new CourseEquivalents
             {
                 Subjects = new List<Subject>()
             };
 
-            var validationCourses = ValidationData.GetCourses();
+            var validationCourses = await ValidationData.GetCombinedCourses();
 
             var availableCourses = validationCourses.Values.Select(c => new AvailableCourse
             {
