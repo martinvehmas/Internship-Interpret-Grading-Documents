@@ -129,7 +129,7 @@
                                                     </p>
                                                     <!-- Updated button text -->
                                                     <button class="btn btn-warning btn-sm restore-btn mt-2" data-subject="@subject.SubjectName">Apply Suggestion</button>
-                                                   
+
                                                 }
                                             </div>
                                         </td>
@@ -167,12 +167,12 @@
             }
         </div>
     </div>
-    <div class="p-4">
+    <div class="p-4 text-center">
         <div class="p-2">
             <a asp-action="CheckRequirements" asp-controller="Home" asp-route-id="@Model.Id" class="btn btn-primary">Check Requirements</a><br />
         </div>
         <div class="p-2">
-            <a asp-action="ViewUploadedDocuments" asp-controller="Home">Back to Documents</a>
+            <a asp-action="ViewUploadedDocuments" asp-controller="Home" class="btn btn-secondary">Back to Documents</a>
         </div>
     </div>
     @section Scripts
