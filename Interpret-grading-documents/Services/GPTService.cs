@@ -13,6 +13,7 @@ namespace Interpret_grading_documents.Services
         public class GraduationDocument
         {
             public Guid Id { get; set; } = Guid.NewGuid();
+
             public string DocumentName { get; set; }
 
             [JsonPropertyName("document_title")]
