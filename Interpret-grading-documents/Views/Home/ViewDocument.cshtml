@@ -167,7 +167,14 @@
             }
         </div>
     </div>
-    <a asp-action="ViewUploadedDocuments" asp-controller="Home">Back to Documents</a>
+    <div class="p-4">
+        <div class="p-2">
+            <a asp-action="CheckRequirements" asp-controller="Home" asp-route-id="@Model.Id" class="btn btn-primary">Check Requirements</a><br />
+        </div>
+        <div class="p-2">
+            <a asp-action="ViewUploadedDocuments" asp-controller="Home">Back to Documents</a>
+        </div>
+    </div>
     @section Scripts
     {
         <script>
