@@ -40,6 +40,9 @@ namespace Interpret_grading_documents.Services
 
         [JsonPropertyName("requiredGrade")]
         public string RequiredGrade { get; set; } // New property for required grade
+
+        [JsonPropertyName("includeInAverage")]
+        public bool IncludeInAverage { get; set; } 
     }
 
     public class AlternativeCourse
@@ -55,25 +58,25 @@ namespace Interpret_grading_documents.Services
     {
         private static CourseEquivalents CourseEquivalents = LoadCourseEquivalents();
 
-        private static readonly Dictionary<string, int> GradeMappings = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase)
+        private static readonly Dictionary<string, double> GradeMappings = new Dictionary<string, double>(StringComparer.OrdinalIgnoreCase)
         {
-            { "A", 5 },
-            { "B", 4 },
-            { "C", 3 },
-            { "D", 2 },
-            { "E", 1 },
+            { "A", 20 },
+            { "B", 17.5 },
+            { "C", 15 },
+            { "D", 12.5 },
+            { "E", 10 },
             { "F", 0 },
 
-            { "MVG", 5 },
-            { "VG", 3 },
-            { "G", 1 },
+            { "MVG", 20 },
+            { "VG", 15 },
+            { "G", 10 },
             { "IG", 0 },
 
-            { "5", 5 },
-            { "4", 4 },
-            { "3", 3 },
-            { "2", 2 },
-            { "1", 1 },
+            { "5", 20 },
+            { "4", 17.5 },
+            { "3", 15 },
+            { "2", 12.5 },
+            { "1", 10 },
             { "0", 0 }
         };
 
@@ -103,7 +106,7 @@ namespace Interpret_grading_documents.Services
 
                     Console.WriteLine($"Checking requirement for course: {requiredCourseNameOrCode} with minimum grade: {requiredGrade}");
 
-                    int requiredGradeValue = GetGradeValue(requiredGrade);
+                    double requiredGradeValue = GetGradeValue(requiredGrade);
                     var equivalentCourses = GetEquivalentCourses(requiredCourseNameOrCode);
 
                     bool courseRequirementMet = false;
@@ -115,7 +118,7 @@ namespace Interpret_grading_documents.Services
                             ec.Name.Equals(studentSubject.SubjectName.Trim(), StringComparison.OrdinalIgnoreCase) ||
                             ec.Code.Equals(studentSubject.CourseCode.Trim(), StringComparison.OrdinalIgnoreCase)))
                         {
-                            int studentGradeValue = GetGradeValue(studentSubject.Grade.Trim());
+                            double studentGradeValue = GetGradeValue(studentSubject.Grade.Trim());
                             studentGrade = studentSubject.Grade;
 
                             if (studentGradeValue >= requiredGradeValue)
@@ -153,9 +156,9 @@ namespace Interpret_grading_documents.Services
 
 
 
-        private static int GetGradeValue(string grade)
+        private static double GetGradeValue(string grade)
         {
-            if (GradeMappings.TryGetValue(grade.Trim().ToUpper(), out int value))
+            if (GradeMappings.TryGetValue(grade.Trim().ToUpper(), out double value))
             {
                 return value;
             }
@@ -226,5 +229,54 @@ namespace Interpret_grading_documents.Services
 
             return equivalentCourses;
         }
+
+        public static double CalculateAverageGrade(GPTService.GraduationDocument document)
+        {
+            double totalWeightedGradePoints = 0;
+            int totalCoursePoints = 0;
+
+            foreach (var subject in CourseEquivalents.Subjects)
+            {
+                foreach (var course in subject.Courses)
+                {
+                    if (course.IncludeInAverage)
+                    {
+                        var equivalentCourses = GetEquivalentCourses(course.Name);
+
+                        foreach (var studentSubject in document.Subjects)
+                        {
+                            if (equivalentCourses.Any(ec =>
+                                    ec.Name.Equals(studentSubject.SubjectName.Trim(), StringComparison.OrdinalIgnoreCase) ||
+                                    ec.Code.Equals(studentSubject.CourseCode.Trim(), StringComparison.OrdinalIgnoreCase)))
+                            {
+                                double studentGradeValue = GetGradeValue(studentSubject.Grade.Trim());
+                                int studentCoursePoints = int.Parse(studentSubject.GymnasiumPoints);
+
+                                totalWeightedGradePoints += studentGradeValue * studentCoursePoints;
+                                totalCoursePoints += studentCoursePoints;
+                                Console.WriteLine($"Course Name: {studentSubject.SubjectName}");
+                                Console.WriteLine($"Grade: {studentSubject.Grade}");
+                                Console.WriteLine($"Points: {studentSubject.GymnasiumPoints}");
+                                Console.WriteLine($"GradeValue: {studentGradeValue}");
+
+                                Console.WriteLine($"{studentGradeValue} * {studentSubject.GymnasiumPoints} = {totalWeightedGradePoints} ");
+
+
+                                break; // Move to the next course after a match
+                            }
+                        }
+                    }
+                }
+            }
+
+            if (totalCoursePoints == 0)
+                return 0;
+
+            double average = totalWeightedGradePoints / totalCoursePoints;
+            Console.WriteLine($"Average points: {Math.Round(average, 2)}");
+
+            return Math.Round(average, 2); // Round to 2 decimal places if desired
+        }
+
     }
 }

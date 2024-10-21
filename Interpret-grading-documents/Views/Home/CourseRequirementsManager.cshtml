@@ -79,6 +79,10 @@
                             <div id="addAlternativesContainer"></div>
                             <button type="button" class="btn btn-secondary" onclick="addAlternative('add')">Add Alternative</button>
                         </div>
+                        <div class="form-check form-switch mt-4">
+                            <input class="form-check-input" type="checkbox" role="switch" id="addIncludeInAverage">
+                            <label class="form-check-label" for="flexSwitchCheckDefault">Calculate average merit value</label>
+                        </div>
                     </div>
 
                     <div class="modal-footer">
@@ -115,6 +119,7 @@
                                 <th>Required Grade</th>
                                 <th>Alternatives</th>
                                 <th>Actions</th>
+                                <th>Calculate average</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -139,6 +144,7 @@
                                         <button class="btn btn-warning btn-sm" onclick="openEditCourseModal(@subjectIndex, @courseIndex)">Edit</button>
                                         <button class="btn btn-danger btn-sm" onclick="deleteCourse(@subjectIndex, @courseIndex)">Delete</button>
                                     </td>
+                                    <td>@course.IncludeInAverage</td>
                                 </tr>
                             }
                         </tbody>
@@ -257,6 +263,7 @@
             document.getElementById("addLevel").value = course.level;
             document.getElementById("addRequiredGrade").value = course.requiredGrade;
             document.getElementById("addAlternativesContainer").innerHTML = '';
+            document.getElementById("addIncludeInAverage").checked = course.includeInAverage;
 
             var courseNameInput = document.getElementById("addCourseName");
             var courseNameDropdown = document.getElementById("courseNameDropdown");
@@ -290,6 +297,8 @@
             var level = document.getElementById("addLevel").value.trim();
             var requiredGrade = document.getElementById("addRequiredGrade").value.trim();
 
+            var includeInAverage = document.getElementById("addIncludeInAverage").checked;
+
             if (courseName === '' || courseCode === '' || level === '' || requiredGrade === '') {
                 alert("Please fill in all required fields.");
                 return;
@@ -300,6 +309,7 @@
                 code: courseCode,
                 level: parseInt(level),
                 requiredGrade: requiredGrade,
+                includeInAverage: includeInAverage,
                 alternatives: []
             };
 
@@ -341,7 +351,7 @@
                                 <div class="col">
                                     <input type="text" class="form-control alternative-code" placeholder="Alternative Code" value="${altCode}" required />
                                 </div>
-                                <div class="col-auto">
+                                <div class="col-auto mt-2">
                                     <button type="button" class="btn btn-danger" onclick="this.parentElement.parentElement.remove()">Remove</button>
                                 </div>`;
             container.appendChild(div);
