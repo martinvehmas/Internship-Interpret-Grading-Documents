@@ -92,7 +92,7 @@ namespace Interpret_grading_documents.Services
         public static Dictionary<string, RequirementResult> DoesStudentMeetRequirement(GPTService.GraduationDocument document)
         {
             Console.WriteLine("Checking if the student meets all course requirements.");
-            var allRequirementsMet = new Dictionary<string, RequirementResult>(); // Change from bool to dictionary
+            var allRequirementsMet = new Dictionary<string, RequirementResult>();
 
             foreach (var subject in CourseEquivalents.Subjects)
             {
@@ -107,26 +107,42 @@ namespace Interpret_grading_documents.Services
                     var equivalentCourses = GetEquivalentCourses(requiredCourseNameOrCode);
 
                     bool courseRequirementMet = false;
-                    string studentGrade = null; // declare studentGrade
+                    string highestGradeCourseName = null;
+                    string highestGrade = null;
+                    string originalCourseGrade = null;
+                    int highestGradeValue = 0;
+                    var otherAlternativeGrades = new List<string>();
 
                     foreach (var studentSubject in document.Subjects)
                     {
-                        if (equivalentCourses.Any(ec =>
-                            ec.Name.Equals(studentSubject.SubjectName.Trim(), StringComparison.OrdinalIgnoreCase) ||
-                            ec.Code.Equals(studentSubject.CourseCode.Trim(), StringComparison.OrdinalIgnoreCase)))
+                        foreach (var equivalentCourse in equivalentCourses)
                         {
-                            int studentGradeValue = GetGradeValue(studentSubject.Grade.Trim());
-                            studentGrade = studentSubject.Grade;
+                            if (equivalentCourse.Name.Equals(studentSubject.SubjectName.Trim(), StringComparison.OrdinalIgnoreCase) ||
+                                equivalentCourse.Code.Equals(studentSubject.CourseCode.Trim(), StringComparison.OrdinalIgnoreCase))
+                            {
+                                int studentGradeValue = GetGradeValue(studentSubject.Grade.Trim());
 
-                            if (studentGradeValue >= requiredGradeValue)
-                            {
-                                Console.WriteLine($"Student meets the requirement for {requiredCourseNameOrCode} with grade {studentSubject.Grade}");
-                                courseRequirementMet = true;
-                                break; // Requirement met for this course, no need to check further
-                            }
-                            else
-                            {
-                                Console.WriteLine($"Student's grade {studentSubject.Grade} is lower than the required grade {requiredGrade}");
+                                if (requiredCourseNameOrCode.Equals(equivalentCourse.Name, StringComparison.OrdinalIgnoreCase) ||
+                                    requiredCourseNameOrCode.Equals(equivalentCourse.Code, StringComparison.OrdinalIgnoreCase))
+                                {
+                                    originalCourseGrade = studentSubject.Grade;
+                                }
+                                else
+                                {
+                                    otherAlternativeGrades.Add($"{studentSubject.SubjectName}: {studentSubject.Grade}");
+                                }
+
+                                if (studentGradeValue > highestGradeValue)
+                                {
+                                    highestGradeValue = studentGradeValue;
+                                    highestGrade = studentSubject.Grade;
+                                    highestGradeCourseName = studentSubject.SubjectName;
+                                }
+
+                                if (highestGradeValue >= requiredGradeValue)
+                                {
+                                    courseRequirementMet = true;
+                                }
                             }
                         }
                     }
@@ -134,24 +150,23 @@ namespace Interpret_grading_documents.Services
                     if (!courseRequirementMet)
                     {
                         Console.WriteLine($"Student does not meet the requirement for {requiredCourseNameOrCode}");
-                        
                     }
-                    // Add the result to the dictionary
+
                     allRequirementsMet[requiredCourseNameOrCode] = new RequirementResult
                     {
-                        CourseName = requiredCourseNameOrCode,
+                        CourseName = highestGradeCourseName ?? requiredCourseNameOrCode,
                         RequiredGrade = requiredGrade,
                         IsMet = courseRequirementMet,
-                        StudentGrade = studentGrade ?? "N/A"
+                        StudentGrade = highestGrade ?? "N/A",
+                        OriginalCourseGrade = originalCourseGrade ?? "N/A",
+                        AlternativeCourseGrade = highestGradeCourseName != requiredCourseNameOrCode ? highestGrade : null,
+                        OtherGradesInAlternatives = otherAlternativeGrades
                     };
                 }
             }
 
-
             return allRequirementsMet;
         }
-
-
 
         private static int GetGradeValue(string grade)
         {
