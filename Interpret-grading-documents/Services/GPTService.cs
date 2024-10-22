@@ -109,15 +109,16 @@ namespace Interpret_grading_documents.Services
                 // Set the document name using the uploaded file's name
                 document.DocumentName = Path.GetFileName(uploadedFile.FileName);
 
-
-                var test = RequirementChecker.DoesStudentMeetRequirement(document);
-                Console.WriteLine(test);
+                //var test = RequirementChecker.DoesStudentMeetRequirement(document);
+                //Console.WriteLine(test);
 
                 var updatedDocument = await CompareCourses(document);
                 ValidateDocument(updatedDocument, reliabilityResult);
 
                   
                 ExamValidator(updatedDocument);
+
+                //var test1 = RequirementChecker.CalculateAverageGrade(document);
 
 
                 return document;

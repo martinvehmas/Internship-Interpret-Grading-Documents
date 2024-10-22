@@ -56,7 +56,7 @@ namespace Interpret_grading_documents.Services
 
     public static class RequirementChecker
     {
-        private static CourseEquivalents CourseEquivalents = LoadCourseEquivalents();
+        //private static CourseEquivalents CourseEquivalents = LoadCourseEquivalents();
 
         private static readonly Dictionary<string, double> GradeMappings = new Dictionary<string, double>(StringComparer.OrdinalIgnoreCase)
         {
@@ -80,20 +80,21 @@ namespace Interpret_grading_documents.Services
             { "0", 0 }
         };
 
-        private static CourseEquivalents LoadCourseEquivalents()
+        private static CourseEquivalents LoadCourseEquivalents(string jsonFilePath)
         {
-            string jsonFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "CourseEquivalents.json");
             if (!File.Exists(jsonFilePath))
             {
-                throw new FileNotFoundException("Course equivalents JSON file not found.");
+                throw new FileNotFoundException("Course equivalents JSON file not found at " + jsonFilePath);
             }
 
             string jsonContent = File.ReadAllText(jsonFilePath);
             return JsonSerializer.Deserialize<CourseEquivalents>(jsonContent);
         }
 
-        public static Dictionary<string, RequirementResult> DoesStudentMeetRequirement(GPTService.GraduationDocument document)
+        public static Dictionary<string, RequirementResult> DoesStudentMeetRequirement(GPTService.GraduationDocument document, string jsonFilePath)
         {
+            var CourseEquivalents = LoadCourseEquivalents(jsonFilePath); // Load fresh data
+
             Console.WriteLine("Checking if the student meets all course requirements.");
             var allRequirementsMet = new Dictionary<string, RequirementResult>(); // Change from bool to dictionary
 
@@ -107,7 +108,7 @@ namespace Interpret_grading_documents.Services
                     Console.WriteLine($"Checking requirement for course: {requiredCourseNameOrCode} with minimum grade: {requiredGrade}");
 
                     double requiredGradeValue = GetGradeValue(requiredGrade);
-                    var equivalentCourses = GetEquivalentCourses(requiredCourseNameOrCode);
+                    var equivalentCourses = GetEquivalentCourses(requiredCourseNameOrCode, jsonFilePath);
 
                     bool courseRequirementMet = false;
                     string studentGrade = null; // declare studentGrade
@@ -168,8 +169,9 @@ namespace Interpret_grading_documents.Services
             }
         }
 
-        private static List<Course> GetEquivalentCourses(string courseNameOrCode)
+        private static List<Course> GetEquivalentCourses(string courseNameOrCode, string jsonFilePath)
         {
+            var CourseEquivalents = LoadCourseEquivalents(jsonFilePath); // Load fresh data
             var equivalentCourses = new List<Course>();
 
             if (CourseEquivalents != null && CourseEquivalents.Subjects != null)
@@ -230,8 +232,9 @@ namespace Interpret_grading_documents.Services
             return equivalentCourses;
         }
 
-        public static double CalculateAverageGrade(GPTService.GraduationDocument document)
+        public static double CalculateAverageGrade(GPTService.GraduationDocument document, string jsonFilePath)
         {
+            var CourseEquivalents = LoadCourseEquivalents(jsonFilePath); // Load fresh data
             double totalWeightedGradePoints = 0;
             int totalCoursePoints = 0;
 
@@ -241,7 +244,7 @@ namespace Interpret_grading_documents.Services
                 {
                     if (course.IncludeInAverage)
                     {
-                        var equivalentCourses = GetEquivalentCourses(course.Name);
+                        var equivalentCourses = GetEquivalentCourses(course.Name, jsonFilePath);
 
                         foreach (var studentSubject in document.Subjects)
                         {

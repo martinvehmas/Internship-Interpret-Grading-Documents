@@ -27,7 +27,7 @@
             }
           ],
           "requiredGrade": "E",
-          "includeInAverage": false
+          "includeInAverage": true
         }
       ]
     },
@@ -53,7 +53,7 @@
             }
           ],
           "requiredGrade": "E",
-          "includeInAverage": true
+          "includeInAverage": false
         }
       ]
     }
