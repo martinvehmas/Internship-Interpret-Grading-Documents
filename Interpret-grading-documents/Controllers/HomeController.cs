@@ -181,7 +181,11 @@ namespace Interpret_grading_documents.Controllers
                 MeetsRequirement = meetsAllRequirements
             };
 
+            // Pass the jsonFilePath to the view via ViewBag
+            ViewBag.JsonFilePath = jsonFilePath;
+
             return View(model);
         }
+
     }
 }

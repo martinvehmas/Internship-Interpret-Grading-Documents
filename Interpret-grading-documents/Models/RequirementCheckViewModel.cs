@@ -8,4 +8,5 @@ public class RequirementCheckViewModel
     public GPTService.GraduationDocument Document { get; set; }
     public Dictionary<string, RequirementResult> RequirementResults { get; set; }
     public bool MeetsRequirement { get; set; }
+    public string JsonFilePath { get; set; }
 }

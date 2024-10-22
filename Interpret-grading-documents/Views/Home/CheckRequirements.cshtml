@@ -48,9 +48,9 @@
     <div class="mt-5">
         <div class="d-flex justify-content-center align-items-center flex-column">
             <h4 class="text-primary mb-3">Average Grade</h4>
-        
+
             @{
-                var averageGrade = Interpret_grading_documents.Services.RequirementChecker.CalculateAverageGrade(Model.Document);
+                var averageGrade = Interpret_grading_documents.Services.RequirementChecker.CalculateAverageGrade(Model.Document, ViewBag.JsonFilePath);
             }
 
             <div class="p-4 bg-light border rounded" style="width: 200px; text-align: center;">
