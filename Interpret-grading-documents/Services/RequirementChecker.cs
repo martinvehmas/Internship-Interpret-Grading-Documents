@@ -114,18 +114,18 @@ namespace Interpret_grading_documents.Services
                     string highestGradeCourseName = null;
                     string highestGrade = null;
                     string originalCourseGrade = null;
-                    int highestGradeValue = 0;
+                    double highestGradeValue = 0;
                     var otherAlternativeGrades = new List<string>();
 
                     foreach (var studentSubject in document.Subjects)
                     {
-                        if (equivalentCourses.Any(ec =>
-                            ec.Name.Equals(studentSubject.SubjectName.Trim(), StringComparison.OrdinalIgnoreCase) ||
-                            ec.Code.Equals(studentSubject.CourseCode.Trim(), StringComparison.OrdinalIgnoreCase)))
+                        foreach (var equivalentCourse in equivalentCourses)
                         {
-                            double studentGradeValue = GetGradeValue(studentSubject.Grade.Trim());
-                            studentGrade = studentSubject.Grade;
-
+                            if (equivalentCourse.Name.Equals(studentSubject.SubjectName.Trim(), StringComparison.OrdinalIgnoreCase) || 
+                                equivalentCourse.Code.Equals(studentSubject.CourseCode.Trim(), StringComparison.OrdinalIgnoreCase))
+                            {
+                                double studentGradeValue = GetGradeValue(studentSubject.Grade.Trim());
+                                
                                 if (requiredCourseNameOrCode.Equals(equivalentCourse.Name, StringComparison.OrdinalIgnoreCase) ||
                                     requiredCourseNameOrCode.Equals(equivalentCourse.Code, StringComparison.OrdinalIgnoreCase))
                                 {
@@ -171,6 +171,7 @@ namespace Interpret_grading_documents.Services
 
             return allRequirementsMet;
         }
+
 
 
 
