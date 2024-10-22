@@ -13,7 +13,8 @@
               "code": "EN1201"
             }
           ],
-          "requiredGrade": "E"
+          "requiredGrade": "E",
+          "includeInAverage": true
         },
         {
           "name": "Engelska 6",
@@ -25,7 +26,8 @@
               "code": "EN1202"
             }
           ],
-          "requiredGrade": "E"
+          "requiredGrade": "E",
+          "includeInAverage": true
         }
       ]
     },
@@ -50,7 +52,8 @@
               "code": "MA1201"
             }
           ],
-          "requiredGrade": "E"
+          "requiredGrade": "E",
+          "includeInAverage": false
         }
       ]
     }

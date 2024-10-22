@@ -9,26 +9,48 @@ namespace Interpret_grading_documents.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IWebHostEnvironment _hostingEnvironment;
         private static List<GPTService.GraduationDocument> _analyzedDocuments = new List<GPTService.GraduationDocument>();
 
         private readonly string courseEquivalentsFilePath = Path.Combine(Directory.GetCurrentDirectory(), "CourseEquivalents.json");
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IWebHostEnvironment hostingEnvironment)
         {
             _logger = logger;
+            _hostingEnvironment = hostingEnvironment;
         }
 
         public IActionResult Index()
         {
+            var coursesWithAverageFlag = GetCoursesWithAverageFlag();
+            ViewBag.CoursesWithAverageFlag = coursesWithAverageFlag;
             return View(_analyzedDocuments);
         }
+        private List<(string MainCourse, List<string> AlternativeCourses, bool IncludedInAverage)> GetCoursesWithAverageFlag()
+        {
+            var coursesWithAverageFlag = new List<(string MainCourse, List<string> AlternativeCourses, bool IncludedInAverage)>();
+            var courseEquivalents = LoadCourseEquivalents();
+
+            if (courseEquivalents != null)
+            {
+                foreach (var subject in courseEquivalents.Subjects)
+                {
+                    foreach (var course in subject.Courses)
+                    {
+                        var alternativeCourses = course.Alternatives.Select(alt => $"{alt.Name} ({alt.Code})").ToList();
+                        coursesWithAverageFlag.Add(($"{course.Name} ({course.Code})", alternativeCourses, course.IncludeInAverage));
+                    }
+                }
+            }
+            return coursesWithAverageFlag;
+        }
+
 
         [HttpPost]
         public async Task<IActionResult> ProcessText(List<IFormFile> uploadedFiles)
         {
             if (uploadedFiles == null || uploadedFiles.Count == 0)
             {
-                // Optionally, add a ModelState error or a TempData message to inform the user
                 ViewBag.Error = "Please upload valid documents.";
                 return View("Index");
             }
@@ -47,6 +69,7 @@ namespace Interpret_grading_documents.Controllers
         {
             return View();
         }
+
         public IActionResult ViewDocument(Guid id)
         {
             var document = _analyzedDocuments.Find(d => d.Id == id);
@@ -134,23 +157,23 @@ namespace Interpret_grading_documents.Controllers
             System.IO.File.WriteAllText(courseEquivalentsFilePath, jsonContent);
         }
 
-
         [HttpGet]
         public IActionResult CheckRequirements(Guid id)
         {
-            
+            string jsonFilePath = Path.Combine(_hostingEnvironment.ContentRootPath, "CourseEquivalents.json");
             var document = _analyzedDocuments.Find(d => d.Id == id);
             if (document == null)
             {
                 return NotFound();
             }
 
-            var requirementResults = RequirementChecker.DoesStudentMeetRequirement(document);
+            var requirementResults = RequirementChecker.DoesStudentMeetRequirement(document, jsonFilePath);
+
+            var test = RequirementChecker.CalculateAverageGrade(document, jsonFilePath);
 
             // Determine if all requirements are met
             bool meetsAllRequirements = requirementResults.Values.All(r => r.IsMet);
 
-            
             var model = new RequirementCheckViewModel
             {
                 Document = document,
@@ -158,7 +181,11 @@ namespace Interpret_grading_documents.Controllers
                 MeetsRequirement = meetsAllRequirements
             };
 
+            // Pass the jsonFilePath to the view via ViewBag
+            ViewBag.JsonFilePath = jsonFilePath;
+
             return View(model);
         }
+
     }
 }
