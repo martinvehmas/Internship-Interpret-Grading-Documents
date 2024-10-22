@@ -119,8 +119,6 @@ namespace Interpret_grading_documents.Services
                   
                 ExamValidator(updatedDocument);
 
-                var test1 = RequirementChecker.CalculateAverageGrade(document);
-
 
                 return document;
             }

@@ -20,15 +20,35 @@ namespace Interpret_grading_documents.Controllers
 
         public IActionResult Index()
         {
+            var coursesWithAverageFlag = GetCoursesWithAverageFlag();
+            ViewBag.CoursesWithAverageFlag = coursesWithAverageFlag;
             return View(_analyzedDocuments);
         }
+        private List<(string MainCourse, List<string> AlternativeCourses, bool IncludedInAverage)> GetCoursesWithAverageFlag()
+        {
+            var coursesWithAverageFlag = new List<(string MainCourse, List<string> AlternativeCourses, bool IncludedInAverage)>();
+            var courseEquivalents = LoadCourseEquivalents();
+
+            if (courseEquivalents != null)
+            {
+                foreach (var subject in courseEquivalents.Subjects)
+                {
+                    foreach (var course in subject.Courses)
+                    {
+                        var alternativeCourses = course.Alternatives.Select(alt => $"{alt.Name} ({alt.Code})").ToList();
+                        coursesWithAverageFlag.Add(($"{course.Name} ({course.Code})", alternativeCourses, course.IncludeInAverage));
+                    }
+                }
+            }
+            return coursesWithAverageFlag;
+        }
+
 
         [HttpPost]
         public async Task<IActionResult> ProcessText(List<IFormFile> uploadedFiles)
         {
             if (uploadedFiles == null || uploadedFiles.Count == 0)
             {
-                // Optionally, add a ModelState error or a TempData message to inform the user
                 ViewBag.Error = "Please upload valid documents.";
                 return View("Index");
             }
@@ -47,6 +67,7 @@ namespace Interpret_grading_documents.Controllers
         {
             return View();
         }
+
         public IActionResult ViewDocument(Guid id)
         {
             var document = _analyzedDocuments.Find(d => d.Id == id);
@@ -134,11 +155,9 @@ namespace Interpret_grading_documents.Controllers
             System.IO.File.WriteAllText(courseEquivalentsFilePath, jsonContent);
         }
 
-
         [HttpGet]
         public IActionResult CheckRequirements(Guid id)
         {
-            
             var document = _analyzedDocuments.Find(d => d.Id == id);
             if (document == null)
             {
@@ -150,7 +169,6 @@ namespace Interpret_grading_documents.Controllers
             // Determine if all requirements are met
             bool meetsAllRequirements = requirementResults.Values.All(r => r.IsMet);
 
-            
             var model = new RequirementCheckViewModel
             {
                 Document = document,
