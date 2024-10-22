@@ -20,6 +20,7 @@
                 <th>Required Grade</th>
                 <th>Student's Grade</th>
                 <th>Meets Requirement</th>
+                <th>Notes</th>
             </tr>
         </thead>
         <tbody>
@@ -38,6 +39,41 @@
                         else
                         {
                             <span class="text-danger">No</span>
+                        }
+                    </td>
+                    <td>
+                        @if (result.CourseName != kvp.Key)
+                        {
+                            <span>
+                                The student has a grade of @result.StudentGrade on @result.CourseName, but has the following grades on other courses:
+                                <ul>
+                                    @if (result.OriginalCourseGrade != "N/A")
+                                    {
+                                        <li>@kvp.Key: @result.OriginalCourseGrade</li>
+                                    }
+                                    @foreach (var grade in result.OtherGradesInAlternatives)
+                                    {
+
+                                        @if (!grade.Contains(@result.CourseName))
+                                        {
+                                            <li>@grade</li>
+                                        }
+                                    }
+                                </ul>
+                            </span>
+                        }
+                        else
+                        {
+                            @if (result.OtherGradesInAlternatives != null && result.OtherGradesInAlternatives.Count > 0)
+                            {
+                                <span>The student also has the following grades on alternative courses:</span>
+                                <ul>
+                                    @foreach (var grade in result.OtherGradesInAlternatives)
+                                    {
+                                        <li>@grade</li>
+                                    }
+                                </ul>
+                            }
                         }
                     </td>
                 </tr>
