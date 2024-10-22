@@ -9,13 +9,15 @@ namespace Interpret_grading_documents.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IWebHostEnvironment _hostingEnvironment;
         private static List<GPTService.GraduationDocument> _analyzedDocuments = new List<GPTService.GraduationDocument>();
 
         private readonly string courseEquivalentsFilePath = Path.Combine(Directory.GetCurrentDirectory(), "CourseEquivalents.json");
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IWebHostEnvironment hostingEnvironment)
         {
             _logger = logger;
+            _hostingEnvironment = hostingEnvironment;
         }
 
         public IActionResult Index()
@@ -138,14 +140,16 @@ namespace Interpret_grading_documents.Controllers
         [HttpGet]
         public IActionResult CheckRequirements(Guid id)
         {
-            
+            string jsonFilePath = Path.Combine(_hostingEnvironment.ContentRootPath, "CourseEquivalents.json");
             var document = _analyzedDocuments.Find(d => d.Id == id);
             if (document == null)
             {
                 return NotFound();
             }
 
-            var requirementResults = RequirementChecker.DoesStudentMeetRequirement(document);
+            var requirementResults = RequirementChecker.DoesStudentMeetRequirement(document, jsonFilePath);
+
+            var test = RequirementChecker.CalculateAverageGrade(document, jsonFilePath);
 
             // Determine if all requirements are met
             bool meetsAllRequirements = requirementResults.Values.All(r => r.IsMet);
