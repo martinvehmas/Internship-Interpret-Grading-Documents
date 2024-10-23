@@ -24,7 +24,7 @@
 
                             <p class="card-text">
                                 <strong>Full Name:</strong>
-                                <span class="editable-cell student-info" data-field="FullName">
+                                <span class="editable-cell student-info" data-field="full_name">
                                     @Model.FullName
                                 </span>
                                 <small class="form-text text-muted">(Click to edit)</small>
@@ -32,7 +32,7 @@
 
                             <p class="card-text">
                                 <strong>Social Security Number:</strong>
-                                <span class="editable-cell student-info" data-field="PersonalId">
+                                <span class="editable-cell student-info" data-field="personal_id">
                                     @Model.PersonalId
                                 </span>
                                 <small class="form-text text-muted">(Click to edit)</small>
@@ -179,9 +179,12 @@
     {
         <script>
             document.addEventListener('DOMContentLoaded', function () {
+                var documentId = '@Model.Id';
                 var editedData = {
-                    Subjects: {},
-                    StudentInfo: {}
+                    Id: documentId,
+                    full_name: '@Model.FullName',
+                    personal_id: '@Model.PersonalId',
+                    Subjects: [] 
                 };
                 var originalTotalPoints = parseFloat(document.getElementById('totalPointsDisplay')?.textContent || "0");
 
@@ -324,7 +327,7 @@
                             cell.textContent = newValue;
 
                             var fieldName = cell.getAttribute('data-field');
-                            editedData.StudentInfo[fieldName] = newValue;
+                            editedData[fieldName] = newValue;
 
                             document.getElementById('saveChangesButton').style.display = 'block';
                         });
@@ -345,6 +348,26 @@
                 // Save Changes button functionality
                 document.getElementById('saveChangesButton')?.addEventListener('click', function () {
                     this.style.display = 'none';
+
+                    // Send the data via AJAX POST
+                    fetch('@Url.Action("SaveDocument", "Home")', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(editedData)
+                    })
+                        .then(response => {
+                            if (response.ok) {
+                                alert('Changes saved successfully.');
+                            } else {
+                                alert('Error saving changes.');
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            alert('Error saving changes.');
+                        });
 
                     var newTotalPoints = 0;
                     document.querySelectorAll('.editable-cell[data-field="GymnasiumPoints"]').forEach(function (cell) {

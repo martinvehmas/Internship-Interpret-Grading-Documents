@@ -186,6 +186,32 @@ namespace Interpret_grading_documents.Controllers
 
             return View(model);
         }
+        //save user chages from viewdocument to graduation document in _analyzedDocuments
+        [HttpPost]
+        public IActionResult SaveDocument([FromBody] GPTService.GraduationDocument updatedDocument)
+        {
+            if (updatedDocument == null)
+            {
+                return BadRequest();
+            }
 
+            // Find the existing document by Id
+            var existingDocument = _analyzedDocuments.FirstOrDefault(d => d.Id == updatedDocument.Id);
+            if (existingDocument == null)
+            {
+                return NotFound();
+            }
+
+            // Update the fields
+            existingDocument.FullName = updatedDocument.FullName;
+            existingDocument.PersonalId = updatedDocument.PersonalId;
+
+            // If you have other fields to update, include them here
+            // For example: existingDocument.Title = updatedDocument.Title;
+
+            // If you're persisting the data to a database or file, save it here
+
+            return Ok();
+        }
     }
 }
