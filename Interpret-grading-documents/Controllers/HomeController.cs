@@ -206,10 +206,13 @@ namespace Interpret_grading_documents.Controllers
             existingDocument.FullName = updatedDocument.FullName;
             existingDocument.PersonalId = updatedDocument.PersonalId;
 
-            // If you have other fields to update, include them here
-            // For example: existingDocument.Title = updatedDocument.Title;
+            // Update the subjects
+            if (updatedDocument.Subjects != null && updatedDocument.Subjects.Count > 0)
+            {
+                existingDocument.Subjects = updatedDocument.Subjects;
+            }
 
-            // If you're persisting the data to a database or file, save it here
+            // Save changes to the data store if applicable
 
             return Ok();
         }
