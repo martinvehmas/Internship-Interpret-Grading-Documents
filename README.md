@@ -58,7 +58,7 @@ To use GPT models in this project, you need an OpenAI API key. Follow these step
    Open a command prompt or PowerShell and run:
 
    ```bash
-   setx GPT_API_KEY "<your-openai-api-key>"
+   setx OPENAI_API_KEY "<your-openai-api-key>"
    ```
 
    After setting the key, restart your terminal or IDE to ensure the environment variable is loaded.
@@ -67,7 +67,7 @@ To use GPT models in this project, you need an OpenAI API key. Follow these step
    Open a terminal and add the following to your `~/.bashrc` or `~/.zshrc` file:
 
    ```bash
-   export GPT_API_KEY="<your-openai-api-key>"
+   export OPENAI_API_KEY="<your-openai-api-key>"
    ```
 
    Then run the following command to reload your shell:
@@ -82,7 +82,7 @@ To use GPT models in this project, you need an OpenAI API key. Follow these step
    Ensure the key is set properly by running:
 
    ```bash
-   echo $GPT_API_KEY
+   echo $OPENAI_API_KEY
    ```
 
    It should display your OpenAI API key.
