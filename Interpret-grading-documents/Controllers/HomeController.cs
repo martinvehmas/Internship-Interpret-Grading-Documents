@@ -109,15 +109,19 @@ namespace Interpret_grading_documents.Controllers
             else
             {
                 string highestExamStatus = GPTService.GetHighestExamStatus(_analyzedDocuments);
-
                 string userName = _analyzedDocuments.FirstOrDefault()?.FullName ?? "Uploaded";
 
                 ViewBag.UserName = userName;
                 ViewBag.ExamStatus = highestExamStatus;
             }
 
+            // Ensure the JSON file path is correctly set
+            string jsonFilePath = Path.Combine(_hostingEnvironment.ContentRootPath, "CourseEquivalents.json");
+            ViewBag.JsonFilePath = jsonFilePath;
+
             return View(_analyzedDocuments);
         }
+
 
 
 

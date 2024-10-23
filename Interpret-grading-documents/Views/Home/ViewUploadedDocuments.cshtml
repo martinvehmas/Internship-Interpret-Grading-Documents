@@ -45,6 +45,80 @@
                     </div>
                 </div>
             }
+            <div class="mt-4 text-center">
+                <table class="table table-bordered">
+                    <thead style="background-color: #007bff; color: white;">
+                        <tr>
+                            <th>Course Name</th>
+                            <th>Required Grade</th>
+                            <th>Student's Grade</th>
+                            <th>Meets Requirement</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var document in Model)
+                        {
+                            var jsonFilePath = ViewBag.JsonFilePath;
+                            var requirementResults = Interpret_grading_documents.Services.RequirementChecker.DoesStudentMeetRequirement(document, jsonFilePath);
+                            
+                            @foreach (var kvp in requirementResults)
+                            {
+                                var result = kvp.Value;
+                                <tr>
+                                    <td>@result.CourseName</td>
+                                    <td>@result.RequiredGrade</td>
+                                    <td>@result.StudentGrade</td>
+                                    <td>
+                                        @if (result.IsMet)
+                                        {
+                                            <span class="text-success">Yes</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="text-danger">No</span>
+                                        }
+                                    </td>
+                                    <td>
+                                        @if (result.CourseName != kvp.Key)
+                                        {
+                                            <span>
+                                                The student has a grade of @result.StudentGrade on @result.CourseName, but has the following grades on other courses:
+                                                <ul>
+                                                    @if (result.OriginalCourseGrade != "N/A")
+                                                    {
+                                                        <li>@kvp.Key: @result.OriginalCourseGrade</li>
+                                                    }
+                                                    @foreach (var grade in result.OtherGradesInAlternatives)
+                                                    {
+                                                        @if (!grade.Contains(@result.CourseName))
+                                                        {
+                                                            <li>@grade</li>
+                                                        }
+                                                    }
+                                                </ul>
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            @if (result.OtherGradesInAlternatives != null && result.OtherGradesInAlternatives.Count > 0)
+                                            {
+                                                <span>The student also has the following grades on alternative courses:</span>
+                                                <ul>
+                                                    @foreach (var grade in result.OtherGradesInAlternatives)
+                                                    {
+                                                        <li>@grade</li>
+                                                    }
+                                                </ul>
+                                            }
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
         }
         else
         {
