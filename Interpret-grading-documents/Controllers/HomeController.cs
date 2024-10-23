@@ -207,10 +207,10 @@ namespace Interpret_grading_documents.Controllers
             existingDocument.PersonalId = updatedDocument.PersonalId;
 
             // Update the subjects
-            if (updatedDocument.Subjects != null && updatedDocument.Subjects.Count > 0)
-            {
-                existingDocument.Subjects = updatedDocument.Subjects;
-            }
+            //if (updatedDocument.Subjects != null && updatedDocument.Subjects.Count > 0)
+            //{
+            //    existingDocument.Subjects = updatedDocument.Subjects;
+            //}
 
             // Save changes to the data store if applicable
 

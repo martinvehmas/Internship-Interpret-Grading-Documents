@@ -49,7 +49,6 @@
                         </div>
                     </div>
 
-
                     <h3 class="mt-4">Subjects</h3>
                     <p class="text-muted">Please review and correct the grades below. It's essential that the grades are accurate for the record-keeping process.</p>
 
@@ -63,9 +62,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @for (int i = 0; i < Model.Subjects.Count; i++)
+                            @foreach (var subject in Model.Subjects)
                             {
-                                var subject = Model.Subjects[i];
                                 var isFuzzyMatch = subject.FuzzyMatchScore < 100.0;
                                 var fuzzyScore = subject.FuzzyMatchScore;
                                 var isBelowThreshold = fuzzyScore < 80.0;
@@ -94,7 +92,7 @@
                                 // Modified: End
 
                                 <tr class="@(isFuzzyMatch ? "table-warning" : "")"
-                                    data-index="@i"
+                                    data-id="@subject.SubjectName"
                                     data-original-subject-name="@subject.OriginalSubjectName"
                                     data-original-course-code="@subject.OriginalCourseCode"
                                     data-original-points="@subject.OriginalGymnasiumPoints"
@@ -102,17 +100,17 @@
                                     data-fuzzy-course-code="@subject.CourseCode"
                                     data-fuzzy-points="@subject.GymnasiumPoints">
 
-                                    <td class="editable-cell @(isFuzzyMatch ? "needs-review" : "readonly-cell")" data-field="subject_name" data-index="@i">
+                                    <td class="editable-cell @(isFuzzyMatch ? "needs-review" : "readonly-cell")" data-field="SubjectName" data-id="@subject.SubjectName">
                                         @displaySubjectName
                                     </td>
 
-                                    <td class="editable-cell @(isFuzzyMatch ? "needs-review" : "readonly-cell")" data-field="course_code" data-index="@i">
+                                    <td class="editable-cell @(isFuzzyMatch ? "needs-review" : "readonly-cell")" data-field="CourseCode" data-id="@subject.SubjectName">
                                         @(string.IsNullOrEmpty(displayCourseCode) ? "N/A" : displayCourseCode)
                                     </td>
-                                    <td class="editable-cell" data-field="grade" data-index="@i">
+                                    <td class="editable-cell" data-field="Grade" data-id="@subject.SubjectName">
                                         @subject.Grade
                                     </td>
-                                    <td class="editable-cell @(isFuzzyMatch ? "needs-review" : "readonly-cell")" data-field="points" data-index="@i">
+                                    <td class="editable-cell @(isFuzzyMatch ? "needs-review" : "readonly-cell")" data-field="GymnasiumPoints" data-id="@subject.SubjectName">
                                         @(displayGymnasiumPoints)
                                     </td>
                                 </tr>
@@ -181,12 +179,16 @@
         <script>
             document.addEventListener('DOMContentLoaded', function () {
                 var documentId = '@Model.Id';
+                let subjects = [];
+
                 var editedData = {
                     Id: documentId,
                     full_name: '@Model.FullName',
                     personal_id: '@Model.PersonalId',
-                    subjects: []
+                    Subjects: subjects
                 };
+                
+
                 var originalTotalPoints = parseFloat(document.getElementById('totalPointsDisplay')?.textContent || "0");
 
                 function toggleRestoreValues(button, subjectName) {
@@ -247,7 +249,7 @@
                     });
                 });
 
-                function makeCellEditable(cell, isEditable) {
+                function makeCellEditable(cell, isEditable, callback) {
                     cell.addEventListener('click', function (e) {
                         var cell = e.target;
                         if (cell.querySelector('input') || !isEditable) return;
@@ -259,12 +261,15 @@
                         input.className = 'form-control';
                         input.style.width = '100%';
 
+                        // Clear the cell and insert the input
+                        cell.textContent = '';
+                        cell.appendChild(input);
+                        input.focus();
+
+
                         input.addEventListener('blur', function () {
                             var newValue = input.value.trim();
-                            var fieldName = cell.getAttribute('data-field');
-                            var index = parseInt(cell.getAttribute('data-index'));
-
-                            if (fieldName === 'points') {
+                            if (cell.getAttribute('data-field') === 'GymnasiumPoints') {
                                 // Allow only numbers for Gymnasium Points
                                 if (isNaN(newValue) || newValue === "") {
                                     newValue = ""; // If invalid, set the value to an empty string
@@ -272,18 +277,26 @@
                                     newValue = parseInt(newValue); // Parse to an integer to avoid decimals
                                 }
                             }
-
                             cell.textContent = newValue;
 
-                            // Ensure the Subjects array in editedData has an object at this index
-                            if (!editedData.subjects[index]) {
-                                // Initialize with existing subject data
-                                editedData.subjects[index] = {};
+                            // Hide the input
+                            input.remove();
+
+                            var subjectName = cell.parentElement.querySelector('td:first-child').textContent.trim();
+                            var fieldName = cell.getAttribute('data-field');
+
+                            // if (!editedData.Subjects[subjectName]) {
+                            //     editedData.Subjects[subjectName] = {};
+                            // }
+                            // editedData.Subjects[subjectName][fieldName] = newValue;
+
+                            // Call the callback function with the new value and cell
+                            if (typeof callback === 'function') {
+                                callback(newValue, cell);
                             }
 
-                            editedData.subjects[index][fieldName] = newValue;
-
                             document.getElementById('saveChangesButton').style.display = 'block';
+
                         });
 
                         input.addEventListener('keydown', function (e) {
@@ -300,8 +313,27 @@
                 }
 
                 // Make grade cells editable for all subjects
-                document.querySelectorAll('.editable-cell[data-field="grade"]').forEach(function (cell) {
-                    makeCellEditable(cell, true);
+                document.querySelectorAll('.editable-cell[data-field="Grade"]').forEach(function (cell) {
+                    makeCellEditable(cell, true, function (newGradeValue, cell) {
+                        const row = cell.closest('tr');
+
+                        // Read the readonly values
+                        const subjectName = row.querySelector('td[data-field="SubjectName"]').textContent.trim();
+                        const courseCode = row.querySelector('td[data-field="CourseCode"]').textContent.trim();
+                        const points = row.querySelector('td[data-field="GymnasiumPoints"]').textContent.trim();
+
+                        // Construct the subject object
+                        let subject = {
+                            subject_name: subjectName,
+                            course_code: courseCode,
+                            grade: newGradeValue, // Use the new grade value from the callback
+                            points: points
+                        };
+                        subjects.push(subject);
+
+                        // Perform actions with the subject object
+                        console.log(subject);
+                    });
                 });
 
                 // Make CourseCode and GymnasiumPoints editable only if FuzzyMatchScore < 100
@@ -350,35 +382,45 @@
                     });
                 });
 
+                document.querySelectorAll('tr').forEach((row) => {
+                    row.addEventListener('click', function (e) {
+                        // Check if the row contains an editable cell
+                        const gradeCell = row.querySelector('td[data-field="Grade"]');
+
+                        if (gradeCell && !gradeCell.classList.contains('readonly-cell')) {
+                            // Read the readonly values
+                            const subjectName = row.querySelector('td[data-field="SubjectName"]').textContent.trim();
+                            const courseCode = row.querySelector('td[data-field="CourseCode"]').textContent.trim();
+                            const points = row.querySelector('td[data-field="GymnasiumPoints"]').textContent.trim();
+
+                            // Read the editable value (new grade)
+                            const newGrade = gradeCell.textContent.trim();
+
+                            // Construct the subject object
+                            let subject = {
+                                subject_name: subjectName,
+                                course_code: courseCode,
+                                grade: newGrade, // This is the newly entered grade
+                                points: points
+                            };
+                            subjects.push(subject);
+
+                            // Perform actions with the subject object, like sending it to a server or logging it
+                            console.log(subject);
+
+                            // Example: You could send this data via AJAX to update your backend
+                            // sendSubjectToServer(subject);
+                        }
+                    });
+                });
+
+
                 // Save Changes button functionality
                 document.getElementById('saveChangesButton')?.addEventListener('click', function () {
                     this.style.display = 'none';
 
-                    // Rebuild editedData.subjects from the table
-                    editedData.subjects = [];
-
-                    document.querySelectorAll('tbody tr').forEach(function (row) {
-                        var index = parseInt(row.getAttribute('data-index'));
-                        var cells = row.querySelectorAll('.editable-cell[data-field]');
-                        if (cells.length === 0) {
-                            return; // Skip rows without editable cells
-                        }
-
-                        var subject = {};
-
-                        cells.forEach(function (cell) {
-                            var fieldName = cell.getAttribute('data-field');
-                            var value = cell.textContent.trim();
-
-                            if (fieldName === 'points') {
-                                value = value === '' ? null : parseInt(value);
-                            }
-
-                            subject[fieldName] = value;
-                        });
-
-                        editedData.subjects[index] = subject;
-                    });
+                    // console log editData Subjects
+                    console.log(editedData.Subjects[0]);
 
                     // Send the data via AJAX POST
                     fetch('@Url.Action("SaveDocument", "Home")', {
