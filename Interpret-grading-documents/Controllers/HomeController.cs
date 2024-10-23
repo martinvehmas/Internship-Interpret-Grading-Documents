@@ -24,6 +24,7 @@ namespace Interpret_grading_documents.Controllers
         {
             var coursesWithAverageFlag = GetCoursesWithAverageFlag();
             ViewBag.CoursesWithAverageFlag = coursesWithAverageFlag;
+
             return View(_analyzedDocuments);
         }
         private List<(string MainCourse, List<string> AlternativeCourses, bool IncludedInAverage)> GetCoursesWithAverageFlag()
@@ -52,14 +53,32 @@ namespace Interpret_grading_documents.Controllers
             if (uploadedFiles == null || uploadedFiles.Count == 0)
             {
                 ViewBag.Error = "Please upload valid documents.";
-                return View("Index");
+                return View("Index", _analyzedDocuments);
             }
+            string existingPersonalId = _analyzedDocuments.FirstOrDefault()?.PersonalId;
+            List<GPTService.GraduationDocument> newDocuments = new List<GPTService.GraduationDocument>();
 
             foreach (var uploadedFile in uploadedFiles)
             {
                 var extractedData = await GPTService.ProcessTextPrompts(uploadedFile);
-                _analyzedDocuments.Add(extractedData);
+
+                if (string.IsNullOrEmpty(existingPersonalId))
+                {
+                    existingPersonalId = extractedData.PersonalId;
+                }
+                else
+                {
+                    if (extractedData.PersonalId != existingPersonalId)
+                    {
+                        ViewBag.Error = "One or more uploaded documents do not match the social security ID of previously uploaded documents.";
+                        return View("Index", _analyzedDocuments);
+                    }
+                }
+
+                newDocuments.Add(extractedData);
             }
+
+            _analyzedDocuments.AddRange(newDocuments);
 
             return RedirectToAction("ViewUploadedDocuments");
         }
@@ -82,8 +101,26 @@ namespace Interpret_grading_documents.Controllers
 
         public IActionResult ViewUploadedDocuments()
         {
+            if (_analyzedDocuments.Count == 0)
+            {
+                ViewBag.UserName = null;
+                ViewBag.ExamStatus = null;
+            }
+            else
+            {
+                string highestExamStatus = GPTService.GetHighestExamStatus(_analyzedDocuments);
+
+                string userName = _analyzedDocuments.FirstOrDefault()?.FullName ?? "Uploaded";
+
+                ViewBag.UserName = userName;
+                ViewBag.ExamStatus = highestExamStatus;
+            }
+
             return View(_analyzedDocuments);
         }
+
+
+
 
         [HttpPost]
         public IActionResult RemoveDocument(Guid id)
@@ -187,5 +224,18 @@ namespace Interpret_grading_documents.Controllers
             return View(model);
         }
 
+        public bool UserHasValidExam()
+        {
+            foreach (var document in _analyzedDocuments)
+            {
+                GPTService.ExamValidator(document);
+
+                if (!string.IsNullOrEmpty(document.HasValidDegree) && document.HasValidDegree.Contains("examen", StringComparison.OrdinalIgnoreCase))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }
