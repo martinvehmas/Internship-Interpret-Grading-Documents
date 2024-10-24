@@ -96,7 +96,7 @@
         </div>
     </div>
 
-    <div class="mt-4">
+    <div class="mt-4 text-center">
         <button class="btn btn-primary" onclick="openAddSubjectModal()">Add Subject</button>
     </div>
 
@@ -106,56 +106,58 @@
         {
             var subject = Model.Subjects[subjectIndex];
             <div class="card mt-3">
-                <div class="card-header">
+                <div class="card-header d-flex justify-content-between align-items-center">
                     <h4>@subject.Name</h4>
                 </div>
                 <div class="card-body">
-                    <table class="table table-striped mt-3">
-                        <thead>
-                            <tr>
-                                <th>Course Name</th>
-                                <th>Course Code</th>
-                                <th>Level</th>
-                                <th>Required Grade</th>
-                                <th>Alternatives</th>
-                                <th>Actions</th>
-                                <th>Calculate average</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @for (int courseIndex = 0; courseIndex < subject.Courses.Count; courseIndex++)
-                            {
-                                var course = subject.Courses[courseIndex];
+                    <div class="table-responsive">
+                        <table class="table table-striped mt-3">
+                            <thead>
                                 <tr>
-                                    <td>@course.Name</td>
-                                    <td>@course.Code</td>
-                                    <td>@course.Level</td>
-                                    <td>@course.RequiredGrade</td>
-                                    <td>
-                                        @if (course.Alternatives != null && course.Alternatives.Any())
-                                        {
-                                            foreach (var alt in course.Alternatives)
-                                            {
-                                                <div>@alt.Name (@alt.Code)</div>
-                                            }
-                                        }
-                                    </td>
-                                    <td>
-                                        <button class="btn btn-warning btn-sm" onclick="openEditCourseModal(@subjectIndex, @courseIndex)">Edit</button>
-                                        <button class="btn btn-danger btn-sm" onclick="deleteCourse(@subjectIndex, @courseIndex)">Delete</button>
-                                    </td>
-                                    <td>@course.IncludeInAverage</td>
+                                    <th>Course Name</th>
+                                    <th>Course Code</th>
+                                    <th>Level</th>
+                                    <th>Required Grade</th>
+                                    <th>Alternatives</th>
+                                    <th>Actions</th>
+                                    <th>Calculate average</th>
                                 </tr>
-                            }
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                @for (int courseIndex = 0; courseIndex < subject.Courses.Count; courseIndex++)
+                                {
+                                    var course = subject.Courses[courseIndex];
+                                    <tr>
+                                        <td>@course.Name</td>
+                                        <td>@course.Code</td>
+                                        <td>@course.Level</td>
+                                        <td>@course.RequiredGrade</td>
+                                        <td>
+                                            @if (course.Alternatives != null && course.Alternatives.Any())
+                                            {
+                                                foreach (var alt in course.Alternatives)
+                                                {
+                                                    <div>@alt.Name (@alt.Code)</div>
+                                                }
+                                            }
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-warning btn-sm mb-1" onclick="openEditCourseModal(@subjectIndex, @courseIndex)">Edit</button>
+                                            <button class="btn btn-danger btn-sm" onclick="deleteCourse(@subjectIndex, @courseIndex)">Delete</button>
+                                        </td>
+                                        <td>@course.IncludeInAverage</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
                     <button class="btn btn-primary btn-sm" onclick="openAddCourseModal(@subjectIndex)">Add Course</button>
                 </div>
             </div>
         }
     </div>
 
-    <div class="mt-4">
+    <div class="mt-4 text-center">
         <button class="btn btn-success" onclick="submitChanges()">Save All Changes</button>
     </div>
 </div>
@@ -343,17 +345,17 @@
             var container = document.getElementById(type + "AlternativesContainer");
             var div = document.createElement("div");
             div.className = "form-row mb-2 position-relative";
-            div.innerHTML = `
-                                <div class="col">
-                                    <input type="text" class="form-control alternative-name" placeholder="Alternative Name" value="${altName}" required />
-                                    <div class="autocomplete-dropdown alternative-dropdown" style="display: none;"></div>
-                                </div>
-                                <div class="col">
-                                    <input type="text" class="form-control alternative-code" placeholder="Alternative Code" value="${altCode}" required />
-                                </div>
-                                <div class="col-auto mt-2">
-                                    <button type="button" class="btn btn-danger" onclick="this.parentElement.parentElement.remove()">Remove</button>
-                                </div>`;
+            div.innerHTML =
+                <div class="col" >
+                    <input type="text" class="form-control alternative-name" placeholder = "Alternative Name" value = "${altName}" required />
+                        <div class="autocomplete-dropdown alternative-dropdown" style = "display: none;" > </div>
+                            < /div>
+                            < div class="col" >
+                                <input type="text" class="form-control alternative-code" placeholder = "Alternative Code" value = "${altCode}" required />
+                                    </div>
+                                    < div class="col-auto mt-2" >
+                                        <button type="button" class="btn btn-danger" onclick = "this.parentElement.parentElement.remove()" > Remove < /button>
+                                            < /div>;
             container.appendChild(div);
 
             var alternativeNameInput = div.querySelector(".alternative-name");
