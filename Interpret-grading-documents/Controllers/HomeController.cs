@@ -115,14 +115,62 @@ namespace Interpret_grading_documents.Controllers
                 ViewBag.ExamStatus = highestExamStatus;
             }
 
-            // Ensure the JSON file path is correctly set
             string jsonFilePath = Path.Combine(_hostingEnvironment.ContentRootPath, "CourseEquivalents.json");
             ViewBag.JsonFilePath = jsonFilePath;
 
-            return View(_analyzedDocuments);
+            // merge documents into one
+            var mergedDocument = MergeDocuments(_analyzedDocuments);
+
+            var viewModel = new UploadedDocumentsViewModel
+            {
+                Documents = _analyzedDocuments,
+                MergedDocument = mergedDocument
+            };
+
+            return View(viewModel);
         }
 
 
+        private GPTService.GraduationDocument MergeDocuments(List<GPTService.GraduationDocument> documents)
+        {
+            var mergedDocument = new GPTService.GraduationDocument
+            {
+                Id = Guid.NewGuid(),
+                FullName = documents.FirstOrDefault()?.FullName,
+                PersonalId = documents.FirstOrDefault()?.PersonalId,
+                HasValidDegree = documents.FirstOrDefault()?.HasValidDegree,
+                DocumentName = "Merged Document"
+            };
+
+            var subjectsDict = new Dictionary<string, GPTService.Subject>(StringComparer.OrdinalIgnoreCase);
+
+            foreach (var doc in documents)
+            {
+                foreach (var subject in doc.Subjects)
+                {
+                    string key = subject.SubjectName.Trim().ToLower();
+
+                    if (subjectsDict.TryGetValue(key, out var existingSubject))
+                    {
+                        double existingGradeValue = RequirementChecker.GetGradeValue(existingSubject.Grade);
+                        double newGradeValue = RequirementChecker.GetGradeValue(subject.Grade);
+
+                        if (newGradeValue > existingGradeValue)
+                        {
+                            subjectsDict[key] = subject;
+                        }
+                    }
+                    else
+                    {
+                        subjectsDict[key] = subject;
+                    }
+                }
+            }
+
+            mergedDocument.Subjects = subjectsDict.Values.ToList();
+
+            return mergedDocument;
+        }
 
 
 
