@@ -50,10 +50,14 @@
             {
               "name": "Matematik A",
               "code": "MA1201"
+            },
+            {
+              "name": "Matematik C",
+              "code": "MA1203"
             }
           ],
           "requiredGrade": "E",
-          "includeInAverage": false
+          "includeInAverage": true
         }
       ]
     }

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 using Interpret_grading_documents.Data;
 using Interpret_grading_documents.Models;
+using System.Reflection.Metadata;
 
 namespace Interpret_grading_documents.Controllers
 {
@@ -120,6 +121,11 @@ namespace Interpret_grading_documents.Controllers
 
             // merge documents into one
             var mergedDocument = MergeDocuments(_analyzedDocuments);
+
+            
+            var averageMeritPoints = RequirementChecker.CalculateAverageGrade(mergedDocument, jsonFilePath);
+
+            ViewBag.AverageMeritPoints = averageMeritPoints;
 
             var viewModel = new UploadedDocumentsViewModel
             {
