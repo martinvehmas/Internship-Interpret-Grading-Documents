@@ -186,9 +186,8 @@ namespace Interpret_grading_documents.Controllers
 
             return View(model);
         }
-        //save user chages from viewdocument to graduation document in _analyzedDocuments
         [HttpPost]
-        public IActionResult SaveDocument([FromBody] GPTService.GraduationDocument updatedDocument)
+        public IActionResult SaveDocument(GPTService.GraduationDocument updatedDocument)
         {
             if (updatedDocument == null)
             {
@@ -207,14 +206,25 @@ namespace Interpret_grading_documents.Controllers
             existingDocument.PersonalId = updatedDocument.PersonalId;
 
             // Update the subjects
-            //if (updatedDocument.Subjects != null && updatedDocument.Subjects.Count > 0)
-            //{
-            //    existingDocument.Subjects = updatedDocument.Subjects;
-            //}
+            if (updatedDocument.Subjects != null && updatedDocument.Subjects.Count > 0)
+            {
+                foreach (var subject in updatedDocument.Subjects)
+                {
+                    // Set FuzzyMatchScore to 100 to indicate confirmed matches
+                    subject.FuzzyMatchScore = 100.0;
+
+                    // Clear original values as they are no longer needed
+                    subject.OriginalSubjectName = null;
+                    subject.OriginalCourseCode = null;
+                    subject.OriginalGymnasiumPoints = null;
+                }
+                existingDocument.Subjects = updatedDocument.Subjects;
+            }
 
             // Save changes to the data store if applicable
 
-            return Ok();
+            return RedirectToAction("ViewDocument", new { id = updatedDocument.Id }); // Replace with your desired action
         }
+
     }
 }

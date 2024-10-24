@@ -6,7 +6,7 @@
             @if (Model != null)
             {
                 <h2 class="mt-4">Review the Data for @Model.FullName</h2>
-                <p>Please review the extracted data below and make any necessary corrections. It is important that the information is accurate.</p>
+                <p>Please review the extracted data below. If you need to make any corrections, click on "Edit Document".</p>
 
                 <h3 class="mt-4">Image Reliability</h3>
                 <div class="card mt-2">
@@ -16,102 +16,110 @@
                     </div>
                 </div>
 
-                @if (Model.ImageReliability.ReliabilityScore > 0)
-                {
-                    <div class="card mt-4">
+                <!-- Read-Only View -->
+                <div id="readOnlyView">
+                    <h3 class="mt-4">Image Reliability</h3>
+                    <div class="card mt-2">
                         <div class="card-body">
-                            <h5 class="card-title">Student Information</h5>
-
-                            <p class="card-text">
-                                <strong>Full Name:</strong>
-                                <span class="editable-cell student-info" data-field="full_name">
-                                    @Model.FullName
-                                </span>
-                                <small class="form-text text-muted">(Click to edit)</small>
-                            </p>
-
-                            <p class="card-text">
-                                <strong>Social Security Number:</strong>
-                                <span class="editable-cell student-info" data-field="personal_id">
-                                    @Model.PersonalId
-                                </span>
-                                <small class="form-text text-muted">(Click to edit)</small>
-                            </p>
-                            <p class="card-text"><strong>Document Name:</strong> @Model.Title</p>
-                            <p class="card-text"><strong>Graduation Date:</strong> @Model.GraduationDate</p>
-                            <p class="card-text"><strong>School Name:</strong> @Model.SchoolName</p>
-                            <p class="card-text"><strong>Program Name:</strong> @Model.ProgramName</p>
-                            <p class="card-text"><strong>Specialization:</strong> @Model.Specialization</p>
-                            <p class="card-text"><strong>School Form:</strong> @Model.SchoolForm</p>
-                            <p class="card-text"><strong>Curriculum:</strong> @Model.Curriculum</p>
-                            <p class="card-text"><strong>Total points:</strong> <span id="totalPointsDisplay">@Model.TotalPoints</span></p>
-                            <p class="card-text"><strong>Degree:</strong> @Model.HasValidDegree</p>
+                            <p class="card-text"><strong>Reliability Score:</strong> @Model.ImageReliability.ReliabilityScore.ToString("F2")%</p>
+                            <p class="card-text"><strong>File Format:</strong> @Model.ImageReliability.FileFormat</p>
                         </div>
                     </div>
 
-                    <h3 class="mt-4">Subjects</h3>
-                    <p class="text-muted">Please review and correct the grades below. It's essential that the grades are accurate for the record-keeping process.</p>
+                    @if (Model.ImageReliability.ReliabilityScore > 0)
+                    {
+                        <div class="card mt-4">
+                            <div class="card-body">
+                                <h5 class="card-title">Student Information</h5>
 
-                    <table class="table table-striped mt-2">
-                        <thead>
+                                <p class="card-text"><strong>Full Name:</strong> @Model.FullName</p>
+                                <p class="card-text"><strong>Social Security Number:</strong> @Model.PersonalId</p>
+                                <p class="card-text"><strong>Document Name:</strong> @Model.Title</p>
+                                <p class="card-text"><strong>Graduation Date:</strong> @Model.GraduationDate</p>
+                                <p class="card-text"><strong>School Name:</strong> @Model.SchoolName</p>
+                                <p class="card-text"><strong>Program Name:</strong> @Model.ProgramName</p>
+                                <p class="card-text"><strong>Specialization:</strong> @Model.Specialization</p>
+                                <p class="card-text"><strong>School Form:</strong> @Model.SchoolForm</p>
+                                <p class="card-text"><strong>Curriculum:</strong> @Model.Curriculum</p>
+                                <p class="card-text"><strong>Total points:</strong> <span id="totalPointsDisplay">@Model.TotalPoints</span></p>
+                                <p class="card-text"><strong>Degree:</strong> @Model.HasValidDegree</p>
+                            </div>
+                        </div>
+
+                        <h3 class="mt-4">Subjects</h3>
+                        <table class="table table-striped mt-2">
+                            <thead>
                             <tr>
                                 <th>Subject Name</th>
                                 <th>Course Code</th>
                                 <th>Grade</th>
                                 <th>Gymnasium Points</th>
                             </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var subject in Model.Subjects)
+                            </thead>
+                            <tbody>
+                            @for (int i = 0; i < Model.Subjects.Count; i++)
                             {
+                                var subject = Model.Subjects[i];
                                 var isFuzzyMatch = subject.FuzzyMatchScore < 100.0;
                                 var fuzzyScore = subject.FuzzyMatchScore;
                                 var isBelowThreshold = fuzzyScore < 80.0;
                                 var isUpdated = subject.OriginalSubjectName != null || subject.OriginalCourseCode != null || subject.OriginalGymnasiumPoints != null;
+                                var displaySubjectName = isFuzzyMatch && subject.OriginalSubjectName != null ? subject.OriginalSubjectName : subject.SubjectName;
+                                var displayCourseCode = isFuzzyMatch && subject.OriginalCourseCode != null ? subject.OriginalCourseCode : subject.CourseCode;
+                                var displayGymnasiumPoints = isFuzzyMatch && subject.OriginalGymnasiumPoints != null ? subject.OriginalGymnasiumPoints : subject.GymnasiumPoints;
 
-                                // Modified: Decide which values to display
-                                var displaySubjectName = subject.SubjectName;
-                                var displayCourseCode = subject.CourseCode;
-                                var displayGymnasiumPoints = subject.GymnasiumPoints;
-
-                                if (isFuzzyMatch && !isBelowThreshold)
-                                {
-                                    if (subject.OriginalSubjectName != null)
-                                    {
-                                        displaySubjectName = subject.OriginalSubjectName;
-                                    }
-                                    if (subject.OriginalCourseCode != null)
-                                    {
-                                        displayCourseCode = subject.OriginalCourseCode;
-                                    }
-                                    if (subject.OriginalGymnasiumPoints != null)
-                                    {
-                                        displayGymnasiumPoints = subject.OriginalGymnasiumPoints;
-                                    }
-                                }
-                                // Modified: End
-
-                                <tr class="@(isFuzzyMatch ? "table-warning" : "")"
-                                    data-id="@subject.SubjectName"
-                                    data-original-subject-name="@subject.OriginalSubjectName"
-                                    data-original-course-code="@subject.OriginalCourseCode"
-                                    data-original-points="@subject.OriginalGymnasiumPoints"
-                                    data-fuzzy-subject-name="@subject.SubjectName"
-                                    data-fuzzy-course-code="@subject.CourseCode"
-                                    data-fuzzy-points="@subject.GymnasiumPoints">
-
-                                    <td class="editable-cell @(isFuzzyMatch ? "needs-review" : "readonly-cell")" data-field="SubjectName" data-id="@subject.SubjectName">
-                                        @displaySubjectName
+                                <tr class="@(isFuzzyMatch ? "table-warning" : "")">
+                                    <td>
+                                        @if (isFuzzyMatch)
+                                        {
+                                            @displaySubjectName
+                                            <input type="hidden" name="Subjects[@i].SubjectName" value="@displaySubjectName" />
+                                            @if (subject.SubjectName != displaySubjectName)
+                                            {
+                                                <br/> <small class="text-muted">Suggested: @subject.SubjectName</small >
+                                            }
+                                        }
+                                        else
+                                        {
+                                            @displaySubjectName
+                                            <input type="hidden" name="Subjects[@i].SubjectName" value="@displaySubjectName" />
+                                        }
                                     </td>
-
-                                    <td class="editable-cell @(isFuzzyMatch ? "needs-review" : "readonly-cell")" data-field="CourseCode" data-id="@subject.SubjectName">
-                                        @(string.IsNullOrEmpty(displayCourseCode) ? "N/A" : displayCourseCode)
+                                    <td>
+                                        @if (isFuzzyMatch)
+                                        {
+                                            @(string.IsNullOrEmpty(displayCourseCode) ? "N/A" : displayCourseCode)
+                                            <input type="hidden" name="Subjects[@i].CourseCode" value="@displayCourseCode" />
+                                            @if (subject.CourseCode != displayCourseCode)
+                                            {
+                                                <br/> <small class="text-muted">Suggested: @subject.CourseCode</small>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            @(string.IsNullOrEmpty(displayCourseCode) ? "N/A" : displayCourseCode)
+                                            <input type="hidden" name="Subjects[@i].CourseCode" value="@displayCourseCode" />
+                                        }
                                     </td>
-                                    <td class="editable-cell" data-field="Grade" data-id="@subject.SubjectName">
+                                    <td>
                                         @subject.Grade
+                                        <input type="hidden" name="Subjects[@i].Grade" value="@subject.Grade" />
                                     </td>
-                                    <td class="editable-cell @(isFuzzyMatch ? "needs-review" : "readonly-cell")" data-field="GymnasiumPoints" data-id="@subject.SubjectName">
-                                        @(displayGymnasiumPoints)
+                                    <td>
+                                        @if (isFuzzyMatch)
+                                        {
+                                            @displayGymnasiumPoints
+                                            <input type="hidden" name="Subjects[@i].GymnasiumPoints" value="@displayGymnasiumPoints" />
+                                            @if (subject.GymnasiumPoints != displayGymnasiumPoints)
+                                            {
+                                                <br/><small class="text-muted">Suggested: @subject.GymnasiumPoints</small>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            @displayGymnasiumPoints
+                                            <input type="hidden" name="Subjects[@i].GymnasiumPoints" value="@displayGymnasiumPoints" />
+                                        }
                                     </td>
                                 </tr>
 
@@ -120,21 +128,12 @@
                                     <tr>
                                         <td colspan="4">
                                             <div class="alert alert-info mt-2">
-                                                <strong>Note:</strong> Quality of our suggested match is <strong>@fuzzyScore%</strong>. Please review it carefully and confirm.
-                                                @if (isUpdated)
-                                                {
-                                                    <p class="mt-2">
-                                                        <em>Did you mean <strong>@subject.SubjectName</strong> instead of <strong>@subject.OriginalSubjectName</strong>?</em>
-                                                    </p>
-                                                    <!-- Updated button text -->
-                                                    <button class="btn btn-warning btn-sm restore-btn mt-2" data-subject="@subject.SubjectName">Apply Suggestion</button>
-
-                                                }
+                                                <strong>Note: </strong>Quality of our suggested match is <strong>@fuzzyScore%</strong>.<br />
+                                                Please click Edit Document button at the bottom to change to the suggestion.
                                             </div>
                                         </td>
                                     </tr>
                                 }
-
                                 else if (isBelowThreshold)
                                 {
                                     <tr>
@@ -145,10 +144,155 @@
                                         </td>
                                     </tr>
                                 }
+
                             }
-                        </tbody>
-                    </table>
-                    <button id="saveChangesButton" class="btn btn-success mt-3" style="display:none;">Save Changes</button>
+                            </tbody>
+                        </table>
+                        <button id="editDocumentButton" class="btn btn-warning mt-3">Edit Document</button>
+                    }
+                    else
+                    {
+                        <div class="alert alert-warning mt-4" role="alert">
+                            Data could not be displayed due to low image reliability.
+                        </div>
+                    }
+                </div>
+
+                @if (Model.ImageReliability.ReliabilityScore > 0)
+                { <!-- Editable Form (Initially Hidden) --> 
+                    <div id="editView" style="display:none;">
+                        <form method="post" action="@Url.Action("SaveDocument", "Home")">
+                            <input type="hidden" name="Id" value="@Model.Id" />
+
+                            <div class="card mt-4">
+                                <div class="card-body">
+                                    <h5 class="card-title">Student Information</h5>
+
+                                    <p class="card-text">
+                                        <strong>Full Name:</strong>
+                                        <input type="text" name="FullName" value="@Model.FullName" class="form-control text-center" />
+                                    </p>
+
+                                    <p class="card-text">
+                                        <strong>Social Security Number:</strong>
+                                        <input type="text" name="PersonalId" value="@Model.PersonalId" class="form-control text-center" />
+                                    </p>
+
+                                    <p class="card-text"><strong>Document Name:</strong> @Model.Title</p>
+                                    <p class="card-text"><strong>Graduation Date:</strong> @Model.GraduationDate</p>
+                                    <p class="card-text"><strong>School Name:</strong> @Model.SchoolName</p>
+                                    <p class="card-text"><strong>Program Name:</strong> @Model.ProgramName</p>
+                                    <p class="card-text"><strong>Specialization:</strong> @Model.Specialization</p>
+                                    <p class="card-text"><strong>School Form:</strong> @Model.SchoolForm</p>
+                                    <p class="card-text"><strong>Curriculum:</strong> @Model.Curriculum</p>
+                                    <p class="card-text"><strong>Total points:</strong> <span id="totalPointsDisplay">@Model.TotalPoints</span></p>
+                                    <p class="card-text"><strong>Degree:</strong> @Model.HasValidDegree</p>
+                                </div>
+                            </div>
+
+                            <h3 class="mt-4">Subjects</h3>
+                            <p class="text-muted">Please review and correct the grades below. It's essential that the grades are accurate for the record-keeping process.</p>
+
+                            <table class="table table-striped mt-2">
+                                <thead>
+                                <tr>
+                                    <th>Subject Name</th>
+                                    <th>Course Code</th>
+                                    <th>Grade</th>
+                                    <th>Gymnasium Points</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @for (int i = 0; i < Model.Subjects.Count; i++)
+                                {
+                                    var subject = Model.Subjects[i];
+                                    var isFuzzyMatch = subject.FuzzyMatchScore < 100.0;
+                                    var fuzzyScore = subject.FuzzyMatchScore;
+                                    var isBelowThreshold = fuzzyScore < 80.0;
+                                    var isUpdated = subject.OriginalSubjectName != null || subject.OriginalCourseCode != null || subject.OriginalGymnasiumPoints != null;
+
+                                    var displaySubjectName = isFuzzyMatch && subject.OriginalSubjectName != null ? subject.OriginalSubjectName : subject.SubjectName;
+                                    var displayCourseCode = isFuzzyMatch && subject.OriginalCourseCode != null ? subject.OriginalCourseCode : subject.CourseCode;
+                                    var displayGymnasiumPoints = isFuzzyMatch && subject.OriginalGymnasiumPoints != null ? subject.OriginalGymnasiumPoints : subject.GymnasiumPoints;
+
+                                    <tr class="@(isFuzzyMatch ? "table-warning" : "")">
+                                        <td>
+                                            @if (isFuzzyMatch)
+                                            {
+                                                <input type="text" name="Subjects[@i].SubjectName" value="@displaySubjectName" class="form-control" />
+                                                @if (subject.SubjectName != displaySubjectName)
+                                                {
+                                                    <small class="text-muted">Suggested: @subject.SubjectName</small>
+                                                }
+                                            }
+                                            else
+                                            {
+                                                @displaySubjectName
+                                                <input type="hidden" name="Subjects[@i].SubjectName" value="@displaySubjectName" />
+                                            }
+                                        </td>
+                                        <td>
+                                            @if (isFuzzyMatch)
+                                            {
+                                                <input type="text" name="Subjects[@i].CourseCode" value="@displayCourseCode" class="form-control" />
+                                                @if (subject.CourseCode != displayCourseCode)
+                                                {
+                                                    <small class="text-muted">Suggested: @subject.CourseCode</small>
+                                                }
+                                            }
+                                            else
+                                            {
+                                                @(string.IsNullOrEmpty(displayCourseCode) ? "N/A" : displayCourseCode)
+                                                <input type="hidden" name="Subjects[@i].CourseCode" value="@displayCourseCode" />
+                                            }
+                                        </td>
+                                        <td>
+                                            <input type="text" name="Subjects[@i].Grade" value="@subject.Grade" class="form-control" />
+                                        </td>
+                                        <td>
+                                            @if (isFuzzyMatch)
+                                            {
+                                                <input type="text" name="Subjects[@i].GymnasiumPoints" value="@displayGymnasiumPoints" class="form-control gymnasium-points" />
+                                                @if (subject.GymnasiumPoints != displayGymnasiumPoints)
+                                                {
+                                                    <small class="text-muted">Suggested: @subject.GymnasiumPoints</small>
+                                                }
+                                            }
+                                            else
+                                            {
+                                                @displayGymnasiumPoints
+                                                <input type="hidden" name="Subjects[@i].GymnasiumPoints" value="@displayGymnasiumPoints" />
+                                            }
+                                        </td>
+                                    </tr>
+
+                                    @if (isFuzzyMatch && !isBelowThreshold)
+                                    {
+                                        <tr>
+                                            <td colspan="4">
+                                                <div class="alert alert-info mt-2">
+                                                    <strong>Note:</strong> Quality of our suggested match is <strong>@fuzzyScore%</strong>. Please review it carefully and confirm.
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                    else if (isBelowThreshold)
+                                    {
+                                        <tr>
+                                            <td colspan="4">
+                                                <div class="alert alert-danger mt-2">
+                                                    <strong>Attention:</strong> We could not find a match for this course. Please help us correct the details.
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                                </tbody>
+                            </table>
+                            <button type="submit" class="btn btn-success mt-3">Save Changes</button>
+                        </form>
+                        <button id="readDocumentButton" class="btn btn-secondary mt-3">Go Back</button>
+                    </div>
                 }
                 else
                 {
@@ -165,6 +309,7 @@
                 </div>
             }
         </div>
+        
     </div>
     <div class="p-4 text-center">
         <div class="p-2">
@@ -178,283 +323,40 @@
     {
         <script>
             document.addEventListener('DOMContentLoaded', function () {
-                var documentId = '@Model.Id';
-                let subjects = [];
+                var editButton = document.getElementById('editDocumentButton');
+                var readButton = document.getElementById('readDocumentButton');
+                var readOnlyView = document.getElementById('readOnlyView');
+                var editView = document.getElementById('editView');
 
-                var editedData = {
-                    Id: documentId,
-                    full_name: '@Model.FullName',
-                    personal_id: '@Model.PersonalId',
-                    Subjects: subjects
-                };
-                
-
-                var originalTotalPoints = parseFloat(document.getElementById('totalPointsDisplay')?.textContent || "0");
-
-                function toggleRestoreValues(button, subjectName) {
-                    const row = button.closest('tr').previousElementSibling;
-
-                    if (!row) {
-                        console.error(`Row for subject '${subjectName}' not found.`);
-                        return;
-                    }
-
-                    // Determine if we're currently showing the original or fuzzy matched values
-                    const isApplyingFuzzy = button.textContent.includes('Apply Suggestion');
-
-                    if (isApplyingFuzzy) {
-                        // Apply the fuzzy matched values
-                        const fuzzySubjectName = row.getAttribute('data-fuzzy-subject-name');
-                        const fuzzyCourseCode = row.getAttribute('data-fuzzy-course-code');
-                        const fuzzyPoints = row.getAttribute('data-fuzzy-points');
-
-                        if (fuzzySubjectName) {
-                            row.querySelector('[data-field="SubjectName"]').textContent = fuzzySubjectName;
-                        }
-                        if (fuzzyCourseCode) {
-                            row.querySelector('[data-field="CourseCode"]').textContent = fuzzyCourseCode || "N/A";
-                        }
-                        if (fuzzyPoints) {
-                            row.querySelector('[data-field="GymnasiumPoints"]').textContent = fuzzyPoints || "0";
-                        }
-
-                        button.textContent = "Revert to Original Values";
-                    } else {
-                        // Revert to the original values
-                        const originalSubjectName = row.getAttribute('data-original-subject-name');
-                        const originalCourseCode = row.getAttribute('data-original-course-code');
-                        const originalPoints = row.getAttribute('data-original-points');
-
-                        if (originalSubjectName) {
-                            row.querySelector('[data-field="SubjectName"]').textContent = originalSubjectName;
-                        }
-                        if (originalCourseCode) {
-                            row.querySelector('[data-field="CourseCode"]').textContent = originalCourseCode || "N/A";
-                        }
-                        if (originalPoints) {
-                            row.querySelector('[data-field="GymnasiumPoints"]').textContent = originalPoints || "0";
-                        }
-
-                        button.textContent = "Apply Suggestion";
-                    }
-
-                    document.getElementById('saveChangesButton').style.display = 'block';
-                }
-
-                // Attach restore functionality to each restore button in fuzzy match notifications
-                document.querySelectorAll('.restore-btn').forEach(function (btn) {
-                    btn.addEventListener('click', function () {
-                        var subjectName = this.getAttribute('data-subject');
-                        toggleRestoreValues(this, subjectName);
-                    });
+                editButton.addEventListener('click', function () {
+                    readOnlyView.style.display = 'none';
+                    editView.style.display = 'block';
                 });
 
-                function makeCellEditable(cell, isEditable, callback) {
-                    cell.addEventListener('click', function (e) {
-                        var cell = e.target;
-                        if (cell.querySelector('input') || !isEditable) return;
-
-                        var originalValue = cell.textContent.trim();
-                        var input = document.createElement('input');
-                        input.type = 'text';
-                        input.value = originalValue;
-                        input.className = 'form-control';
-                        input.style.width = '100%';
-
-                        // Clear the cell and insert the input
-                        cell.textContent = '';
-                        cell.appendChild(input);
-                        input.focus();
-
-
-                        input.addEventListener('blur', function () {
-                            var newValue = input.value.trim();
-                            if (cell.getAttribute('data-field') === 'GymnasiumPoints') {
-                                // Allow only numbers for Gymnasium Points
-                                if (isNaN(newValue) || newValue === "") {
-                                    newValue = ""; // If invalid, set the value to an empty string
-                                } else {
-                                    newValue = parseInt(newValue); // Parse to an integer to avoid decimals
-                                }
-                            }
-                            cell.textContent = newValue;
-
-                            // Hide the input
-                            input.remove();
-
-                            var subjectName = cell.parentElement.querySelector('td:first-child').textContent.trim();
-                            var fieldName = cell.getAttribute('data-field');
-
-                            // if (!editedData.Subjects[subjectName]) {
-                            //     editedData.Subjects[subjectName] = {};
-                            // }
-                            // editedData.Subjects[subjectName][fieldName] = newValue;
-
-                            // Call the callback function with the new value and cell
-                            if (typeof callback === 'function') {
-                                callback(newValue, cell);
-                            }
-
-                            document.getElementById('saveChangesButton').style.display = 'block';
-
-                        });
-
-                        input.addEventListener('keydown', function (e) {
-                            if (e.key === 'Enter') {
-                                e.preventDefault();
-                                input.blur();
-                            }
-                        });
-
-                        cell.textContent = '';
-                        cell.appendChild(input);
-                        input.focus();
-                    });
-                }
-
-                // Make grade cells editable for all subjects
-                document.querySelectorAll('.editable-cell[data-field="Grade"]').forEach(function (cell) {
-                    makeCellEditable(cell, true, function (newGradeValue, cell) {
-                        const row = cell.closest('tr');
-
-                        // Read the readonly values
-                        const subjectName = row.querySelector('td[data-field="SubjectName"]').textContent.trim();
-                        const courseCode = row.querySelector('td[data-field="CourseCode"]').textContent.trim();
-                        const points = row.querySelector('td[data-field="GymnasiumPoints"]').textContent.trim();
-
-                        // Construct the subject object
-                        let subject = {
-                            subject_name: subjectName,
-                            course_code: courseCode,
-                            grade: newGradeValue, // Use the new grade value from the callback
-                            points: points
-                        };
-                        subjects.push(subject);
-
-                        // Perform actions with the subject object
-                        console.log(subject);
-                    });
+                readButton.addEventListener('click', function () {
+                    editView.style.display = 'none';
+                    readOnlyView.style.display = 'block';
                 });
 
-                // Make CourseCode and GymnasiumPoints editable only if FuzzyMatchScore < 100
-                document.querySelectorAll('.editable-cell.needs-review').forEach(function (cell) {
-                    makeCellEditable(cell, true);
-                });
-
-                // Make readonly cells uneditable
-                document.querySelectorAll('.readonly-cell').forEach(function (cell) {
-                    makeCellEditable(cell, false);
-                });
-
-                // Make FullName and PersonalId editable
-                document.querySelectorAll('.editable-cell.student-info').forEach(function (cell) {
-                    cell.addEventListener('click', function (e) {
-                        var cell = e.target;
-                        if (cell.querySelector('input')) return;
-
-                        var originalValue = cell.textContent.trim();
-                        var input = document.createElement('input');
-                        input.type = 'text';
-                        input.value = originalValue;
-                        input.className = 'form-control';
-                        input.style.width = '100%';
-
-                        input.addEventListener('blur', function () {
-                            var newValue = input.value.trim();
-                            cell.textContent = newValue;
-
-                            var fieldName = cell.getAttribute('data-field');
-                            editedData[fieldName] = newValue;
-
-                            document.getElementById('saveChangesButton').style.display = 'block';
-                        });
-
-                        input.addEventListener('keydown', function (e) {
-                            if (e.key === 'Enter') {
-                                e.preventDefault();
-                                input.blur();
-                            }
-                        });
-
-                        cell.textContent = '';
-                        cell.appendChild(input);
-                        input.focus();
-                    });
-                });
-
-                document.querySelectorAll('tr').forEach((row) => {
-                    row.addEventListener('click', function (e) {
-                        // Check if the row contains an editable cell
-                        const gradeCell = row.querySelector('td[data-field="Grade"]');
-
-                        if (gradeCell && !gradeCell.classList.contains('readonly-cell')) {
-                            // Read the readonly values
-                            const subjectName = row.querySelector('td[data-field="SubjectName"]').textContent.trim();
-                            const courseCode = row.querySelector('td[data-field="CourseCode"]').textContent.trim();
-                            const points = row.querySelector('td[data-field="GymnasiumPoints"]').textContent.trim();
-
-                            // Read the editable value (new grade)
-                            const newGrade = gradeCell.textContent.trim();
-
-                            // Construct the subject object
-                            let subject = {
-                                subject_name: subjectName,
-                                course_code: courseCode,
-                                grade: newGrade, // This is the newly entered grade
-                                points: points
-                            };
-                            subjects.push(subject);
-
-                            // Perform actions with the subject object, like sending it to a server or logging it
-                            console.log(subject);
-
-                            // Example: You could send this data via AJAX to update your backend
-                            // sendSubjectToServer(subject);
-                        }
-                    });
-                });
-
-
-                // Save Changes button functionality
-                document.getElementById('saveChangesButton')?.addEventListener('click', function () {
-                    this.style.display = 'none';
-
-                    // console log editData Subjects
-                    console.log(editedData.Subjects[0]);
-
-                    // Send the data via AJAX POST
-                    fetch('@Url.Action("SaveDocument", "Home")', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(editedData)
-                    })
-                        .then(response => {
-                            if (response.ok) {
-                                alert('Changes saved successfully.');
-                            } else {
-                                alert('Error saving changes.');
-                            }
-                        })
-                        .catch(error => {
-                            console.error('Error:', error);
-                            alert('Error saving changes.');
-                        });
-
-                    // Update total points display
-                    var newTotalPoints = 0;
-                    document.querySelectorAll('.editable-cell[data-field="points"]').forEach(function (cell) {
-                        var points = parseInt(cell.textContent.trim());
+                // Update total points when Gymnasium Points inputs change
+                function updateTotalPoints() {
+                    var totalPoints = 0;
+                    document.querySelectorAll('.gymnasium-points').forEach(function (input) {
+                        var points = parseInt(input.value);
                         if (!isNaN(points)) {
-                            newTotalPoints += points;
+                            totalPoints += points;
                         }
                     });
+                    document.getElementById('totalPointsDisplay').textContent = totalPoints;
+                }
 
-                    document.getElementById('totalPointsDisplay').textContent = newTotalPoints;
+                document.querySelectorAll('.gymnasium-points').forEach(function (input) {
+                    input.addEventListener('input', updateTotalPoints);
                 });
+
+                // Initial calculation
+                updateTotalPoints();
             });
         </script>
     }
-
 </div>
