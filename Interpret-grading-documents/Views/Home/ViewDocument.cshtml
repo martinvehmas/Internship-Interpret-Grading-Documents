@@ -18,13 +18,6 @@
 
                 <!-- Read-Only View -->
                 <div id="readOnlyView">
-                    <h3 class="mt-4">Image Reliability</h3>
-                    <div class="card mt-2">
-                        <div class="card-body">
-                            <p class="card-text"><strong>Reliability Score:</strong> @Model.ImageReliability.ReliabilityScore.ToString("F2")%</p>
-                            <p class="card-text"><strong>File Format:</strong> @Model.ImageReliability.FileFormat</p>
-                        </div>
-                    </div>
 
                     @if (Model.ImageReliability.ReliabilityScore > 0)
                     {
