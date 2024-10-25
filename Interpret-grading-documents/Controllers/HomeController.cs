@@ -186,6 +186,45 @@ namespace Interpret_grading_documents.Controllers
 
             return View(model);
         }
+        [HttpPost]
+        public IActionResult SaveDocument(GPTService.GraduationDocument updatedDocument)
+        {
+            if (updatedDocument == null)
+            {
+                return BadRequest();
+            }
+
+            // Find the existing document by Id
+            var existingDocument = _analyzedDocuments.FirstOrDefault(d => d.Id == updatedDocument.Id);
+            if (existingDocument == null)
+            {
+                return NotFound();
+            }
+
+            // Update the fields
+            existingDocument.FullName = updatedDocument.FullName;
+            existingDocument.PersonalId = updatedDocument.PersonalId;
+
+            // Update the subjects
+            if (updatedDocument.Subjects != null && updatedDocument.Subjects.Count > 0)
+            {
+                foreach (var subject in updatedDocument.Subjects)
+                {
+                    // Set FuzzyMatchScore to 100 to indicate confirmed matches
+                    subject.FuzzyMatchScore = 100.0;
+
+                    // Clear original values as they are no longer needed
+                    subject.OriginalSubjectName = null;
+                    subject.OriginalCourseCode = null;
+                    subject.OriginalGymnasiumPoints = null;
+                }
+                existingDocument.Subjects = updatedDocument.Subjects;
+            }
+
+            // Save changes to the data store if applicable
+
+            return RedirectToAction("ViewDocument", new { id = updatedDocument.Id }); // Replace with your desired action
+        }
 
     }
 }
