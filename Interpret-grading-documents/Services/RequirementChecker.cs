@@ -4,8 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using Interpret_grading_documents.Controllers;
-using Interpret_grading_documents.Models;
+using Interpret_grading_documents.Models; // Add this using statement
 
 namespace Interpret_grading_documents.Services
 {
@@ -39,10 +38,10 @@ namespace Interpret_grading_documents.Services
         public List<AlternativeCourse> Alternatives { get; set; } = new List<AlternativeCourse>();
 
         [JsonPropertyName("requiredGrade")]
-        public string RequiredGrade { get; set; } // New property for required grade
+        public string RequiredGrade { get; set; }
 
         [JsonPropertyName("includeInAverage")]
-        public bool IncludeInAverage { get; set; } 
+        public bool IncludeInAverage { get; set; }
     }
 
     public class AlternativeCourse
@@ -54,10 +53,10 @@ namespace Interpret_grading_documents.Services
         public string Code { get; set; }
     }
 
+    // Removed RequirementResult class from here
+
     public static class RequirementChecker
     {
-        //private static CourseEquivalents CourseEquivalents = LoadCourseEquivalents();
-
         private static readonly Dictionary<string, double> GradeMappings = new Dictionary<string, double>(StringComparer.OrdinalIgnoreCase)
         {
             { "A", 20 },
@@ -104,6 +103,7 @@ namespace Interpret_grading_documents.Services
                 {
                     string requiredCourseNameOrCode = course.Name;
                     string requiredGrade = course.RequiredGrade;
+                    int requiredLevel = course.Level; // Required course level
 
                     Console.WriteLine($"Checking requirement for course: {requiredCourseNameOrCode} with minimum grade: {requiredGrade}");
 
@@ -121,17 +121,17 @@ namespace Interpret_grading_documents.Services
                     {
                         foreach (var equivalentCourse in equivalentCourses)
                         {
-                            if (equivalentCourse.Name.Equals(studentSubject.SubjectName.Trim(), StringComparison.OrdinalIgnoreCase) || 
+                            if (equivalentCourse.Name.Equals(studentSubject.SubjectName.Trim(), StringComparison.OrdinalIgnoreCase) ||
                                 equivalentCourse.Code.Equals(studentSubject.CourseCode.Trim(), StringComparison.OrdinalIgnoreCase))
                             {
                                 double studentGradeValue = GetGradeValue(studentSubject.Grade.Trim());
-                                
+
                                 if (requiredCourseNameOrCode.Equals(equivalentCourse.Name, StringComparison.OrdinalIgnoreCase) ||
                                     requiredCourseNameOrCode.Equals(equivalentCourse.Code, StringComparison.OrdinalIgnoreCase))
                                 {
                                     originalCourseGrade = studentSubject.Grade;
                                 }
-                                else
+                                else if (equivalentCourse.Level <= requiredLevel) // only include if it's the same or lower level
                                 {
                                     otherAlternativeGrades.Add($"{studentSubject.SubjectName}: {studentSubject.Grade}");
                                 }
@@ -171,8 +171,6 @@ namespace Interpret_grading_documents.Services
 
             return allRequirementsMet;
         }
-
-
 
 
         public static double GetGradeValue(string grade)
@@ -282,7 +280,6 @@ namespace Interpret_grading_documents.Services
 
                                 Console.WriteLine($"{studentGradeValue} * {studentSubject.GymnasiumPoints} = {totalWeightedGradePoints} ");
 
-
                                 break; // Move to the next course after a match
                             }
                         }
@@ -298,6 +295,5 @@ namespace Interpret_grading_documents.Services
 
             return Math.Round(average, 2); // Round to 2 decimal places if desired
         }
-
     }
 }

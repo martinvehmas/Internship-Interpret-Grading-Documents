@@ -94,11 +94,11 @@
                     <tbody>
                         @{
                             var jsonFilePath = ViewBag.JsonFilePath;
-                            var requirementResults = Interpret_grading_documents.Services.RequirementChecker.DoesStudentMeetRequirement(Model.MergedDocument, jsonFilePath);
+                            Dictionary<string, RequirementResult> requirementResults = Interpret_grading_documents.Services.RequirementChecker.DoesStudentMeetRequirement(Model.MergedDocument, jsonFilePath);
                             bool meetsAllRequirements = true;
                             foreach (var kvp in requirementResults)
                             {
-                                var result = kvp.Value;
+                                RequirementResult result = kvp.Value;
                                 if (!result.IsMet)
                                 {
                                     meetsAllRequirements = false;
@@ -120,22 +120,27 @@
                                     <td class="text-start">
                                         @if (result.CourseName != kvp.Key)
                                         {
-                                            <span>
-                                                The student has a grade of @result.StudentGrade on @result.CourseName, but has the following grades on other courses:
-                                                <ul class="list-unstyled ms-3">
-                                                    @if (result.OriginalCourseGrade != "N/A")
-                                                    {
-                                                        <li>@kvp.Key: @result.OriginalCourseGrade</li>
-                                                    }
-                                                    @foreach (var grade in result.OtherGradesInAlternatives)
-                                                    {
-                                                        @if (!grade.Contains(@result.CourseName))
+
+                                                var otherGradesToDisplay = result.OtherGradesInAlternatives
+                                                    .Where(grade => !grade.Contains(result.CourseName))
+                                                    .ToList();
+
+                                            @if (result.OriginalCourseGrade != "N/A" || otherGradesToDisplay.Count > 0)
+                                            {
+                                                <span>
+                                                    The student has a grade of @result.StudentGrade on @result.CourseName, but has the following grades on other courses:
+                                                    <ul class="list-unstyled ms-3">
+                                                        @if (result.OriginalCourseGrade != "N/A")
+                                                        {
+                                                            <li>@kvp.Key: @result.OriginalCourseGrade</li>
+                                                        }
+                                                        @foreach (var grade in otherGradesToDisplay)
                                                         {
                                                             <li>@grade</li>
                                                         }
-                                                    }
-                                                </ul>
-                                            </span>
+                                                    </ul>
+                                                </span>
+                                            }
                                         }
                                         else
                                         {
