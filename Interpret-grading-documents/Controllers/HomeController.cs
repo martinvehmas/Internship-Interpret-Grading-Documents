@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 using Interpret_grading_documents.Data;
 using Interpret_grading_documents.Models;
+using System.Reflection.Metadata;
 
 namespace Interpret_grading_documents.Controllers
 {
@@ -24,6 +25,7 @@ namespace Interpret_grading_documents.Controllers
         {
             var coursesWithAverageFlag = GetCoursesWithAverageFlag();
             ViewBag.CoursesWithAverageFlag = coursesWithAverageFlag;
+
             return View(_analyzedDocuments);
         }
         private List<(string MainCourse, List<string> AlternativeCourses, bool IncludedInAverage)> GetCoursesWithAverageFlag()
@@ -52,14 +54,32 @@ namespace Interpret_grading_documents.Controllers
             if (uploadedFiles == null || uploadedFiles.Count == 0)
             {
                 ViewBag.Error = "Please upload valid documents.";
-                return View("Index");
+                return View("Index", _analyzedDocuments);
             }
+            string existingPersonalId = _analyzedDocuments.FirstOrDefault()?.PersonalId;
+            List<GPTService.GraduationDocument> newDocuments = new List<GPTService.GraduationDocument>();
 
             foreach (var uploadedFile in uploadedFiles)
             {
                 var extractedData = await GPTService.ProcessTextPrompts(uploadedFile);
-                _analyzedDocuments.Add(extractedData);
+
+                if (string.IsNullOrEmpty(existingPersonalId))
+                {
+                    existingPersonalId = extractedData.PersonalId;
+                }
+                else
+                {
+                    if (extractedData.PersonalId != existingPersonalId)
+                    {
+                        ViewBag.Error = "One or more uploaded documents do not match the social security ID of previously uploaded documents.";
+                        return View("Index", _analyzedDocuments);
+                    }
+                }
+
+                newDocuments.Add(extractedData);
             }
+
+            _analyzedDocuments.AddRange(newDocuments);
 
             return RedirectToAction("ViewUploadedDocuments");
         }
@@ -82,8 +102,83 @@ namespace Interpret_grading_documents.Controllers
 
         public IActionResult ViewUploadedDocuments()
         {
-            return View(_analyzedDocuments);
+            if (_analyzedDocuments.Count == 0)
+            {
+                ViewBag.UserName = null;
+                ViewBag.ExamStatus = null;
+            }
+            else
+            {
+                string highestExamStatus = GPTService.GetHighestExamStatus(_analyzedDocuments);
+                string userName = _analyzedDocuments.FirstOrDefault()?.FullName ?? "Uploaded";
+
+                ViewBag.UserName = userName;
+                ViewBag.ExamStatus = highestExamStatus;
+            }
+
+            string jsonFilePath = Path.Combine(_hostingEnvironment.ContentRootPath, "CourseEquivalents.json");
+            ViewBag.JsonFilePath = jsonFilePath;
+
+            // merge documents into one
+            var mergedDocument = MergeDocuments(_analyzedDocuments);
+
+            
+            var averageMeritPoints = RequirementChecker.CalculateAverageGrade(mergedDocument, jsonFilePath);
+
+            ViewBag.AverageMeritPoints = averageMeritPoints;
+
+            var viewModel = new UploadedDocumentsViewModel
+            {
+                Documents = _analyzedDocuments,
+                MergedDocument = mergedDocument
+            };
+
+            return View(viewModel);
         }
+
+
+        private GPTService.GraduationDocument MergeDocuments(List<GPTService.GraduationDocument> documents)
+        {
+            var mergedDocument = new GPTService.GraduationDocument
+            {
+                Id = Guid.NewGuid(),
+                FullName = documents.FirstOrDefault()?.FullName,
+                PersonalId = documents.FirstOrDefault()?.PersonalId,
+                HasValidDegree = documents.FirstOrDefault()?.HasValidDegree,
+                DocumentName = "Merged Document"
+            };
+
+            var subjectsDict = new Dictionary<string, GPTService.Subject>(StringComparer.OrdinalIgnoreCase);
+
+            foreach (var doc in documents)
+            {
+                foreach (var subject in doc.Subjects)
+                {
+                    string key = subject.SubjectName.Trim().ToLower();
+
+                    if (subjectsDict.TryGetValue(key, out var existingSubject))
+                    {
+                        double existingGradeValue = RequirementChecker.GetGradeValue(existingSubject.Grade);
+                        double newGradeValue = RequirementChecker.GetGradeValue(subject.Grade);
+
+                        if (newGradeValue > existingGradeValue)
+                        {
+                            subjectsDict[key] = subject;
+                        }
+                    }
+                    else
+                    {
+                        subjectsDict[key] = subject;
+                    }
+                }
+            }
+
+            mergedDocument.Subjects = subjectsDict.Values.ToList();
+
+            return mergedDocument;
+        }
+
+
 
         [HttpPost]
         public IActionResult RemoveDocument(Guid id)
@@ -226,5 +321,18 @@ namespace Interpret_grading_documents.Controllers
             return RedirectToAction("ViewDocument", new { id = updatedDocument.Id }); // Replace with your desired action
         }
 
+        public bool UserHasValidExam()
+        {
+            foreach (var document in _analyzedDocuments)
+            {
+                GPTService.ExamValidator(document);
+
+                if (!string.IsNullOrEmpty(document.HasValidDegree) && document.HasValidDegree.Contains("examen", StringComparison.OrdinalIgnoreCase))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

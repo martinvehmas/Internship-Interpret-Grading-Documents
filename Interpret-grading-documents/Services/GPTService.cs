@@ -129,6 +129,50 @@ namespace Interpret_grading_documents.Services
             }
         }
 
+        public static void ExamValidator(GraduationDocument document)
+        {
+            if (document.Title.Contains("Examensbevis", StringComparison.OrdinalIgnoreCase) ||
+                document.Title.Contains("Gymnasieexamen", StringComparison.OrdinalIgnoreCase))
+            {
+                if (document.SchoolForm.Contains("Gymnasieskola", StringComparison.OrdinalIgnoreCase))
+                {
+                    document.HasValidDegree = "Gymnasieexamen i gymnasieskolan";
+                }
+                else if (document.SchoolForm.Contains("Kommunal vuxenutbildning", StringComparison.OrdinalIgnoreCase) ||
+                         document.SchoolForm.Contains("Komvux utbildning", StringComparison.OrdinalIgnoreCase))
+                {
+                    document.HasValidDegree = "Examen i kommunal vuxenutbildning";
+                }
+            }
+            else
+            {
+                document.HasValidDegree = "Dokumentet påvisar ej examensbevis";
+            }
+
+        }
+
+        public static string GetHighestExamStatus(List<GraduationDocument> documents)
+        {
+            // Define the order of precedence for exam statuses
+            var examStatuses = new List<string>
+            {
+                "Gymnasieexamen i gymnasieskolan",
+                "Examen i kommunal vuxenutbildning",
+                "Dokumentet påvisar ej examensbevis"
+            };
+
+            // Iterate through all documents and find the highest precedence status
+            foreach (var status in examStatuses)
+            {
+                if (documents.Any(d => d.HasValidDegree == status))
+                {
+                    return status;
+                }
+            }
+
+            return "Dokumentet påvisar ej examensbevis"; // Default if no exam is found
+        }
+
         #region Private Methods
 
         private static async Task<string> SaveUploadedFileAsync(IFormFile uploadedFile)
@@ -325,28 +369,6 @@ namespace Interpret_grading_documents.Services
             {
                 Console.WriteLine($"Kunde inte ta bort temporärfilen: {ex.Message}");
             }
-        }
-
-        private static void ExamValidator(GraduationDocument document)
-        {
-            if (document.Title.Contains("Examensbevis", StringComparison.OrdinalIgnoreCase) ||
-                document.Title.Contains("Gymnasieexamen", StringComparison.OrdinalIgnoreCase))
-            {
-                if (document.SchoolForm.Contains("Gymnasieskola", StringComparison.OrdinalIgnoreCase))
-                {
-                    document.HasValidDegree = "Gymnasieexamen i gymnasieskolan";
-                }
-                else if (document.SchoolForm.Contains("Kommunal vuxenutbildning", StringComparison.OrdinalIgnoreCase) ||
-                         document.SchoolForm.Contains("Komvux utbildning", StringComparison.OrdinalIgnoreCase))
-                {
-                    document.HasValidDegree = "Examen i kommunal vuxenutbildning";
-                }
-            }
-            else
-            {
-                document.HasValidDegree = "Dokumentet påvisar ej examensbevis";
-            }
-
         }
 
         #endregion

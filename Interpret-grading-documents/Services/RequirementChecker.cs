@@ -175,7 +175,7 @@ namespace Interpret_grading_documents.Services
 
 
 
-        private static double GetGradeValue(string grade)
+        public static double GetGradeValue(string grade)
         {
             if (GradeMappings.TryGetValue(grade.Trim().ToUpper(), out double value))
             {
