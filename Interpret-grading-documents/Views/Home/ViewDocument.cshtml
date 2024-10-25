@@ -34,7 +34,7 @@
                                 <p class="card-text"><strong>Specialization:</strong> @Model.Specialization</p>
                                 <p class="card-text"><strong>School Form:</strong> @Model.SchoolForm</p>
                                 <p class="card-text"><strong>Curriculum:</strong> @Model.Curriculum</p>
-                                <p class="card-text"><strong>Total points:</strong> <span id="totalPointsDisplay">@Model.TotalPoints</span></p>
+                                <p class="card-text"><strong>Total points:</strong> <span id="totalPointsDisplayReadOnly">@Model.TotalPoints</span></p>
                                 <p class="card-text"><strong>Degree:</strong> @Model.HasValidDegree</p>
                             </div>
                         </div>
@@ -69,7 +69,7 @@
                                             <input type="hidden" name="Subjects[@i].SubjectName" value="@displaySubjectName" />
                                             @if (subject.SubjectName != displaySubjectName)
                                             {
-                                                <br/> <small class="text-muted">Suggested: @subject.SubjectName</small >
+                                                <br/> <small class="text-muted">Suggested: @subject.SubjectName</small>
                                             }
                                         }
                                         else
@@ -178,7 +178,7 @@
                                     <p class="card-text"><strong>Specialization:</strong> @Model.Specialization</p>
                                     <p class="card-text"><strong>School Form:</strong> @Model.SchoolForm</p>
                                     <p class="card-text"><strong>Curriculum:</strong> @Model.Curriculum</p>
-                                    <p class="card-text"><strong>Total points:</strong> <span id="totalPointsDisplay">@Model.TotalPoints</span></p>
+                                    <p class="card-text"><strong>Total points:</strong> <span id="totalPointsDisplayEdit">@Model.TotalPoints</span></p>
                                     <p class="card-text"><strong>Degree:</strong> @Model.HasValidDegree</p>
                                 </div>
                             </div>
@@ -335,12 +335,9 @@
                 function updateTotalPoints() {
                     var totalPoints = 0;
                     document.querySelectorAll('.gymnasium-points').forEach(function (input) {
-                        var points = parseInt(input.value);
-                        if (!isNaN(points)) {
-                            totalPoints += points;
-                        }
+                        var points = parseFloat(input.value) || 0;
+                        totalPoints += points;
                     });
-                    document.getElementById('totalPointsDisplay').textContent = totalPoints;
                 }
 
                 document.querySelectorAll('.gymnasium-points').forEach(function (input) {
