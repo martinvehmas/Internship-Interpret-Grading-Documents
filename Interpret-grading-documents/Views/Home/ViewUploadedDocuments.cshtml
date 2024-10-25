@@ -95,9 +95,14 @@
                         @{
                             var jsonFilePath = ViewBag.JsonFilePath;
                             var requirementResults = Interpret_grading_documents.Services.RequirementChecker.DoesStudentMeetRequirement(Model.MergedDocument, jsonFilePath);
+                            bool meetsAllRequirements = true;
                             foreach (var kvp in requirementResults)
                             {
                                 var result = kvp.Value;
+                                if (!result.IsMet)
+                                {
+                                    meetsAllRequirements = false;
+                                }
                                 <tr>
                                     <td>@result.CourseName</td>
                                     <td>@result.RequiredGrade</td>
@@ -151,6 +156,19 @@
                         }
                     </tbody>
                 </table>
+
+                @if (meetsAllRequirements)
+                {
+                    <div class="alert alert-success text-center mt-4" role="alert" style="font-size: 1.25rem;">
+                        <strong>The student meets all requirements.</strong>
+                    </div>
+                }
+                else
+                {
+                    <div class="alert alert-danger text-center mt-4" role="alert" style="font-size: 1.25rem;">
+                        <strong>The student does not meet all requirements.</strong>
+                    </div>
+                }
             </div>
         }
         else
