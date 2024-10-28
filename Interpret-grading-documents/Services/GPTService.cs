@@ -99,6 +99,7 @@ namespace Interpret_grading_documents.Services
                 (processedImagePath, contentType) = await ProcessUploadedFileAsync(tempFilePath);
                 ImageReliabilityResult reliabilityResult = CheckImageReliability(processedImagePath);
 
+
                 ChatClient client = InitializeChatClient();
 
                 List<ChatMessage> messages = PrepareChatMessages(contentType, processedImagePath);
@@ -112,10 +113,10 @@ namespace Interpret_grading_documents.Services
                 //var test = RequirementChecker.DoesStudentMeetRequirement(document);
                 //Console.WriteLine(test);
 
-                var updatedDocument = await CompareCourses(document);
+                var updatedDocument = await CompareCourses(document); 
                 ValidateDocument(updatedDocument, reliabilityResult);
 
-                  
+
                 ExamValidator(updatedDocument);
 
                 //var test1 = RequirementChecker.CalculateAverageGrade(document);

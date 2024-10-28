@@ -63,6 +63,13 @@ namespace Interpret_grading_documents.Controllers
             {
                 var extractedData = await GPTService.ProcessTextPrompts(uploadedFile);
 
+                // Check if the ImageReliability score is 0
+                if (extractedData.ImageReliability.ReliabilityScore == 0)
+                {
+                    ViewBag.Error = $"The uploaded document {extractedData.DocumentName} has a reliability score of 0 and will not be uploaded.";
+                    continue;
+                }
+
                 if (string.IsNullOrEmpty(existingPersonalId))
                 {
                     existingPersonalId = extractedData.PersonalId;
