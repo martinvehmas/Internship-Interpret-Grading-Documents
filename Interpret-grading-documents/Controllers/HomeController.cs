@@ -66,8 +66,8 @@ namespace Interpret_grading_documents.Controllers
                 // Check if the ImageReliability score is 0
                 if (extractedData.ImageReliability.ReliabilityScore == 0)
                 {
-                    ViewBag.Error = $"The uploaded document {extractedData.DocumentName} has a reliability score of 0 and will not be uploaded.";
-                    continue;
+                    ViewBag.Error = $"The uploaded document {extractedData.DocumentName} has to low reliability score of and cannot be analysed.";
+                    return View("Index", _analyzedDocuments);
                 }
 
                 if (string.IsNullOrEmpty(existingPersonalId))
