@@ -39,12 +39,12 @@
             <div class="mt-4">
                 <a asp-action="ViewUploadedDocuments" asp-controller="Home" class="btn btn-secondary">View Uploaded Documents</a>
             </div>
-
-            <!-- Courses List Section -->
-            <div class="mt-5">
+            <div class="row mt-5">
+            <!-- Required Courses -->
+                <div class="col-12 col-lg-6 d-flex flex-column">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        <h2 class="mb-0">Required Courses</h2>
+                        <h4 class="mb-0">Required Courses</h4>
                         <a asp-action="CourseRequirementsManager" asp-controller="Home" class="btn btn-outline-secondary">
                             Manage Course Requirements
                         </a>
@@ -67,10 +67,6 @@
                                                     <small class="text-muted ms-2">(Has alternative courses)</small>
                                                 }
                                             </span>
-                                            <span class="badge rounded-pill @(courseData.IncludedInAverage ? "bg-success" : "bg-secondary") d-flex align-items-center">
-                                                <i class="@(courseData.IncludedInAverage ? "bi bi-check-circle-fill me-1" : "bi bi-x-circle-fill me-1")"></i>
-                                                @(courseData.IncludedInAverage ? "Included in Merit Average" : "Excluded from Merit Average")
-                                            </span>
                                         </div>
 
                                         @if (courseData.AlternativeCourses.Count > 0)
@@ -90,6 +86,39 @@
                         }
                     </div>
                 </div>
+            </div>
+
+
+            <!-- Calculate average value -->
+                <div class="col-12 col-lg-6 d-flex flex-column mt-4 mt-lg-0">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h4 class="mb-0">Calculate Average Value</h4>
+                        <a asp-action="CourseRequirementsManager" asp-controller="Home" class="btn btn-outline-secondary">
+                            Manage Calculate Average
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        @if (ViewBag.CoursesWithAverageFlag != null)
+                        {
+                            var coursesWithAverageFlag = (List<(string MainCourse, List<string> AlternativeCourses, bool IncludedInAverage)>)ViewBag.CoursesWithAverageFlag;
+
+                            <ul class="list-group mt-4">
+                                @foreach (var courseData in coursesWithAverageFlag)
+                                {
+                                    <li class="list-group-item">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="main-course" data-bs-toggle="collapse" data-bs-target="#collapse-@courseData.MainCourse.GetHashCode()">
+                                                @courseData.MainCourse
+                                            </span>
+                                        </div>
+                                    </li>
+                                }
+                            </ul>
+                        }
+                    </div>
+                </div>
+            </div>
             </div>
 
         </div>
