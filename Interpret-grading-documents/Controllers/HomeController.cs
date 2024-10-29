@@ -14,6 +14,7 @@ namespace Interpret_grading_documents.Controllers
         private static List<GPTService.GraduationDocument> _analyzedDocuments = new List<GPTService.GraduationDocument>();
 
         private readonly string courseEquivalentsFilePath = Path.Combine(Directory.GetCurrentDirectory(), "CourseEquivalents.json");
+        private readonly string coursesForAverageFilePath = Path.Combine(Directory.GetCurrentDirectory(), "CoursesForAverage.json");
 
         public HomeController(ILogger<HomeController> logger, IWebHostEnvironment hostingEnvironment)
         {
@@ -28,6 +29,48 @@ namespace Interpret_grading_documents.Controllers
 
             return View(_analyzedDocuments);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> ManageMeritCalculator()
+        {
+            var coursesForAverage = LoadCoursesForAverage() ?? new List<CourseForAverage>();
+
+            var validationCourses = await ValidationData.GetCombinedCourses(); // Fetch courses from API or source
+            var availableCourses = validationCourses.Values.Select(c => new AvailableCourse
+            {
+                CourseName = c.CourseName,
+                CourseCode = c.CourseCode
+            }).ToList();
+
+            ViewBag.AvailableCourses = availableCourses;
+
+            var viewModel = new CoursesForAverageViewModel { CoursesForAverage = coursesForAverage };
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public IActionResult SaveCoursesForAverage([FromBody] List<CourseForAverage> coursesForAverage)
+        {
+            SaveCoursesForAverageToFile(coursesForAverage);
+            return Json(new { success = true });
+        }
+
+        private List<CourseForAverage> LoadCoursesForAverage()
+        {
+            if (System.IO.File.Exists(coursesForAverageFilePath))
+            {
+                var jsonContent = System.IO.File.ReadAllText(coursesForAverageFilePath);
+                return JsonSerializer.Deserialize<List<CourseForAverage>>(jsonContent);
+            }
+            return null;
+        }
+
+        private void SaveCoursesForAverageToFile(List<CourseForAverage> coursesForAverage)
+        {
+            var jsonContent = JsonSerializer.Serialize(coursesForAverage, new JsonSerializerOptions { WriteIndented = true });
+            System.IO.File.WriteAllText(coursesForAverageFilePath, jsonContent);
+        }
+
         private List<(string MainCourse, List<string> AlternativeCourses, bool IncludedInAverage)> GetCoursesWithAverageFlag()
         {
             var coursesWithAverageFlag = new List<(string MainCourse, List<string> AlternativeCourses, bool IncludedInAverage)>();

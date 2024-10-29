@@ -1,0 +1,22 @@
+[
+  {
+    "Name": "Matematik 3c",
+    "Code": "MATMAT03c",
+    "AlternativeCourses": []
+  },
+  {
+    "Name": "Programmering 1",
+    "Code": "PRRPRR01",
+    "AlternativeCourses": []
+  },
+  {
+    "Name": "Administration A",
+    "Code": "ADM1201",
+    "AlternativeCourses": [
+      {
+        "Name": "Aff\u00E4rskommunikation engelska",
+        "Code": "ADM1203"
+      }
+    ]
+  }
+]

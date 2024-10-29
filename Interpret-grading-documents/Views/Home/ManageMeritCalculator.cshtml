@@ -1,0 +1,281 @@
+﻿@model Interpret_grading_documents.Models.CoursesForAverageViewModel
+
+@using System.Text.Json;
+@{
+    ViewData["Title"] = "Manage Merit Calculator";
+}
+
+<div class="container mt-5">
+    <h1 class="display-4 text-center">Manage Merit Calculator</h1>
+
+    <div class="mt-4 text-center">
+        <button class="btn btn-primary" onclick="openAddCourseForAverageModal()">Add Course to Merit Calculation</button>
+    </div>
+
+    <div class="modal fade" id="addCourseForAverageModal" tabindex="-1" role="dialog" aria-labelledby="addCourseForAverageModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form id="addCourseForAverageForm">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addCourseForAverageModalLabel">Add/Edit Course to Average Calculation</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeAddCourseForAverageModal()">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group position-relative">
+                            <label for="averageCourseName">Course Name</label>
+                            <input type="text" class="form-control" id="averageCourseName" required />
+                            <div class="autocomplete-dropdown" id="averageCourseNameDropdown" style="display: none;"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="averageCourseCode">Course Code</label>
+                            <input type="text" class="form-control" id="averageCourseCode" required />
+                        </div>
+                        <div class="form-group">
+                            <label>Alternative Courses</label>
+                            <div id="alternativeCoursesContainer"></div>
+                            <button type="button" class="btn btn-secondary mt-2" onclick="addAlternative()">Add Alternative Course</button>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="hidden" id="editCourseIndex" />
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeAddCourseForAverageModal()">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="saveAverageCourse()">Save Course</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-4">
+        <h3>Courses in Merit Calculation</h3>
+        <div class="card mt-3">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped mt-3">
+                        <thead>
+                            <tr>
+                                <th>Course Name</th>
+                                <th>Course Code</th>
+                                <th>Alternative Courses</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="averageCoursesTableBody">
+                            @foreach (var course in Model.CoursesForAverage)
+                            {
+                                <tr>
+                                    <td>@course.Name</td>
+                                    <td>@course.Code</td>
+                                    <td>
+                                        @foreach (var alt in course.AlternativeCourses)
+                                        {
+                                            <div>@alt.Name (@alt.Code)</div>
+                                        }
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-warning btn-sm" onclick="openEditCourseForAverageModal(@Model.CoursesForAverage.IndexOf(course))">Edit</button>
+                                        <button class="btn btn-danger btn-sm" onclick="removeAverageCourse('@course.Code')">Remove</button>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-4 text-center">
+        <button class="btn btn-success" onclick="submitAverageChanges()">Save All Changes</button>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        var coursesForAverage = @Html.Raw(JsonSerializer.Serialize(Model.CoursesForAverage ?? new List<CourseForAverage>()));
+        var availableCourses = @Html.Raw(JsonSerializer.Serialize(ViewBag.AvailableCourses ?? new List<AvailableCourse>()));
+
+        function openAddCourseForAverageModal() {
+            resetCourseModal();
+            $('#addCourseForAverageModal').modal('show');
+            document.getElementById("editCourseIndex").value = ''; // ´clear index to indicate adding a new course
+        }
+
+        function openEditCourseForAverageModal(index) {
+            resetCourseModal();
+            var course = coursesForAverage[index];
+            document.getElementById("averageCourseName").value = course.Name;
+            document.getElementById("averageCourseCode").value = course.Code;
+            document.getElementById("editCourseIndex").value = index;
+
+            // populate alternative courses
+            var container = document.getElementById("alternativeCoursesContainer");
+            course.AlternativeCourses.forEach(function (alt) {
+                addAlternative(alt.Name, alt.Code);
+            });
+
+            $('#addCourseForAverageModal').modal('show');
+        }
+
+        function closeAddCourseForAverageModal() {
+            $('#addCourseForAverageModal').modal('hide');
+            resetCourseModal();
+        }
+
+        function saveAverageCourse() {
+            var courseName = document.getElementById("averageCourseName").value.trim();
+            var courseCode = document.getElementById("averageCourseCode").value.trim();
+            var alternatives = [];
+
+            var alternativeRows = document.getElementById("alternativeCoursesContainer").children;
+            for (var i = 0; i < alternativeRows.length; i++) {
+                var altNameInput = alternativeRows[i].querySelector(".alternative-name");
+                var altCodeInput = alternativeRows[i].querySelector(".alternative-code");
+                var altName = altNameInput.value.trim();
+                var altCode = altCodeInput.value.trim();
+
+                if (altName && altCode) {
+                    alternatives.push({ Name: altName, Code: altCode });
+                }
+            }
+
+            var index = document.getElementById("editCourseIndex").value;
+
+            if (index === '') {
+                // adding a new course
+                coursesForAverage.push({ Name: courseName, Code: courseCode, AlternativeCourses: alternatives });
+            } else {
+                // editing an existing course
+                coursesForAverage[index] = { Name: courseName, Code: courseCode, AlternativeCourses: alternatives };
+            }
+
+            updateAverageCoursesTable();
+            closeAddCourseForAverageModal();
+        }
+
+        function updateAverageCoursesTable() {
+            var tableBody = document.getElementById("averageCoursesTableBody");
+            tableBody.innerHTML = '';
+
+            coursesForAverage.forEach(course => {
+                var alternativesHtml = course.AlternativeCourses.map(alt => `<div>${alt.Name} (${alt.Code})</div>`).join("");
+                var row = `<tr>
+                            <td>${course.Name}</td>
+                            <td>${course.Code}</td>
+                            <td>${alternativesHtml}</td>
+                            <td>
+                                <button class="btn btn-warning btn-sm" onclick="openEditCourseForAverageModal(${coursesForAverage.indexOf(course)})">Edit</button>
+                                <button class="btn btn-danger btn-sm" onclick="removeAverageCourse('${course.Code}')">Remove</button>
+                            </td>
+                        </tr>`;
+                tableBody.insertAdjacentHTML('beforeend', row);
+            });
+        }
+
+        function removeAverageCourse(courseCode) {
+            coursesForAverage = coursesForAverage.filter(course => course.Code !== courseCode);
+            updateAverageCoursesTable();
+        }
+
+        function addAlternative(altName = '', altCode = '') {
+            var container = document.getElementById("alternativeCoursesContainer");
+            var div = document.createElement("div");
+            div.className = "form-row mb-2 position-relative";
+            div.innerHTML = `
+                        <div class="col">
+                            <input type="text" class="form-control alternative-name" placeholder="Alternative Name" value="${altName}" required />
+                            <div class="autocomplete-dropdown alternative-dropdown" style="display: none;"></div>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control alternative-code" placeholder="Alternative Code" value="${altCode}" required />
+                        </div>
+                        <div class="col-auto mt-2">
+                            <button type="button" class="btn btn-danger" onclick="removeAlternative(this)">Remove</button>
+                        </div>
+                    `;
+            container.appendChild(div);
+
+            var alternativeNameInput = div.querySelector(".alternative-name");
+            var alternativeDropdown = div.querySelector(".alternative-dropdown");
+            var alternativeCodeInput = div.querySelector(".alternative-code");
+
+            initAutocomplete(alternativeNameInput, alternativeDropdown, getMatchingCourses, function (selectedItem) {
+                alternativeNameInput.value = selectedItem.courseData.CourseName;
+                alternativeCodeInput.value = selectedItem.courseData.CourseCode;
+            });
+        }
+
+        function removeAlternative(button) {
+            var row = button.parentElement.parentElement;
+            row.remove();
+        }
+
+        function resetCourseModal() {
+            document.getElementById("addCourseForAverageForm").reset();
+            document.getElementById("alternativeCoursesContainer").innerHTML = '';
+        }
+
+        function submitAverageChanges() {
+            fetch('@Url.Action("SaveCoursesForAverage", "Home")', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(coursesForAverage)
+            }).then(response => {
+                if (response.ok) {
+                    alert("Changes saved successfully.");
+                    location.reload();
+                } else {
+                    alert("Failed to save changes.");
+                }
+            }).catch(error => {
+                console.error("Error:", error);
+                alert("An error occurred while saving changes.");
+            });
+        }
+
+        function initAutocomplete(inputElement, dropdownElement, getMatchingItems, onItemSelected) {
+            inputElement.addEventListener("input", function () {
+                var searchTerm = this.value.toLowerCase();
+                dropdownElement.innerHTML = '';
+                if (searchTerm.length > 0) {
+                    var matchingItems = getMatchingItems(searchTerm);
+                    if (matchingItems.length > 0) {
+                        matchingItems.forEach(function (itemData) {
+                            var item = document.createElement('div');
+                            item.className = 'dropdown-item';
+                            item.innerText = itemData.displayText;
+                            item.onclick = function () {
+                                onItemSelected(itemData);
+                                dropdownElement.style.display = 'none';
+                            };
+                            dropdownElement.appendChild(item);
+                        });
+                        dropdownElement.style.display = 'block';
+                    } else {
+                        dropdownElement.style.display = 'none';
+                    }
+                } else {
+                    dropdownElement.style.display = 'none';
+                }
+            });
+
+            document.addEventListener('click', function (event) {
+                if (!inputElement.parentElement.contains(event.target)) {
+                    dropdownElement.style.display = 'none';
+                }
+            });
+        }
+
+        function getMatchingCourses(searchTerm) {
+            return availableCourses.filter(function (course) {
+                return course.CourseName.toLowerCase().includes(searchTerm) || course.CourseCode.toLowerCase().includes(searchTerm);
+            }).map(function (course) {
+                return { displayText: course.CourseName, courseData: course };
+            });
+        }
+    </script>
+}
