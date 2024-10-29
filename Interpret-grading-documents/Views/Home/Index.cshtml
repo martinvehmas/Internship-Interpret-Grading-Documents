@@ -99,12 +99,12 @@
                         </a>
                     </div>
                     <div class="card-body">
-                            @if (ViewBag.CoursesWithAverageFlag != null)
+                            @if (ViewBag.CoursesForAverage != null)
                             {
-                                var coursesWithAverageFlag = (List<(string MainCourse, List<string> AlternativeCourses, bool IncludedInAverage)>)ViewBag.CoursesWithAverageFlag;
+                                var CoursesForAverage = (List<(string MainCourse, List<string> AlternativeCourses)>)ViewBag.CoursesForAverage;
 
                                 <ul class="list-group mt-4">
-                                    @foreach (var courseData in coursesWithAverageFlag)
+                                    @foreach (var courseData in CoursesForAverage)
                                     {
                                         <li class="list-group-item">
                                             <div class="d-flex justify-content-between align-items-center">

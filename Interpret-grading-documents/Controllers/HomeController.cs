@@ -27,6 +27,9 @@ namespace Interpret_grading_documents.Controllers
             var coursesWithAverageFlag = GetCoursesWithAverageFlag();
             ViewBag.CoursesWithAverageFlag = coursesWithAverageFlag;
 
+            var coursesForAverage = GetCoursesForAverage();
+            ViewBag.CoursesForAverage = coursesForAverage;
+
             return View(_analyzedDocuments);
         }
 
@@ -89,6 +92,23 @@ namespace Interpret_grading_documents.Controllers
             }
             return coursesWithAverageFlag;
         }
+
+        private List<(string MainCourse, List<string> AlternativeCourses)> GetCoursesForAverage()
+        {
+            var coursesWithAverageFlag = new List<(string MainCourse, List<string> AlternativeCourses)>();
+            var courseForAverageViewModel = LoadCourseForAverage();
+
+            if (courseForAverageViewModel?.CoursesForAverage != null)
+            {
+                foreach (var course in courseForAverageViewModel.CoursesForAverage)
+                {
+                    var alternativeCourses = course.AlternativeCourses.Select(alt => $"{alt.Name} ({alt.Code})").ToList();
+                    coursesWithAverageFlag.Add(($"{course.Name} ({course.Code})", alternativeCourses));
+                }
+            }
+            return coursesWithAverageFlag;
+        }
+
 
 
         [HttpPost]
@@ -291,6 +311,22 @@ namespace Interpret_grading_documents.Controllers
             }
             return null;
         }
+
+        private CoursesForAverageViewModel LoadCourseForAverage()
+        {
+            if (System.IO.File.Exists(coursesForAverageFilePath))
+            {
+                var jsonContent = System.IO.File.ReadAllText(coursesForAverageFilePath);
+                var courses = JsonSerializer.Deserialize<List<CourseForAverage>>(jsonContent, new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                });
+        
+                return new CoursesForAverageViewModel { CoursesForAverage = courses };
+            }
+            return null;
+        }
+
 
         private void SaveCourseEquivalentsToFile(CourseEquivalents courseEquivalents)
         {
