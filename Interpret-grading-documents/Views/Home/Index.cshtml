@@ -59,11 +59,11 @@
                                 {
                                     <li class="list-group-item">
                                         <div class="d-flex justify-content-between align-items-center">
-                                            <span class="main-course" data-bs-toggle="collapse" data-bs-target="#collapse-@courseData.MainCourse.GetHashCode()">
+                                                <span class="main-course" data-bs-toggle="collapse" data-bs-target="#requiredCollapse-@courseData.MainCourse.GetHashCode()">
                                                 @courseData.MainCourse
                                                 @if (courseData.AlternativeCourses.Count > 0)
                                                 {
-                                                    <i class="bi bi-chevron-down ms-2 toggle-icon" data-bs-target="#collapse-@courseData.MainCourse.GetHashCode()"></i>
+                                                        <i class="bi bi-chevron-down ms-2 toggle-icon" data-bs-target="#requiredCollapse-@courseData.MainCourse.GetHashCode()"></i>
                                                     <small class="text-muted ms-2">(Has alternative courses)</small>
                                                 }
                                             </span>
@@ -71,7 +71,7 @@
 
                                         @if (courseData.AlternativeCourses.Count > 0)
                                         {
-                                            <ul id="collapse-@courseData.MainCourse.GetHashCode()" class="collapse list-group mt-2">
+                                                <ul id="requiredCollapse-@courseData.MainCourse.GetHashCode()" class="collapse list-group mt-2">
                                                 @foreach (var altCourse in courseData.AlternativeCourses)
                                                 {
                                                     <li class="list-group-item list-group-item-light">
@@ -94,7 +94,7 @@
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <h4 class="mb-0">Calculate Average Merit Value</h4>
-                        <a asp-action="CourseRequirementsManager" asp-controller="Home" class="btn btn-outline-secondary">
+                        <a asp-action="ManageMeritCalculator" asp-controller="Home" class="btn btn-outline-secondary">
                             Manage Merit Calculator
                         </a>
                     </div>
@@ -108,11 +108,11 @@
                                     {
                                         <li class="list-group-item">
                                             <div class="d-flex justify-content-between align-items-center">
-                                                <span class="main-course" data-bs-toggle="collapse" data-bs-target="#collapse-@courseData.MainCourse.GetHashCode()">
+                                                <span class="main-course" data-bs-toggle="collapse" data-bs-target="#averageCollapse-@courseData.MainCourse.GetHashCode()">
                                                     @courseData.MainCourse
                                                     @if (courseData.AlternativeCourses.Count > 0)
                                                     {
-                                                        <i class="bi bi-chevron-down ms-2 toggle-icon" data-bs-target="#collapse-@courseData.MainCourse.GetHashCode()"></i>
+                                                        <i class="bi bi-chevron-down ms-2 toggle-icon" data-bs-target="#averageCollapse-@courseData.MainCourse.GetHashCode()"></i>
                                                         <small class="text-muted ms-2">(Has alternative courses)</small>
                                                     }
                                                 </span>
@@ -120,7 +120,7 @@
 
                                             @if (courseData.AlternativeCourses.Count > 0)
                                             {
-                                                <ul id="collapse-@courseData.MainCourse.GetHashCode()" class="collapse list-group mt-2">
+                                                <ul id="averageCollapse-@courseData.MainCourse.GetHashCode()" class="collapse list-group mt-2">
                                                     @foreach (var altCourse in courseData.AlternativeCourses)
                                                     {
                                                         <li class="list-group-item list-group-item-light">
