@@ -37,7 +37,7 @@
                                 <h2 class="mb-2">Average Merit Value</h2>
                                 <p class="mb-0 fs-2">@ViewBag.AverageMeritPoints</p>
                                 <div class="progress mt-2" style="height: 10px; background-color: rgba(255, 255, 255, 0.2);">
-                                    <div class="progress-bar bg-warning" role="progressbar" style="width: @(ViewBag.AverageMeritPoints * 5)%;" aria-valuenow="@ViewBag.AverageMeritPoints" aria-valuemin="0" aria-valuemax="20"></div>
+                                    <div class="progress-bar bg-warning" role="progressbar" style="width: @( (ViewBag.AverageMeritPoints * 5).ToString(System.Globalization.CultureInfo.InvariantCulture) )%;" aria-valuenow="@ViewBag.AverageMeritPoints" aria-valuemin="0" aria-valuemax="20"></div>
                                 </div>
                                 <p class="text-white-50 small mt-1">(The average score is from 0-20)</p>
                             </div>
