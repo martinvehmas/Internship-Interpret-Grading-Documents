@@ -1,10 +1,11 @@
 ﻿@model Interpret_grading_documents.Services.GPTService.GraduationDocument;
 
-<div class="container mt-5">
-    <div class="text-center">
-        <div class="mt-3" id="contentSection">
-            @if (Model != null)
-            {
+<div class="container-fluid mt-5">
+    @if (Model != null)
+    {
+        <div class="row">
+            <!-- Left Column -->
+            <div class="col-lg-6">
                 <h2 class="mt-4">Review the Data for @Model.FullName</h2>
                 <p>Please review the extracted data below. If you need to make any corrections, click on "Edit Document".</p>
 
@@ -16,31 +17,8 @@
                     </div>
                 </div>
 
-                <div class="file-viewer mt-4">
-                    <h3 class="mt-4">Document Preview</h3>
-                    <div id="fileContainer" class="card mt-2">
-                        <div class="card-body">
-                            @if (Model.ContentType == "application/pdf")
-                            {
-                                <iframe src="@Url.Action("GetDocumentFile", "Home", new { id = Model.Id })" width="100%" height="600px" style="border:none;">
-                                    Your browser does not support inline PDF viewing.
-                                </iframe>
-                            }
-                            else if (Model.ContentType.StartsWith("image/"))
-                            {
-                                <img src="@Url.Action("GetDocumentFile", "Home", new { id = Model.Id })" alt="Document Image" style="max-width: 100%; height: auto;" />
-                            }
-                            else
-                            {
-                                <p>Unsupported file type for inline viewing. Please download the document below.</p>
-                            }
-                        </div>
-                    </div>
-                </div>
-
                 <!-- Read-Only View -->
                 <div id="readOnlyView">
-
                     @if (Model.ImageReliability.ReliabilityScore > 0)
                     {
                         <div class="card mt-4">
@@ -62,105 +40,107 @@
                         </div>
 
                         <h3 class="mt-4">Subjects</h3>
-                        <table class="table table-striped mt-2">
+                        <table class="table table-striped table-bordered mt-2">
                             <thead>
-                            <tr>
-                                <th>Subject Name</th>
-                                <th>Course Code</th>
-                                <th>Grade</th>
-                                <th>Gymnasium Points</th>
-                            </tr>
+                                <tr>
+                                    <th>Subject Name</th>
+                                    <th>Course Code</th>
+                                    <th>Grade</th>
+                                    <th>Gymnasium Points</th>
+                                </tr>
                             </thead>
                             <tbody>
-                            @for (int i = 0; i < Model.Subjects.Count; i++)
-                            {
-                                var subject = Model.Subjects[i];
-                                var isFuzzyMatch = subject.FuzzyMatchScore < 100.0;
-                                var fuzzyScore = subject.FuzzyMatchScore;
-                                var isBelowThreshold = fuzzyScore < 80.0;
-                                var isUpdated = subject.OriginalSubjectName != null || subject.OriginalCourseCode != null || subject.OriginalGymnasiumPoints != null;
-                                var displaySubjectName = isFuzzyMatch && subject.OriginalSubjectName != null ? subject.OriginalSubjectName : subject.SubjectName;
-                                var displayCourseCode = isFuzzyMatch && subject.OriginalCourseCode != null ? subject.OriginalCourseCode : subject.CourseCode;
-                                var displayGymnasiumPoints = isFuzzyMatch && subject.OriginalGymnasiumPoints != null ? subject.OriginalGymnasiumPoints : subject.GymnasiumPoints;
-
-                                <tr class="@(isFuzzyMatch ? "table-warning" : "")">
-                                    <td>
-                                        @if (isFuzzyMatch)
-                                        {
-                                            @displaySubjectName
-                                            <input type="hidden" name="Subjects[@i].SubjectName" value="@displaySubjectName" />
-                                            @if (subject.SubjectName != displaySubjectName)
-                                            {
-                                                <br/> <small class="text-muted">Suggested: @subject.SubjectName</small>
-                                            }
-                                        }
-                                        else
-                                        {
-                                            @displaySubjectName
-                                            <input type="hidden" name="Subjects[@i].SubjectName" value="@displaySubjectName" />
-                                        }
-                                    </td>
-                                    <td>
-                                        @if (isFuzzyMatch)
-                                        {
-                                            @(string.IsNullOrEmpty(displayCourseCode) ? "N/A" : displayCourseCode)
-                                            <input type="hidden" name="Subjects[@i].CourseCode" value="@displayCourseCode" />
-                                            @if (subject.CourseCode != displayCourseCode)
-                                            {
-                                                <br/> <small class="text-muted">Suggested: @subject.CourseCode</small>
-                                            }
-                                        }
-                                        else
-                                        {
-                                            @(string.IsNullOrEmpty(displayCourseCode) ? "N/A" : displayCourseCode)
-                                            <input type="hidden" name="Subjects[@i].CourseCode" value="@displayCourseCode" />
-                                        }
-                                    </td>
-                                    <td>
-                                        @subject.Grade
-                                        <input type="hidden" name="Subjects[@i].Grade" value="@subject.Grade" />
-                                    </td>
-                                    <td>
-                                        @if (isFuzzyMatch)
-                                        {
-                                            @displayGymnasiumPoints
-                                            <input type="hidden" name="Subjects[@i].GymnasiumPoints" value="@displayGymnasiumPoints" />
-                                            @if (subject.GymnasiumPoints != displayGymnasiumPoints)
-                                            {
-                                                <br/><small class="text-muted">Suggested: @subject.GymnasiumPoints</small>
-                                            }
-                                        }
-                                        else
-                                        {
-                                            @displayGymnasiumPoints
-                                            <input type="hidden" name="Subjects[@i].GymnasiumPoints" value="@displayGymnasiumPoints" />
-                                        }
-                                    </td>
-                                </tr>
-
-                                @if (isFuzzyMatch && !isBelowThreshold)
+                                @for (int i = 0; i < Model.Subjects.Count; i++)
                                 {
-                                    <tr>
-                                        <td colspan="4">
-                                            <div class="alert alert-info mt-2">
-                                                <strong>Note: </strong>Quality of our suggested match is <strong>@fuzzyScore%</strong>.<br />
-                                                Please click Edit Document button at the bottom to change to the suggestion.
-                                            </div>
+                                    var subject = Model.Subjects[i];
+                                    var isFuzzyMatch = subject.FuzzyMatchScore < 100.0;
+                                    var fuzzyScore = subject.FuzzyMatchScore;
+                                    var isBelowThreshold = fuzzyScore < 80.0;
+                                    var isUpdated = subject.OriginalSubjectName != null || subject.OriginalCourseCode != null || subject.OriginalGymnasiumPoints != null;
+                                    var displaySubjectName = isFuzzyMatch && subject.OriginalSubjectName != null ? subject.OriginalSubjectName : subject.SubjectName;
+                                    var displayCourseCode = isFuzzyMatch && subject.OriginalCourseCode != null ? subject.OriginalCourseCode : subject.CourseCode;
+                                    var displayGymnasiumPoints = isFuzzyMatch && subject.OriginalGymnasiumPoints != null ? subject.OriginalGymnasiumPoints : subject.GymnasiumPoints;
+
+                                    <tr class="@(isFuzzyMatch ? "table-warning" : "")">
+                                        <td>
+                                            @if (isFuzzyMatch)
+                                            {
+                                                @displaySubjectName
+                                                <input type="hidden" name="Subjects[@i].SubjectName" value="@displaySubjectName" />
+                                                @if (subject.SubjectName != displaySubjectName)
+                                                {
+                                                    <br /> <small class="text-muted">Suggested: @subject.SubjectName</small>
+                                                }
+                                            }
+                                            else
+                                            {
+                                                @displaySubjectName
+                                                <input type="hidden" name="Subjects[@i].SubjectName" value="@displaySubjectName" />
+                                            }
+                                        </td>
+                                        <td>
+                                            @if (isFuzzyMatch)
+                                            {
+                                                @(string.IsNullOrEmpty(displayCourseCode) ? "N/A" : displayCourseCode)
+                                                <input type="hidden" name="Subjects[@i].CourseCode" value="@displayCourseCode" />
+                                                @if (subject.CourseCode != displayCourseCode)
+                                                {
+                                                    <br /> <small class="text-muted">Suggested: @subject.CourseCode</small>
+                                                }
+                                            }
+                                            else
+                                            {
+                                                @(string.IsNullOrEmpty(displayCourseCode) ? "N/A" : displayCourseCode)
+                                                <input type="hidden" name="Subjects[@i].CourseCode" value="@displayCourseCode" />
+                                            }
+                                        </td>
+                                        <td>
+                                            @subject.Grade
+                                            <input type="hidden" name="Subjects[@i].Grade" value="@subject.Grade" />
+                                        </td>
+                                        <td>
+                                            @if (isFuzzyMatch)
+                                            {
+                                                @displayGymnasiumPoints
+                                                <input type="hidden" name="Subjects[@i].GymnasiumPoints" value="@displayGymnasiumPoints" />
+                                                @if (subject.GymnasiumPoints != displayGymnasiumPoints)
+                                                {
+                                                    <br />
+
+                                                    <small class="text-muted">Suggested: @subject.GymnasiumPoints</small>
+                                                }
+                                            }
+                                            else
+                                            {
+                                                @displayGymnasiumPoints
+                                                <input type="hidden" name="Subjects[@i].GymnasiumPoints" value="@displayGymnasiumPoints" />
+                                            }
                                         </td>
                                     </tr>
-                                }
-                                else if (isBelowThreshold)
-                                {
-                                    <tr>
-                                        <td colspan="4">
-                                            <div class="alert alert-danger mt-2">
-                                                <strong>Attention:</strong> We could not find a match for this course. Please help us correct the details.
-                                            </div>
-                                        </td>
-                                    </tr>
-                                }
 
-                            }
+                                    @if (isFuzzyMatch && !isBelowThreshold)
+                                    {
+                                        <tr>
+                                            <td colspan="4">
+                                                <div class="alert alert-info mt-2">
+                                                    <strong>Note: </strong>Quality of our suggested match is <strong>@fuzzyScore%</strong>.<br />
+                                                    Please click Edit Document button at the bottom to change to the suggestion.
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                    else if (isBelowThreshold)
+                                    {
+                                        <tr>
+                                            <td colspan="4">
+                                                <div class="alert alert-danger mt-2">
+                                                    <strong>Attention:</strong> We could not find a match for this course. Please help us correct the details.
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+
+                                }
                             </tbody>
                         </table>
                         <button id="editDocumentButton" class="btn btn-warning mt-3">Edit Document</button>
@@ -174,7 +154,8 @@
                 </div>
 
                 @if (Model.ImageReliability.ReliabilityScore > 0)
-                { <!-- Editable Form (Initially Hidden) --> 
+                {
+                    <!-- Editable Form (Initially Hidden) -->
                     <div id="editView" style="display:none;">
                         <form method="post" action="@Url.Action("SaveDocument", "Home")">
                             <input type="hidden" name="Id" value="@Model.Id" />
@@ -208,100 +189,100 @@
                             <h3 class="mt-4">Subjects</h3>
                             <p class="text-muted">Please review and correct the grades below. It's essential that the grades are accurate for the record-keeping process.</p>
 
-                            <table class="table table-striped mt-2">
+                            <table class="table table-striped table-bordered mt-2">
                                 <thead>
-                                <tr>
-                                    <th>Subject Name</th>
-                                    <th>Course Code</th>
-                                    <th>Grade</th>
-                                    <th>Gymnasium Points</th>
-                                </tr>
+                                    <tr>
+                                        <th>Subject Name</th>
+                                        <th>Course Code</th>
+                                        <th>Grade</th>
+                                        <th>Gymnasium Points</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
-                                @for (int i = 0; i < Model.Subjects.Count; i++)
-                                {
-                                    var subject = Model.Subjects[i];
-                                    var isFuzzyMatch = subject.FuzzyMatchScore < 100.0;
-                                    var fuzzyScore = subject.FuzzyMatchScore;
-                                    var isBelowThreshold = fuzzyScore < 80.0;
-                                    var isUpdated = subject.OriginalSubjectName != null || subject.OriginalCourseCode != null || subject.OriginalGymnasiumPoints != null;
-
-                                    var displaySubjectName = isFuzzyMatch && subject.OriginalSubjectName != null ? subject.OriginalSubjectName : subject.SubjectName;
-                                    var displayCourseCode = isFuzzyMatch && subject.OriginalCourseCode != null ? subject.OriginalCourseCode : subject.CourseCode;
-                                    var displayGymnasiumPoints = isFuzzyMatch && subject.OriginalGymnasiumPoints != null ? subject.OriginalGymnasiumPoints : subject.GymnasiumPoints;
-
-                                    <tr class="@(isFuzzyMatch ? "table-warning" : "")">
-                                        <td>
-                                            @if (isFuzzyMatch)
-                                            {
-                                                <input type="text" name="Subjects[@i].SubjectName" value="@displaySubjectName" class="form-control" />
-                                                @if (subject.SubjectName != displaySubjectName)
-                                                {
-                                                    <small class="text-muted">Suggested: @subject.SubjectName</small>
-                                                }
-                                            }
-                                            else
-                                            {
-                                                @displaySubjectName
-                                                <input type="hidden" name="Subjects[@i].SubjectName" value="@displaySubjectName" />
-                                            }
-                                        </td>
-                                        <td>
-                                            @if (isFuzzyMatch)
-                                            {
-                                                <input type="text" name="Subjects[@i].CourseCode" value="@displayCourseCode" class="form-control" />
-                                                @if (subject.CourseCode != displayCourseCode)
-                                                {
-                                                    <small class="text-muted">Suggested: @subject.CourseCode</small>
-                                                }
-                                            }
-                                            else
-                                            {
-                                                @(string.IsNullOrEmpty(displayCourseCode) ? "N/A" : displayCourseCode)
-                                                <input type="hidden" name="Subjects[@i].CourseCode" value="@displayCourseCode" />
-                                            }
-                                        </td>
-                                        <td>
-                                            <input type="text" name="Subjects[@i].Grade" value="@subject.Grade" class="form-control" />
-                                        </td>
-                                        <td>
-                                            @if (isFuzzyMatch)
-                                            {
-                                                <input type="text" name="Subjects[@i].GymnasiumPoints" value="@displayGymnasiumPoints" class="form-control gymnasium-points" />
-                                                @if (subject.GymnasiumPoints != displayGymnasiumPoints)
-                                                {
-                                                    <small class="text-muted">Suggested: @subject.GymnasiumPoints</small>
-                                                }
-                                            }
-                                            else
-                                            {
-                                                @displayGymnasiumPoints
-                                                <input type="hidden" name="Subjects[@i].GymnasiumPoints" value="@displayGymnasiumPoints" />
-                                            }
-                                        </td>
-                                    </tr>
-
-                                    @if (isFuzzyMatch && !isBelowThreshold)
+                                    @for (int i = 0; i < Model.Subjects.Count; i++)
                                     {
-                                        <tr>
-                                            <td colspan="4">
-                                                <div class="alert alert-info mt-2">
-                                                    <strong>Note:</strong> Quality of our suggested match is <strong>@fuzzyScore%</strong>. Please review it carefully and confirm.
-                                                </div>
+                                        var subject = Model.Subjects[i];
+                                        var isFuzzyMatch = subject.FuzzyMatchScore < 100.0;
+                                        var fuzzyScore = subject.FuzzyMatchScore;
+                                        var isBelowThreshold = fuzzyScore < 80.0;
+                                        var isUpdated = subject.OriginalSubjectName != null || subject.OriginalCourseCode != null || subject.OriginalGymnasiumPoints != null;
+
+                                        var displaySubjectName = isFuzzyMatch && subject.OriginalSubjectName != null ? subject.OriginalSubjectName : subject.SubjectName;
+                                        var displayCourseCode = isFuzzyMatch && subject.OriginalCourseCode != null ? subject.OriginalCourseCode : subject.CourseCode;
+                                        var displayGymnasiumPoints = isFuzzyMatch && subject.OriginalGymnasiumPoints != null ? subject.OriginalGymnasiumPoints : subject.GymnasiumPoints;
+
+                                        <tr class="@(isFuzzyMatch ? "table-warning" : "")">
+                                            <td>
+                                                @if (isFuzzyMatch)
+                                                {
+                                                    <input type="text" name="Subjects[@i].SubjectName" value="@displaySubjectName" class="form-control" />
+                                                    @if (subject.SubjectName != displaySubjectName)
+                                                    {
+                                                        <small class="text-muted">Suggested: @subject.SubjectName</small>
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    @displaySubjectName
+                                                    <input type="hidden" name="Subjects[@i].SubjectName" value="@displaySubjectName" />
+                                                }
+                                            </td>
+                                            <td>
+                                                @if (isFuzzyMatch)
+                                                {
+                                                    <input type="text" name="Subjects[@i].CourseCode" value="@displayCourseCode" class="form-control" />
+                                                    @if (subject.CourseCode != displayCourseCode)
+                                                    {
+                                                        <small class="text-muted">Suggested: @subject.CourseCode</small>
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    @(string.IsNullOrEmpty(displayCourseCode) ? "N/A" : displayCourseCode)
+                                                    <input type="hidden" name="Subjects[@i].CourseCode" value="@displayCourseCode" />
+                                                }
+                                            </td>
+                                            <td>
+                                                <input type="text" name="Subjects[@i].Grade" value="@subject.Grade" class="form-control" />
+                                            </td>
+                                            <td>
+                                                @if (isFuzzyMatch)
+                                                {
+                                                    <input type="text" name="Subjects[@i].GymnasiumPoints" value="@displayGymnasiumPoints" class="form-control gymnasium-points" />
+                                                    @if (subject.GymnasiumPoints != displayGymnasiumPoints)
+                                                    {
+                                                        <small class="text-muted">Suggested: @subject.GymnasiumPoints</small>
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    @displayGymnasiumPoints
+                                                    <input type="hidden" name="Subjects[@i].GymnasiumPoints" value="@displayGymnasiumPoints" />
+                                                }
                                             </td>
                                         </tr>
+
+                                        @if (isFuzzyMatch && !isBelowThreshold)
+                                        {
+                                            <tr>
+                                                <td colspan="4">
+                                                    <div class="alert alert-info mt-2">
+                                                        <strong>Note:</strong> Quality of our suggested match is <strong>@fuzzyScore%</strong>. Please review it carefully and confirm.
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        }
+                                        else if (isBelowThreshold)
+                                        {
+                                            <tr>
+                                                <td colspan="4">
+                                                    <div class="alert alert-danger mt-2">
+                                                        <strong>Attention:</strong> We could not find a match for this course. Please help us correct the details.
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        }
                                     }
-                                    else if (isBelowThreshold)
-                                    {
-                                        <tr>
-                                            <td colspan="4">
-                                                <div class="alert alert-danger mt-2">
-                                                    <strong>Attention:</strong> We could not find a match for this course. Please help us correct the details.
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    }
-                                }
                                 </tbody>
                             </table>
                             <button type="submit" class="btn btn-success mt-3">Save Changes</button>
@@ -309,26 +290,46 @@
                         <button id="readDocumentButton" class="btn btn-secondary mt-3">Go Back</button>
                     </div>
                 }
+            </div>
 
-            }
-            else
-            {
-                <div class="alert alert-info mt-4" role="alert">
-                    No document details could be found.
+            <!-- Right Column -->
+            <div class="col-lg-6">
+                <div class="file-viewer" style="position: sticky; top: 20px;">
+                    <h3 class="mt-4">Document Preview</h3>
+                    <div id="fileContainer" class="card mt-2">
+                        <div class="card-body">
+                            @if (Model.ContentType == "application/pdf")
+                            {
+                                <iframe id="pdfIframe" src="@Url.Action("GetDocumentFile", "Home", new { id = Model.Id })" width="100%" height="900px" style="border:none;">
+                                    Your browser does not support inline PDF viewing.
+                                </iframe>
+                                <p id="pdfViewerMessage" class="text-muted mt-2" style="display:none;">This browser does not support inline PDF viewing. You can download the document below.</p>
+                            }
+                            else if (Model.ContentType.StartsWith("image/"))
+                            {
+                                <img src="@Url.Action("GetDocumentFile", "Home", new { id = Model.Id })" alt="Document Image" style="width: 100%; height: auto;" />
+                            }
+                            else
+                            {
+                                <p>Unsupported file type for inline viewing. Please download the document below.</p>
+                            }
+                        </div>
+                    </div>
                 </div>
-            }
+            </div>
         </div>
-        
-    </div>
-    <div class="p-4 text-center">
-        <div class="p-2">
-            <a asp-action="CheckRequirements" asp-controller="Home" asp-route-id="@Model.Id" class="btn btn-primary">Check Requirements</a><br />
+
+        <!-- Buttons at the bottom -->
+        <div class="p-4 text-center">
+            <div class="p-2">
+                <a asp-action="CheckRequirements" asp-controller="Home" asp-route-id="@Model.Id" class="btn btn-primary">Check Requirements</a><br />
+            </div>
+            <div class="p-2">
+                <a asp-action="ViewUploadedDocuments" asp-controller="Home" class="btn btn-secondary">Back to Documents</a>
+            </div>
         </div>
-        <div class="p-2">
-            <a asp-action="ViewUploadedDocuments" asp-controller="Home" class="btn btn-secondary">Back to Documents</a>
-        </div>
-    </div>
-    @section Scripts
+
+        @section Scripts
     {
         <script>
             document.addEventListener('DOMContentLoaded', function () {
@@ -344,7 +345,7 @@
                     pdfIframe.style.display = 'block';
                     pdfViewerMessage.style.display = 'none';
                 } else if (pdfViewerMessage) {
-                    pdfViewerMessage.innerText = "This browser does not support inline PDF viewing. You can download the document below.";
+                    pdfViewerMessage.style.display = 'block';
                 }
 
                 editButton.addEventListener('click', function () {
@@ -357,22 +358,28 @@
                     readOnlyView.style.display = 'block';
                 });
 
-                // Update total points when Gymnasium Points inputs change
                 function updateTotalPoints() {
                     var totalPoints = 0;
                     document.querySelectorAll('.gymnasium-points').forEach(function (input) {
                         var points = parseFloat(input.value) || 0;
                         totalPoints += points;
                     });
+                    document.getElementById('totalPointsDisplayEdit').innerText = totalPoints;
                 }
 
                 document.querySelectorAll('.gymnasium-points').forEach(function (input) {
                     input.addEventListener('input', updateTotalPoints);
                 });
 
-                // Initial calculation
                 updateTotalPoints();
             });
         </script>
+        }
+    }
+    else
+    {
+        <div class="alert alert-info mt-4" role="alert">
+            No document details could be found.
+        </div>
     }
 </div>
