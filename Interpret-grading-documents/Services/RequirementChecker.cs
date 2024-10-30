@@ -319,6 +319,8 @@ namespace Interpret_grading_documents.Services
                 var equivalentCourses = new List<string> { courseForAverage.Code };
                 equivalentCourses.AddRange(courseForAverage.AlternativeCourses.Select(alt => alt.Code));
 
+                bool matchFound = false;
+
                 foreach (var studentSubject in document.Subjects)
                 {
                     // Check if the student's course code matches any equivalent course code
@@ -340,26 +342,25 @@ namespace Interpret_grading_documents.Services
 
                         // Add the course result to the dictionary
                         courseMeritPoints[studentSubject.SubjectName] = meritPointResult;
+                        matchFound = true;
                         break; // Move to the next course after a match
                     }
-                    //else
-                    //{
-                    //    // if the student's course code does not match any equivalent course code, add course with N/A grade and N/a merit points to the dictionary
-                    //    // Course name should not be studentSubject.SubjectName, but the course name from the courseForAverage object
+                }
 
-                    //    var meritPointResult = new MeritPointResult
-                    //    {
-                    //        CourseName = courseForAverage.Name,
-                    //        StudentGrade = "N/A",
-                    //        MeritPoint = 0,
-                    //        OriginalCourseGrade = courseForAverage.Name,
-                    //        AlternativeCourseGrade = courseForAverage.AlternativeCourses.FirstOrDefault()?.Name,
-                    //        OtherGradesInAlternatives = courseForAverage.AlternativeCourses.Select(alt => alt.Name).ToList()
-                    //    };
+                // If no match was found, add the course with "N/A" grade and 0 merit points
+                if (!matchFound)
+                {
+                    var meritPointResult = new MeritPointResult
+                    {
+                        CourseName = courseForAverage.Name,
+                        StudentGrade = "N/A",
+                        MeritPoint = 0,
+                        OriginalCourseGrade = courseForAverage.Name,
+                        AlternativeCourseGrade = courseForAverage.AlternativeCourses.FirstOrDefault()?.Name,
+                        OtherGradesInAlternatives = courseForAverage.AlternativeCourses.Select(alt => alt.Name).ToList()
+                    };
 
-                    //    courseMeritPoints[courseForAverage.Name] = meritPointResult;
-
-                    //}
+                    courseMeritPoints[courseForAverage.Name] = meritPointResult;
                 }
             }
 

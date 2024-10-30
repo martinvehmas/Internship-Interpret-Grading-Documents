@@ -259,6 +259,8 @@ namespace Interpret_grading_documents.Controllers
                 var equivalentCourses = new List<string> { courseForAverage.Code };
                 equivalentCourses.AddRange(courseForAverage.AlternativeCourses.Select(alt => alt.Code));
 
+                bool matchFound = false;
+
                 foreach (var studentSubject in document.Subjects)
                 {
                     if (equivalentCourses.Contains(studentSubject.CourseCode.Trim(), StringComparer.OrdinalIgnoreCase))
@@ -268,8 +270,15 @@ namespace Interpret_grading_documents.Controllers
 
                         totalWeightedGradePoints += studentGradeValue * studentCoursePoints;
                         totalCoursePoints += studentCoursePoints;
+                        matchFound = true;
                         break;
                     }
+                }
+
+                // If no match was found
+                if (!matchFound)
+                {
+                    
                 }
             }
 
