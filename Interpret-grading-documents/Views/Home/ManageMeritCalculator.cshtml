@@ -162,14 +162,14 @@
             coursesForAverage.forEach(course => {
                 var alternativesHtml = course.AlternativeCourses.map(alt => `<div>${alt.Name} (${alt.Code})</div>`).join("");
                 var row = `<tr>
-                            <td>${course.Name}</td>
-                            <td>${course.Code}</td>
-                            <td>${alternativesHtml}</td>
-                            <td>
-                                <button class="btn btn-warning btn-sm" onclick="openEditCourseForAverageModal(${coursesForAverage.indexOf(course)})">Edit</button>
-                                <button class="btn btn-danger btn-sm" onclick="removeAverageCourse('${course.Code}')">Remove</button>
-                            </td>
-                        </tr>`;
+                                    <td>${course.Name}</td>
+                                    <td>${course.Code}</td>
+                                    <td>${alternativesHtml}</td>
+                                    <td>
+                                        <button class="btn btn-warning btn-sm" onclick="openEditCourseForAverageModal(${coursesForAverage.indexOf(course)})">Edit</button>
+                                        <button class="btn btn-danger btn-sm" onclick="removeAverageCourse('${course.Code}')">Remove</button>
+                                    </td>
+                                </tr>`;
                 tableBody.insertAdjacentHTML('beforeend', row);
             });
         }
@@ -184,17 +184,17 @@
             var div = document.createElement("div");
             div.className = "form-row mb-2 position-relative";
             div.innerHTML = `
-                        <div class="col">
-                            <input type="text" class="form-control alternative-name" placeholder="Alternative Name" value="${altName}" required />
-                            <div class="autocomplete-dropdown alternative-dropdown" style="display: none;"></div>
-                        </div>
-                        <div class="col">
-                            <input type="text" class="form-control alternative-code" placeholder="Alternative Code" value="${altCode}" required />
-                        </div>
-                        <div class="col-auto mt-2">
-                            <button type="button" class="btn btn-danger" onclick="removeAlternative(this)">Remove</button>
-                        </div>
-                    `;
+                                <div class="col">
+                                    <input type="text" class="form-control alternative-name" placeholder="Alternative Name" value="${altName}" required />
+                                    <div class="autocomplete-dropdown alternative-dropdown" style="display: none;"></div>
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control alternative-code" placeholder="Alternative Code" value="${altCode}" required />
+                                </div>
+                                <div class="col-auto mt-2">
+                                    <button type="button" class="btn btn-danger" onclick="removeAlternative(this)">Remove</button>
+                                </div>
+                            `;
             container.appendChild(div);
 
             var alternativeNameInput = div.querySelector(".alternative-name");
@@ -215,6 +215,15 @@
         function resetCourseModal() {
             document.getElementById("addCourseForAverageForm").reset();
             document.getElementById("alternativeCoursesContainer").innerHTML = '';
+            initAutocomplete(
+                document.getElementById("averageCourseName"),
+                document.getElementById("averageCourseNameDropdown"),
+                getMatchingCourses,
+                function (selectedItem) {
+                    document.getElementById("averageCourseName").value = selectedItem.courseData.CourseName;
+                    document.getElementById("averageCourseCode").value = selectedItem.courseData.CourseCode;
+                }
+            );
         }
 
         function submitAverageChanges() {
