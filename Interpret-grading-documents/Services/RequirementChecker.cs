@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using Interpret_grading_documents.Controllers;
 using Interpret_grading_documents.Models; // Add this using statement
 
 namespace Interpret_grading_documents.Services
@@ -88,6 +89,16 @@ namespace Interpret_grading_documents.Services
 
             string jsonContent = File.ReadAllText(jsonFilePath);
             return JsonSerializer.Deserialize<CourseEquivalents>(jsonContent);
+        }
+
+        private static List<CourseForAverage> LoadCoursesForAverage(string coursesForAverageFilePath)
+        {
+            if (System.IO.File.Exists(coursesForAverageFilePath))
+            {
+                var jsonContent = System.IO.File.ReadAllText(coursesForAverageFilePath);
+                return JsonSerializer.Deserialize<List<CourseForAverage>>(jsonContent);
+            }
+            return null;
         }
 
         public static Dictionary<string, RequirementResult> DoesStudentMeetRequirement(GPTService.GraduationDocument document, string jsonFilePath)
@@ -294,6 +305,48 @@ namespace Interpret_grading_documents.Services
             Console.WriteLine($"Average points: {Math.Round(average, 2)}");
 
             return Math.Round(average, 2); // Round to 2 decimal places if desired
+        }
+
+        public static Dictionary<string, MeritPointResult> GetCourseMeritPoints(GPTService.GraduationDocument document, string jsonFilePathForAverage)
+        {
+            var courseMeritPoints = new Dictionary<string, MeritPointResult>();
+            var coursesForAverage = LoadCoursesForAverage(jsonFilePathForAverage);
+            if (coursesForAverage == null) return courseMeritPoints;
+
+            foreach (var courseForAverage in coursesForAverage)
+            {
+                // Create a list of equivalent course codes (original + alternatives)
+                var equivalentCourses = new List<string> { courseForAverage.Code };
+                equivalentCourses.AddRange(courseForAverage.AlternativeCourses.Select(alt => alt.Code));
+
+                foreach (var studentSubject in document.Subjects)
+                {
+                    // Check if the student's course code matches any equivalent course code
+                    if (equivalentCourses.Contains(studentSubject.CourseCode.Trim(), StringComparer.OrdinalIgnoreCase))
+                    {
+                        double studentGradeValue = RequirementChecker.GetGradeValue(studentSubject.Grade.Trim());
+                        int studentCoursePoints = int.Parse(studentSubject.GymnasiumPoints);
+                        double meritPoints = studentGradeValue;
+
+                        // Create a MeritPointResult object for the course
+                        var meritPointResult = new MeritPointResult
+                        {
+                             CourseName = studentSubject.SubjectName,
+                             StudentGrade = studentSubject.Grade,
+                             MeritPoint = meritPoints,
+                             OriginalCourseGrade = courseForAverage.Name,
+                             AlternativeCourseGrade = courseForAverage.AlternativeCourses.FirstOrDefault()?.Name,
+                             OtherGradesInAlternatives = courseForAverage.AlternativeCourses.Select(alt => alt.Name).ToList()
+                        };
+
+                        // Add the course result to the dictionary
+                        courseMeritPoints[studentSubject.SubjectName] = meritPointResult;
+                        break; // Move to the next course after a match
+                    }
+                }
+            }
+
+            return courseMeritPoints;
         }
     }
 }
