@@ -369,13 +369,18 @@
                     const collapseElement = document.querySelector(targetId);
                     const icon = section.querySelector('.toggle-icon');
 
-                    collapseElement.addEventListener('show.bs.collapse', function () {
-                        icon.classList.add('rotate');
-                    });
+                    // Only add event listeners if the collapseElement exists
+                    if (collapseElement && icon) {
+                        collapseElement.addEventListener('show.bs.collapse', function () {
+                            icon.classList.add('rotate');
+                        });
 
-                    collapseElement.addEventListener('hide.bs.collapse', function () {
-                        icon.classList.remove('rotate');
-                    });
+                        collapseElement.addEventListener('hide.bs.collapse', function () {
+                            icon.classList.remove('rotate');
+                        });
+                    } else {
+                        console.info(`No alternative courses for ${section.textContent.trim()}`);
+                    }
                 });
             });
         </script>
