@@ -109,8 +109,6 @@ namespace Interpret_grading_documents.Controllers
             return coursesWithAverageFlag;
         }
 
-
-
         [HttpPost]
         public async Task<IActionResult> ProcessText(List<IFormFile> uploadedFiles)
         {
@@ -129,7 +127,7 @@ namespace Interpret_grading_documents.Controllers
                 // Check if the ImageReliability score is 0
                 if (extractedData.ImageReliability.ReliabilityScore == 0)
                 {
-                    ViewBag.Error = $"The uploaded document {extractedData.DocumentName} has to low reliability score of and cannot be analysed.";
+                    ViewBag.Error = $"The uploaded document {extractedData.DocumentName} has too low a reliability score and cannot be analyzed.";
                     return View("Index", _analyzedDocuments);
                 }
 
@@ -192,9 +190,7 @@ namespace Interpret_grading_documents.Controllers
             // merge documents into one
             var mergedDocument = MergeDocuments(_analyzedDocuments);
 
-            
-            var averageMeritPoints = RequirementChecker.CalculateAverageGrade(mergedDocument, jsonFilePath);
-
+            var averageMeritPoints = CalculateAverageMeritPoints(mergedDocument);
             ViewBag.AverageMeritPoints = averageMeritPoints;
 
             var viewModel = new UploadedDocumentsViewModel
@@ -205,7 +201,6 @@ namespace Interpret_grading_documents.Controllers
 
             return View(viewModel);
         }
-
 
         private GPTService.GraduationDocument MergeDocuments(List<GPTService.GraduationDocument> documents)
         {
@@ -248,7 +243,37 @@ namespace Interpret_grading_documents.Controllers
             return mergedDocument;
         }
 
+        private double CalculateAverageMeritPoints(GPTService.GraduationDocument document)
+        {
+            var coursesForAverage = LoadCoursesForAverage();
+            if (coursesForAverage == null) return 0;
 
+            double totalWeightedGradePoints = 0;
+            int totalCoursePoints = 0;
+
+            foreach (var courseForAverage in coursesForAverage)
+            {
+                var equivalentCourses = new List<string> { courseForAverage.Code };
+                equivalentCourses.AddRange(courseForAverage.AlternativeCourses.Select(alt => alt.Code));
+
+                foreach (var studentSubject in document.Subjects)
+                {
+                    if (equivalentCourses.Contains(studentSubject.CourseCode.Trim(), StringComparer.OrdinalIgnoreCase))
+                    {
+                        double studentGradeValue = RequirementChecker.GetGradeValue(studentSubject.Grade.Trim());
+                        int studentCoursePoints = int.Parse(studentSubject.GymnasiumPoints);
+
+                        totalWeightedGradePoints += studentGradeValue * studentCoursePoints;
+                        totalCoursePoints += studentCoursePoints;
+                        break;
+                    }
+                }
+            }
+
+            if (totalCoursePoints == 0) return 0;
+
+            return Math.Round(totalWeightedGradePoints / totalCoursePoints, 2);
+        }
 
         [HttpPost]
         public IActionResult RemoveDocument(Guid id)
@@ -257,15 +282,6 @@ namespace Interpret_grading_documents.Controllers
             if (document != null)
             {
                 _analyzedDocuments.Remove(document);
-
-                Console.WriteLine($"Document {document.DocumentName} was successfully removed");
-                Console.WriteLine($"\nDocuments remaining:");
-
-                foreach (var doc in _analyzedDocuments)
-                {
-                    Console.WriteLine(doc.DocumentName);
-                }
-
                 return RedirectToAction("ViewUploadedDocuments");
             }
             return NotFound();
@@ -321,12 +337,11 @@ namespace Interpret_grading_documents.Controllers
                 {
                     PropertyNameCaseInsensitive = true
                 });
-        
+
                 return new CoursesForAverageViewModel { CoursesForAverage = courses };
             }
             return null;
         }
-
 
         private void SaveCourseEquivalentsToFile(CourseEquivalents courseEquivalents)
         {
@@ -350,9 +365,8 @@ namespace Interpret_grading_documents.Controllers
 
             var requirementResults = RequirementChecker.DoesStudentMeetRequirement(document, jsonFilePath);
 
-            var test = RequirementChecker.CalculateAverageGrade(document, jsonFilePath);
+            var averageMeritPoints = CalculateAverageMeritPoints(document);
 
-            // Determine if all requirements are met
             bool meetsAllRequirements = requirementResults.Values.All(r => r.IsMet);
 
             var model = new RequirementCheckViewModel
@@ -362,11 +376,11 @@ namespace Interpret_grading_documents.Controllers
                 MeetsRequirement = meetsAllRequirements
             };
 
-            // Pass the jsonFilePath to the view via ViewBag
-            ViewBag.JsonFilePath = jsonFilePath;
+            ViewBag.AverageMeritPoints = averageMeritPoints;
 
             return View(model);
         }
+
         [HttpPost]
         public IActionResult SaveDocument(GPTService.GraduationDocument updatedDocument)
         {

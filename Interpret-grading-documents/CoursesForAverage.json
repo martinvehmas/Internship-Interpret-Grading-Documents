@@ -5,8 +5,8 @@
     "AlternativeCourses": []
   },
   {
-    "Name": "Programmering 1",
-    "Code": "PRRPRR01",
+    "Name": "Engelska A",
+    "Code": "EN1201",
     "AlternativeCourses": []
   },
   {
@@ -18,5 +18,15 @@
         "Code": "ADM1203"
       }
     ]
+  },
+  {
+    "Name": "Engelska 5",
+    "Code": "ENGENG05",
+    "AlternativeCourses": []
+  },
+  {
+    "Name": "Matematik 1a",
+    "Code": "MATMAT01a",
+    "AlternativeCourses": []
   }
 ]
