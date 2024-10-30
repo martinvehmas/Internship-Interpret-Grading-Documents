@@ -16,6 +16,18 @@
                     </div>
                 </div>
 
+                <div class="pdf-viewer mt-4">
+                    <h3 class="mt-4">Document Preview</h3>
+                    <div id="pdfContainer" class="card mt-2">
+                        <div class="card-body">
+                            <p id="pdfViewerMessage">Loading document preview...</p>
+                            <iframe id="pdfIframe" src="@Url.Action("GetDocumentPdf", "Home", new { id = Model.Id })" width="100%" height="600px" style="border:none; display:none;">
+                                Your browser does not support inline PDF viewing.
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Read-Only View -->
                 <div id="readOnlyView">
 
@@ -314,6 +326,16 @@
                 var readButton = document.getElementById('readDocumentButton');
                 var readOnlyView = document.getElementById('readOnlyView');
                 var editView = document.getElementById('editView');
+
+                var pdfViewerMessage = document.getElementById('pdfViewerMessage');
+                var pdfIframe = document.getElementById('pdfIframe');
+
+                if (navigator.pdfViewerEnabled && pdfIframe) {
+                    pdfIframe.style.display = 'block';
+                    pdfViewerMessage.style.display = 'none';
+                } else if (pdfViewerMessage) {
+                    pdfViewerMessage.innerText = "This browser does not support inline PDF viewing. You can download the document below.";
+                }
 
                 editButton.addEventListener('click', function () {
                     readOnlyView.style.display = 'none';

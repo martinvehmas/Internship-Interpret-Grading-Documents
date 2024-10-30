@@ -45,6 +45,7 @@ namespace Interpret_grading_documents.Services
 
             [JsonPropertyName("subjects")]
             public List<Subject> Subjects { get; set; }
+            public string PdfFilePath { get; set; }
 
             public ImageReliabilityResult ImageReliability { get; set; }
 

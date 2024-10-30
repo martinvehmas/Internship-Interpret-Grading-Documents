@@ -124,6 +124,22 @@ namespace Interpret_grading_documents.Controllers
             {
                 var extractedData = await GPTService.ProcessTextPrompts(uploadedFile);
 
+                // Save the uploaded PDF file to a permanent location
+                var uploadsFolder = Path.Combine(_hostingEnvironment.WebRootPath, "uploads");
+                if (!Directory.Exists(uploadsFolder))
+                {
+                    Directory.CreateDirectory(uploadsFolder);
+                }
+                var pdfFileName = $"{Guid.NewGuid()}{Path.GetExtension(uploadedFile.FileName)}";
+                var pdfFilePath = Path.Combine(uploadsFolder, pdfFileName);
+
+                using (var stream = new FileStream(pdfFilePath, FileMode.Create))
+                {
+                    await uploadedFile.CopyToAsync(stream);
+                }
+
+                extractedData.PdfFilePath = pdfFilePath;
+
                 // Check if the ImageReliability score is 0
                 if (extractedData.ImageReliability.ReliabilityScore == 0)
                 {
@@ -151,6 +167,7 @@ namespace Interpret_grading_documents.Controllers
 
             return RedirectToAction("ViewUploadedDocuments");
         }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
@@ -379,6 +396,20 @@ namespace Interpret_grading_documents.Controllers
             ViewBag.AverageMeritPoints = averageMeritPoints;
 
             return View(model);
+        }
+
+        [HttpGet]
+        public IActionResult GetDocumentPdf(Guid id)
+        {
+            var document = _analyzedDocuments.FirstOrDefault(d => d.Id == id);
+            if (document == null || string.IsNullOrEmpty(document.PdfFilePath))
+            {
+                return NotFound("Document not found or PDF unavailable.");
+            }
+
+            var fileBytes = System.IO.File.ReadAllBytes(document.PdfFilePath);
+            Response.Headers.Add("Content-Disposition", "inline; filename=" + $"{document.FullName}_Document.pdf");
+            return File(fileBytes, "application/pdf");
         }
 
         [HttpPost]
