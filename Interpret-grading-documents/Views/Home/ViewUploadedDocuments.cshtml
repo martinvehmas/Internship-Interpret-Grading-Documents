@@ -182,53 +182,66 @@
             <div class="mt-5">
                 <table class="table table-bordered table-hover align-middle shadow-sm">
                     <thead class="bg-success text-white">
-                        <tr>
-                            <th>Course Name</th>
-                            <th>Student's Grade</th>
-                            <th>Merit Point</th>
-                            <th>Notes</th>
-                        </tr>
+                    <tr>
+                        <th>Course Name</th>
+                        <th>Student's Grade</th>
+                        <th>Merit Point</th>
+                        <th>Notes</th>
+                    </tr>
                     </thead>
                     <tbody>
-                        @{
-                            var jsonFilePathForAverage = ViewBag.JsonFilePathForAverage;
-                            Dictionary<string, MeritPointResult> meritPointResults = Interpret_grading_documents.Services.RequirementChecker.GetCourseMeritPoints(Model.MergedDocument, jsonFilePathForAverage);
-                            // Dictionary<string, RequirementResult> requirementResults = Interpret_grading_documents.Services.RequirementChecker.DoesStudentMeetRequirement(Model.MergedDocument, jsonFilePath);
-                            foreach (var kvp in meritPointResults)
-                            {
-                                MeritPointResult result = kvp.Value;
+                    @{
+                        var jsonFilePathForAverage = ViewBag.JsonFilePathForAverage;
+                        Dictionary<string, MeritPointResult> meritPointResults = Interpret_grading_documents.Services.RequirementChecker.GetCourseMeritPoints(Model.MergedDocument, jsonFilePathForAverage);
+                        // Dictionary<string, RequirementResult> requirementResults = Interpret_grading_documents.Services.RequirementChecker.DoesStudentMeetRequirement(Model.MergedDocument, jsonFilePath);
+                        var meritPointResultEmpty = meritPointResults.Count != 0;
+                        foreach (var kvp in meritPointResults)
+                        {
+                            MeritPointResult result = kvp.Value;
 
-                                <tr>
-                                    <td>@result.CourseName</td>
-                                    <td>@result.StudentGrade</td>
-                                    <td>@result.MeritPoint.ToString("F2")</td> <!-- Format MeritPoint to 2 decimal places -->
-                                    <td class="text-start">
-                                        @if (result.CourseName != kvp.Key)
-                                        {
-                                            <span class="text-muted">Equivalent course for @kvp.Key</span>
-                                        }
-                                        else
-                                        {
-                                            // <span>Primary course</span>
-                                        }
-                                        @if (result.OtherGradesInAlternatives != null && result.OtherGradesInAlternatives.Count > 0)
-                                        {
-                                            <div class="mt-2">
-                                                <span>Alternative grades: </span>
-                                                <ul class="list-inline">
-                                                    @foreach (var altGrade in result.OtherGradesInAlternatives)
-                                                    {
-                                                        <li class="list-inline-item badge bg-secondary">@altGrade</li>
-                                                    }
-                                                </ul>
-                                            </div>
-                                        }
-                                    </td>
-                                </tr>
-                            }
+                            <tr>
+                                <td>@result.CourseName</td>
+                                <td>@result.StudentGrade</td>
+                                <td>@result.MeritPoint.ToString("F2")</td> <!-- Format MeritPoint to 2 decimal places -->
+                                <td>
+                                    @if (result.CourseName != kvp.Key)
+                                    {
+                                        <span class="text-muted">Equivalent course for @kvp.Key</span>
+                                    }
+                                    else
+                                    {
+                                        // <span>Primary course</span>
+                                    }
+                                    @if (result.OtherGradesInAlternatives != null && result.OtherGradesInAlternatives.Count > 0)
+                                    {
+                                        <div class="mt-2">
+                                            <span>Alternative Course: </span>
+                                            <ul class="list-inline">
+                                                @foreach (var altGrade in result.OtherGradesInAlternatives)
+                                                {
+                                                    <li class="list-inline-item badge bg-secondary">@altGrade</li>
+                                                }
+                                            </ul>
+                                        </div>
+                                    }
+                                </td>
+                            </tr>
                         }
+                    }
                     </tbody>
                 </table>
+                @if (meritPointResultEmpty)
+                {
+                    <div class="alert alert-success text-center mt-4" role="alert" style="font-size: 1.25rem;">
+                        <strong>Merit points for matching courses in grade documents.</strong>
+                    </div>
+                }
+                else
+                {
+                    <div class="alert alert-danger text-center mt-4" role="alert" style="font-size: 1.25rem;">
+                        <strong>The student does not have the specified courses to calculate merit points.</strong>
+                    </div>
+                }
             </div>
         }
         else

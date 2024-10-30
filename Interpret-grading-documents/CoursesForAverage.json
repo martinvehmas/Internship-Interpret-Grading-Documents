@@ -1,32 +1,37 @@
 [
   {
-    "Name": "Matematik 3c",
-    "Code": "MATMAT03c",
-    "AlternativeCourses": []
-  },
-  {
-    "Name": "Engelska A",
-    "Code": "EN1201",
-    "AlternativeCourses": []
-  },
-  {
-    "Name": "Administration A",
-    "Code": "ADM1201",
+    "Name": "Engelska 5",
+    "Code": "ENGENG05",
     "AlternativeCourses": [
       {
-        "Name": "Aff\u00E4rskommunikation engelska",
-        "Code": "ADM1203"
+        "Name": "Engelska A",
+        "Code": "EN1201"
       }
     ]
   },
   {
-    "Name": "Engelska 5",
-    "Code": "ENGENG05",
+    "Name": "Matematik 1b",
+    "Code": "MATMAT01b",
     "AlternativeCourses": []
   },
   {
-    "Name": "Matematik 1a",
-    "Code": "MATMAT01a",
-    "AlternativeCourses": []
+    "Name": "Matematik 2b",
+    "Code": "MATMAT02b",
+    "AlternativeCourses": [
+      {
+        "Name": "Matematik B",
+        "Code": "MA1202"
+      }
+    ]
+  },
+  {
+    "Name": "Svenska 1",
+    "Code": "SVESVE01",
+    "AlternativeCourses": [
+      {
+        "Name": "Svenska A",
+        "Code": "SV1201"
+      }
+    ]
   }
 ]

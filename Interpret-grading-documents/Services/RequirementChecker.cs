@@ -325,7 +325,6 @@ namespace Interpret_grading_documents.Services
                     if (equivalentCourses.Contains(studentSubject.CourseCode.Trim(), StringComparer.OrdinalIgnoreCase))
                     {
                         double studentGradeValue = RequirementChecker.GetGradeValue(studentSubject.Grade.Trim());
-                        int studentCoursePoints = int.Parse(studentSubject.GymnasiumPoints);
                         double meritPoints = studentGradeValue;
 
                         // Create a MeritPointResult object for the course
@@ -343,6 +342,24 @@ namespace Interpret_grading_documents.Services
                         courseMeritPoints[studentSubject.SubjectName] = meritPointResult;
                         break; // Move to the next course after a match
                     }
+                    //else
+                    //{
+                    //    // if the student's course code does not match any equivalent course code, add course with N/A grade and N/a merit points to the dictionary
+                    //    // Course name should not be studentSubject.SubjectName, but the course name from the courseForAverage object
+
+                    //    var meritPointResult = new MeritPointResult
+                    //    {
+                    //        CourseName = courseForAverage.Name,
+                    //        StudentGrade = "N/A",
+                    //        MeritPoint = 0,
+                    //        OriginalCourseGrade = courseForAverage.Name,
+                    //        AlternativeCourseGrade = courseForAverage.AlternativeCourses.FirstOrDefault()?.Name,
+                    //        OtherGradesInAlternatives = courseForAverage.AlternativeCourses.Select(alt => alt.Name).ToList()
+                    //    };
+
+                    //    courseMeritPoints[courseForAverage.Name] = meritPointResult;
+
+                    //}
                 }
             }
 
