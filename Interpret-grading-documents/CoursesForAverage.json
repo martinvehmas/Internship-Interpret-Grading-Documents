@@ -10,23 +10,13 @@
     "AlternativeCourses": []
   },
   {
-    "Name": "Administration A",
-    "Code": "ADM1201",
-    "AlternativeCourses": [
-      {
-        "Name": "Aff\u00E4rskommunikation engelska",
-        "Code": "ADM1203"
-      }
-    ]
-  },
-  {
-    "Name": "Engelska 5",
-    "Code": "ENGENG05",
+    "Name": "Engelska B",
+    "Code": "EN1202",
     "AlternativeCourses": []
   },
   {
-    "Name": "Matematik 1a",
-    "Code": "MATMAT01a",
+    "Name": "Matematik A",
+    "Code": "MA1201",
     "AlternativeCourses": []
   }
 ]

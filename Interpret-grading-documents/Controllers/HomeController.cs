@@ -168,7 +168,7 @@ namespace Interpret_grading_documents.Controllers
             return View(document);
         }
 
-        public IActionResult ViewUploadedDocuments()
+        public async Task<IActionResult> ViewUploadedDocuments()
         {
             if (_analyzedDocuments.Count == 0)
             {
@@ -190,7 +190,7 @@ namespace Interpret_grading_documents.Controllers
             // merge documents into one
             var mergedDocument = MergeDocuments(_analyzedDocuments);
 
-            var averageMeritPoints = CalculateAverageMeritPoints(mergedDocument);
+            var averageMeritPoints = await CalculateAverageMeritPoints(mergedDocument); // Await here
             ViewBag.AverageMeritPoints = averageMeritPoints;
 
             var viewModel = new UploadedDocumentsViewModel
@@ -243,37 +243,70 @@ namespace Interpret_grading_documents.Controllers
             return mergedDocument;
         }
 
-        private double CalculateAverageMeritPoints(GPTService.GraduationDocument document)
+        private async Task<double> CalculateAverageMeritPoints(GPTService.GraduationDocument document)
         {
             var coursesForAverage = LoadCoursesForAverage();
             if (coursesForAverage == null) return 0;
+
+            // Fetch combined courses from ValidationData for additional course details
+            var validationCourses = await ValidationData.GetCombinedCourses();
+
+            // Build a dictionary from course codes to CourseDetail
+            var courseCodeToCourseDetail = validationCourses.Values
+                .Where(c => !string.IsNullOrEmpty(c.CourseCode))
+                .ToDictionary(c => c.CourseCode.Trim(), c => c, StringComparer.OrdinalIgnoreCase);
 
             double totalWeightedGradePoints = 0;
             int totalCoursePoints = 0;
 
             foreach (var courseForAverage in coursesForAverage)
             {
+                // Create a list of equivalent courses (main and alternatives)
                 var equivalentCourses = new List<string> { courseForAverage.Code };
                 equivalentCourses.AddRange(courseForAverage.AlternativeCourses.Select(alt => alt.Code));
 
-                foreach (var studentSubject in document.Subjects)
-                {
-                    if (equivalentCourses.Contains(studentSubject.CourseCode.Trim(), StringComparer.OrdinalIgnoreCase))
-                    {
-                        double studentGradeValue = RequirementChecker.GetGradeValue(studentSubject.Grade.Trim());
-                        int studentCoursePoints = int.Parse(studentSubject.GymnasiumPoints);
+                // Check if the course or an equivalent is in the document
+                var matchingSubject = document.Subjects
+                    .FirstOrDefault(s => equivalentCourses.Contains(s.CourseCode?.Trim(), StringComparer.OrdinalIgnoreCase));
 
-                        totalWeightedGradePoints += studentGradeValue * studentCoursePoints;
-                        totalCoursePoints += studentCoursePoints;
-                        break;
+                int points = 0;
+                double gradeValue = 0;
+
+                if (matchingSubject != null)
+                {
+                    // Course is in the document
+                    gradeValue = RequirementChecker.GetGradeValue(matchingSubject.Grade.Trim());
+                    points = int.TryParse(matchingSubject.GymnasiumPoints, out var parsedPoints) ? parsedPoints : 0;
+                }
+                else
+                {
+                    // Course not in document, get points from validation data
+                    var foundCourse = equivalentCourses
+                        .Select(code => courseCodeToCourseDetail.TryGetValue(code.Trim(), out var c) ? c : null)
+                        .FirstOrDefault(c => c != null);
+
+                    if (foundCourse != null)
+                    {
+                        gradeValue = 0; // Assign a grade value of 0 for missing courses
+                        points = foundCourse.Points ?? 0;
+                    }
+                    else
+                    {
+                        // Course code not found in validation data, skip to next course
+                        continue;
                     }
                 }
+
+                totalWeightedGradePoints += gradeValue * points;
+                totalCoursePoints += points;
             }
 
-            if (totalCoursePoints == 0) return 0;
-
-            return Math.Round(totalWeightedGradePoints / totalCoursePoints, 2);
+            // Calculate the average if totalCoursePoints is greater than zero
+            return totalCoursePoints > 0 ? Math.Round(totalWeightedGradePoints / totalCoursePoints, 2) : 0;
         }
+
+
+
 
         [HttpPost]
         public IActionResult RemoveDocument(Guid id)
