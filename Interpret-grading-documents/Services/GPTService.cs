@@ -135,7 +135,8 @@ namespace Interpret_grading_documents.Services
         public static void ExamValidator(GraduationDocument document)
         {
             if (document.Title.Contains("Examensbevis", StringComparison.OrdinalIgnoreCase) ||
-                document.Title.Contains("Gymnasieexamen", StringComparison.OrdinalIgnoreCase))
+                document.Title.Contains("Gymnasieexamen", StringComparison.OrdinalIgnoreCase) ||
+                document.Title.Contains("Slutbetyg", StringComparison.OrdinalIgnoreCase))
             {
                 if (document.SchoolForm.Contains("Gymnasieskola", StringComparison.OrdinalIgnoreCase))
                 {
@@ -280,7 +281,7 @@ namespace Interpret_grading_documents.Services
                 new UserChatMessage(
                     ChatMessageContentPart.CreateTextPart("Vänligen extrahera följande data från bilden, svara endast med JSON, formatera det inte med <pre> eller liknande. Säkerställ att alla betygen är korrekta och överenstämmer med deras ämne."),
                     ChatMessageContentPart.CreateTextPart(
-                        "0. Dokumentets titel (Exempel: Examensbevis, Slutbetyg, Studiebevis\n" +
+                        "0. Dokumentets titel (Exempel: Examensbevis, Slutbetyg, Studiebevis, Samlat betygsdokument\n" +
                         "1. Fullständigt namn\n" +
                         "2. Personnummer\n" +
                         "3. Examensdatum\n" +
