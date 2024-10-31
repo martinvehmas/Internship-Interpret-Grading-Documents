@@ -124,6 +124,23 @@ namespace Interpret_grading_documents.Controllers
             {
                 var extractedData = await GPTService.ProcessTextPrompts(uploadedFile);
 
+                // Save the uploaded file to a permanent location
+                var uploadsFolder = Path.Combine(_hostingEnvironment.WebRootPath, "uploads");
+                if (!Directory.Exists(uploadsFolder))
+                {
+                    Directory.CreateDirectory(uploadsFolder);
+                }
+                var uniqueFileName = $"{Guid.NewGuid()}{Path.GetExtension(uploadedFile.FileName).ToLower()}";
+                var filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await uploadedFile.CopyToAsync(stream);
+                }
+
+                extractedData.FilePath = filePath;
+                extractedData.ContentType = uploadedFile.ContentType;
+
                 // Check if the ImageReliability score is 0
                 if (extractedData.ImageReliability.ReliabilityScore == 0)
                 {
@@ -135,13 +152,10 @@ namespace Interpret_grading_documents.Controllers
                 {
                     existingPersonalId = extractedData.PersonalId;
                 }
-                else
+                else if (extractedData.PersonalId != existingPersonalId)
                 {
-                    if (extractedData.PersonalId != existingPersonalId)
-                    {
-                        ViewBag.Error = "One or more uploaded documents do not match the social security ID of previously uploaded documents.";
-                        return View("Index", _analyzedDocuments);
-                    }
+                    ViewBag.Error = "One or more uploaded documents do not match the social security ID of previously uploaded documents.";
+                    return View("Index", _analyzedDocuments);
                 }
 
                 newDocuments.Add(extractedData);
@@ -416,6 +430,26 @@ namespace Interpret_grading_documents.Controllers
 
             return View(model);
         }
+        [HttpGet]
+        public IActionResult GetDocumentFile(Guid id)
+        {
+            var document = _analyzedDocuments.FirstOrDefault(d => d.Id == id);
+            if (document == null || string.IsNullOrEmpty(document.FilePath))
+            {
+                return NotFound("Document not found or file unavailable.");
+            }
+
+            var fileBytes = System.IO.File.ReadAllBytes(document.FilePath);
+
+            if (document.ContentType == "application/pdf")
+            {
+                // Set Content-Disposition to inline for PDF files to enable in-browser viewing
+                Response.Headers.Add("Content-Disposition", "inline");
+            }
+
+            return File(fileBytes, document.ContentType);
+        }
+
 
         [HttpPost]
         public IActionResult SaveDocument(GPTService.GraduationDocument updatedDocument)
