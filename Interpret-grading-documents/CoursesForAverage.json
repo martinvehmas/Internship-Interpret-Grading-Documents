@@ -1,22 +1,37 @@
 [
   {
-    "Name": "Matematik 3c",
-    "Code": "MATMAT03c",
+    "Name": "Engelska 5",
+    "Code": "ENGENG05",
+    "AlternativeCourses": [
+      {
+        "Name": "Engelska A",
+        "Code": "EN1201"
+      }
+    ]
+  },
+  {
+    "Name": "Matematik 1b",
+    "Code": "MATMAT01b",
     "AlternativeCourses": []
   },
   {
-    "Name": "Engelska A",
-    "Code": "EN1201",
-    "AlternativeCourses": []
+    "Name": "Matematik 2b",
+    "Code": "MATMAT02b",
+    "AlternativeCourses": [
+      {
+        "Name": "Matematik B",
+        "Code": "MA1202"
+      }
+    ]
   },
   {
-    "Name": "Engelska B",
-    "Code": "EN1202",
-    "AlternativeCourses": []
-  },
-  {
-    "Name": "Matematik A",
-    "Code": "MA1201",
-    "AlternativeCourses": []
+    "Name": "Svenska 1",
+    "Code": "SVESVE01",
+    "AlternativeCourses": [
+      {
+        "Name": "Svenska A",
+        "Code": "SV1201"
+      }
+    ]
   }
 ]

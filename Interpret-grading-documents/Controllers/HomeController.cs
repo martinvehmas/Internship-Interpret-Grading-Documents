@@ -187,6 +187,9 @@ namespace Interpret_grading_documents.Controllers
             string jsonFilePath = Path.Combine(_hostingEnvironment.ContentRootPath, "CourseEquivalents.json");
             ViewBag.JsonFilePath = jsonFilePath;
 
+            string jsonFilePathForAverage = Path.Combine(_hostingEnvironment.ContentRootPath, "CoursesForAverage.json");
+            ViewBag.JsonFilePathForAverage = jsonFilePathForAverage;
+
             // merge documents into one
             var mergedDocument = MergeDocuments(_analyzedDocuments);
 
