@@ -5,6 +5,7 @@ using System.Text.Json.Serialization;
 using ImageMagick;
 using OpenCvSharp;
 using Interpret_grading_documents.Data;
+using PDFtoImage;
 
 namespace Interpret_grading_documents.Services
 {
@@ -216,24 +217,11 @@ namespace Interpret_grading_documents.Services
         {
             string jpgPath = Path.Combine(Path.GetTempPath(), $"{Guid.NewGuid()}.jpg");
 
-            using (var images = new MagickImageCollection())
+            using (var pdfStream = File.OpenRead(pdfPath))
             {
-                var settings = new MagickReadSettings
-                {
-                    Density = new Density(300)
-                };
+                var options = new RenderOptions(Dpi: 300);
 
-                images.Read(pdfPath, settings);
-
-                if (images.Count > 0)
-                {
-                    images[0].Format = MagickFormat.Jpeg;
-                    await Task.Run(() => images[0].Write(jpgPath));
-                }
-                else
-                {
-                    throw new InvalidOperationException("No images found in PDF.");
-                }
+                await Task.Run(() => Conversion.SaveJpeg(jpgPath, pdfStream, options: options));
             }
 
             return jpgPath;
