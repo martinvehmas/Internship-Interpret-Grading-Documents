@@ -247,6 +247,12 @@
             $('#addCourseModal').modal('show');
         }
 
+        function deleteCourse(subjectIndex, courseIndex) {
+            var subject = courseEquivalents.subjects[subjectIndex];
+            subject.courses.splice(courseIndex, 1);
+            submitChanges();
+        }
+
         function openEditCourseModal(subjectIndex, courseIndex) {
             var subject = courseEquivalents.subjects[subjectIndex];
             var course = subject.courses[courseIndex];
