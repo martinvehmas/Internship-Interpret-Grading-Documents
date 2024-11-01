@@ -4,6 +4,7 @@ using System.Text.Json;
 using Interpret_grading_documents.Data;
 using Interpret_grading_documents.Models;
 using System.Reflection.Metadata;
+using System.Security.Cryptography;
 
 namespace Interpret_grading_documents.Controllers
 {
@@ -11,7 +12,8 @@ namespace Interpret_grading_documents.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IWebHostEnvironment _hostingEnvironment;
-        private static List<GPTService.GraduationDocument> _analyzedDocuments = new List<GPTService.GraduationDocument>();
+
+        private static Dictionary<string, List<GPTService.GraduationDocument>> _userDocuments = new Dictionary<string, List<GPTService.GraduationDocument>>();
 
         private readonly string courseEquivalentsFilePath = Path.Combine(Directory.GetCurrentDirectory(), "CourseEquivalents.json");
         private readonly string coursesForAverageFilePath = Path.Combine(Directory.GetCurrentDirectory(), "CoursesForAverage.json");
@@ -22,6 +24,37 @@ namespace Interpret_grading_documents.Controllers
             _hostingEnvironment = hostingEnvironment;
         }
 
+        private string GetUserSessionId()
+        {
+            if (!Request.Cookies.ContainsKey("UserSessionId"))
+            {
+                var sessionId = GenerateSessionId();
+                Response.Cookies.Append("UserSessionId", sessionId, new CookieOptions { HttpOnly = true, IsEssential = true });
+                return sessionId;
+            }
+            return Request.Cookies["UserSessionId"];
+        }
+
+        private string GenerateSessionId()
+        {
+            using (var rng = RandomNumberGenerator.Create())
+            {
+                var bytes = new byte[16];
+                rng.GetBytes(bytes);
+                return Convert.ToBase64String(bytes);
+            }
+        }
+
+        private List<GPTService.GraduationDocument> GetUserDocuments()
+        {
+            var sessionId = GetUserSessionId();
+            if (!_userDocuments.ContainsKey(sessionId))
+            {
+                _userDocuments[sessionId] = new List<GPTService.GraduationDocument>();
+            }
+            return _userDocuments[sessionId];
+        }
+
         public IActionResult Index()
         {
             var coursesWithAverageFlag = GetCoursesWithAverageFlag();
@@ -30,7 +63,7 @@ namespace Interpret_grading_documents.Controllers
             var coursesForAverage = GetCoursesForAverage();
             ViewBag.CoursesForAverage = coursesForAverage;
 
-            return View(_analyzedDocuments);
+            return View(GetUserDocuments());
         }
 
         [HttpGet]
@@ -38,7 +71,7 @@ namespace Interpret_grading_documents.Controllers
         {
             var coursesForAverage = LoadCoursesForAverage() ?? new List<CourseForAverage>();
 
-            var validationCourses = await ValidationData.GetCombinedCourses(); // Fetch courses from API or source
+            var validationCourses = await ValidationData.GetCombinedCourses();
             var availableCourses = validationCourses.Values.Select(c => new AvailableCourse
             {
                 CourseName = c.CourseName,
@@ -112,12 +145,14 @@ namespace Interpret_grading_documents.Controllers
         [HttpPost]
         public async Task<IActionResult> ProcessText(List<IFormFile> uploadedFiles)
         {
+            var userDocuments = GetUserDocuments();
+
             if (uploadedFiles == null || uploadedFiles.Count == 0)
             {
                 ViewBag.Error = "Please upload valid documents.";
-                return View("Index", _analyzedDocuments);
+                return View("Index", userDocuments);
             }
-            string existingPersonalId = _analyzedDocuments.FirstOrDefault()?.PersonalId;
+            string existingPersonalId = userDocuments.FirstOrDefault()?.PersonalId;
             List<GPTService.GraduationDocument> newDocuments = new List<GPTService.GraduationDocument>();
 
             foreach (var uploadedFile in uploadedFiles)
@@ -145,7 +180,7 @@ namespace Interpret_grading_documents.Controllers
                 if (extractedData.ImageReliability.ReliabilityScore == 0)
                 {
                     ViewBag.Error = $"The uploaded document {extractedData.DocumentName} has too low a reliability score and cannot be analyzed.";
-                    return View("Index", _analyzedDocuments);
+                    return View("Index", userDocuments);
                 }
 
                 if (string.IsNullOrEmpty(existingPersonalId))
@@ -155,13 +190,13 @@ namespace Interpret_grading_documents.Controllers
                 else if (extractedData.PersonalId != existingPersonalId)
                 {
                     ViewBag.Error = "One or more uploaded documents do not match the social security ID of previously uploaded documents.";
-                    return View("Index", _analyzedDocuments);
+                    return View("Index", userDocuments);
                 }
 
                 newDocuments.Add(extractedData);
             }
 
-            _analyzedDocuments.AddRange(newDocuments);
+            userDocuments.AddRange(newDocuments);
 
             return RedirectToAction("ViewUploadedDocuments");
         }
@@ -174,7 +209,7 @@ namespace Interpret_grading_documents.Controllers
 
         public IActionResult ViewDocument(Guid id)
         {
-            var document = _analyzedDocuments.Find(d => d.Id == id);
+            var document = GetUserDocuments().Find(d => d.Id == id);
             if (document == null)
             {
                 return NotFound();
@@ -184,15 +219,17 @@ namespace Interpret_grading_documents.Controllers
 
         public async Task<IActionResult> ViewUploadedDocuments()
         {
-            if (_analyzedDocuments.Count == 0)
+            var userDocuments = GetUserDocuments();
+
+            if (userDocuments.Count == 0)
             {
                 ViewBag.UserName = null;
                 ViewBag.ExamStatus = null;
             }
             else
             {
-                string highestExamStatus = GPTService.GetHighestExamStatus(_analyzedDocuments);
-                string userName = _analyzedDocuments.FirstOrDefault()?.FullName ?? "Uploaded";
+                string highestExamStatus = GPTService.GetHighestExamStatus(userDocuments);
+                string userName = userDocuments.FirstOrDefault()?.FullName ?? "Uploaded";
 
                 ViewBag.UserName = userName;
                 ViewBag.ExamStatus = highestExamStatus;
@@ -204,15 +241,14 @@ namespace Interpret_grading_documents.Controllers
             string jsonFilePathForAverage = Path.Combine(_hostingEnvironment.ContentRootPath, "CoursesForAverage.json");
             ViewBag.JsonFilePathForAverage = jsonFilePathForAverage;
 
-            // merge documents into one
-            var mergedDocument = MergeDocuments(_analyzedDocuments);
+            var mergedDocument = MergeDocuments(userDocuments);
 
-            var averageMeritPoints = await CalculateAverageMeritPoints(mergedDocument); // Await here
+            var averageMeritPoints = await CalculateAverageMeritPoints(mergedDocument);
             ViewBag.AverageMeritPoints = averageMeritPoints;
 
             var viewModel = new UploadedDocumentsViewModel
             {
-                Documents = _analyzedDocuments,
+                Documents = userDocuments,
                 MergedDocument = mergedDocument
             };
 
@@ -328,10 +364,11 @@ namespace Interpret_grading_documents.Controllers
         [HttpPost]
         public IActionResult RemoveDocument(Guid id)
         {
-            var document = _analyzedDocuments.Find(d => d.Id == id);
+            var userDocuments = GetUserDocuments();
+            var document = userDocuments.Find(d => d.Id == id);
             if (document != null)
             {
-                _analyzedDocuments.Remove(document);
+                userDocuments.Remove(document);
                 return RedirectToAction("ViewUploadedDocuments");
             }
             return NotFound();
@@ -407,7 +444,7 @@ namespace Interpret_grading_documents.Controllers
         public IActionResult CheckRequirements(Guid id)
         {
             string jsonFilePath = Path.Combine(_hostingEnvironment.ContentRootPath, "CourseEquivalents.json");
-            var document = _analyzedDocuments.Find(d => d.Id == id);
+            var document = GetUserDocuments().Find(d => d.Id == id);
             if (document == null)
             {
                 return NotFound();
@@ -430,10 +467,11 @@ namespace Interpret_grading_documents.Controllers
 
             return View(model);
         }
+
         [HttpGet]
         public IActionResult GetDocumentFile(Guid id)
         {
-            var document = _analyzedDocuments.FirstOrDefault(d => d.Id == id);
+            var document = GetUserDocuments().FirstOrDefault(d => d.Id == id);
             if (document == null || string.IsNullOrEmpty(document.FilePath))
             {
                 return NotFound("Document not found or file unavailable.");
@@ -443,13 +481,11 @@ namespace Interpret_grading_documents.Controllers
 
             if (document.ContentType == "application/pdf")
             {
-                // Set Content-Disposition to inline for PDF files to enable in-browser viewing
                 Response.Headers.Add("Content-Disposition", "inline");
             }
 
             return File(fileBytes, document.ContentType);
         }
-
 
         [HttpPost]
         public IActionResult SaveDocument(GPTService.GraduationDocument updatedDocument)
@@ -459,8 +495,8 @@ namespace Interpret_grading_documents.Controllers
                 return BadRequest();
             }
 
-            // Find the existing document by Id
-            var existingDocument = _analyzedDocuments.FirstOrDefault(d => d.Id == updatedDocument.Id);
+            var userDocuments = GetUserDocuments();
+            var existingDocument = userDocuments.FirstOrDefault(d => d.Id == updatedDocument.Id);
             if (existingDocument == null)
             {
                 return NotFound();
@@ -493,7 +529,8 @@ namespace Interpret_grading_documents.Controllers
 
         public bool UserHasValidExam()
         {
-            foreach (var document in _analyzedDocuments)
+            var userDocuments = GetUserDocuments();
+            foreach (var document in userDocuments)
             {
                 GPTService.ExamValidator(document);
 
