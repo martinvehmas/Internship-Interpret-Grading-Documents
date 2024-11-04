@@ -11,6 +11,30 @@
     <div class="mt-4 text-center">
         <button class="btn btn-primary" onclick="openAddCourseForAverageModal()">Add Course to Merit Calculation</button>
     </div>
+    
+    <!-- Collapsible Section - Help & Definitions -->
+    <div class="accordion mt-4" id="helpDefinitionsAccordion">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Help & Definitions
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#helpDefinitionsAccordion">
+                <div class="accordion-body">
+                    <p><strong>Here you can add courses that should be included in the average merit value calculation.</strong></p>
+                    <p><strong>Course Name:</strong> The official name of the course as listed in the academic records.</p>
+                    <p><strong>Course Code:</strong> A unique identifier for the course.</p>
+                    <p><strong>Alternatives:</strong> Other courses that can fulfill the same requirement if the primary course is not available or completed.</p>
+                    <p><strong>Actions:</strong></p>
+                    <ul>
+                        <li><strong>Edit:</strong> Modify the details of an existing course.</li>
+                        <li><strong>Delete:</strong> Delete the course from the requirements list.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="modal fade" id="addCourseForAverageModal" tabindex="-1" role="dialog" aria-labelledby="addCourseForAverageModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -75,8 +99,8 @@
                                         }
                                     </td>
                                     <td>
-                                        <button class="btn btn-warning btn-sm" onclick="openEditCourseForAverageModal(@Model.CoursesForAverage.IndexOf(course))">Edit</button>
-                                        <button class="btn btn-danger btn-sm" onclick="removeAverageCourse('@course.Code')">Remove</button>
+                                        <button class="btn btn-warning btn-sm mb-1" onclick="openEditCourseForAverageModal(@Model.CoursesForAverage.IndexOf(course))">Edit</button>
+                                        <button class="btn btn-danger btn-sm mb-1" onclick="removeAverageCourse('@course.Code')">Delete</button>
                                     </td>
                                 </tr>
                             }
@@ -167,7 +191,7 @@
                                     <td>${alternativesHtml}</td>
                                     <td>
                                         <button class="btn btn-warning btn-sm" onclick="openEditCourseForAverageModal(${coursesForAverage.indexOf(course)})">Edit</button>
-                                        <button class="btn btn-danger btn-sm" onclick="removeAverageCourse('${course.Code}')">Remove</button>
+                                        <button class="btn btn-danger btn-sm" onclick="removeAverageCourse('${course.Code}')">Delete</button>
                                     </td>
                                 </tr>`;
                 tableBody.insertAdjacentHTML('beforeend', row);
@@ -192,7 +216,7 @@
                                     <input type="text" class="form-control alternative-code" placeholder="Alternative Code" value="${altCode}" required />
                                 </div>
                                 <div class="col-auto mt-2">
-                                    <button type="button" class="btn btn-danger" onclick="removeAlternative(this)">Remove</button>
+                                    <button type="button" class="btn btn-danger" onclick="removeAlternative(this)">Delete</button>
                                 </div>
                             `;
             container.appendChild(div);
@@ -285,6 +309,24 @@
             }).map(function (course) {
                 return { displayText: course.CourseName, courseData: course };
             });
+        }
+        document.addEventListener('DOMContentLoaded', function () {
+            const collapseElement = document.getElementById('collapseOne');
+            const wasCollapsed = sessionStorage.getItem('helpDefinitionsCollapsed') === 'true';
+
+            if (!wasCollapsed) {
+                collapseElement.classList.add('show');
+            }
+
+            document.querySelector('.accordion-button').addEventListener('click', function () {
+                const isCurrentlyCollapsed = collapseElement.classList.contains('show');
+                sessionStorage.setItem('helpDefinitionsCollapsed', !isCurrentlyCollapsed);
+            });
+        });
+
+        function toggleCollapse(collapseId) {
+            const element = document.getElementById(collapseId);
+            element.classList.toggle('show');
         }
     </script>
 }
