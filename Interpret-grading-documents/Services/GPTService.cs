@@ -1,10 +1,12 @@
-﻿using System.Security;
+﻿using System.Drawing.Imaging;
+using System.Security;
 using OpenAI.Chat;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using ImageMagick;
 using OpenCvSharp;
 using Interpret_grading_documents.Data;
+using Spire.Pdf;
 
 namespace Interpret_grading_documents.Services
 {
@@ -216,19 +218,19 @@ namespace Interpret_grading_documents.Services
         {
             string jpgPath = Path.Combine(Path.GetTempPath(), $"{Guid.NewGuid()}.jpg");
 
-            using (var images = new MagickImageCollection())
+            using (PdfDocument pdf = new PdfDocument())
             {
-                var settings = new MagickReadSettings
-                {
-                    Density = new Density(300)
-                };
+                pdf.LoadFromFile(pdfPath);
 
-                images.Read(pdfPath, settings);
-
-                if (images.Count > 0)
+                if (pdf.Pages.Count > 0)
                 {
-                    images[0].Format = MagickFormat.Jpeg;
-                    await Task.Run(() => images[0].Write(jpgPath));
+                    // Save the first page to an image with 300 DPI
+                    var image = pdf.SaveAsImage(0, 300, 300); // Page index starts at 0
+
+                    // Save the image as a JPEG file
+                    await Task.Run(() => image.Save(jpgPath, ImageFormat.Jpeg));
+
+                    image.Dispose();
                 }
                 else
                 {
