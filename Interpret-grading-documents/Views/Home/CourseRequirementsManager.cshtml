@@ -34,39 +34,6 @@
             </div>
         </div>
     </div>
-    
-    <!-- Collapsible Section - Help & Definitions -->
-    <div class="accordion mt-4" id="helpDefinitionsAccordion">
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="headingOne">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    Help & Definitions
-                </button>
-            </h2>
-            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#helpDefinitionsAccordion">
-                <div class="accordion-body">
-                    <p><strong>Here you can add subjects, courses and required grades that the student should have.</strong></p>
-                    <p><strong>Course Name:</strong> The official name of the course as listed in the academic records.</p>
-                    <p><strong>Course Code:</strong> A unique identifier for the course.</p>
-                    <p><strong>Level:</strong>
-                        <br>For example:
-                        <ul>
-                            <li><strong>Matematik 1</strong> would have level 1.</li>
-                            <li><strong>Matematik 2</strong> would have level 2.</li>
-                        </ul>
-                        This is to ensure lower level courses would pass if the user has a higher level course.
-                    </p>
-                    <p><strong>Required Grade:</strong> The minimum grade required for the course.</p>
-                    <p><strong>Alternatives:</strong> Other courses that can fulfill the same requirement if the primary course is not available or completed.</p>
-                    <p><strong>Actions:</strong></p>
-                    <ul>
-                        <li><strong>Edit:</strong> Modify the details of an existing course.</li>
-                        <li><strong>Delete:</strong> Delete the course from the requirements list.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <div class="modal fade" id="addCourseModal" tabindex="-1" role="dialog" aria-labelledby="addCourseModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -127,6 +94,40 @@
 
     <div class="mt-4 text-center">
         <button class="btn btn-primary" onclick="openAddSubjectModal()">Add Subject</button>
+    </div>
+
+    <!-- Collapsible Section - Help & Definitions -->
+    <div class="accordion mt-4" id="helpDefinitionsAccordion">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Help & Definitions
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#helpDefinitionsAccordion">
+                <div class="accordion-body">
+                    <p><strong>Here you can add subjects, courses and required grades that the student should have.</strong></p>
+                    <p><strong>Course Name:</strong> The official name of the course as listed in the academic records.</p>
+                    <p><strong>Course Code:</strong> A unique identifier for the course.</p>
+                    <p>
+                        <strong>Level:</strong>
+                        <br>For example:
+                        <ul>
+                            <li><strong>Matematik 1</strong> would have level 1.</li>
+                            <li><strong>Matematik 2</strong> would have level 2.</li>
+                        </ul>
+                        This is to ensure lower level courses would pass if the user has a higher level course.
+                    </p>
+                    <p><strong>Required Grade:</strong> The minimum grade required for the course.</p>
+                    <p><strong>Alternatives:</strong> Other courses that can fulfill the same requirement if the primary course is not available or completed.</p>
+                    <p><strong>Actions:</strong></p>
+                    <ul>
+                        <li><strong>Edit:</strong> Modify the details of an existing course.</li>
+                        <li><strong>Delete:</strong> Delete the course from the requirements list.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="mt-4">
@@ -432,13 +433,23 @@
                 alert("An error occurred while saving changes.");
             });
         }
+        document.addEventListener('DOMContentLoaded', function () {
+            const collapseElement = document.getElementById('collapseOne');
+            const wasCollapsed = sessionStorage.getItem('helpDefinitionsCollapsed') === 'true';
+
+            if (!wasCollapsed) {
+                collapseElement.classList.add('show');
+            }
+
+            document.querySelector('.accordion-button').addEventListener('click', function () {
+                const isCurrentlyCollapsed = collapseElement.classList.contains('show');
+                sessionStorage.setItem('helpDefinitionsCollapsed', !isCurrentlyCollapsed);
+            });
+        });
+
         function toggleCollapse(collapseId) {
             const element = document.getElementById(collapseId);
-            if (element.classList.contains('show')) {
-                element.classList.remove('show');
-            } else {
-                element.classList.add('show');
-            }
+            element.classList.toggle('show');
         }
     </script>
 }

@@ -20,7 +20,7 @@
                     Help & Definitions
                 </button>
             </h2>
-            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#helpDefinitionsAccordion">
+            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#helpDefinitionsAccordion">
                 <div class="accordion-body">
                     <p><strong>Here you can add courses that should be included in the average merit value calculation.</strong></p>
                     <p><strong>Course Name:</strong> The official name of the course as listed in the academic records.</p>
@@ -310,13 +310,23 @@
                 return { displayText: course.CourseName, courseData: course };
             });
         }
+        document.addEventListener('DOMContentLoaded', function () {
+            const collapseElement = document.getElementById('collapseOne');
+            const wasCollapsed = sessionStorage.getItem('helpDefinitionsCollapsed') === 'true';
+
+            if (!wasCollapsed) {
+                collapseElement.classList.add('show');
+            }
+
+            document.querySelector('.accordion-button').addEventListener('click', function () {
+                const isCurrentlyCollapsed = collapseElement.classList.contains('show');
+                sessionStorage.setItem('helpDefinitionsCollapsed', !isCurrentlyCollapsed);
+            });
+        });
+
         function toggleCollapse(collapseId) {
             const element = document.getElementById(collapseId);
-            if (element.classList.contains('show')) {
-                element.classList.remove('show');
-            } else {
-                element.classList.add('show');
-            }
+            element.classList.toggle('show');
         }
     </script>
 }
