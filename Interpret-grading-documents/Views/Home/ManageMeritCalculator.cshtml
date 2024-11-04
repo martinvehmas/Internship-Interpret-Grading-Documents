@@ -312,7 +312,7 @@
         }
         document.addEventListener('DOMContentLoaded', function () {
             const collapseElement = document.getElementById('collapseOne');
-            const wasCollapsed = sessionStorage.getItem('helpDefinitionsCollapsed') === 'true';
+            const wasCollapsed = sessionStorage.getItem('helpDefinitionsCollapsedMerit') === 'true';
 
             if (!wasCollapsed) {
                 collapseElement.classList.add('show');
@@ -320,7 +320,7 @@
 
             document.querySelector('.accordion-button').addEventListener('click', function () {
                 const isCurrentlyCollapsed = collapseElement.classList.contains('show');
-                sessionStorage.setItem('helpDefinitionsCollapsed', !isCurrentlyCollapsed);
+                sessionStorage.setItem('helpDefinitionsCollapsedMerit', !isCurrentlyCollapsed);
             });
         });
 
