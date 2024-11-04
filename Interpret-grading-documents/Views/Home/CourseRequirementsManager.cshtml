@@ -34,6 +34,31 @@
             </div>
         </div>
     </div>
+    
+    <!-- Collapsible Section -->
+    <div class="accordion" id="helpDefinitionsAccordion">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Help & Definitions
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#helpDefinitionsAccordion">
+                <div class="accordion-body">
+                    <p><strong>Course Name:</strong> The official name of the course as listed in the academic records.</p>
+                    <p><strong>Course Code:</strong> A unique identifier for the course.</p>
+                    <p><strong>Level:</strong> The levels for checking the level of the course.</p>
+                    <p><strong>Required Grade:</strong> The minimum grade required for the course.</p>
+                    <p><strong>Alternatives:</strong> Other courses that can fulfill the same requirement if the primary course is not available or completed.</p>
+                    <p><strong>Actions:</strong></p>
+                    <ul>
+                        <li><strong>Edit:</strong> Modify the details of an existing course.</li>
+                        <li><strong>Delete:</strong> Remove the course from the requirements list.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="modal fade" id="addCourseModal" tabindex="-1" role="dialog" aria-labelledby="addCourseModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -158,6 +183,7 @@
 </div>
 
 @section Scripts {
+    
     <script>
         var courseEquivalents = @Html.Raw(JsonSerializer.Serialize(Model));
         var availableCourses = @Html.Raw(JsonSerializer.Serialize(ViewBag.AvailableCourses));
@@ -397,6 +423,14 @@
                 console.error("Error:", error);
                 alert("An error occurred while saving changes.");
             });
+        }
+        function toggleCollapse(collapseId) {
+            const element = document.getElementById(collapseId);
+            if (element.classList.contains('show')) {
+                element.classList.remove('show');
+            } else {
+                element.classList.add('show');
+            }
         }
     </script>
 }
