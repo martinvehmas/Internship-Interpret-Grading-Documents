@@ -1,11 +1,12 @@
-﻿using System.Security;
+﻿using System.Drawing.Imaging;
+using System.Security;
 using OpenAI.Chat;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using ImageMagick;
 using OpenCvSharp;
 using Interpret_grading_documents.Data;
-using PDFtoImage;
+using Spire.Pdf;
 
 namespace Interpret_grading_documents.Services
 {
@@ -217,11 +218,24 @@ namespace Interpret_grading_documents.Services
         {
             string jpgPath = Path.Combine(Path.GetTempPath(), $"{Guid.NewGuid()}.jpg");
 
-            using (var pdfStream = File.OpenRead(pdfPath))
+            using (PdfDocument pdf = new PdfDocument())
             {
-                var options = new RenderOptions(Dpi: 300);
+                pdf.LoadFromFile(pdfPath);
 
-                await Task.Run(() => Conversion.SaveJpeg(jpgPath, pdfStream, options: options));
+                if (pdf.Pages.Count > 0)
+                {
+                    // Save the first page to an image with 300 DPI
+                    var image = pdf.SaveAsImage(0, 300, 300); // Page index starts at 0
+
+                    // Save the image as a JPEG file
+                    await Task.Run(() => image.Save(jpgPath, ImageFormat.Jpeg));
+
+                    image.Dispose();
+                }
+                else
+                {
+                    throw new InvalidOperationException("No images found in PDF.");
+                }
             }
 
             return jpgPath;
