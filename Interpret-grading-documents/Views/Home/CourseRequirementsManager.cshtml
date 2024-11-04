@@ -104,6 +104,7 @@
             <div class="card mt-3">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h4>@subject.Name</h4>
+                    <button class="btn btn-danger btn-sm" onclick="deleteSubject(@subjectIndex)">Delete Subject</button>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -186,6 +187,13 @@
             courseEquivalents.subjects.push(newSubject);
             closeAddSubjectModal();
             submitChanges();
+        }
+
+        function deleteSubject(subjectIndex) {
+            if (confirm("Are you sure you want to delete this subject?")) {
+                courseEquivalents.subjects.splice(subjectIndex, 1);
+                submitChanges();
+            }
         }
 
         function initAutocomplete(inputElement, dropdownElement, getMatchingItems, onItemSelected) {
@@ -343,17 +351,17 @@
             var div = document.createElement("div");
             div.className = "form-row mb-2 position-relative";
             div.innerHTML = `
-                <div class="col">
-                    <input type="text" class="form-control alternative-name" placeholder="Alternative Name" value="${altName}" required />
-                    <div class="autocomplete-dropdown alternative-dropdown" style="display: none;"></div>
-                </div>
-                <div class="col">
-                    <input type="text" class="form-control alternative-code" placeholder="Alternative Code" value="${altCode}" required />
-                </div>
-                <div class="col-auto mt-2">
-                    <button type="button" class="btn btn-danger" onclick="removeAlternative(this)">Remove</button>
-                </div>
-            `;
+                        <div class="col">
+                            <input type="text" class="form-control alternative-name" placeholder="Alternative Name" value="${altName}" required />
+                            <div class="autocomplete-dropdown alternative-dropdown" style="display: none;"></div>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control alternative-code" placeholder="Alternative Code" value="${altCode}" required />
+                        </div>
+                        <div class="col-auto mt-2">
+                            <button type="button" class="btn btn-danger" onclick="removeAlternative(this)">Remove</button>
+                        </div>
+                    `;
             container.appendChild(div);
 
             var alternativeNameInput = div.querySelector(".alternative-name");
