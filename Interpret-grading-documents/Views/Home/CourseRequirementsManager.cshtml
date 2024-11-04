@@ -45,9 +45,10 @@
             </h2>
             <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#helpDefinitionsAccordion">
                 <div class="accordion-body">
+                    <p><strong>Here you can add subjects, courses and required grades that the student should have.</strong></p>
                     <p><strong>Course Name:</strong> The official name of the course as listed in the academic records.</p>
                     <p><strong>Course Code:</strong> A unique identifier for the course.</p>
-                    <p><strong>Level:</strong> 
+                    <p><strong>Level:</strong>
                         <br>For example:
                         <ul>
                             <li><strong>Matematik 1</strong> would have level 1.</li>
@@ -60,7 +61,7 @@
                     <p><strong>Actions:</strong></p>
                     <ul>
                         <li><strong>Edit:</strong> Modify the details of an existing course.</li>
-                        <li><strong>Delete:</strong> Remove the course from the requirements list.</li>
+                        <li><strong>Delete:</strong> Delete the course from the requirements list.</li>
                     </ul>
                 </div>
             </div>
@@ -392,7 +393,7 @@
                             <input type="text" class="form-control alternative-code" placeholder="Alternative Code" value="${altCode}" required />
                         </div>
                         <div class="col-auto mt-2">
-                            <button type="button" class="btn btn-danger" onclick="removeAlternative(this)">Remove</button>
+                            <button type="button" class="btn btn-danger" onclick="removeAlternative(this)">Delete</button>
                         </div>
                     `;
             container.appendChild(div);
