@@ -35,19 +35,26 @@
         </div>
     </div>
     
-    <!-- Collapsible Section -->
-    <div class="accordion" id="helpDefinitionsAccordion">
+    <!-- Collapsible Section - Help & Definitions -->
+    <div class="accordion mt-4" id="helpDefinitionsAccordion">
         <div class="accordion-item">
             <h2 class="accordion-header" id="headingOne">
                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                     Help & Definitions
                 </button>
             </h2>
-            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#helpDefinitionsAccordion">
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#helpDefinitionsAccordion">
                 <div class="accordion-body">
                     <p><strong>Course Name:</strong> The official name of the course as listed in the academic records.</p>
                     <p><strong>Course Code:</strong> A unique identifier for the course.</p>
-                    <p><strong>Level:</strong> The levels for checking the level of the course.</p>
+                    <p><strong>Level:</strong> 
+                        <br>For example:
+                        <ul>
+                            <li><strong>Matematik 1</strong> would have level 1.</li>
+                            <li><strong>Matematik 2</strong> would have level 2.</li>
+                        </ul>
+                        This is to ensure lower level courses would pass if the user has a higher level course.
+                    </p>
                     <p><strong>Required Grade:</strong> The minimum grade required for the course.</p>
                     <p><strong>Alternatives:</strong> Other courses that can fulfill the same requirement if the primary course is not available or completed.</p>
                     <p><strong>Actions:</strong></p>
