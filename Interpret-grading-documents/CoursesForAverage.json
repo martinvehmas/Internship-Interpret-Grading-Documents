@@ -10,14 +10,45 @@
     ]
   },
   {
+    "Name": "Engelska 6",
+    "Code": "ENGENG06",
+    "AlternativeCourses": [
+      {
+        "Name": "Engelska B",
+        "Code": "EN1202"
+      }
+    ]
+  },
+  {
     "Name": "Matematik 1b",
     "Code": "MATMAT01b",
-    "AlternativeCourses": []
+    "AlternativeCourses": [
+      {
+        "Name": "Matematik 1a",
+        "Code": "MATMAT01a"
+      },
+      {
+        "Name": "Matematik 1c",
+        "Code": "MATMAT01c"
+      },
+      {
+        "Name": "Matematik A",
+        "Code": "MA1201"
+      }
+    ]
   },
   {
     "Name": "Matematik 2b",
     "Code": "MATMAT02b",
     "AlternativeCourses": [
+      {
+        "Name": "Matematik 2a",
+        "Code": "MATMAT02a"
+      },
+      {
+        "Name": "Matematik 2c",
+        "Code": "MATMAT02c"
+      },
       {
         "Name": "Matematik B",
         "Code": "MA1202"
@@ -31,6 +62,36 @@
       {
         "Name": "Svenska A",
         "Code": "SV1201"
+      }
+    ]
+  },
+  {
+    "Name": "Svenska 2",
+    "Code": "SVESVE02",
+    "AlternativeCourses": [
+      {
+        "Name": "Svenska B",
+        "Code": "SV1202"
+      }
+    ]
+  },
+  {
+    "Name": "Programmering 1",
+    "Code": "PRRPRR01",
+    "AlternativeCourses": [
+      {
+        "Name": "Programmering A",
+        "Code": "DTR1207"
+      }
+    ]
+  },
+  {
+    "Name": "Gymnasiearbete",
+    "Code": "GYARTEK",
+    "AlternativeCourses": [
+      {
+        "Name": "Projektarbete",
+        "Code": "PA1201"
       }
     ]
   }

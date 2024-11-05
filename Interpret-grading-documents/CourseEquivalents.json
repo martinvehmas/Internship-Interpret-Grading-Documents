@@ -50,10 +50,76 @@
             {
               "name": "Matematik A",
               "code": "MA1201"
+            }
+          ],
+          "requiredGrade": "E",
+          "includeInAverage": true
+        },
+        {
+          "name": "Matematik 2c",
+          "code": "MATMAT02c",
+          "level": 2,
+          "alternatives": [
+            {
+              "name": "Matematik 2a",
+              "code": "MATMAT02a"
             },
             {
-              "name": "Matematik C",
-              "code": "MA1203"
+              "name": "Matematik 2b",
+              "code": "MATMAT02b"
+            },
+            {
+              "name": "Matematik B",
+              "code": "MA1202"
+            }
+          ],
+          "requiredGrade": "E",
+          "includeInAverage": true
+        }
+      ]
+    },
+    {
+      "name": "Programmering",
+      "courses": [
+        {
+          "name": "Programmering 1",
+          "code": "PRRPRR01",
+          "level": 1,
+          "alternatives": [
+            {
+              "name": "Programmering A",
+              "code": "DTR1207"
+            }
+          ],
+          "requiredGrade": "E",
+          "includeInAverage": false
+        }
+      ]
+    },
+    {
+      "name": "Svenska",
+      "courses": [
+        {
+          "name": "Svenska 1",
+          "code": "SVESVE01",
+          "level": 1,
+          "alternatives": [
+            {
+              "name": "Svenska A",
+              "code": "SV1201"
+            }
+          ],
+          "requiredGrade": "E",
+          "includeInAverage": true
+        },
+        {
+          "name": "Svenska 2",
+          "code": "SVESVE02",
+          "level": 2,
+          "alternatives": [
+            {
+              "name": "Svenska B",
+              "code": "SV1202"
             }
           ],
           "requiredGrade": "E",
