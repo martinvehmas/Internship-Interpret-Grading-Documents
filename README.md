@@ -2,15 +2,6 @@
 
 You can use the demo at https://interpret-grading-documents.azurewebsites.net/
 
-## Prerequisites
-
-
- **Ghostscript**  
-   Ghostscript is required for handling PDFs with `MagickImage` (used to convert PDF to images).  
-   You can download and install Ghostscript from [here](https://ghostscript.com/releases/gsdnld.html).
-   You must also set the bin path of the folder as a PATH enviroment variable.
-
-
 ## Installation
 
 Follow these steps to set up and run the project:
