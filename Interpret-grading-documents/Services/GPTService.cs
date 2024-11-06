@@ -274,7 +274,7 @@ namespace Interpret_grading_documents.Services
                 throw new InvalidOperationException("API key for GPT is not set in the environment variables.");
             }
 
-            return new ChatClient("gpt-4o-mini", apiKey);
+            return new ChatClient("gpt-4o", apiKey);
         }
 
         private static List<ChatMessage> PrepareChatMessages(string contentType, string originalImagePath)
