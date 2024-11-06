@@ -227,7 +227,7 @@
 
                 function validateFile(file) {
                     if (!allowedFileTypes.includes(file.type)) {
-                        displayError(`Invalid file type: ${file.name}. Only PDF, JPG, and PNG files are allowed.`);
+                        displayError(`Invalid file type: ${file.name}. Only PDF, JPG, PNG, and WEBP files are allowed.`);
                         return false;
                     }
                     if (file.size > maxFileSize) {

@@ -197,18 +197,18 @@ namespace Interpret_grading_documents.Services
             string processedImagePath = tempFilePath;
             string contentType;
 
-            if (extension == ".pdf" || extension == ".webp")
+            if (extension == ".pdf")
             {
                 processedImagePath = await ConvertToJpgAsync(tempFilePath);
                 contentType = "image/jpeg";
             }
-            else if (extension == ".jpg" || extension == ".jpeg" || extension == ".png")
+            else if (extension == ".jpg" || extension == ".jpeg" || extension == ".png" || extension == ".webp")
             {
                 contentType = GetImageContentType(extension);
             }
             else
             {
-                throw new NotSupportedException("Unsupported file type. Please provide a PDF, JPG, or PNG file.");
+                throw new NotSupportedException("Unsupported file type. Please provide a PDF, JPG, PNG or WEBP file.");
             }
 
             return (processedImagePath, contentType);
@@ -247,6 +247,7 @@ namespace Interpret_grading_documents.Services
             {
                 ".jpg" or ".jpeg" => "image/jpeg",
                 ".png" => "image/png",
+                ".webp" => "image/webp",
                 _ => throw new NotSupportedException("Unsupported image format.")
             };
         }
@@ -273,7 +274,7 @@ namespace Interpret_grading_documents.Services
                 throw new InvalidOperationException("API key for GPT is not set in the environment variables.");
             }
 
-            return new ChatClient("gpt-4o-mini", apiKey);
+            return new ChatClient("gpt-4o", apiKey);
         }
 
         private static List<ChatMessage> PrepareChatMessages(string contentType, string originalImagePath)
