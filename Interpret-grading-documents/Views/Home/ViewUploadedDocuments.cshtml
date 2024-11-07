@@ -83,85 +83,90 @@
                     <i class="bi bi-upload me-2"></i>Upload More Documents
                 </a>
             </div>
-
             <div class="mt-5">
                 <table class="table table-bordered table-hover align-middle shadow-sm">
                     <thead class="bg-primary text-white">
-                    <tr>
-                        <th>Course Name</th>
-                        <th>Required Grade</th>
-                        <th>Student's Grade</th>
-                        <th>Meets Requirement</th>
-                        <th>Notes</th>
-                    </tr>
+                        <tr>
+                            <th>Course Name</th>
+                            <th>Required Grade</th>
+                            <th>Student's Grade</th>
+                            <th>Meets Requirement</th>
+                            <th>Notes</th>
+                        </tr>
                     </thead>
                     <tbody>
-                    @{
-                        var jsonFilePath = ViewBag.JsonFilePath;
-                        Dictionary<string, RequirementResult> requirementResults = Interpret_grading_documents.Services.RequirementChecker.DoesStudentMeetRequirement(Model.MergedDocument, jsonFilePath);
-                        bool meetsAllRequirements = true;
-                        foreach (var kvp in requirementResults)
-                        {
-                            RequirementResult result = kvp.Value;
-                            if (!result.IsMet)
+                        @{
+                            var jsonFilePath = ViewBag.JsonFilePath;
+                            Dictionary<string, RequirementResult> requirementResults = Interpret_grading_documents.Services.RequirementChecker.DoesStudentMeetRequirement(Model.MergedDocument, jsonFilePath);
+                            bool meetsAllRequirements = true;
+                            foreach (var kvp in requirementResults)
                             {
-                                meetsAllRequirements = false;
-                            }
-                            <tr>
-                                <td>@result.CourseName</td>
-                                <td>@result.RequiredGrade</td>
-                                <td>@result.StudentGrade</td>
-                                <td>
-                                    @if (result.IsMet)
-                                    {
-                                        <span class="badge bg-success">Yes</span>
-                                    }
-                                    else
-                                    {
-                                        <span class="badge bg-danger">No</span>
-                                    }
-                                </td>
-                                <td class="text-start">
-                                    @if (result.CourseName != kvp.Key)
-                                    {
-                                        var otherGradesToDisplay = result.OtherGradesInAlternatives
-                                            .Where(grade => !grade.Contains(result.CourseName))
-                                            .ToList();
+                                RequirementResult result = kvp.Value;
 
-                                        @if (result.OriginalCourseGrade != "N/A" || otherGradesToDisplay.Count > 0)
+                                if (!result.IsMet)
+                                {
+                                    meetsAllRequirements = false;
+                                }
+
+                                <tr>
+                                    <td>@result.CourseName</td>
+                                    <td>@result.RequiredGrade</td>
+                                    <td>@result.StudentGrade</td>
+                                    <td>
+                                        @if (result.IsMet)
                                         {
-                                            <span>
-                                                The student has a grade of @result.StudentGrade on @result.CourseName, but has the following grades on other courses:
+                                            <span class="badge bg-success">Yes</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-danger">No</span>
+                                        }
+                                    </td>
+                                    <td class="text-start">
+                                        @if (result.IsMet)
+                                        {
+                                            if (result.MetByHigherLevelCourse)
+                                            {
+                                                <span>
+                                                    The student has a higher-level course @result.HigherLevelCourseName with grade @result.HigherLevelCourseGrade.
+                                                </span>
+                                            }
+                                            else if (result.MetByAlternativeCourse)
+                                            {
+                                                <span>
+                                                    The student has an alternative course @result.AlternativeCourseName with grade @result.AlternativeCourseGrade.
+                                                </span>
+                                            }
+                                            else
+                                            {
+                                                <span>
+                                                    The student has completed the required course @result.CourseName with grade @result.StudentGrade.
+                                                </span>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <span class="text-danger">
+                                                The student did not meet the requirement for @kvp.Key.
+                                            </span>
+                                        }
+
+                                        @if (result.OtherGradesInAlternatives != null && result.OtherGradesInAlternatives.Any())
+                                        {
+                                            <div class="mt-2">
+                                                <span>The student also has the following grades on other courses:</span>
                                                 <ul class="list-unstyled ms-3">
-                                                    @if (result.OriginalCourseGrade != "N/A")
-                                                    {
-                                                        <li>@kvp.Key: @result.OriginalCourseGrade</li>
-                                                    }
-                                                    @foreach (var grade in otherGradesToDisplay)
+                                                    @foreach (var grade in result.OtherGradesInAlternatives)
                                                     {
                                                         <li>@grade</li>
                                                     }
                                                 </ul>
-                                            </span>
+                                            </div>
                                         }
-                                    }
-                                    else
-                                    {
-                                        @if (result.OtherGradesInAlternatives != null && result.OtherGradesInAlternatives.Count > 0)
-                                        {
-                                            <span>The student also has the following grades on alternative courses:</span>
-                                            <ul class="list-unstyled ms-3">
-                                                @foreach (var grade in result.OtherGradesInAlternatives)
-                                                {
-                                                    <li>@grade</li>
-                                                }
-                                            </ul>
-                                        }
-                                    }
-                                </td>
-                            </tr>
+                                    </td>
+                                </tr>
+                            }
                         }
-                    }
                     </tbody>
                 </table>
 
@@ -178,6 +183,11 @@
                     </div>
                 }
             </div>
+
+
+
+
+
 
             <div class="mt-5">
                 <table class="table table-bordered table-hover align-middle shadow-sm">

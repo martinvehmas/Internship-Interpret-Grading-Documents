@@ -14,7 +14,7 @@
             }
           ],
           "requiredGrade": "E",
-          "includeInAverage": true
+          "includeInAverage": false
         },
         {
           "name": "Engelska 6",
