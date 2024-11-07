@@ -83,6 +83,7 @@
                     <i class="bi bi-upload me-2"></i>Upload More Documents
                 </a>
             </div>
+            <!-- Replace your existing table rendering code with this -->
             <div class="mt-5">
                 <table class="table table-bordered table-hover align-middle shadow-sm">
                     <thead class="bg-primary text-white">
@@ -125,7 +126,7 @@
                                     <td class="text-start">
                                         @if (result.IsMet)
                                         {
-                                            @if (result.MetByHigherLevelCourse)
+                                            if (result.MetByHigherLevelCourse)
                                             {
                                                 <span>
                                                     The student has a higher-level course @result.HigherLevelCourseName with grade @result.HigherLevelCourseGrade.
@@ -147,7 +148,7 @@
                                         else
                                         {
                                             <span class="text-danger">
-                                                The student did not meet the requirement for @result.CourseName.
+                                                The student did not meet the requirement for @kvp.Key.
                                             </span>
                                         }
 
@@ -184,6 +185,7 @@
                     </div>
                 }
             </div>
+
 
 
 
