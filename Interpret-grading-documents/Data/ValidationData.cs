@@ -32,84 +32,76 @@ namespace Interpret_grading_documents.Data
 
     public static class ValidationData
     {
+
+        private static Dictionary<string, CourseDetail> _coursesCache;
+        private static Dictionary<string, CourseDetail> _coursesFromApiCache;
+        private static Dictionary<string, CourseDetail> _combinedCoursesCache;
+        private static readonly object _lock = new object();
+        private static DateTime _lastCacheUpdateTime;
+        private static TimeSpan _cacheExpiration = TimeSpan.FromHours(1);
         public static Dictionary<string, CourseDetail> GetCourses()
         {
-            string validationJsonPath = Path.Combine("Data", "kurser.json");
-            string validationJson = File.ReadAllText(validationJsonPath);
-            var validationCourses = JsonSerializer.Deserialize<Dictionary<string, CourseDetail>>(validationJson);
+            if (_coursesCache != null)
+                return _coursesCache;
 
-            // Assign CourseName to each CourseDetail (since the key is the course name)
-            foreach (var kvp in validationCourses)
+            lock (_lock)
             {
-                kvp.Value.CourseName = kvp.Key;
-            }
-            return validationCourses;
-        }
+                if (_coursesCache != null)
+                    return _coursesCache;
 
-        public static async Task<Dictionary<string, CourseDetail>> GetCoursesFromApi()
-        {
-            string url = "https://api.skolverket.se/syllabus/v1/courses?schooltype=GY&timespan=LATEST";
-            string outputPath = Path.Combine("Data", "kurserApi.json");
+                string validationJsonPath = Path.Combine("Data", "kurser.json");
+                string validationJson = File.ReadAllText(validationJsonPath);
+                var validationCourses = JsonSerializer.Deserialize<Dictionary<string, CourseDetail>>(validationJson);
 
-            using (HttpClient client = new HttpClient())
-            {
-                try
+                foreach (var kvp in validationCourses)
                 {
-                    HttpResponseMessage response = await client.GetAsync(url);
-                    response.EnsureSuccessStatusCode();
-
-                    string responseBody = await response.Content.ReadAsStringAsync();
-
-                    var options = new JsonSerializerOptions
-                    {
-                    };
-                    CourseApiResponse apiResponse = JsonSerializer.Deserialize<CourseApiResponse>(responseBody, options);
-
-                    var courseDetails = apiResponse.Courses.Select(c => new CourseDetail
-                    {
-                        CourseCode = c.CourseCode,
-                        CourseName = c.CourseName,
-                        Points = int.TryParse(c.CoursePoints, out int points) ? (int?)points : null
-                    }).ToList();
-
-                    string courseDetailsJson = JsonSerializer.Serialize(courseDetails, new JsonSerializerOptions { WriteIndented = true, Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping});
-
-                    File.WriteAllText(outputPath, courseDetailsJson, Encoding.UTF8);
-
-                    Console.WriteLine("Courses have been successfully saved to kurserApi.Json.");
-
-                    var validationCoursesApi = courseDetails
-                        .GroupBy(c => c.CourseName)
-                        .ToDictionary(group => group.Key, group => group.First());
-
-
-                    return validationCoursesApi;
+                    kvp.Value.CourseName = kvp.Key;
                 }
-                catch (HttpRequestException e)
-                {
-                    Console.WriteLine($"Request error: {e.Message}");
-                    throw;
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine($"An error occurred: {e.Message}");
-                    throw;
-                }
+
+                _coursesCache = validationCourses;
+                return _coursesCache;
             }
         }
 
-        public static async Task<Dictionary<string, CourseDetail>> GetCombinedCourses()
+        public static Dictionary<string, CourseDetail> GetCoursesFromApi()
         {
+            if (_coursesFromApiCache != null)
+                return _coursesFromApiCache;
+
+            lock (_lock)
+            {
+                if (_coursesFromApiCache != null)
+                    return _coursesFromApiCache;
+
+                string outputPath = Path.Combine("Data", "kurserApi.json");
+
+                string courseDetailsJson = File.ReadAllText(outputPath);
+                var courseDetails = JsonSerializer.Deserialize<List<CourseDetail>>(courseDetailsJson);
+
+                _coursesFromApiCache = courseDetails
+                    .GroupBy(c => c.CourseName)
+                    .ToDictionary(group => group.Key, group => group.First());
+
+                return _coursesFromApiCache;
+            }
+        }
+
+
+        public static Dictionary<string, CourseDetail> GetCombinedCourses()
+        {
+            if (_combinedCoursesCache != null && DateTime.UtcNow - _lastCacheUpdateTime < _cacheExpiration)
+                return _combinedCoursesCache;
+
             var coursesFromJson = GetCourses();
-
-            var coursesFromApi = await GetCoursesFromApi();
+            var coursesFromApi = GetCoursesFromApi();
 
             var combinedCourses = coursesFromJson
                 .Concat(coursesFromApi)
-                .GroupBy(kvp => kvp.Key)
-                .ToDictionary(group => group.Key, group => group.First().Value);
+                .GroupBy(kvp => kvp.Key, StringComparer.OrdinalIgnoreCase)
+                .ToDictionary(group => group.Key, group => group.First().Value, StringComparer.OrdinalIgnoreCase);
 
-            return combinedCourses;
+            _combinedCoursesCache = combinedCourses;
+            return _combinedCoursesCache;
         }
     }
 }

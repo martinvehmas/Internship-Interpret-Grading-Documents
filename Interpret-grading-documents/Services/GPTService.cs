@@ -274,7 +274,7 @@ namespace Interpret_grading_documents.Services
                 throw new InvalidOperationException("API key for GPT is not set in the environment variables.");
             }
 
-            return new ChatClient("gpt-4o", apiKey);
+            return new ChatClient("gpt-4o-mini", apiKey);
         }
 
         private static List<ChatMessage> PrepareChatMessages(string contentType, string originalImagePath)
@@ -342,7 +342,7 @@ namespace Interpret_grading_documents.Services
 
         private static async Task<GraduationDocument> CompareCourses(GraduationDocument document)
         {
-            var coursesFromApi = await ValidationData.GetCoursesFromApi();
+            var coursesFromApi = ValidationData.GetCoursesFromApi();
 
             var updatedDocument = CourseComparator.CompareCourses(coursesFromApi, document, ValidationData.GetCourses());
 
