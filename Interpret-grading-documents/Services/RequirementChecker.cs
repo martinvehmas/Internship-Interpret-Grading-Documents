@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text.Json;
+﻿using System.Text.Json;
 using System.Text.Json.Serialization;
-using Interpret_grading_documents.Controllers;
-using Interpret_grading_documents.Models; // Add this using statement
+using Interpret_grading_documents.Models;
 
 namespace Interpret_grading_documents.Services
 {
@@ -104,8 +99,6 @@ namespace Interpret_grading_documents.Services
         public static Dictionary<string, RequirementResult> DoesStudentMeetRequirement(GPTService.GraduationDocument document, string jsonFilePath)
         {
             var CourseEquivalents = LoadCourseEquivalents(jsonFilePath); // Load fresh data
-
-            Console.WriteLine("Checking if the student meets all course requirements.");
             var allRequirementsMet = new Dictionary<string, RequirementResult>();
 
             foreach (var subject in CourseEquivalents.Subjects)
@@ -114,67 +107,111 @@ namespace Interpret_grading_documents.Services
                 {
                     string requiredCourseNameOrCode = course.Name;
                     string requiredGrade = course.RequiredGrade;
-                    int requiredLevel = course.Level; // Required course level
-
-                    Console.WriteLine($"Checking requirement for course: {requiredCourseNameOrCode} with minimum grade: {requiredGrade}");
+                    int requiredLevel = course.Level;
 
                     double requiredGradeValue = GetGradeValue(requiredGrade);
                     var equivalentCourses = GetEquivalentCourses(requiredCourseNameOrCode, jsonFilePath);
 
                     bool courseRequirementMet = false;
-                    string highestGradeCourseName = null;
-                    string highestGrade = null;
-                    string originalCourseGrade = null;
-                    double highestGradeValue = 0;
+                    string studentGradeInRequiredCourse = null;
+                    string studentGrade = "N/A";
+                    bool metByAlternativeCourse = false;
+                    bool metByHigherLevelCourse = false;
+                    string fulfillingCourseName = requiredCourseNameOrCode;
+                    string higherLevelCourseGrade = null;
+                    string higherLevelCourseName = null;
                     var otherAlternativeGrades = new List<string>();
+                    bool failedRequiredCourseOrAlternative = false;
 
                     foreach (var studentSubject in document.Subjects)
                     {
-                        foreach (var equivalentCourse in equivalentCourses)
+                        if (studentSubject.SubjectName.Trim().Equals(requiredCourseNameOrCode, StringComparison.OrdinalIgnoreCase) ||
+                            studentSubject.CourseCode.Trim().Equals(requiredCourseNameOrCode, StringComparison.OrdinalIgnoreCase))
                         {
-                            if (equivalentCourse.Name.Equals(studentSubject.SubjectName.Trim(), StringComparison.OrdinalIgnoreCase) ||
-                                equivalentCourse.Code.Equals(studentSubject.CourseCode.Trim(), StringComparison.OrdinalIgnoreCase))
+                            studentGradeInRequiredCourse = studentSubject.Grade.Trim();
+                            double studentGradeValue = GetGradeValue(studentGradeInRequiredCourse);
+
+                            if (studentGradeValue >= requiredGradeValue && studentGradeValue > 0)
                             {
-                                double studentGradeValue = GetGradeValue(studentSubject.Grade.Trim());
+                                courseRequirementMet = true;
+                                studentGrade = studentGradeInRequiredCourse;
+                                fulfillingCourseName = requiredCourseNameOrCode;
+                            }
+                            else if (studentGradeValue == 0)
+                            {
+                                failedRequiredCourseOrAlternative = true;
+                                studentGrade = studentGradeInRequiredCourse;
+                                fulfillingCourseName = requiredCourseNameOrCode;
+                            }
+                        }
+                        else
+                        {
+                            foreach (var equivalentCourse in equivalentCourses)
+                            {
+                                if (equivalentCourse.Name.Equals(studentSubject.SubjectName.Trim(), StringComparison.OrdinalIgnoreCase) ||
+                                    equivalentCourse.Code.Equals(studentSubject.CourseCode.Trim(), StringComparison.OrdinalIgnoreCase))
+                                {
+                                    double studentGradeValue = GetGradeValue(studentSubject.Grade.Trim());
 
-                                if (requiredCourseNameOrCode.Equals(equivalentCourse.Name, StringComparison.OrdinalIgnoreCase) ||
-                                    requiredCourseNameOrCode.Equals(equivalentCourse.Code, StringComparison.OrdinalIgnoreCase))
-                                {
-                                    originalCourseGrade = studentSubject.Grade;
-                                }
-                                else if (equivalentCourse.Level <= requiredLevel) // only include if it's the same or lower level
-                                {
-                                    otherAlternativeGrades.Add($"{studentSubject.SubjectName}: {studentSubject.Grade}");
-                                }
+                                    if (studentGradeValue >= requiredGradeValue && studentGradeValue > 0)
+                                    {
+                                        if (equivalentCourse.Level == requiredLevel)
+                                        {
+                                            metByAlternativeCourse = true;
+                                            studentGrade = studentSubject.Grade;
+                                            fulfillingCourseName = equivalentCourse.Name;
+                                            courseRequirementMet = true;
+                                        }
+                                        else if (equivalentCourse.Level > requiredLevel)
+                                        {
+                                            metByHigherLevelCourse = true;
+                                            higherLevelCourseGrade = studentSubject.Grade;
+                                            higherLevelCourseName = equivalentCourse.Name;
+                                        }
+                                    }
+                                    else if (studentGradeValue == 0) 
+                                    {
+                                        failedRequiredCourseOrAlternative = true;
+                                        otherAlternativeGrades.Add($"{studentSubject.SubjectName}: {studentSubject.Grade}");
+                                    }
+                                    else
+                                    {
+                                        otherAlternativeGrades.Add($"{studentSubject.SubjectName}: {studentSubject.Grade}");
+                                    }
 
-                                if (studentGradeValue > highestGradeValue)
-                                {
-                                    highestGradeValue = studentGradeValue;
-                                    highestGrade = studentSubject.Grade;
-                                    highestGradeCourseName = studentSubject.SubjectName;
-                                }
-
-                                if (highestGradeValue >= requiredGradeValue)
-                                {
-                                    courseRequirementMet = true;
+                                    break;
                                 }
                             }
                         }
                     }
 
-                    if (!courseRequirementMet)
+                    if (failedRequiredCourseOrAlternative)
                     {
-                        Console.WriteLine($"Student does not meet the requirement for {requiredCourseNameOrCode}");
+                        courseRequirementMet = false;
+                    }
+
+                    if (failedRequiredCourseOrAlternative)
+                    {
+                        studentGrade = "F";
+                    }
+
+                    if (courseRequirementMet && metByAlternativeCourse)
+                    {
+                        fulfillingCourseName = equivalentCourses.First(ec => ec.Name.Equals(fulfillingCourseName, StringComparison.OrdinalIgnoreCase)).Name;
                     }
 
                     allRequirementsMet[requiredCourseNameOrCode] = new RequirementResult
                     {
-                        CourseName = highestGradeCourseName ?? requiredCourseNameOrCode,
+                        CourseName = fulfillingCourseName,
                         RequiredGrade = requiredGrade,
                         IsMet = courseRequirementMet,
-                        StudentGrade = highestGrade ?? "N/A",
-                        OriginalCourseGrade = originalCourseGrade ?? "N/A",
-                        AlternativeCourseGrade = highestGradeCourseName != requiredCourseNameOrCode ? highestGrade : null,
+                        StudentGrade = studentGrade,
+                        MetByAlternativeCourse = metByAlternativeCourse,
+                        AlternativeCourseName = metByAlternativeCourse ? fulfillingCourseName : null,
+                        AlternativeCourseGrade = metByAlternativeCourse ? studentGrade : null,
+                        MetByHigherLevelCourse = metByHigherLevelCourse,
+                        HigherLevelCourseName = metByHigherLevelCourse ? higherLevelCourseName : null,
+                        HigherLevelCourseGrade = metByHigherLevelCourse ? higherLevelCourseGrade : null,
                         OtherGradesInAlternatives = otherAlternativeGrades
                     };
                 }
@@ -182,6 +219,7 @@ namespace Interpret_grading_documents.Services
 
             return allRequirementsMet;
         }
+
 
 
         public static double GetGradeValue(string grade)
