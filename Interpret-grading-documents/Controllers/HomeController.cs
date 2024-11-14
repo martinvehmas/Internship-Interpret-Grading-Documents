@@ -71,7 +71,7 @@ namespace Interpret_grading_documents.Controllers
         {
             var coursesForAverage = LoadCoursesForAverage() ?? new List<CourseForAverage>();
 
-            var validationCourses = await ValidationData.GetCombinedCourses();
+            var validationCourses = ValidationData.GetCombinedCourses();
             var availableCourses = validationCourses.Values.Select(c => new AvailableCourse
             {
                 CourseName = c.CourseName,
@@ -302,7 +302,7 @@ namespace Interpret_grading_documents.Controllers
             if (coursesForAverage == null) return 0;
 
             // Fetch combined courses from ValidationData for additional course details
-            var validationCourses = await ValidationData.GetCombinedCourses();
+            var validationCourses = ValidationData.GetCombinedCourses();
 
             // Build a dictionary from course codes to CourseDetail
             var courseCodeToCourseDetail = validationCourses.Values
@@ -382,7 +382,7 @@ namespace Interpret_grading_documents.Controllers
                 Subjects = new List<Subject>()
             };
 
-            var validationCourses = await ValidationData.GetCombinedCourses();
+            var validationCourses = ValidationData.GetCombinedCourses();
 
             var availableCourses = validationCourses.Values.Select(c => new AvailableCourse
             {

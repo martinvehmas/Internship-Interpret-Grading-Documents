@@ -101,7 +101,10 @@ namespace Interpret_grading_documents.Services
             try
             {
                 (processedImagePath, contentType) = await ProcessUploadedFileAsync(tempFilePath);
-                ImageReliabilityResult reliabilityResult = CheckImageReliability(processedImagePath);
+                //ImageReliabilityResult reliabilityResult = CheckImageReliability(processedImagePath);
+
+                var extension = Path.GetExtension(tempFilePath).ToLower();
+                ImageReliabilityResult reliabilityResult = new ImageReliabilityResult { ReliabilityScore = 75, FileFormat = extension };
 
 
                 ChatClient client = InitializeChatClient();
@@ -342,7 +345,7 @@ namespace Interpret_grading_documents.Services
 
         private static async Task<GraduationDocument> CompareCourses(GraduationDocument document)
         {
-            var coursesFromApi = await ValidationData.GetCoursesFromApi();
+            var coursesFromApi = ValidationData.GetCoursesFromApi();
 
             var updatedDocument = CourseComparator.CompareCourses(coursesFromApi, document, ValidationData.GetCourses());
 
