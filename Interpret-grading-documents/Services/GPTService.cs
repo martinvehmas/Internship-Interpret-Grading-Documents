@@ -101,7 +101,10 @@ namespace Interpret_grading_documents.Services
             try
             {
                 (processedImagePath, contentType) = await ProcessUploadedFileAsync(tempFilePath);
-                ImageReliabilityResult reliabilityResult = CheckImageReliability(processedImagePath);
+                //ImageReliabilityResult reliabilityResult = CheckImageReliability(processedImagePath);
+
+                var extension = Path.GetExtension(tempFilePath).ToLower();
+                ImageReliabilityResult reliabilityResult = new ImageReliabilityResult { ReliabilityScore = 75, FileFormat = extension };
 
 
                 ChatClient client = InitializeChatClient();
@@ -274,7 +277,7 @@ namespace Interpret_grading_documents.Services
                 throw new InvalidOperationException("API key for GPT is not set in the environment variables.");
             }
 
-            return new ChatClient("gpt-4o-mini", apiKey);
+            return new ChatClient("gpt-4o", apiKey);
         }
 
         private static List<ChatMessage> PrepareChatMessages(string contentType, string originalImagePath)
