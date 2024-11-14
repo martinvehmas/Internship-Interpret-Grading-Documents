@@ -18,6 +18,11 @@
                 </div>
             </div>
             <p class="mt-3" id="loadingMessage">Initializing...</p>
+
+            <div class="alert alert-warning mt-3 d-flex align-items-center" style="border-radius: 10px; background: #ffeb3b; color: #333; padding: 15px;">
+                <i class="bi bi-exclamation-triangle-fill me-2" style="animation: pulse 1s infinite alternate;"></i>
+                <strong>Heads up!</strong> Please do not leave or refresh the page while the documents are being analyzed.
+            </div>
         </div>
 
         <div class="mt-3" id="contentSection">
@@ -40,65 +45,64 @@
                 <a asp-action="ViewUploadedDocuments" asp-controller="Home" class="btn btn-secondary">View Analyzed Documents</a>
             </div>
             <div class="row mt-5">
-            <!-- Required Courses -->
+                <!-- Required Courses -->
                 <div class="col-12 col-lg-6 d-flex flex-column">
-                <div class="card">
-                    <div class="card-header d-flex justify-content-between align-items-center">
-                        <h4 class="mb-0">Required Courses</h4>
-                        <a asp-action="CourseRequirementsManager" asp-controller="Home" class="btn btn-outline-secondary">
-                            Manage Course Requirements
-                        </a>
-                    </div>
-                    <div class="card-body">
-                        @if (ViewBag.CoursesWithAverageFlag != null)
-                        {
-                            var coursesWithAverageFlag = (List<(string MainCourse, List<string> AlternativeCourses, bool IncludedInAverage)>)ViewBag.CoursesWithAverageFlag;
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h4 class="mb-0">Required Courses</h4>
+                            <a asp-action="CourseRequirementsManager" asp-controller="Home" class="btn btn-outline-secondary">
+                                Manage Course Requirements
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            @if (ViewBag.CoursesWithAverageFlag != null)
+                            {
+                                var coursesWithAverageFlag = (List<(string MainCourse, List<string> AlternativeCourses, bool IncludedInAverage)>)ViewBag.CoursesWithAverageFlag;
 
-                            <ul class="list-group mt-4">
-                                @foreach (var courseData in coursesWithAverageFlag)
-                                {
-                                    <li class="list-group-item">
-                                        <div class="d-flex justify-content-between align-items-center">
+                                <ul class="list-group mt-4">
+                                    @foreach (var courseData in coursesWithAverageFlag)
+                                    {
+                                        <li class="list-group-item">
+                                            <div class="d-flex justify-content-between align-items-center">
                                                 <span class="main-course" data-bs-toggle="collapse" data-bs-target="#requiredCollapse-@courseData.MainCourse.GetHashCode()">
-                                                @courseData.MainCourse
-                                                @if (courseData.AlternativeCourses.Count > 0)
-                                                {
+                                                    @courseData.MainCourse
+                                                    @if (courseData.AlternativeCourses.Count > 0)
+                                                    {
                                                         <i class="bi bi-chevron-down ms-2 toggle-icon" data-bs-target="#requiredCollapse-@courseData.MainCourse.GetHashCode()"></i>
-                                                    <small class="text-muted ms-2">(Has alternative courses)</small>
-                                                }
-                                            </span>
-                                        </div>
+                                                        <small class="text-muted ms-2">(Has alternative courses)</small>
+                                                    }
+                                                </span>
+                                            </div>
 
-                                        @if (courseData.AlternativeCourses.Count > 0)
-                                        {
+                                            @if (courseData.AlternativeCourses.Count > 0)
+                                            {
                                                 <ul id="requiredCollapse-@courseData.MainCourse.GetHashCode()" class="collapse list-group mt-2">
-                                                @foreach (var altCourse in courseData.AlternativeCourses)
-                                                {
-                                                    <li class="list-group-item list-group-item-light">
-                                                        <i class="bi bi-dot me-2"></i>@altCourse
-                                                    </li>
-                                                }
-                                            </ul>
-                                        }
-                                    </li>
-                                }
-                            </ul>
-                        }
+                                                    @foreach (var altCourse in courseData.AlternativeCourses)
+                                                    {
+                                                        <li class="list-group-item list-group-item-light">
+                                                            <i class="bi bi-dot me-2"></i>@altCourse
+                                                        </li>
+                                                    }
+                                                </ul>
+                                            }
+                                        </li>
+                                    }
+                                </ul>
+                            }
+                        </div>
                     </div>
                 </div>
-            </div>
 
-
-            <!-- Calculate average value -->
+                <!-- Calculate average value -->
                 <div class="col-12 col-lg-6 d-flex flex-column mt-4 mt-lg-0">
-                <div class="card">
-                    <div class="card-header d-flex justify-content-between align-items-center">
-                        <h4 class="mb-0">Calculate Average Merit Value</h4>
-                        <a asp-action="ManageMeritCalculator" asp-controller="Home" class="btn btn-outline-secondary">
-                            Manage Merit Calculator
-                        </a>
-                    </div>
-                    <div class="card-body">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h4 class="mb-0">Calculate Average Merit Value</h4>
+                            <a asp-action="ManageMeritCalculator" asp-controller="Home" class="btn btn-outline-secondary">
+                                Manage Merit Calculator
+                            </a>
+                        </div>
+                        <div class="card-body">
                             @if (ViewBag.CoursesForAverage != null)
                             {
                                 var CoursesForAverage = (List<(string MainCourse, List<string> AlternativeCourses)>)ViewBag.CoursesForAverage;
@@ -133,9 +137,9 @@
                                     }
                                 </ul>
                             }
+                        </div>
                     </div>
                 </div>
-            </div>
             </div>
 
         </div>
@@ -201,6 +205,27 @@
 
             .collapse {
                 transition: height 0.3s ease;
+            }
+
+
+            @@keyframes pulse {
+                0% {
+                    transform: scale(1);
+                    color: #ff5722;
+                }
+
+                100% {
+                    transform: scale(1.2);
+                    color: #e91e63;
+                }
+            }
+
+            .alert-warning {
+                font-size: 1.1rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
             }
         </style>
 
@@ -279,6 +304,8 @@
                     if (uploadedFiles.length > 0) {
                         document.getElementById('loadingScreen').style.display = 'block';
                         document.getElementById('contentSection').style.display = 'none';
+
+                        document.querySelector('header nav').style.display = 'none';
 
                         const messages = [
                             "Reading documents...",
@@ -369,7 +396,6 @@
                     const collapseElement = document.querySelector(targetId);
                     const icon = section.querySelector('.toggle-icon');
 
-                    // Only add event listeners if the collapseElement exists
                     if (collapseElement && icon) {
                         collapseElement.addEventListener('show.bs.collapse', function () {
                             icon.classList.add('rotate');
