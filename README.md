@@ -104,11 +104,35 @@ Once you have completed all the steps above, follow these commands to run the pr
 
 ## Gallery
 
-![qLlj35d](https://github.com/user-attachments/assets/156aed74-2f2a-4db5-9681-596f024a5157)
-![NP00aMA](https://github.com/user-attachments/assets/f7b0e6c5-8103-42c9-939b-d36c7f243a6e)
-![bgXf3DM](https://github.com/user-attachments/assets/c7dc5111-93e3-4488-b28a-d90f5766268e)
-![Kh2EZkD](https://github.com/user-attachments/assets/ff2863da-b254-44ef-a5c2-9687194c1e2e)
-![kjbIUb5](https://github.com/user-attachments/assets/f7e70fb1-226a-42b4-a56f-4bf67796310a)
-![Z2Qufrm](https://github.com/user-attachments/assets/d64d3a89-7446-4a87-9986-f35e56a4a69c)
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/156aed74-2f2a-4db5-9681-596f024a5157" alt="qLlj35d">
+  <p style="font-size: 18px; margin-top: 10px;"><em>This image shows uploading documents at the home page</em></p>
+</div>
+
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/f7b0e6c5-8103-42c9-939b-d36c7f243a6e" alt="NP00aMA">
+  <p style="font-size: 18px; margin-top: 10px;"><em>GPT Vision API analyzes the document file to usable data</em></p>
+</div>
+
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/c7dc5111-93e3-4488-b28a-d90f5766268e" alt="bgXf3DM">
+  <p style="font-size: 18px; margin-top: 10px;"><em>Documents finished analyzing, user can now view information about the submission</em></p>
+</div>
+
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/ff2863da-b254-44ef-a5c2-9687194c1e2e" alt="Kh2EZkD">
+  <p style="font-size: 18px; margin-top: 10px;"><em>Viewing the course requirements and the courses included in calculating average merit value</em></p>
+</div>
+
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/f7e70fb1-226a-42b4-a56f-4bf67796310a" alt="kjbIUb5">
+  <p style="font-size: 18px; margin-top: 10px;"><em>Viewing a individual uploaded document, the analyzed data on the left, and the PDF on the right</em></p>
+</div>
+
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/d64d3a89-7446-4a87-9986-f35e56a4a69c" alt="Z2Qufrm">
+  <p style="font-size: 18px; margin-top: 10px;"><em>Administrator can configure what courses are required for the submission</em></p>
+</div>
+
 
 
