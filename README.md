@@ -99,8 +99,16 @@ Once you have completed all the steps above, follow these commands to run the pr
 
 ## Troubleshooting
 
-- **Ghostscript Errors**:  
-   If you encounter issues related to PDF processing, make sure Ghostscript is installed and properly configured and its bin path is in the PATH enviroment variable.
-
 - **API Key Not Working**:  
    If the GPT service fails to run, ensure that your OpenAI API key is correctly set as an environment variable and that it has sufficient funds on your account.
+
+## Gallery
+
+![qLlj35d](https://github.com/user-attachments/assets/156aed74-2f2a-4db5-9681-596f024a5157)
+![NP00aMA](https://github.com/user-attachments/assets/f7b0e6c5-8103-42c9-939b-d36c7f243a6e)
+![bgXf3DM](https://github.com/user-attachments/assets/c7dc5111-93e3-4488-b28a-d90f5766268e)
+![Kh2EZkD](https://github.com/user-attachments/assets/ff2863da-b254-44ef-a5c2-9687194c1e2e)
+![kjbIUb5](https://github.com/user-attachments/assets/f7e70fb1-226a-42b4-a56f-4bf67796310a)
+![Z2Qufrm](https://github.com/user-attachments/assets/d64d3a89-7446-4a87-9986-f35e56a4a69c)
+
+
