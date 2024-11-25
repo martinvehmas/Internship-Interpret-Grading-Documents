@@ -1,7 +1,5 @@
 # Grading Document Extraction and Verification System
 
-You can use the demo at https://interpret-grading-documents.azurewebsites.net/
-
 ## Installation
 
 Follow these steps to set up and run the project:
